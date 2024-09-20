@@ -52,14 +52,16 @@
 				SnapshotTests/MainUITests.swift,
 				UITests/Basic_MultiplicationUITests.swift,
 				UITests/Basic_MultiplicationUITestsLaunchTests.swift,
-				UnitTests/Basic_MultiplicationTests.swift,
+				UnitTests/ExerciseGeneratorTests.swift,
+				UnitTests/NumberGeneratorTests.swift,
 			);
 			target = B332C8A92C9D458200953C58 /* Basic Multiplication */;
 		};
 		B3E1F63D2C9D694E00B9EC93 /* Exceptions for "Tests" folder in "UnitTests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				UnitTests/Basic_MultiplicationTests.swift,
+				UnitTests/ExerciseGeneratorTests.swift,
+				UnitTests/NumberGeneratorTests.swift,
 			);
 			target = B332C8B92C9D458800953C58 /* UnitTests */;
 		};

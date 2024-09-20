@@ -7,7 +7,9 @@
 
 enum NumberGenerator {
 
+    static let range = 0...10
+
     static func getRandomNumber() -> Int {
-        return .random(in: 0...10)
+        return .random(in: range)
     }
 }

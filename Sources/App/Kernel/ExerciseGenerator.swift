@@ -7,9 +7,10 @@
 
 
 enum ExerciseGenerator {
-
-    static func makeMultiplication() -> (multiplicand: Int, multiplier: Int) {
+    
+    static func makeMultiplication() -> (multiplicand: Int, multiplier: Int, suggestedProducts: [Int]) {
         return (NumberGenerator.getRandomNumber(),
-                NumberGenerator.getRandomNumber())
+                NumberGenerator.getRandomNumber(),
+                [1, 2, 3])
     }
 }
