@@ -14,8 +14,10 @@ import SnapshotTesting
 @MainActor
 struct MainUITests {
 
-    @Test func example() async throws {
-        // Write your test here and use APIs like `#expect(...)` to check expected conditions.
+    @Test func should_show_operation_offered_results_and_submit_button() async throws {
+        let view = ContentView()
+        assertSnapshot(of: view, as: .image(drawHierarchyInKeyWindow: true,
+                                            layout: .device(config: .iPhone13Mini),
+                                            traits: .init(userInterfaceStyle: .light)))
     }
-
 }
