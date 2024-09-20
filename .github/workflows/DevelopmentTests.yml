@@ -10,8 +10,8 @@ on:
     branches: [ "main" ]
 
 jobs:
-  test-iOS:
-    name: Test iOS
+  development-tests:
+    name: iOS
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v3
