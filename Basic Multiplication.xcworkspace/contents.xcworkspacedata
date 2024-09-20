@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Packages/SwiftSpec">
+   </FileRef>
+   <FileRef
       location = "group:Basic Multiplication.xcodeproj">
    </FileRef>
 </Workspace>
