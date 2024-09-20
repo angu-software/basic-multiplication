@@ -59,7 +59,5 @@ struct ProductSuggestionsGeneratorTests {
 
         // suggestions should not greater than 100
         // suggestions should not less than 0
-        // suggestions should be unique. no same values
-        // correct product should be randomly placed in suggestions
     }
 }

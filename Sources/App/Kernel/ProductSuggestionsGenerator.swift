@@ -17,6 +17,6 @@ enum ProductSuggestionsGenerator {
         let upperSuggestion = upperRange.randomElement()!
         return [lowSuggestion,
                 correctProduct,
-                upperSuggestion]
+                upperSuggestion].shuffled()
     }
 }
