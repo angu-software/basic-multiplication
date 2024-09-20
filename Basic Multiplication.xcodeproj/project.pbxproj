@@ -47,8 +47,10 @@
 		B3E1F63C2C9D694E00B9EC93 /* Exceptions for "Tests" folder in "Basic Multiplication" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				"Continuous Delivery Pipeline Ideas.md",
 				SnapshotTests/__Snapshots__/MainUITests/should_show_operation_offered_results_and_submit_button.1.png,
 				SnapshotTests/MainUITests.swift,
+				"SwiftSpec idea.md",
 				UITests/Basic_MultiplicationUITests.swift,
 				UITests/Basic_MultiplicationUITestsLaunchTests.swift,
 				UnitTests/ExerciseGeneratorTests.swift,
