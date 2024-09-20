@@ -8,27 +8,30 @@
 import SwiftUI
 
 struct ContentView: View {
+
+    @StateObject var viewAdapter = ViewAdapter()
+
+    private var state: ViewState {
+        return viewAdapter.state
+    }
+
     var body: some View {
         VStack(spacing: 32) {
             Spacer()
             HStack() {
-                Label("1")
-                Label("x")
-                Label("1")
+                Label("\(state.multiplicand)")
+                Label(state.operationSimbol)
+                Label("\(state.multiplier)")
             }
             HStack(spacing: 16) {
-                ResultButton(1) {
+                ForEach(0..<3) { index in
+                    ResultButton(state.availableProducts[index]) {
 
-                }
-                ResultButton(9) {
-
-                }
-                ResultButton(6) {
-
+                    }
                 }
             }
             Spacer()
-            SubmitButton("Next") {
+            SubmitButton(state.submitButtonText) {
 
             }
         }
