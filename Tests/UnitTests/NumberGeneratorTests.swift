@@ -14,11 +14,37 @@ struct NumberGeneratorTests {
 
     @Suite("When generating a number")
     struct GeneratingNumber {
-        private let expectedRange = NumberGenerator.range
 
-        @Test("it should be in the expected range")
-        func should_generate_random_number_in_expected_range() async throws {
-            #expect(expectedRange.contains(NumberGenerator.getRandomNumber()))
+        @Test("it should be in the default range")
+        func should_generate_random_number_in_default_range() async throws {
+            #expect(NumberGenerator.defaultRange.contains(NumberGenerator.getRandomNumber()))
+        }
+    }
+
+    @Suite("When generating a number with custom range")
+    struct GeneratingNumberWithCustomRange {
+
+        @Test("it should be in the specified range")
+        func should_should_be_in_the_specified_range() async throws {
+            let customRange = 0...3
+
+            #expect(customRange.contains(NumberGenerator.getRandomNumber(range: customRange)))
         }
     }
 }
+
+/**
+ * I ideation for a SwiftSpec testing framework based on SwiftTesting and macros
+ *
+ * ```swift
+ *  #define("NumberGenerator") { // overloads with concrete type
+ *      #context("getRandomNumber") { // method to test, override with KeyPath
+ *          #when("generating number") {
+ *              #it("should be in range") {
+ *                #expect(...)
+ *              }
+ *          }
+*       }
+ *  }
+ * ```
+ */

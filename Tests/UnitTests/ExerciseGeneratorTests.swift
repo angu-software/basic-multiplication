@@ -12,9 +12,9 @@ import Testing
 @Suite("ExerciseGenerator")
 struct ExerciseGeneratorTests {
 
-    @Suite("When creating an multiplication exercise")
+    @Suite("When creating a multiplication exercise")
     struct CreatingExercise {
-        private let expectedRange = NumberGenerator.range
+        private let expectedRange = NumberGenerator.defaultRange
 
         @Test("it should have a random multiplicand in a defined range")
         func should_generate_multiplication_exercise_with_random_multiplicand() async throws {
@@ -35,6 +35,13 @@ struct ExerciseGeneratorTests {
             let exercise = ExerciseGenerator.makeMultiplication()
 
             #expect(exercise.suggestedProducts.count == 3)
+        }
+
+        @Test("it should have the correct product among the suggested products")
+        func should_have_the_correct_product_among_the_suggested_products() async throws {
+            let exercise = ExerciseGenerator.makeMultiplication(multiplicand: 3, multiplier: 4)
+
+            #expect(exercise.suggestedProducts.contains(12))
         }
     }
 }

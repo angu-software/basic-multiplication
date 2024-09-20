@@ -54,6 +54,7 @@
 				UITests/Basic_MultiplicationUITestsLaunchTests.swift,
 				UnitTests/ExerciseGeneratorTests.swift,
 				UnitTests/NumberGeneratorTests.swift,
+				UnitTests/ProductSuggestionsGenerator.swift,
 			);
 			target = B332C8A92C9D458200953C58 /* Basic Multiplication */;
 		};
@@ -62,6 +63,7 @@
 			membershipExceptions = (
 				UnitTests/ExerciseGeneratorTests.swift,
 				UnitTests/NumberGeneratorTests.swift,
+				UnitTests/ProductSuggestionsGenerator.swift,
 			);
 			target = B332C8B92C9D458800953C58 /* UnitTests */;
 		};
