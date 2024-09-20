@@ -15,6 +15,6 @@ jobs:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v3
-    - run: xcode-select -p
+    - run: xcode-select -s /Applications/Xcode_16.app
     - run: xcodebuild build-for-testing -scheme DevelopmentTests -destination "platform=iOS Simulator,name=iPhone 16 Pro"
     - run: xcodebuild test-without-building -scheme DevelopmentTests -destination "platform=iOS Simulator,name=iPhone 16 Pro"
