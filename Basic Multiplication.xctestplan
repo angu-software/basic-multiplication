@@ -1,0 +1,36 @@
+{
+  "configurations" : [
+    {
+      "id" : "B26259C5-BB4E-48F8-B02C-25554CC173D3",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:Basic Multiplication.xcodeproj",
+      "identifier" : "B332C8A92C9D458200953C58",
+      "name" : "Basic Multiplication"
+    }
+  },
+  "testTargets" : [
+    {
+      "enabled" : false,
+      "target" : {
+        "containerPath" : "container:Basic Multiplication.xcodeproj",
+        "identifier" : "B332C8C32C9D458800953C58",
+        "name" : "Basic MultiplicationUITests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Basic Multiplication.xcodeproj",
+        "identifier" : "B332C8B92C9D458800953C58",
+        "name" : "Basic MultiplicationTests"
+      }
+    }
+  ],
+  "version" : 1
+}
