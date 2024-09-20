@@ -8,9 +8,15 @@
 enum ProductSuggestionsGenerator {
 
     static func makeSuggestions(multiplicand: Int,
-                                multiplier: Int) -> [Int] {
-        return [1,
-                multiplicand * multiplier,
-                4]
+                                multiplier: Int,
+                                maxDistance: Int = 3) -> [Int] {
+        let correctProduct = multiplicand * multiplier
+        let lowerRange = ClosedRange<Int>(uncheckedBounds: (correctProduct - maxDistance, correctProduct - 1))
+        let lowSuggestion = lowerRange.randomElement()!
+        let upperRange = ClosedRange<Int>(uncheckedBounds: (correctProduct + 1, correctProduct + maxDistance))
+        let upperSuggestion = upperRange.randomElement()!
+        return [lowSuggestion,
+                correctProduct,
+                upperSuggestion]
     }
 }

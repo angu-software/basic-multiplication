@@ -33,7 +33,17 @@ struct ProductSuggestionsGeneratorTests {
             #expect(correctProductCount == 1)
         }
 
-        // wrong suggestions should be in certain range from correct suggestion
+        @Test("it should have suggestions in defined range from correct product")
+        func should_should_have_suggestions_in_defined_range_from_correct_product() async throws {
+            let suggestions = ProductSuggestionsGenerator.makeSuggestions(multiplicand: 3,
+                                                                          multiplier: 4,
+                                                                          maxDistance: 3)
+
+            let wrongProducts = suggestions.filter({ $0 != 12 })
+
+            #expect(wrongProducts.allSatisfy({ (9...15).contains($0) }))
+        }
+
         // suggestions should not greater than 100
         // suggestions should not less than 0
         // suggestions should be unique. no same values
