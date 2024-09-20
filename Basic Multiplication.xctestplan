@@ -20,7 +20,7 @@
       "target" : {
         "containerPath" : "container:Basic Multiplication.xcodeproj",
         "identifier" : "B332C8B92C9D458800953C58",
-        "name" : "Basic MultiplicationTests"
+        "name" : "UnitTests"
       }
     },
     {
