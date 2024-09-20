@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B332C8D82C9D468600953C58 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B332C8D72C9D467E00953C58 /* README.md */; };
+		B3E1F6002C9D5CE700B9EC93 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = B3E1F5FF2C9D5CE700B9EC93 /* SnapshotTesting */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,6 +26,13 @@
 			remoteGlobalIDString = B332C8A92C9D458200953C58;
 			remoteInfo = "Basic Multiplication";
 		};
+		B3E1F5F92C9D5C6A00B9EC93 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B332C8A22C9D458200953C58 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B332C8A92C9D458200953C58;
+			remoteInfo = "Basic Multiplication";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +41,7 @@
 		B332C8C42C9D458800953C58 /* Basic MultiplicationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Basic MultiplicationUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B332C8D72C9D467E00953C58 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B3E1F5D42C9D4B7B00B9EC93 /* Basic Multiplication.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Basic Multiplication.xctestplan"; sourceTree = "<group>"; };
+		B3E1F5F52C9D5C6A00B9EC93 /* SnapshotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SnapshotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -49,6 +58,11 @@
 		B332C8C72C9D458800953C58 /* Basic MultiplicationUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = "Basic MultiplicationUITests";
+			sourceTree = "<group>";
+		};
+		B3E1F5F62C9D5C6A00B9EC93 /* SnapshotTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = SnapshotTests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -75,6 +89,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B3E1F5F22C9D5C6A00B9EC93 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B3E1F6002C9D5CE700B9EC93 /* SnapshotTesting in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -86,6 +108,8 @@
 				B332C8AC2C9D458200953C58 /* Basic Multiplication */,
 				B332C8BD2C9D458800953C58 /* Basic MultiplicationTests */,
 				B332C8C72C9D458800953C58 /* Basic MultiplicationUITests */,
+				B3E1F5F62C9D5C6A00B9EC93 /* SnapshotTests */,
+				B3E1F5FE2C9D5CE700B9EC93 /* Frameworks */,
 				B332C8AB2C9D458200953C58 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -96,8 +120,16 @@
 				B332C8AA2C9D458200953C58 /* Basic Multiplication.app */,
 				B332C8BA2C9D458800953C58 /* Basic MultiplicationTests.xctest */,
 				B332C8C42C9D458800953C58 /* Basic MultiplicationUITests.xctest */,
+				B3E1F5F52C9D5C6A00B9EC93 /* SnapshotTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		B3E1F5FE2C9D5CE700B9EC93 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,6 +203,30 @@
 			productReference = B332C8C42C9D458800953C58 /* Basic MultiplicationUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		B3E1F5F42C9D5C6A00B9EC93 /* SnapshotTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B3E1F5FB2C9D5C6A00B9EC93 /* Build configuration list for PBXNativeTarget "SnapshotTests" */;
+			buildPhases = (
+				B3E1F5F12C9D5C6A00B9EC93 /* Sources */,
+				B3E1F5F22C9D5C6A00B9EC93 /* Frameworks */,
+				B3E1F5F32C9D5C6A00B9EC93 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B3E1F5FA2C9D5C6A00B9EC93 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				B3E1F5F62C9D5C6A00B9EC93 /* SnapshotTests */,
+			);
+			name = SnapshotTests;
+			packageProductDependencies = (
+				B3E1F5FF2C9D5CE700B9EC93 /* SnapshotTesting */,
+			);
+			productName = SnapshotTests;
+			productReference = B3E1F5F52C9D5C6A00B9EC93 /* SnapshotTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -192,6 +248,10 @@
 						CreatedOnToolsVersion = 16.0;
 						TestTargetID = B332C8A92C9D458200953C58;
 					};
+					B3E1F5F42C9D5C6A00B9EC93 = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = B332C8A92C9D458200953C58;
+					};
 				};
 			};
 			buildConfigurationList = B332C8A52C9D458200953C58 /* Build configuration list for PBXProject "Basic Multiplication" */;
@@ -203,6 +263,9 @@
 			);
 			mainGroup = B332C8A12C9D458200953C58;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				B3E1F5EA2C9D5C0100B9EC93 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = B332C8AB2C9D458200953C58 /* Products */;
 			projectDirPath = "";
@@ -211,6 +274,7 @@
 				B332C8A92C9D458200953C58 /* Basic Multiplication */,
 				B332C8B92C9D458800953C58 /* Basic MultiplicationTests */,
 				B332C8C32C9D458800953C58 /* Basic MultiplicationUITests */,
+				B3E1F5F42C9D5C6A00B9EC93 /* SnapshotTests */,
 			);
 		};
 /* End PBXProject section */
@@ -232,6 +296,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		B332C8C22C9D458800953C58 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B3E1F5F32C9D5C6A00B9EC93 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -262,6 +333,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B3E1F5F12C9D5C6A00B9EC93 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -274,6 +352,11 @@
 			isa = PBXTargetDependency;
 			target = B332C8A92C9D458200953C58 /* Basic Multiplication */;
 			targetProxy = B332C8C52C9D458800953C58 /* PBXContainerItemProxy */;
+		};
+		B3E1F5FA2C9D5C6A00B9EC93 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B332C8A92C9D458200953C58 /* Basic Multiplication */;
+			targetProxy = B3E1F5F92C9D5C6A00B9EC93 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -537,6 +620,44 @@
 			};
 			name = Release;
 		};
+		B3E1F5FC2C9D5C6A00B9EC93 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 94RX8Q59P5;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "de.angu-software.SnapshotTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Basic Multiplication.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Basic Multiplication";
+			};
+			name = Debug;
+		};
+		B3E1F5FD2C9D5C6A00B9EC93 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 94RX8Q59P5;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "de.angu-software.SnapshotTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Basic Multiplication.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Basic Multiplication";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -576,7 +697,35 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		B3E1F5FB2C9D5C6A00B9EC93 /* Build configuration list for PBXNativeTarget "SnapshotTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B3E1F5FC2C9D5C6A00B9EC93 /* Debug */,
+				B3E1F5FD2C9D5C6A00B9EC93 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B3E1F5EA2C9D5C0100B9EC93 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-snapshot-testing.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.17.5;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B3E1F5FF2C9D5CE700B9EC93 /* SnapshotTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B3E1F5EA2C9D5C0100B9EC93 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
+			productName = SnapshotTesting;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B332C8A22C9D458200953C58 /* Project object */;
 }
