@@ -82,11 +82,6 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		B332C8AC2C9D458200953C58 /* App */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = App;
-			sourceTree = "<group>";
-		};
 		B3E1F62C2C9D694E00B9EC93 /* Tests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
@@ -96,6 +91,11 @@
 				B3E1F63F2C9D694E00B9EC93 /* Exceptions for "Tests" folder in "SnapshotTests" target */,
 			);
 			path = Tests;
+			sourceTree = "<group>";
+		};
+		B3E1F6402C9D6A9C00B9EC93 /* Sources */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -138,7 +138,7 @@
 			children = (
 				B3E1F5D42C9D4B7B00B9EC93 /* Basic Multiplication.xctestplan */,
 				B332C8D72C9D467E00953C58 /* README.md */,
-				B332C8AC2C9D458200953C58 /* App */,
+				B3E1F6402C9D6A9C00B9EC93 /* Sources */,
 				B3E1F62C2C9D694E00B9EC93 /* Tests */,
 				B3E1F5FE2C9D5CE700B9EC93 /* Frameworks */,
 				B332C8AB2C9D458200953C58 /* Products */,
@@ -179,8 +179,8 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				B332C8AC2C9D458200953C58 /* App */,
 				B3E1F62C2C9D694E00B9EC93 /* Tests */,
+				B3E1F6402C9D6A9C00B9EC93 /* Sources */,
 			);
 			name = "Basic Multiplication";
 			packageProductDependencies = (
@@ -510,7 +510,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Basic Multiplication/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Sources/App/Preview Content\"";
 				DEVELOPMENT_TEAM = 94RX8Q59P5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -544,7 +544,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Basic Multiplication/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Sources/App/Preview Content\"";
 				DEVELOPMENT_TEAM = 94RX8Q59P5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
