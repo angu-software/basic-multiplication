@@ -12,11 +12,7 @@ let package = Package(
         .library(
             name: "SwiftSpec",
             targets: ["SwiftSpec"]
-        ),
-        .executable(
-            name: "SwiftSpecClient",
-            targets: ["SwiftSpecClient"]
-        ),
+        )
     ],
     dependencies: [
         .package(url: "https://github.com/swiftlang/swift-syntax.git", from: "600.0.0-latest"),
@@ -37,7 +33,8 @@ let package = Package(
         .target(name: "SwiftSpec", dependencies: ["SwiftSpecMacros"]),
 
         // A client of the library, which is able to use the macro in its own code.
-        .executableTarget(name: "SwiftSpecClient", dependencies: ["SwiftSpec"]),
+        .testTarget(name: "SwiftSpecClient",
+                    dependencies: ["SwiftSpec"]),
 
         // A test target used to develop the macro implementation.
         .testTarget(
