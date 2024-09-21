@@ -18,7 +18,6 @@ final class SwiftSpecTests: XCTestCase {
 
         #if canImport(SwiftSpecMacros)
         testMacros = [
-            "stringify": StringifyMacro.self,
             "define": DefineMacro.self,
             "context": ContextMacro.self,
             "when": WhenMacro.self,
@@ -27,30 +26,6 @@ final class SwiftSpecTests: XCTestCase {
         #else
         throw XCTSkip("macros are only supported when running tests for the host platform")
         #endif
-    }
-
-    func testMacro() throws {
-        assertMacroExpansion(
-            """
-            #stringify(a + b)
-            """,
-            expandedSource: """
-            (a + b, "a + b")
-            """,
-            macros: testMacros
-        )
-    }
-
-    func testMacroWithStringLiteral() throws {
-        assertMacroExpansion(
-            #"""
-            #stringify("Hello, \(name)")
-            """#,
-            expandedSource: #"""
-            ("Hello, \(name)", #""Hello, \(name)""#)
-            """#,
-            macros: testMacros
-        )
     }
 
     func test_should_expand_nested_macros() throws {

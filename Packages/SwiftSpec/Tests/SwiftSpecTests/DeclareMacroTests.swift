@@ -26,7 +26,6 @@ final class DeclareMacroTests: XCTestCase {
         #if canImport(SwiftSpecMacros)
         testMacros = [
             "define": DefineMacro.self,
-            "it": ItMacro.self,
         ]
         #else
         throw XCTSkip("macros are only supported when running tests for the host platform")

@@ -1,7 +1,8 @@
 import Testing
+
 import SwiftSpec
 
-enum Spec {
+enum EspandedSpec {
 
     // #define
     @Suite("NumberGenerator")
@@ -31,7 +32,7 @@ enum Spec {
     }
 }
 
-//enum Spec {
+//enum MacroSpec {
 //
 //    #define("NumberGenerator") {
 //        #context(".generateNumber") {
