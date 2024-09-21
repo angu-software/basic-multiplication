@@ -9,29 +9,34 @@ import SwiftSyntax
 import SwiftSyntaxBuilder
 import SwiftSyntaxMacros
 
-public struct DeclareMacro: DeclarationMacro {
+public struct DefineMacro: DeclarationMacro {
 
     enum Error: Swift.Error {
-        case missingArgumentValue
+        case missingTypeName
+        case missingBody
     }
 
     // MARK: - DeclarationMacro
 
     public static func expansion(of node: some FreestandingMacroExpansionSyntax,
                                  in context: some MacroExpansionContext) throws -> [DeclSyntax] {
-        let typeName = try getTypeName(node: node)
+        let typeName = try getTypeName(node)
+
+        guard let body = node.trailingClosure else {
+            throw Error.missingBody
+        }
 
         return [#"""
                 @Suite("\#(raw: typeName)")
-                func \#(raw: typeName)Tests() {
-                }
+                struct \#(raw: typeName)Tests
+                \#(body)
                 """#]
     }
 
-    private static func getTypeName(node: some FreestandingMacroExpansionSyntax) throws -> String {
+    private static func getTypeName(_ node: some FreestandingMacroExpansionSyntax) throws -> String {
         let arguments = node.arguments
         guard let typeName = arguments.first?.expression.as(StringLiteralExprSyntax.self)?.representedLiteralValue else {
-            throw Error.missingArgumentValue
+            throw Error.missingTypeName
         }
 
         return typeName

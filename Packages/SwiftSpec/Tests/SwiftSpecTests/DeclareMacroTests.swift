@@ -25,7 +25,8 @@ final class DeclareMacroTests: XCTestCase {
 
         #if canImport(SwiftSpecMacros)
         testMacros = [
-            "declare": DeclareMacro.self,
+            "define": DefineMacro.self,
+            "it": ItMacro.self,
         ]
         #else
         throw XCTSkip("macros are only supported when running tests for the host platform")
@@ -35,12 +36,15 @@ final class DeclareMacroTests: XCTestCase {
     func test_should_expand_to_suite() throws {
         assertMacroExpansion(
             #"""
-            #declare("MyType") {
+            #define("MyType") {
+                // My Code
             }
             """#,
             expandedSource: #"""
             @Suite("MyType")
-            func MyTypeTests() {
+            struct MyTypeTests
+            {
+                // My Code
             }
             """#,
             macros: testMacros

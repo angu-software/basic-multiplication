@@ -1,8 +1,15 @@
 import SwiftSpec
+import Testing
 
-let a = 17
-let b = 25
+enum Spec {
 
-let (result, code) = #stringify(a + b)
-
-print("The value \(result) was produced by the code \"\(code)\"")
+    #define("Foo") {
+        #context("Bar") {
+            #when("called") {
+                #it("does something") {
+                    #expect(false == true)
+                }
+            }
+        }
+    }
+}

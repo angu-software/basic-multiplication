@@ -8,6 +8,8 @@
 //  Created by Andreas Guenther on 20.09.24.
 //
 
-@freestanding(declaration)
-public macro declare<T>(_ label: StaticString, body: () -> Void) = #externalMacro(module: "SwiftSpecMacros",
-                                                                            type: "DeclareMacro")
+#if canImport(Testing)
+@freestanding(declaration, names: arbitrary)
+public macro define(_ label: StaticString, _ body: () -> Void) = #externalMacro(module: "SwiftSpecMacros",
+                                                                                type: "DefineMacro")
+#endif

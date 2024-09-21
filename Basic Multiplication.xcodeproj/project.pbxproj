@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B332C8D82C9D468600953C58 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B332C8D72C9D467E00953C58 /* README.md */; };
 		B3E1F6002C9D5CE700B9EC93 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = B3E1F5FF2C9D5CE700B9EC93 /* SnapshotTesting */; };
+		B3FF948E2C9EB57C00FF39BA /* SwiftSpec in Frameworks */ = {isa = PBXBuildFile; productRef = B3FF948D2C9EB57C00FF39BA /* SwiftSpec */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,6 +133,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3FF948E2C9EB57C00FF39BA /* SwiftSpec in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,6 +227,7 @@
 			);
 			name = UnitTests;
 			packageProductDependencies = (
+				B3FF948D2C9EB57C00FF39BA /* SwiftSpec */,
 			);
 			productName = "Basic MultiplicationTests";
 			productReference = B332C8BA2C9D458800953C58 /* UnitTests.xctest */;
@@ -768,6 +771,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B3E1F5EA2C9D5C0100B9EC93 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
 			productName = SnapshotTesting;
+		};
+		B3FF948D2C9EB57C00FF39BA /* SwiftSpec */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SwiftSpec;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

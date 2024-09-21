@@ -11,6 +11,9 @@ import SwiftSyntaxMacros
 @main
 struct SwiftSpecPlugin: CompilerPlugin {
     let providingMacros: [Macro.Type] = [
-        DeclareMacro.self,
+        DefineMacro.self,
+        ContextMacro.self,
+        WhenMacro.self,
+        ItMacro.self
     ]
 }
