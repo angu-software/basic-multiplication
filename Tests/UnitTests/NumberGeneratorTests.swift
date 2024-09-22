@@ -9,14 +9,13 @@ import Testing
 
 @testable import Basic_Multiplication
 
-@Suite("NumberGenerator")
 struct NumberGeneratorTests {
 
     @Suite("When generating a number")
     struct GeneratingNumber {
 
-        @Test("it should be in the default range")
-        func should_generate_random_number_in_default_range() async throws {
+        @Test("it returns a number in the default range")
+        func it_returns_a_number_in_the_default_range() async throws {
             #expect(NumberGenerator.defaultRange.contains(NumberGenerator.getRandomNumber()))
         }
     }
@@ -24,8 +23,8 @@ struct NumberGeneratorTests {
     @Suite("When generating a number with custom range")
     struct GeneratingNumberWithCustomRange {
 
-        @Test("it should be in the specified range")
-        func should_should_be_in_the_specified_range() async throws {
+        @Test("it returns a number in the specified range")
+        func it_returns_a_number_in_the_specified_range() async throws {
             let customRange = 0...3
 
             #expect(customRange.contains(NumberGenerator.getRandomNumber(range: customRange)))

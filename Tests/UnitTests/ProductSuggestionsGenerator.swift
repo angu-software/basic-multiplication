@@ -9,22 +9,21 @@ import Testing
 
 @testable import Basic_Multiplication
 
-@Suite("ProductSuggestionsGeneratorTests")
 struct ProductSuggestionsGeneratorTests {
 
     @Suite("When generating product suggestions")
     struct GeneratingProductSuggestions {
 
-        @Test("it should generate three suggestions")
-        func should_generate_three_suggestions() async throws {
+        @Test("it returns three suggestions")
+        func it_returns_three_suggestions() async throws {
             let suggestions = ProductSuggestionsGenerator.makeSuggestions(multiplicand: 3,
                                                                           multiplier: 4)
 
             #expect(suggestions.count == 3)
         }
 
-        @Test("it should have one correct product among the suggestions")
-        func should_have_only_one_correct_product_among_the_suggestions() async throws {
+        @Test("it returns one correct product among the suggestions")
+        func it_returns_one_correct_product_among_the_suggestions() async throws {
             let suggestions = ProductSuggestionsGenerator.makeSuggestions(multiplicand: 3,
                                                                           multiplier: 4)
 
@@ -33,7 +32,7 @@ struct ProductSuggestionsGeneratorTests {
             #expect(correctProductCount == 1)
         }
 
-        @Test("it should have wrong suggestions which are not below a max distance from the right product")
+        @Test("it returns wrong suggestions which are not below a max distance from the right product")
         func should_have_wrong_suggestions_which_are_not_below_a_max_distance_from_the_right_product() async throws {
             let suggestions = ProductSuggestionsGenerator.makeSuggestions(multiplicand: 3,
                                                                           multiplier: 4,
@@ -45,7 +44,7 @@ struct ProductSuggestionsGeneratorTests {
             #expect(suggestionsBelow.allSatisfy({ (9...11).contains($0) }))
         }
 
-        @Test("it should have wrong suggestions which are not above a max distance from the right product")
+        @Test("it returns wrong suggestions which are not above a max distance from the right product")
         func should_have_wrong_suggestions_which_are_not_above_a_max_distance_from_the_right_product() async throws {
             let suggestions = ProductSuggestionsGenerator.makeSuggestions(multiplicand: 3,
                                                                           multiplier: 4,
