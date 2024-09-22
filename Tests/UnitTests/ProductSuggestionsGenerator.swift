@@ -11,52 +11,36 @@ import Testing
 
 struct ProductSuggestionsGeneratorTests {
 
+    private static func subject() -> [Int] {
+        ProductSuggestionsGenerator.makeSuggestions(multiplicand: 3,
+                                                    multiplier: 4,
+                                                    maxDistance: 3)
+    }
+
     @Suite("When generating product suggestions")
     struct GeneratingProductSuggestions {
 
         @Test("it returns three suggestions")
         func it_returns_three_suggestions() async throws {
-            let suggestions = ProductSuggestionsGenerator.makeSuggestions(multiplicand: 3,
-                                                                          multiplier: 4)
-
-            #expect(suggestions.count == 3)
+            #expect(subject().count == 3)
         }
 
         @Test("it returns one correct product among the suggestions")
         func it_returns_one_correct_product_among_the_suggestions() async throws {
-            let suggestions = ProductSuggestionsGenerator.makeSuggestions(multiplicand: 3,
-                                                                          multiplier: 4)
-
-            let correctProductCount = try #require(suggestions.count(where: { $0 == 12 }))
+            let correctProductCount = try #require(subject().count(where: { $0 == 12 }))
 
             #expect(correctProductCount == 1)
         }
 
-        @Test("it returns wrong suggestions which are not below a max distance from the right product")
-        func should_have_wrong_suggestions_which_are_not_below_a_max_distance_from_the_right_product() async throws {
-            let suggestions = ProductSuggestionsGenerator.makeSuggestions(multiplicand: 3,
-                                                                          multiplier: 4,
-                                                                          maxDistance: 3)
+        @Test("it returns wrong suggestions around the correct product")
+        func it_returns_wrong_suggestions_around_the_correct_product() async throws {
+            let wrongProducts = subject().filter({ $0 != 12 })
 
-            let wrongProducts = suggestions.filter({ $0 != 12 })
-            let suggestionsBelow = wrongProducts.filter({ $0 < 12 })
-
-            #expect(suggestionsBelow.allSatisfy({ (9...11).contains($0) }))
-        }
-
-        @Test("it returns wrong suggestions which are not above a max distance from the right product")
-        func should_have_wrong_suggestions_which_are_not_above_a_max_distance_from_the_right_product() async throws {
-            let suggestions = ProductSuggestionsGenerator.makeSuggestions(multiplicand: 3,
-                                                                          multiplier: 4,
-                                                                          maxDistance: 3)
-
-            let wrongProducts = suggestions.filter({ $0 != 12 })
-            let suggestionsAbove = wrongProducts.filter({ $0 > 12 })
-
-            #expect(suggestionsAbove.allSatisfy({ (13...15).contains($0) }))
+            #expect(wrongProducts.allSatisfy({ (9...15).contains($0) }))
         }
 
         // suggestions should not greater than 100
-        // suggestions should not less than 0
+        // suggestons on edged of number range are still 3
+        // suggestons on edged of number range are unique
     }
 }
