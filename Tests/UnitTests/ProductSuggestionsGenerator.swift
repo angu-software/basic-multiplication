@@ -11,14 +11,18 @@ import Testing
 
 struct ProductSuggestionsGeneratorTests {
 
-    private static func subject() -> [Int] {
-        ProductSuggestionsGenerator.makeSuggestions(multiplicand: 3,
-                                                    multiplier: 4,
-                                                    maxDistance: 3)
-    }
-
     @Suite("When generating product suggestions")
     struct GeneratingProductSuggestions {
+
+        private var multiplicand = 3
+        private var multiplier   = 4
+        private var maxDistance  = 3
+
+        private func subject() -> [Int] {
+            ProductSuggestionsGenerator.makeSuggestions(multiplicand: multiplicand,
+                                                        multiplier: multiplier,
+                                                        maxDistance: maxDistance)
+        }
 
         @Test("it returns three suggestions")
         func it_returns_three_suggestions() async throws {
