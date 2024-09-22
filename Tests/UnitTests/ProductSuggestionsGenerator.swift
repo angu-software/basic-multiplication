@@ -14,16 +14,18 @@ struct ProductSuggestionsGeneratorTests {
     @Suite("When generating product suggestions")
     struct GeneratingProductSuggestions {
 
-        private var multiplicand = 3
-        private var multiplier   = 4
-        private var maxDistance  = 3
+        private static let multiplicand = 3
+        private static let multiplier   = 4
+        private static let maxDistance  = 3
 
-        private var correctProduct = 12
-        private var suggestionRange = (9...15)
-        private var numberOfSuggestions = 3
-        private var numberOfCorrectSuggestions = 1
+        private let correctProduct = 12
+        private let suggestionRange = (9...15)
+        private let numberOfSuggestions = 3
+        private let numberOfCorrectSuggestions = 1
 
-        private func subject() -> [Int] {
+        private func subject(multiplicand: Int = multiplicand,
+                             multiplier: Int = multiplier,
+                             maxDistance: Int = maxDistance) -> [Int] {
             ProductSuggestionsGenerator.makeSuggestions(multiplicand: multiplicand,
                                                         multiplier: multiplier,
                                                         maxDistance: maxDistance)
@@ -48,7 +50,12 @@ struct ProductSuggestionsGeneratorTests {
             #expect(wrongProducts.allSatisfy({ suggestionRange.contains($0) }))
         }
 
-        // suggestions should not greater than 100
+        @Test("it returns suggestions less than or equal to 100")
+        func it_returns_suggestions_less_than_or_equal_to_100() async throws {
+            #expect(subject(multiplicand: 100,
+                            multiplier: 1).allSatisfy({ $0 <= 100 }))
+        }
+
         // suggestions on edged of number range are still 3
         // suggestions on edged of number range are unique
     }

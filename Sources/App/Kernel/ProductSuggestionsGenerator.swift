@@ -33,8 +33,9 @@ enum ProductSuggestionsGenerator {
                                                correctProduct: Int) -> [Int] {
         var suggestions: [Int?] = [correctProduct]
         repeat {
-            let number = range.randomElement()
-            if number != correctProduct {
+            let number = range.randomElement() ?? 0
+            if number != correctProduct,
+               number <= 100 {
                 suggestions.append(number)
             }
         } while (suggestions.count != numberOfSuggestions)
