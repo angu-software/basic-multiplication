@@ -56,6 +56,12 @@ struct ProductSuggestionsGeneratorTests {
                             multiplier: 1).allSatisfy({ $0 <= 100 }))
         }
 
+        @Test("it returns suggestions greater than or equal to 0")
+        func it_returns_suggestions_greater_than_or_equal_to_0() async throws {
+            #expect(subject(multiplicand: 0,
+                            multiplier: 1).allSatisfy({ $0 >= 0 }))
+        }
+
         // suggestions on edged of number range are still 3
         // suggestions on edged of number range are unique
     }
