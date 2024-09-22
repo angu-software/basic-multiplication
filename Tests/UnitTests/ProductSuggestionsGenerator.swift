@@ -18,6 +18,11 @@ struct ProductSuggestionsGeneratorTests {
         private var multiplier   = 4
         private var maxDistance  = 3
 
+        private var correctProduct = 12
+        private var suggestionRange = (9...15)
+        private var numberOfSuggestions = 3
+        private var numberOfCorrectSuggestions = 1
+
         private func subject() -> [Int] {
             ProductSuggestionsGenerator.makeSuggestions(multiplicand: multiplicand,
                                                         multiplier: multiplier,
@@ -26,21 +31,21 @@ struct ProductSuggestionsGeneratorTests {
 
         @Test("it returns three suggestions")
         func it_returns_three_suggestions() async throws {
-            #expect(subject().count == 3)
+            #expect(subject().count == numberOfSuggestions)
         }
 
         @Test("it returns one correct product among the suggestions")
         func it_returns_one_correct_product_among_the_suggestions() async throws {
-            let correctProductCount = try #require(subject().count(where: { $0 == 12 }))
+            let correctProductCount = try #require(subject().count(where: { $0 == correctProduct }))
 
-            #expect(correctProductCount == 1)
+            #expect(correctProductCount == numberOfCorrectSuggestions)
         }
 
         @Test("it returns wrong suggestions around the correct product")
         func it_returns_wrong_suggestions_around_the_correct_product() async throws {
-            let wrongProducts = subject().filter({ $0 != 12 })
+            let wrongProducts = subject().filter({ $0 != correctProduct })
 
-            #expect(wrongProducts.allSatisfy({ (9...15).contains($0) }))
+            #expect(wrongProducts.allSatisfy({ suggestionRange.contains($0) }))
         }
 
         // suggestions should not greater than 100

@@ -7,9 +7,12 @@
 
 enum ProductSuggestionsGenerator {
 
+    private static let numberOfSuggestions = 3
+    private static let maxDistanceFormCorrectProduct = 3
+
     static func makeSuggestions(multiplicand: Int,
                                 multiplier: Int,
-                                maxDistance: Int = 3) -> [Int] {
+                                maxDistance: Int = maxDistanceFormCorrectProduct) -> [Int] {
         let correctProduct = multiplicand * multiplier
         let suggestionRange = suggestionRange(for: correctProduct,
                                               maxDistance: maxDistance)
@@ -20,8 +23,8 @@ enum ProductSuggestionsGenerator {
 
     private static func suggestionRange(for product: Int,
                                         maxDistance: Int) -> ClosedRange<Int> {
-        let lowerBound = (product - 1) - maxDistance
-        let upperBound = (product + 1) + maxDistance
+        let lowerBound = product - maxDistance
+        let upperBound = product + maxDistance
 
         return lowerBound...upperBound
     }
@@ -34,7 +37,7 @@ enum ProductSuggestionsGenerator {
             if number != correctProduct {
                 suggestions.append(number)
             }
-        } while (suggestions.count != 3)
+        } while (suggestions.count != numberOfSuggestions)
 
         return suggestions.compactMap { $0 }
     }
