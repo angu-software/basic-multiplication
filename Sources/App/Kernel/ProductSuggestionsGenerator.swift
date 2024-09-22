@@ -11,12 +11,31 @@ enum ProductSuggestionsGenerator {
                                 multiplier: Int,
                                 maxDistance: Int = 3) -> [Int] {
         let correctProduct = multiplicand * multiplier
-        let lowerRange = ClosedRange<Int>(uncheckedBounds: (correctProduct - maxDistance, correctProduct - 1))
-        let lowSuggestion = lowerRange.randomElement()!
-        let upperRange = ClosedRange<Int>(uncheckedBounds: (correctProduct + 1, correctProduct + maxDistance))
-        let upperSuggestion = upperRange.randomElement()!
-        return [lowSuggestion,
-                correctProduct,
-                upperSuggestion].shuffled()
+        let suggestionRange = suggestionRange(for: correctProduct,
+                                              maxDistance: maxDistance)
+        let suggestions = makeProductSuggestions(range: suggestionRange,
+                                                 correctProduct: correctProduct)
+        return suggestions.shuffled()
+    }
+
+    private static func suggestionRange(for product: Int,
+                                        maxDistance: Int) -> ClosedRange<Int> {
+        let lowerBound = (product - 1) - maxDistance
+        let upperBound = (product + 1) + maxDistance
+
+        return lowerBound...upperBound
+    }
+
+    private static func makeProductSuggestions(range: ClosedRange<Int>,
+                                               correctProduct: Int) -> [Int] {
+        var suggestions: [Int?] = [correctProduct]
+        repeat {
+            let number = range.randomElement()
+            if number != correctProduct {
+                suggestions.append(number)
+            }
+        } while (suggestions.count != 3)
+
+        return suggestions.compactMap { $0 }
     }
 }

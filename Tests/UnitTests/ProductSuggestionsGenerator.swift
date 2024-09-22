@@ -40,7 +40,7 @@ struct ProductSuggestionsGeneratorTests {
         }
 
         // suggestions should not greater than 100
-        // suggestons on edged of number range are still 3
-        // suggestons on edged of number range are unique
+        // suggestions on edged of number range are still 3
+        // suggestions on edged of number range are unique
     }
 }
