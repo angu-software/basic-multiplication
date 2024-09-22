@@ -14,18 +14,11 @@ struct ProductSuggestionsGeneratorTests {
     @Suite("When generating product suggestions")
     struct GeneratingProductSuggestions {
 
-        private static let multiplicand = 3
-        private static let multiplier   = 4
-        private static let maxDistance  = 3
-
         private let correctProduct = 12
-        private let suggestionRange = (9...15)
-        private let numberOfSuggestions = 3
-        private let numberOfCorrectSuggestions = 1
 
-        private func subject(multiplicand: Int = multiplicand,
-                             multiplier: Int = multiplier,
-                             maxDistance: Int = maxDistance) -> [Int] {
+        private func subject(multiplicand: Int = 3,
+                             multiplier: Int = 4,
+                             maxDistance: Int = 3) -> [Int] {
             ProductSuggestionsGenerator.makeSuggestions(multiplicand: multiplicand,
                                                         multiplier: multiplier,
                                                         maxDistance: maxDistance)
@@ -33,11 +26,15 @@ struct ProductSuggestionsGeneratorTests {
 
         @Test("it returns three suggestions")
         func it_returns_three_suggestions() async throws {
+            let numberOfSuggestions = 3
+
             #expect(subject().count == numberOfSuggestions)
         }
 
         @Test("it returns one correct product among the suggestions")
         func it_returns_one_correct_product_among_the_suggestions() async throws {
+            let numberOfCorrectSuggestions = 1
+
             let correctProductCount = try #require(subject().count(where: { $0 == correctProduct }))
 
             #expect(correctProductCount == numberOfCorrectSuggestions)
@@ -45,6 +42,8 @@ struct ProductSuggestionsGeneratorTests {
 
         @Test("it returns wrong suggestions around the correct product")
         func it_returns_wrong_suggestions_around_the_correct_product() async throws {
+            let suggestionRange = (9...15)
+
             let wrongProducts = subject().filter({ $0 != correctProduct })
 
             #expect(wrongProducts.allSatisfy({ suggestionRange.contains($0) }))
