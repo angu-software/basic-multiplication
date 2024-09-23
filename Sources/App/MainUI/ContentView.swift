@@ -21,7 +21,7 @@ struct ContentView: View {
             Spacer()
             HStack() {
                 Label("\(state.multiplicand)")
-                Label(state.operationSimbol)
+                Label(state.operationSymbol)
                 Label("\(state.multiplier)")
             }
             HStack(spacing: 16) {

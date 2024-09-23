@@ -5,9 +5,9 @@
 //  Created by Andreas Guenther on 20.09.24.
 //
 
-struct ViewState {
+struct ViewState: Equatable {
 
-    let operationSimbol = "x"
+    let operationSymbol = "x"
     let submitButtonText = "Next"
 
     var multiplicand: Int
