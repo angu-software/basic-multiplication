@@ -9,7 +9,6 @@ import Testing
 
 @testable import Basic_Multiplication
 
-
 struct ViewAdapterTests {
 
     @MainActor
@@ -38,6 +37,28 @@ struct ViewAdapterTests {
             let viewAdapter = subject()
 
             #expect(viewAdapter.state.productSuggestions.count == configuration.numberOfSuggestions)
+        }
+    }
+
+    @MainActor
+    @Suite("When a suggestion is selected")
+    struct WhenASuggestionIsSelected {
+
+        private let configuration = ViewAdapter.Configuration.numberRangeUpTo100()
+
+        private func subject() -> ViewAdapter {
+            let viewAdapter = ViewAdapter(configuration: configuration)
+            viewAdapter.makeNewExercise()
+
+            return viewAdapter
+        }
+
+        @Test("it enables the continue button")
+        func it_enables_the_continue_button() async throws {
+            let viewAdapter = subject()
+            viewAdapter.didSelectSuggestion(at: 1)
+
+            #expect(viewAdapter.state.isContinueButtonEnabled == true)
         }
     }
 }

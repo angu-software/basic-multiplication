@@ -27,6 +27,10 @@ final class ViewAdapter: ObservableObject {
     func makeNewExercise() {
         state = ViewState(multiplication: exerciseGenerator.makeMultiplication())
     }
+
+    func didSelectSuggestion(at index: Int) {
+        state.isContinueButtonEnabled = true
+    }
 }
 
 extension ViewState {

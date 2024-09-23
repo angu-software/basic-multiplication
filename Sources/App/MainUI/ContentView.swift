@@ -32,7 +32,7 @@ struct ContentView: View {
                 }
             }
             Spacer()
-            SubmitButton(state.submitButtonText) {
+            SubmitButton(state.continueButtonText) {
 
             }
         }
