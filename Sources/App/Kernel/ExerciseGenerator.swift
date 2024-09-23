@@ -6,11 +6,15 @@
 //
 
 
-enum ExerciseGenerator {
+struct ExerciseGenerator {
 
-    private static let operandRange = 0...10
-    static func makeMultiplication(multiplicand: Int = NumberGenerator(range: operandRange).getRandomNumber(),
-                                   multiplier: Int = NumberGenerator(range: operandRange).getRandomNumber()) -> (multiplicand: Int, multiplier: Int, suggestedProducts: [Int]) {
+    static let operandRange = 0...10
+
+    private let operandGenerator = NumberGenerator(range: operandRange)
+
+    func makeMultiplication() -> (multiplicand: Int, multiplier: Int, suggestedProducts: [Int]) {
+        let multiplicand = operandGenerator.getRandomNumber()
+        let multiplier = operandGenerator.getRandomNumber()
         return (multiplicand,
                 multiplier,
                 ProductSuggestionsGenerator.makeSuggestions(multiplicand: multiplicand,
