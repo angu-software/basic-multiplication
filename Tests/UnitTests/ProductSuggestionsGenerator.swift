@@ -61,7 +61,13 @@ struct ProductSuggestionsGeneratorTests {
                             multiplier: 1).allSatisfy({ $0 >= 0 }))
         }
 
+        @Test("it returns unique suggestions")
+        func it_returns_unique_suggestions() async throws {
+            let numberOfUniqueSuggestions = 3
+
+            #expect(Set(subject()).count == 3)
+        }
+
         // suggestions on edged of number range are still 3
-        // suggestions on edged of number range are unique
     }
 }

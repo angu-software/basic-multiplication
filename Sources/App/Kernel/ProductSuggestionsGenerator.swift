@@ -36,7 +36,8 @@ enum ProductSuggestionsGenerator {
             let number = range.randomElement() ?? 0
             if number != correctProduct,
                number <= 100,
-               number >= 0 {
+               number >= 0,
+               !suggestions.contains(number) {
                 suggestions.append(number)
             }
         } while (suggestions.count != numberOfSuggestions)
