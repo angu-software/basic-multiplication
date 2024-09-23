@@ -13,7 +13,7 @@ struct NumberGenerator {
         self.range = range
     }
 
-    func getRandomNumber() -> Int {
+    func makeNumber() -> Int {
         return .random(in: range)
     }
 }

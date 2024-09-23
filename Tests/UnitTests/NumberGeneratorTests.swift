@@ -22,7 +22,7 @@ struct NumberGeneratorTests {
 
         @Test("it returns a number in the default range")
         func it_returns_a_number_in_the_default_range() async throws {
-            #expect(operandRange.contains(subject().getRandomNumber()))
+            #expect(operandRange.contains(subject().makeNumber()))
         }
     }
 
@@ -33,7 +33,7 @@ struct NumberGeneratorTests {
         func it_returns_a_number_in_the_specified_range() async throws {
             let customRange = 0...3
 
-            let number = subject(range: customRange).getRandomNumber()
+            let number = subject(range: customRange).makeNumber()
 
             #expect(customRange.contains(number))
         }

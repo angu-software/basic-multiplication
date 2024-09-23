@@ -34,7 +34,7 @@ enum ProductSuggestionsGenerator {
         let numberGenerator = NumberGenerator(range: range)
         var suggestions: [Int] = [correctProduct]
         repeat {
-            let number = numberGenerator.getRandomNumber()
+            let number = numberGenerator.makeNumber()
             if number != correctProduct,
                number <= 100,
                number >= 0,

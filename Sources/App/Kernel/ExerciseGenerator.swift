@@ -13,8 +13,8 @@ struct ExerciseGenerator {
     private let operandGenerator = NumberGenerator(range: operandRange)
 
     func makeMultiplication() -> (multiplicand: Int, multiplier: Int, suggestedProducts: [Int]) {
-        let multiplicand = operandGenerator.getRandomNumber()
-        let multiplier = operandGenerator.getRandomNumber()
+        let multiplicand = operandGenerator.makeNumber()
+        let multiplier = operandGenerator.makeNumber()
         return (multiplicand,
                 multiplier,
                 ProductSuggestionsGenerator.makeSuggestions(multiplicand: multiplicand,
