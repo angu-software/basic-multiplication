@@ -9,17 +9,23 @@ struct ProductSuggestionsGenerator {
 
     private static let maxDistanceFromCorrectProduct = 3
 
-    private let numberOfSuggestions = 3
-    private let maxSuggestionRange = 0...100
+    private let numberOfSuggestions: Int
+    private let maxSuggestionRange: ClosedRange<Int>
+    private let maxDistanceToProduct: Int
 
-    func makeSuggestions(multiplicand: Int,
-                         multiplier: Int,
-                         maxDistance: Int = maxDistanceFromCorrectProduct) -> [Int] {
-        let correctProduct = multiplicand * multiplier
-        let suggestionRange = suggestionRange(for: correctProduct,
-                                              maxDistance: maxDistance)
+    init(numberOfSuggestions: Int,
+         maxSuggestionRange: ClosedRange<Int>,
+         maxDistanceToProduct: Int) {
+        self.numberOfSuggestions = numberOfSuggestions
+        self.maxSuggestionRange = maxSuggestionRange
+        self.maxDistanceToProduct = maxDistanceToProduct
+    }
+
+    func makeSuggestions(product: Int) -> [Int] {
+        let suggestionRange = suggestionRange(for: product,
+                                              maxDistance: maxDistanceToProduct)
         let suggestions = makeProductSuggestions(wrongProductRange: suggestionRange,
-                                                 correctProduct: correctProduct)
+                                                 correctProduct: product)
         return suggestions.shuffled()
     }
 
