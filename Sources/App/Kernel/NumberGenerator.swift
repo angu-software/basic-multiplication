@@ -7,11 +7,9 @@
 
 struct NumberGenerator {
 
-    static let defaultRange = 0...10
-
     private let range: ClosedRange<Int>
 
-    init(range: ClosedRange<Int> = defaultRange) {
+    init(range: ClosedRange<Int>) {
         self.range = range
     }
 

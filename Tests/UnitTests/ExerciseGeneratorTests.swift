@@ -13,7 +13,7 @@ struct ExerciseGeneratorTests {
 
     @Suite("When creating a multiplication exercise")
     struct CreatingExercise {
-        private let expectedRange = NumberGenerator.defaultRange
+        private let expectedRange = 0...10
 
         @Test("it returns a random multiplicand in a defined range")
         func it_returns_a_random_multiplicand_in_a_defined_range() async throws {

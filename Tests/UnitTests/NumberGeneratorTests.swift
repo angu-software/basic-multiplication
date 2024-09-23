@@ -11,7 +11,9 @@ import Testing
 
 struct NumberGeneratorTests {
 
-    static func subject(range: ClosedRange<Int> = NumberGenerator.defaultRange) -> NumberGenerator {
+    static let operandRange = 0...10
+
+    static func subject(range: ClosedRange<Int> = operandRange) -> NumberGenerator {
         return NumberGenerator(range: range)
     }
 
@@ -20,7 +22,7 @@ struct NumberGeneratorTests {
 
         @Test("it returns a number in the default range")
         func it_returns_a_number_in_the_default_range() async throws {
-            #expect(NumberGenerator.defaultRange.contains(subject().getRandomNumber()))
+            #expect(operandRange.contains(subject().getRandomNumber()))
         }
     }
 
