@@ -15,6 +15,7 @@ struct ProductSuggestionsGeneratorTests {
     struct GeneratingProductSuggestions {
 
         private let correctProduct = 12
+        private let numberOfSuggestions = 3
 
         private func subject(multiplicand: Int = 3,
                              multiplier: Int = 4,
@@ -26,9 +27,19 @@ struct ProductSuggestionsGeneratorTests {
 
         @Test("it returns three suggestions")
         func it_returns_three_suggestions() async throws {
-            let numberOfSuggestions = 3
-
             #expect(subject().count == numberOfSuggestions)
+        }
+
+        @Test("it_returns_three_suggestions_on_the_lower_edge_of_the_suggestion_number_range")
+        func it_returns_three_suggestions_on_the_lower_edge_of_the_suggestion_number_range() async throws {
+            #expect(subject(multiplicand: 0,
+                            multiplier: 1).count == numberOfSuggestions)
+        }
+
+        @Test("it_returns_three_suggestions_on_the_upper_edge_of_the_suggestion_number_range")
+        func it_returns_three_suggestions_on_the_upper_edge_of_the_suggestion_number_range() async throws {
+            #expect(subject(multiplicand: 1,
+                            multiplier: 100).count == numberOfSuggestions)
         }
 
         @Test("it returns one correct product among the suggestions")
@@ -65,9 +76,7 @@ struct ProductSuggestionsGeneratorTests {
         func it_returns_unique_suggestions() async throws {
             let numberOfUniqueSuggestions = 3
 
-            #expect(Set(subject()).count == 3)
+            #expect(Set(subject()).count == numberOfUniqueSuggestions)
         }
-
-        // suggestions on edged of number range are still 3
     }
 }
