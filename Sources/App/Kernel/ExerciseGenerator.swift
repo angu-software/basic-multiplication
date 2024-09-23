@@ -22,10 +22,10 @@ struct ExerciseGenerator {
         let maxSuggestionRange: ClosedRange<Int>
         let maxSuggestionDistanceToProduct: Int
 
-        init(operandRange: ClosedRange<Int>,
-             numberOfSuggestions: Int,
-             maxSuggestionRange: ClosedRange<Int>,
-             maxSuggestionDistanceToProduct: Int) {
+        private init(operandRange: ClosedRange<Int>,
+                     numberOfSuggestions: Int,
+                     maxSuggestionRange: ClosedRange<Int>,
+                     maxSuggestionDistanceToProduct: Int) {
             self.operandRange = operandRange
             self.numberOfSuggestions = numberOfSuggestions
             self.maxSuggestionRange = maxSuggestionRange
@@ -33,15 +33,15 @@ struct ExerciseGenerator {
         }
     }
 
-    static let operandRange = 0...10
-    static let numberOfSuggestions = 3
-    static let maxSuggestionRange = 0...100
-    static let maxDistanceToProduct = 3
+    private let operandGenerator: NumberGenerator
+    private let suggestionGenerator: ProductSuggestionsGenerator
 
-    private let operandGenerator = NumberGenerator(range: operandRange)
-    private let suggestionGenerator = ProductSuggestionsGenerator(numberOfSuggestions: numberOfSuggestions,
-                                                                  maxSuggestionRange: maxSuggestionRange,
-                                                                  maxDistanceToProduct: maxDistanceToProduct)
+    init(configuration: Configuration = .numberRangeUpTo100()) {
+        operandGenerator = NumberGenerator(range: configuration.operandRange)
+        suggestionGenerator = ProductSuggestionsGenerator(numberOfSuggestions: configuration.numberOfSuggestions,
+                                                          maxSuggestionRange: configuration.maxSuggestionRange,
+                                                          maxDistanceToProduct: configuration.maxSuggestionDistanceToProduct)
+    }
 
     func makeMultiplication() -> (multiplicand: Int, multiplier: Int, suggestedProducts: [Int]) {
         let multiplicand = operandGenerator.makeNumber()
