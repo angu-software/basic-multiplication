@@ -18,7 +18,8 @@ struct MainUITests {
         let viewState = ViewState(multiplicand: 1,
                                   multiplier: 1,
                                   productSuggestions: [1, 9, 6])
-        let viewAdapter = ViewAdapter(state: viewState)
+        let viewAdapter = ViewAdapter(state: viewState,
+                                      configuration: .numberRangeUpTo100())
         let view = ContentView(viewAdapter: viewAdapter)
 
         assertSnapshot(of: view, as: .image(drawHierarchyInKeyWindow: true,
