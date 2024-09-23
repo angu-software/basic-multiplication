@@ -53,12 +53,31 @@ struct ViewAdapterTests {
             return viewAdapter
         }
 
+        @Test("it stores the selected suggestion")
+        func it_stores_the_selected_suggestion() async throws {
+            let viewAdapter = subject()
+            viewAdapter.didSelectSuggestion(at: 1)
+
+            #expect(viewAdapter.selectedSuggestion == viewAdapter.state.productSuggestions[1])
+        }
+
         @Test("it enables the continue button")
         func it_enables_the_continue_button() async throws {
             let viewAdapter = subject()
             viewAdapter.didSelectSuggestion(at: 1)
 
             #expect(viewAdapter.state.isContinueButtonEnabled == true)
+        }
+
+        @Test("it prevents from selecting another suggestion")
+        func it_prevents_from_selection_another_suggestion() async throws {
+            let viewAdapter = subject()
+            viewAdapter.didSelectSuggestion(at: 1)
+            let selectedSuggestion = viewAdapter.selectedSuggestion
+
+            viewAdapter.didSelectSuggestion(at: 2)
+
+            #expect(viewAdapter.selectedSuggestion == selectedSuggestion)
         }
     }
 }

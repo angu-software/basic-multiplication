@@ -15,6 +15,7 @@ final class ViewAdapter: ObservableObject {
     @Published
     var state: ViewState
 
+    private(set) var selectedSuggestion: Int?
     private let exerciseGenerator: ExerciseGenerator
 
     init(configuration: Configuration = .numberRangeUpTo100()) {
@@ -29,6 +30,11 @@ final class ViewAdapter: ObservableObject {
     }
 
     func didSelectSuggestion(at index: Int) {
+        guard selectedSuggestion == nil else {
+            return
+        }
+
+        selectedSuggestion = state.productSuggestions[index]
         state.isContinueButtonEnabled = true
     }
 }
