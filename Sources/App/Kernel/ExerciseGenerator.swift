@@ -8,8 +8,8 @@
 
 enum ExerciseGenerator {
 
-    static func makeMultiplication(multiplicand: Int = NumberGenerator.getRandomNumber(),
-                                   multiplier: Int = NumberGenerator.getRandomNumber()) -> (multiplicand: Int, multiplier: Int, suggestedProducts: [Int]) {
+    static func makeMultiplication(multiplicand: Int = NumberGenerator().getRandomNumber(),
+                                   multiplier: Int = NumberGenerator().getRandomNumber()) -> (multiplicand: Int, multiplier: Int, suggestedProducts: [Int]) {
         return (multiplicand,
                 multiplier,
                 ProductSuggestionsGenerator.makeSuggestions(multiplicand: multiplicand,

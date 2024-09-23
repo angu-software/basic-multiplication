@@ -11,12 +11,16 @@ import Testing
 
 struct NumberGeneratorTests {
 
+    static func subject() -> NumberGenerator {
+        return NumberGenerator()
+    }
+
     @Suite("When generating a number")
     struct GeneratingNumber {
 
         @Test("it returns a number in the default range")
         func it_returns_a_number_in_the_default_range() async throws {
-            #expect(NumberGenerator.defaultRange.contains(NumberGenerator.getRandomNumber()))
+            #expect(NumberGenerator.defaultRange.contains(subject().getRandomNumber()))
         }
     }
 
@@ -27,7 +31,7 @@ struct NumberGeneratorTests {
         func it_returns_a_number_in_the_specified_range() async throws {
             let customRange = 0...3
 
-            #expect(customRange.contains(NumberGenerator.getRandomNumber(range: customRange)))
+            #expect(customRange.contains(subject().getRandomNumber(range: customRange)))
         }
     }
 }

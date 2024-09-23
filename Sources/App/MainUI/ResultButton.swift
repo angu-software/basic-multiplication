@@ -17,7 +17,8 @@ struct ResultButton: View {
     }
 
     var body: some View {
-        Button("\(value)",action: action)
+        Button("\(value)",
+               action: action)
         .frame(minWidth: 56, minHeight: 42)
         .border(.accent)
     }
