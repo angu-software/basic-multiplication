@@ -9,6 +9,7 @@ enum ProductSuggestionsGenerator {
 
     private static let numberOfSuggestions = 3
     private static let maxDistanceFromCorrectProduct = 3
+    private static let maxSuggestionRange = 0...100
 
     static func makeSuggestions(multiplicand: Int,
                                 multiplier: Int,
@@ -16,7 +17,7 @@ enum ProductSuggestionsGenerator {
         let correctProduct = multiplicand * multiplier
         let suggestionRange = suggestionRange(for: correctProduct,
                                               maxDistance: maxDistance)
-        let suggestions = makeProductSuggestions(range: suggestionRange,
+        let suggestions = makeProductSuggestions(wrongProductRange: suggestionRange,
                                                  correctProduct: correctProduct)
         return suggestions.shuffled()
     }
@@ -29,15 +30,14 @@ enum ProductSuggestionsGenerator {
         return lowerBound...upperBound
     }
 
-    private static func makeProductSuggestions(range: ClosedRange<Int>,
+    private static func makeProductSuggestions(wrongProductRange: ClosedRange<Int>,
                                                correctProduct: Int) -> [Int] {
-        let numberGenerator = NumberGenerator(range: range)
+        let numberGenerator = NumberGenerator(range: wrongProductRange)
         var suggestions: [Int] = [correctProduct]
         repeat {
             let number = numberGenerator.makeNumber()
             if number != correctProduct,
-               number <= 100,
-               number >= 0,
+               maxSuggestionRange.contains(number),
                !suggestions.contains(number) {
                 suggestions.append(number)
             }
