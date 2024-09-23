@@ -15,12 +15,9 @@ import SnapshotTesting
 struct MainUITests {
 
     @Test func should_show_operation_offered_results_and_submit_button() async throws {
-        let viewState = ViewState(multiplicand: 1,
-                                  multiplier: 1,
-                                  productSuggestions: [1, 9, 6])
-        let viewAdapter = ViewAdapter(state: viewState,
-                                      configuration: .numberRangeUpTo100())
-        let view = ContentView(viewAdapter: viewAdapter)
+        let view = ContentView(viewState: ViewState(multiplicand: 1,
+                                                    multiplier: 1,
+                                                    productSuggestions: [1, 9, 6]))
 
         assertSnapshot(of: view, as: .image(drawHierarchyInKeyWindow: true,
                                             layout: .device(config: .iPhone13Mini),

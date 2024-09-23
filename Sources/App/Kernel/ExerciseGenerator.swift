@@ -8,6 +8,8 @@
 
 struct ExerciseGenerator {
 
+    typealias MultiplicationExercise = (multiplicand: Int, multiplier: Int, suggestedProducts: [Int])
+
     struct Configuration {
 
         static func numberRangeUpTo100() -> Self {
@@ -43,7 +45,7 @@ struct ExerciseGenerator {
                                                           maxDistanceToProduct: configuration.maxSuggestionDistanceToProduct)
     }
 
-    func makeMultiplication() -> (multiplicand: Int, multiplier: Int, suggestedProducts: [Int]) {
+    func makeMultiplication() -> MultiplicationExercise {
         let multiplicand = operandGenerator.makeNumber()
         let multiplier = operandGenerator.makeNumber()
         let product = multiplicand * multiplier

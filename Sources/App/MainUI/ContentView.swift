@@ -25,8 +25,8 @@ struct ContentView: View {
                 Label("\(state.multiplier)")
             }
             HStack(spacing: 16) {
-                ForEach(0..<3) { index in
-                    ResultButton(state.productSuggestions[index]) {
+                ForEach(state.productSuggestions, id: \.self) {
+                    ResultButton($0) {
 
                     }
                 }
@@ -43,3 +43,17 @@ struct ContentView: View {
 #Preview {
     ContentView()
 }
+
+#if DEBUG
+
+extension ContentView {
+
+    init(viewState: ViewState) {
+        let viewAdapter = ViewAdapter()
+        viewAdapter.state = viewState
+
+        self.init(viewAdapter: viewAdapter)
+    }
+
+}
+#endif

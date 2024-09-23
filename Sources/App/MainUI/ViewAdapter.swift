@@ -17,30 +17,23 @@ final class ViewAdapter: ObservableObject {
 
     private let exerciseGenerator: ExerciseGenerator
 
-    convenience init() {
-        self.init(state: ViewState(multiplicand: 1,
-                                   multiplier: 1,
-                                   productSuggestions: [1, 9, 6]),
-                  configuration: .numberRangeUpTo100())
-    }
-
-    convenience init(configuration: Configuration) {
-        self.init(state: ViewState(multiplicand: 0,
-                                   multiplier: 0,
-                                   productSuggestions: []),
-                  configuration: configuration)
-        self.makeNewExercise()
-    }
-
-    init(state: ViewState, configuration: Configuration) {
+    init(configuration: Configuration = .numberRangeUpTo100()) {
         self.exerciseGenerator = ExerciseGenerator(configuration: configuration)
-        self.state = state
+        self.state = ViewState(multiplicand: 0,
+                               multiplier: 0,
+                               productSuggestions: [])
     }
 
-    private func makeNewExercise() {
-        let multiplication = exerciseGenerator.makeMultiplication()
-        state = ViewState(multiplicand: multiplication.multiplicand,
-                          multiplier: multiplication.multiplier,
-                          productSuggestions: multiplication.suggestedProducts)
+    func makeNewExercise() {
+        state = ViewState(multiplication: exerciseGenerator.makeMultiplication())
+    }
+}
+
+extension ViewState {
+
+    fileprivate init(multiplication: ExerciseGenerator.MultiplicationExercise) {
+        self.init(multiplicand: multiplication.multiplicand,
+                  multiplier: multiplication.multiplier,
+                  productSuggestions: multiplication.suggestedProducts)
     }
 }

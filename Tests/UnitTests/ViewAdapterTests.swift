@@ -13,25 +13,31 @@ import Testing
 struct ViewAdapterTests {
 
     @MainActor
-    @Suite("When initialized with a configuration")
+    @Suite("When creating a new exercise")
     struct WhenInitializedWithAConfiguration {
 
         private let configuration = ViewAdapter.Configuration.numberRangeUpTo100()
 
         private func subject() -> ViewAdapter {
-            return ViewAdapter(configuration: configuration)
+            let viewAdapter = ViewAdapter(configuration: configuration)
+            viewAdapter.makeNewExercise()
+
+            return viewAdapter
         }
 
         @Test("it creates a view state with operants in the configurations operand range")
         func it_creates_a_view_state_with_operants_in_the_configurations_operand_range() async throws {
+            let viewAdapter = subject()
 
-            #expect(configuration.operandRange.contains(subject().state.multiplicand))
-            #expect(configuration.operandRange.contains(subject().state.multiplier))
+            #expect(configuration.operandRange.contains(viewAdapter.state.multiplicand))
+            #expect(configuration.operandRange.contains(viewAdapter.state.multiplier))
         }
 
         @Test("it creates the configured amount of suggestions")
         func it_creates_the_configured_amount_of_suggestions() async throws {
-            #expect(subject().state.productSuggestions.count == configuration.numberOfSuggestions)
+            let viewAdapter = subject()
+
+            #expect(viewAdapter.state.productSuggestions.count == configuration.numberOfSuggestions)
         }
     }
 }
