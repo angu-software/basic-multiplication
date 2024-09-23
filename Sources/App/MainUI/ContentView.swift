@@ -9,7 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
 
-    @StateObject var viewAdapter = ViewAdapter()
+    @StateObject
+    var viewAdapter = ViewAdapter()
 
     private var state: ViewState {
         return viewAdapter.state
@@ -25,7 +26,7 @@ struct ContentView: View {
             }
             HStack(spacing: 16) {
                 ForEach(0..<3) { index in
-                    ResultButton(state.availableProducts[index]) {
+                    ResultButton(state.productSuggestions[index]) {
 
                     }
                 }

@@ -13,9 +13,13 @@ final class ViewAdapter: ObservableObject {
     @Published
     var state: ViewState
 
-    init() {
-        self.state = ViewState(multiplicand: 1,
-                               multiplier: 1,
-                               availableProducts: [1, 9, 6])
+    convenience init() {
+        self.init(state: ViewState(multiplicand: 1,
+                                   multiplier: 1,
+                                   productSuggestions: [1, 9, 6]))
+    }
+
+    init(state: ViewState) {
+        self.state = state
     }
 }

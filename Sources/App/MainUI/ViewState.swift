@@ -13,5 +13,5 @@ struct ViewState {
     var multiplicand: Int
     var multiplier: Int
 
-    var availableProducts: [Int]
+    var productSuggestions: [Int]
 }
