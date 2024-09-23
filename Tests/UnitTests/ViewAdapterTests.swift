@@ -11,32 +11,39 @@ import Testing
 
 struct ViewAdapterTests {
 
+    private static let configuration = ViewAdapter.Configuration.numberRangeUpTo100()
+
+    @MainActor
+    private static func viewAdapter() -> ViewAdapter {
+        return ViewAdapter(configuration: configuration)
+    }
+
     @MainActor
     @Suite("When creating a new exercise")
-    struct WhenInitializedWithAConfiguration {
+    struct WhenCreatingANewExercise {
 
-        private let configuration = ViewAdapter.Configuration.numberRangeUpTo100()
+        private let subject: ViewAdapter
 
-        private func subject() -> ViewAdapter {
-            let viewAdapter = ViewAdapter(configuration: configuration)
-            viewAdapter.makeNewExercise()
-
-            return viewAdapter
+        init() {
+            subject = ViewAdapterTests.viewAdapter()
+            subject.makeNewExercise()
         }
 
         @Test("it creates a view state with operants in the configurations operand range")
         func it_creates_a_view_state_with_operants_in_the_configurations_operand_range() async throws {
-            let viewAdapter = subject()
+            let operandRange = ViewAdapterTests.configuration.operandRange
+            let multiplicand = subject.state.multiplicand
+            let multiplier = subject.state.multiplier
 
-            #expect(configuration.operandRange.contains(viewAdapter.state.multiplicand))
-            #expect(configuration.operandRange.contains(viewAdapter.state.multiplier))
+            #expect(operandRange.contains(multiplicand))
+            #expect(operandRange.contains(multiplier))
         }
 
         @Test("it creates the configured amount of suggestions")
         func it_creates_the_configured_amount_of_suggestions() async throws {
-            let viewAdapter = subject()
+            let numberOfSuggestions = ViewAdapterTests.configuration.numberOfSuggestions
 
-            #expect(viewAdapter.state.productSuggestions.count == configuration.numberOfSuggestions)
+            #expect(subject.state.productSuggestions.count == numberOfSuggestions)
         }
     }
 
@@ -44,40 +51,40 @@ struct ViewAdapterTests {
     @Suite("When a suggestion is selected")
     struct WhenASuggestionIsSelected {
 
-        private let configuration = ViewAdapter.Configuration.numberRangeUpTo100()
+        private let subject: ViewAdapter
 
-        private func subject() -> ViewAdapter {
-            let viewAdapter = ViewAdapter(configuration: configuration)
-            viewAdapter.makeNewExercise()
-
-            return viewAdapter
+        init() {
+            subject = ViewAdapterTests.viewAdapter()
+            subject.makeNewExercise()
         }
 
         @Test("it stores the selected suggestion")
         func it_stores_the_selected_suggestion() async throws {
-            let viewAdapter = subject()
-            viewAdapter.didSelectSuggestion(at: 1)
+            let selectionIndex = 1
+            subject.selectSuggestion(at: selectionIndex)
 
-            #expect(viewAdapter.selectedSuggestion == viewAdapter.state.productSuggestions[1])
+            #expect(subject.selectedSuggestion == subject.state.productSuggestions[selectionIndex])
         }
 
         @Test("it enables the continue button")
         func it_enables_the_continue_button() async throws {
-            let viewAdapter = subject()
-            viewAdapter.didSelectSuggestion(at: 1)
+            subject.selectSuggestion(at: 1)
 
-            #expect(viewAdapter.state.isContinueButtonEnabled == true)
+            #expect(subject.state.isContinueButtonEnabled == true)
         }
 
         @Test("it prevents from selecting another suggestion")
         func it_prevents_from_selection_another_suggestion() async throws {
-            let viewAdapter = subject()
-            viewAdapter.didSelectSuggestion(at: 1)
-            let selectedSuggestion = viewAdapter.selectedSuggestion
+            subject.selectSuggestion(at: 1)
+            let previousSelection = subject.selectedSuggestion
 
-            viewAdapter.didSelectSuggestion(at: 2)
+            subject.selectSuggestion(at: 2)
 
-            #expect(viewAdapter.selectedSuggestion == selectedSuggestion)
+            #expect(subject.selectedSuggestion == previousSelection)
         }
+
+        // indication if selected suggestion is wrong
+        // unlock selection with continue button
+        // everything is reset when new exercise is generated
     }
 }

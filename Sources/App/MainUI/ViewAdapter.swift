@@ -29,7 +29,7 @@ final class ViewAdapter: ObservableObject {
         state = ViewState(multiplication: exerciseGenerator.makeMultiplication())
     }
 
-    func didSelectSuggestion(at index: Int) {
+    func selectSuggestion(at index: Int) {
         guard selectedSuggestion == nil else {
             return
         }
