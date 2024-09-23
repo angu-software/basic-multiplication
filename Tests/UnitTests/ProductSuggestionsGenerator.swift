@@ -20,9 +20,9 @@ struct ProductSuggestionsGeneratorTests {
         private func subject(multiplicand: Int = 3,
                              multiplier: Int = 4,
                              maxDistance: Int = 3) -> [Int] {
-            ProductSuggestionsGenerator.makeSuggestions(multiplicand: multiplicand,
-                                                        multiplier: multiplier,
-                                                        maxDistance: maxDistance)
+            ProductSuggestionsGenerator().makeSuggestions(multiplicand: multiplicand,
+                                                          multiplier: multiplier,
+                                                          maxDistance: maxDistance)
         }
 
         @Test("it returns three suggestions")
