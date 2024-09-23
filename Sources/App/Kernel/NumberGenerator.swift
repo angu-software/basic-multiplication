@@ -9,7 +9,13 @@ struct NumberGenerator {
 
     static let defaultRange = 0...10
 
-    func getRandomNumber(range: ClosedRange<Int> = defaultRange) -> Int {
+    private let range: ClosedRange<Int>
+
+    init(range: ClosedRange<Int> = defaultRange) {
+        self.range = range
+    }
+
+    func getRandomNumber() -> Int {
         return .random(in: range)
     }
 }

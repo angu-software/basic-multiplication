@@ -11,8 +11,8 @@ import Testing
 
 struct NumberGeneratorTests {
 
-    static func subject() -> NumberGenerator {
-        return NumberGenerator()
+    static func subject(range: ClosedRange<Int> = NumberGenerator.defaultRange) -> NumberGenerator {
+        return NumberGenerator(range: range)
     }
 
     @Suite("When generating a number")
@@ -31,7 +31,9 @@ struct NumberGeneratorTests {
         func it_returns_a_number_in_the_specified_range() async throws {
             let customRange = 0...3
 
-            #expect(customRange.contains(subject().getRandomNumber(range: customRange)))
+            let number = subject(range: customRange).getRandomNumber()
+
+            #expect(customRange.contains(number))
         }
     }
 }
