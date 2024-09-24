@@ -7,12 +7,14 @@
 
 struct ViewState: Equatable {
 
-    let operationSymbol = "x"
     let continueButtonText = "Next"
 
     var multiplicand: Int
     var multiplier: Int
 
+    var operation: String {
+        return "\(multiplicand) x \(multiplier)"
+    }
     var productSuggestions: [Int]
 
     var isContinueButtonEnabled = false

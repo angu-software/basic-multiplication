@@ -19,11 +19,7 @@ struct ContentView: View {
     var body: some View {
         VStack(spacing: 32) {
             Spacer()
-            HStack() {
-                Label("\(state.multiplicand)")
-                Label(state.operationSymbol)
-                Label("\(state.multiplier)")
-            }
+            Label(state.operation)
             HStack(spacing: 16) {
                 ForEach(state.productSuggestions, id: \.self) {
                     ResultButton($0) {
@@ -35,13 +31,16 @@ struct ContentView: View {
             SubmitButton(state.continueButtonText) {
 
             }
+            .disabled(state.isContinueButtonEnabled == false)
         }
         .padding()
     }
 }
 
 #Preview {
-    ContentView()
+    ContentView(viewState: ViewState(multiplicand: 9,
+                                     multiplier: 8,
+                                     productSuggestions: [71, 72, 75]))
 }
 
 #if DEBUG

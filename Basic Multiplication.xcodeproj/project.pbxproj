@@ -48,8 +48,7 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				"Continuous Delivery Pipeline Ideas.md",
-				SnapshotTests/__Snapshots__/MainUITests/should_show_operation_offered_results_and_submit_button.1.png,
-				SnapshotTests/MainUITests.swift,
+				SnapshotTests/MultiplicationExerciseViewTests.swift,
 				"SwiftSpec idea.md",
 				UITests/MultiplicationExcerciseUITests.swift,
 				UnitTests/ExerciseGeneratorTests.swift,
@@ -79,8 +78,7 @@
 		B3E1F63F2C9D694E00B9EC93 /* Exceptions for "Tests" folder in "SnapshotTests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				SnapshotTests/__Snapshots__/MainUITests/should_show_operation_offered_results_and_submit_button.1.png,
-				SnapshotTests/MainUITests.swift,
+				SnapshotTests/MultiplicationExerciseViewTests.swift,
 			);
 			target = B3E1F5F42C9D5C6A00B9EC93 /* SnapshotTests */;
 		};
