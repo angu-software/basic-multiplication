@@ -28,7 +28,7 @@ struct MultiplicationExerciseView: View {
                 }
             }
             Spacer()
-            SubmitButton(state.continueButtonText) {
+            SubmitButton(state.continueButtonTitle) {
 
             }
             .disabled(state.isContinueButtonEnabled == false)
