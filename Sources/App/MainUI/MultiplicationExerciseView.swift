@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  MultiplicationExerciseView.swift
 //  Basic Multiplication
 //
 //  Created by Andreas Guenther on 20.09.24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct MultiplicationExerciseView: View {
 
     @StateObject
     var viewAdapter = ViewAdapter()
@@ -38,13 +38,13 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView(viewState: ViewState(operation: "9 x 8",
-                                     productSuggestions: [71, 72, 75]))
+    MultiplicationExerciseView(viewState: ViewState(operation: "9 x 8",
+                                                    productSuggestions: [71, 72, 75]))
 }
 
 #if DEBUG
 
-extension ContentView {
+extension MultiplicationExerciseView {
 
     init(viewState: ViewState) {
         let viewAdapter = ViewAdapter()

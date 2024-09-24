@@ -11,7 +11,7 @@ import SwiftUI
 struct Basic_MultiplicationApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MultiplicationExerciseView()
         }
     }
 }
