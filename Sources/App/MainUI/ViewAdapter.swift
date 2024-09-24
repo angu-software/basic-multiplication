@@ -18,6 +18,10 @@ final class ViewAdapter: ObservableObject {
     private(set) var selectedSuggestion: Int?
     private let exerciseGenerator: ExerciseGenerator
 
+    private var correctProduct: Int {
+        return state.multiplicand * state.multiplier
+    }
+
     init(configuration: Configuration = .numberRangeUpTo100()) {
         self.exerciseGenerator = ExerciseGenerator(configuration: configuration)
         self.state = ViewState(multiplicand: 0,
@@ -35,6 +39,7 @@ final class ViewAdapter: ObservableObject {
         }
 
         selectedSuggestion = state.productSuggestions[index]
+        state.isCorrectProductSelected = correctProduct == selectedSuggestion
         state.isContinueButtonEnabled = true
     }
 }

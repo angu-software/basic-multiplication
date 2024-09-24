@@ -83,8 +83,29 @@ struct ViewAdapterTests {
             #expect(subject.selectedSuggestion == previousSelection)
         }
 
-        // indication if selected suggestion is wrong
         // unlock selection with continue button
         // everything is reset when new exercise is generated
+    }
+
+    @MainActor
+    @Suite("When the correct suggestion is selected")
+    struct WhenTheCorrectSuggestionIsSelected {
+
+        private let subject: ViewAdapter
+
+        init() {
+            subject = ViewAdapterTests.viewAdapter()
+            subject.makeNewExercise()
+        }
+
+        @Test("it indicates the selection is correct")
+        func it_indicates_the_selection_is_correct() async throws {
+            let correctProduct = subject.state.multiplicand * subject.state.multiplier
+            let correctProductIndex = try #require(subject.state.productSuggestions.firstIndex(of: correctProduct))
+
+            subject.selectSuggestion(at: correctProductIndex)
+
+            #expect(subject.state.isCorrectProductSelected == true)
+        }
     }
 }

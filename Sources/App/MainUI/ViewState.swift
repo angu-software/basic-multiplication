@@ -16,4 +16,5 @@ struct ViewState: Equatable {
     var productSuggestions: [Int]
 
     var isContinueButtonEnabled = false
+    var isCorrectProductSelected: Bool?
 }
