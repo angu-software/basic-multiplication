@@ -25,13 +25,13 @@ struct ViewAdapterTests {
         private let subject: ViewAdapter
 
         init() {
-            subject = ViewAdapterTests.viewAdapter()
+            subject = viewAdapter()
             subject.makeNewExercise()
         }
 
         @Test("it creates a view state with operants in the configurations operand range")
         func it_creates_a_view_state_with_operants_in_the_configurations_operand_range() async throws {
-            let operandRange = ViewAdapterTests.configuration.operandRange
+            let operandRange = configuration.operandRange
             let multiplicand = subject.state.multiplicand
             let multiplier = subject.state.multiplier
 
@@ -41,7 +41,7 @@ struct ViewAdapterTests {
 
         @Test("it creates the configured amount of suggestions")
         func it_creates_the_configured_amount_of_suggestions() async throws {
-            let numberOfSuggestions = ViewAdapterTests.configuration.numberOfSuggestions
+            let numberOfSuggestions = configuration.numberOfSuggestions
 
             #expect(subject.state.productSuggestions.count == numberOfSuggestions)
         }
@@ -54,7 +54,7 @@ struct ViewAdapterTests {
         private let subject: ViewAdapter
 
         init() {
-            subject = ViewAdapterTests.viewAdapter()
+            subject = viewAdapter()
             subject.makeNewExercise()
         }
 
@@ -90,7 +90,7 @@ struct ViewAdapterTests {
             private let subject: ViewAdapter
 
             init() {
-                subject = ViewAdapterTests.viewAdapter()
+                subject = viewAdapter()
                 subject.makeNewExercise()
                 subject.selectSuggestion(at: 0)
             }
@@ -118,7 +118,7 @@ struct ViewAdapterTests {
         private let subject: ViewAdapter
 
         init() {
-            subject = ViewAdapterTests.viewAdapter()
+            subject = viewAdapter()
             subject.makeNewExercise()
         }
 
