@@ -15,22 +15,34 @@ final class ViewAdapter: ObservableObject {
     @Published
     var state: ViewState
 
-    private(set) var selectedSuggestion: Int?
     private let exerciseGenerator: ExerciseGenerator
+    private(set) var selectedSuggestion: Int?
 
-    private var correctProduct: Int {
-        return state.multiplicand * state.multiplier
+    private var exercise: MultiplicationExercise {
+        didSet {
+            state = ViewState(exercise: exercise)
+        }
     }
 
-    init(configuration: Configuration = .numberRangeUpTo100()) {
-        self.exerciseGenerator = ExerciseGenerator(configuration: configuration)
-        self.state = ViewState(multiplicand: 0,
-                               multiplier: 0,
-                               productSuggestions: [])
+    private var correctProduct: Int {
+        return exercise.multiplication.product
+    }
+
+    convenience init(configuration: Configuration = .numberRangeUpTo100()) {
+        let generator = ExerciseGenerator(configuration: configuration)
+        self.init(exerciseGenerator: generator,
+                  exercise: generator.makeMultiplication())
+    }
+
+    private init(exerciseGenerator: ExerciseGenerator,
+                 exercise: MultiplicationExercise) {
+        self.exerciseGenerator = exerciseGenerator
+        self.exercise = exercise
+        self.state = ViewState(exercise: exercise)
     }
 
     func makeNewExercise() {
-        state = ViewState(multiplication: exerciseGenerator.makeMultiplication())
+        exercise = exerciseGenerator.makeMultiplication()
     }
 
     func selectSuggestion(at index: Int) {
@@ -39,6 +51,11 @@ final class ViewAdapter: ObservableObject {
         }
 
         selectedSuggestion = state.productSuggestions[index]
+
+        updateState()
+    }
+
+    private func updateState() {
         state.isCorrectProductSelected = correctProduct == selectedSuggestion
         state.isContinueButtonEnabled = true
     }
@@ -46,9 +63,9 @@ final class ViewAdapter: ObservableObject {
 
 extension ViewState {
 
-    fileprivate init(multiplication: MultiplicationExercise) {
-        self.init(multiplicand: multiplication.multiplicand,
-                  multiplier: multiplication.multiplier,
-                  productSuggestions: multiplication.productSuggestions)
+    fileprivate init(exercise: MultiplicationExercise) {
+        self.init(multiplicand: exercise.multiplicand,
+                  multiplier: exercise.multiplier,
+                  productSuggestions: exercise.productSuggestions)
     }
 }
