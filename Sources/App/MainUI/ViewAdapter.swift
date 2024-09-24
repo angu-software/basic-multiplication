@@ -18,7 +18,7 @@ final class ViewAdapter: ObservableObject {
     private let exerciseGenerator: ExerciseGenerator
     private(set) var selectedSuggestion: Int?
 
-    private var exercise: MultiplicationExercise {
+    private(set) var exercise: MultiplicationExercise {
         didSet {
             state = ViewState(exercise: exercise)
         }
@@ -39,6 +39,11 @@ final class ViewAdapter: ObservableObject {
         self.exerciseGenerator = exerciseGenerator
         self.exercise = exercise
         self.state = ViewState(exercise: exercise)
+    }
+
+    func didTapContinueButton() {
+        makeNewExercise()
+        selectedSuggestion = nil
     }
 
     func makeNewExercise() {
@@ -63,7 +68,7 @@ final class ViewAdapter: ObservableObject {
 
 extension ViewState {
 
-    fileprivate init(exercise: MultiplicationExercise) {
+    init(exercise: MultiplicationExercise) {
         self.init(multiplicand: exercise.multiplicand,
                   multiplier: exercise.multiplier,
                   productSuggestions: exercise.productSuggestions)

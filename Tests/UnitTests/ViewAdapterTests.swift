@@ -83,8 +83,32 @@ struct ViewAdapterTests {
             #expect(subject.selectedSuggestion == previousSelection)
         }
 
-        // unlock selection with continue button
-        // everything is reset when new exercise is generated
+        @MainActor
+        @Suite("When progressing to the next exercise")
+        struct WhenProgressingToTheNextExercise {
+
+            private let subject: ViewAdapter
+
+            init() {
+                subject = ViewAdapterTests.viewAdapter()
+                subject.makeNewExercise()
+                subject.selectSuggestion(at: 0)
+            }
+
+            @Test("it resets the state")
+            func it_resets_the_state() async throws {
+                subject.didTapContinueButton()
+
+                #expect(subject.state == ViewState(exercise: subject.exercise))
+            }
+
+            @Test("it resets the selection")
+            func it_resets_the_selection() async throws {
+                subject.didTapContinueButton()
+
+                #expect(subject.selectedSuggestion == nil)
+            }
+        }
     }
 
     @MainActor
