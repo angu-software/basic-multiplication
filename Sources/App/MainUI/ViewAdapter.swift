@@ -69,8 +69,7 @@ final class ViewAdapter: ObservableObject {
 extension ViewState {
 
     init(exercise: MultiplicationExercise) {
-        self.init(multiplicand: exercise.multiplicand,
-                  multiplier: exercise.multiplier,
+        self.init(operation: "\(exercise.multiplicand) x \(exercise.multiplier)",
                   productSuggestions: exercise.productSuggestions)
     }
 }

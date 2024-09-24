@@ -38,8 +38,7 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView(viewState: ViewState(multiplicand: 9,
-                                     multiplier: 8,
+    ContentView(viewState: ViewState(operation: "9 x 8",
                                      productSuggestions: [71, 72, 75]))
 }
 

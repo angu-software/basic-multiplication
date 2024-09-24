@@ -29,14 +29,11 @@ struct ViewAdapterTests {
             subject.makeNewExercise()
         }
 
-        @Test("it creates a view state with operants in the configurations operand range")
-        func it_creates_a_view_state_with_operants_in_the_configurations_operand_range() async throws {
-            let operandRange = configuration.operandRange
-            let multiplicand = subject.state.multiplicand
-            let multiplier = subject.state.multiplier
+        @Test("it creates a view state with multiplication operation")
+        func it_creates_a_view_state_with_multiplication_operation() async throws {
+            let exercise = subject.exercise
 
-            #expect(operandRange.contains(multiplicand))
-            #expect(operandRange.contains(multiplier))
+            #expect(subject.state.operation == "\(exercise.multiplicand) x \(exercise.multiplier)")
         }
 
         @Test("it creates the configured amount of suggestions")
