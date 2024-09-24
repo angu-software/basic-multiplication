@@ -124,7 +124,7 @@ struct ViewAdapterTests {
 
         @Test("it indicates the selection is correct")
         func it_indicates_the_selection_is_correct() async throws {
-            let correctProduct = subject.state.multiplicand * subject.state.multiplier
+            let correctProduct = subject.exercise.multiplication.product
             let correctProductIndex = try #require(subject.state.productSuggestions.firstIndex(of: correctProduct))
 
             subject.selectSuggestion(at: correctProductIndex)
