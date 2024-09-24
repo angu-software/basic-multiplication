@@ -5,7 +5,6 @@
 //  Created by Andreas Guenther on 20.09.24.
 //
 
-
 struct ExerciseGenerator {
 
     typealias MultiplicationExercise = (multiplicand: Int, multiplier: Int, suggestedProducts: [Int])
