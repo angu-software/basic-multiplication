@@ -46,7 +46,7 @@ struct ExerciseGeneratorTests {
         func it_returns_three_product_suggestions() async throws {
             let exercise = subject().makeMultiplication()
 
-            #expect(exercise.suggestedProducts.count == numberOfSuggestions)
+            #expect(exercise.productSuggestions.count == numberOfSuggestions)
         }
     }
 }
