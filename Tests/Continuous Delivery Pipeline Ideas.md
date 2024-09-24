@@ -14,6 +14,7 @@
 * [ ] UITests
 * [ ] Flakiness detection (execute tests multiple times)
 * [ ] Run (development) tests for min deployment target
+* [ ] Performance tests (launch performance)
 
 ## Other considerations
 * [ ] Check for warnings

@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "8EFA5F72-0D9C-4A6F-B902-74C31DB13BBC",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:Basic Multiplication.xcodeproj",
+        "identifier" : "B332C8C32C9D458800953C58",
+        "name" : "UITests"
+      }
+    }
+  ],
+  "version" : 1
+}
