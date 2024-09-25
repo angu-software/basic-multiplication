@@ -51,6 +51,15 @@ final class MultiplicationExerciseUITests {
             XCTAssert(wrongSolutionIndicator.exists)
         }
 
+        func test_it_generates_a_new_exercise_when_taping_continue() throws {
+            let currentSuggestions = suggestions()
+
+            tapSuggestion(operationProduct())
+            tap(continueButton)
+
+            XCTAssertNotEqual(suggestions(), currentSuggestions)
+        }
+
         // it can generate a new exercise
 
         // MARK: - API
@@ -59,9 +68,14 @@ final class MultiplicationExerciseUITests {
         private lazy var suggestionsList = app.otherElements["suggestions"]
         private lazy var correctSolutionIndicator = app.otherElements["correct"]
         private lazy var wrongSolutionIndicator = app.otherElements["wrong"]
+        private lazy var continueButton = app.buttons["Next exercise"]
+
+        private func operation() -> String {
+            return operationLabel.label
+        }
 
         private func operationProduct() -> String {
-            let operands = operationLabel.label
+            let operands = operation()
                 .components(separatedBy: "x")
                 .compactMap { Int($0.trimmingCharacters(in: .whitespacesAndNewlines)) }
 
@@ -75,10 +89,12 @@ final class MultiplicationExerciseUITests {
                 .map({ $0.label })
         }
 
-        private func tapSuggestion(_ product: String,
-                                   file: StaticString = #file,
-                                   line: UInt = #line) {
-            app.buttons[product].tap()
+        private func tapSuggestion(_ product: String) {
+            tap(app.buttons[product])
+        }
+
+        private func tap(_ element: XCUIElement) {
+            element.tap()
         }
     }
 }

@@ -26,7 +26,7 @@ struct MultiplicationExerciseView: View {
                 ForEach(state.suggestionSelection, id: \.value) { suggestion in
                     ResultButton(suggestion.value,
                                  isSelected: suggestion.isSelected) {
-                        viewAdapter.selectSuggestion(suggestion.value)
+                        viewAdapter.didSelectSuggestion(suggestion.value)
                     }
                 }
                 .accessibilityElement()
@@ -35,7 +35,7 @@ struct MultiplicationExerciseView: View {
             SelectionIndicator(selection: state.isCorrectProductSelected)
             Spacer()
             SubmitButton(state.continueButtonTitle) {
-
+                viewAdapter.didTapContinueButton()
             }
             .disabled(state.isContinueButtonDisabled)
         }
