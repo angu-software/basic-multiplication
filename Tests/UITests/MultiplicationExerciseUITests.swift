@@ -41,13 +41,24 @@ final class MultiplicationExerciseUITests {
             XCTAssert(correctSolutionIndicator.exists)
         }
 
-        // it shows that the wrong suggestion was tapped
+        func test_it_shows_that_the_wrong_suggestion_was_selected() throws {
+            let operationProduct = operationProduct()
+            let wrongSolution = suggestions()
+                .first(where: { $0 != operationProduct }) ?? ""
+
+            tapSuggestion(wrongSolution)
+
+            XCTAssert(wrongSolutionIndicator.exists)
+        }
+
         // it can generate a new exercise
 
         // MARK: - API
 
         private lazy var operationLabel = app.otherElements["operation"].staticTexts.firstMatch
+        private lazy var suggestionsList = app.otherElements["suggestions"]
         private lazy var correctSolutionIndicator = app.otherElements["correct"]
+        private lazy var wrongSolutionIndicator = app.otherElements["wrong"]
 
         private func operationProduct() -> String {
             let operands = operationLabel.label
@@ -57,7 +68,16 @@ final class MultiplicationExerciseUITests {
             return "\(operands[0] * operands[1])"
         }
 
-        private func tapSuggestion(_ product: String) {
+        private func suggestions() -> [String] {
+            return suggestionsList
+                .buttons
+                .allElementsBoundByAccessibilityElement
+                .map({ $0.label })
+        }
+
+        private func tapSuggestion(_ product: String,
+                                   file: StaticString = #file,
+                                   line: UInt = #line) {
             app.buttons[product].tap()
         }
     }

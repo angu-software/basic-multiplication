@@ -29,6 +29,8 @@ struct MultiplicationExerciseView: View {
                         viewAdapter.selectSuggestion(suggestion.value)
                     }
                 }
+                .accessibilityElement()
+                .accessibilityIdentifier("suggestions")
             }
             SelectionIndicator(selection: state.isCorrectProductSelected)
             Spacer()

@@ -19,7 +19,8 @@ struct SelectionIndicator: View {
 
         static func wrongSelection() -> Self {
             return Self(imageName: "xmark.seal.fill",
-                        imageTint: .wrongSelection)
+                        imageTint: .wrongSelection,
+                        accessibilityId: "wrong")
         }
 
         static func noSelection() -> Self {
