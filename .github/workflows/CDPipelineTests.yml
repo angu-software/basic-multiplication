@@ -20,6 +20,8 @@ jobs:
   test:
 
     runs-on: macos-latest
+    env:
+      BUNDLE_GEMFILE: ./CDPipeline/Gemfile
     defaults:
       run:
         working-directory: ./CDPipeline
