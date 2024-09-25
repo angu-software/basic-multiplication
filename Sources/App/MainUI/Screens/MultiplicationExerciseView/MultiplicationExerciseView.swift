@@ -30,7 +30,6 @@ struct MultiplicationExerciseView: View {
                 }
             }
             SelectionIndicator(selection: state.isCorrectProductSelected)
-                .frame(width: 64, height: 64)
             Spacer()
             SubmitButton(state.continueButtonTitle) {
 
@@ -44,14 +43,31 @@ struct MultiplicationExerciseView: View {
 
 struct SelectionIndicator: View {
 
+    struct Style {
+        static func correctSelection() -> Self {
+            return Self(imageName: "checkmark.seal.fill",
+                        imageTint: .green)
+        }
+
+        let imageName: String
+        let imageTint: Color
+
+        private init(imageName: String, imageTint: Color) {
+            self.imageName = imageName
+            self.imageTint = imageTint
+        }
+    }
+
     var selection: Bool?
 
     @ViewBuilder
     var body: some View {
         if selection == true {
-            Image(systemName: "checkmark.seal.fill")
+            let style = Style.correctSelection()
+            Image(systemName: style.imageName)
                 .resizable()
-                .foregroundStyle(.green)
+                .foregroundStyle(style.imageTint)
+                .frame(width: 64, height: 64)
         }
     }
 }
