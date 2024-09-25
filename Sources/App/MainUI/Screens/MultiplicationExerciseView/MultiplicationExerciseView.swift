@@ -25,8 +25,11 @@ struct MultiplicationExerciseView: View {
                     ResultButton($0) {
 
                     }
+                    .background($0 == state.selectedSuggestion ? .gray.opacity(0.5) : .white)
                 }
             }
+            SelectionIndicator(selection: state.isCorrectProductSelected)
+                .frame(width: 64, height: 64)
             Spacer()
             SubmitButton(state.continueButtonTitle) {
 
@@ -37,9 +40,31 @@ struct MultiplicationExerciseView: View {
     }
 }
 
+struct SelectionIndicator: View {
+
+    var selection: Bool?
+
+    @ViewBuilder
+    var body: some View {
+        if selection == true {
+            Image(systemName: "checkmark.seal.fill")
+                .resizable()
+                .foregroundStyle(.green)
+        }
+    }
+}
+
 #Preview {
     MultiplicationExerciseView(viewState: ViewState(operation: "9 x 8",
                                                     productSuggestions: ["71", "72", "75"]))
+}
+
+#Preview {
+    MultiplicationExerciseView(viewState: ViewState(operation: "9 x 8",
+                                                    productSuggestions: ["71", "72", "75"],
+                                                    isContinueButtonEnabled: true,
+                                                    isCorrectProductSelected: true,
+                                                    selectedSuggestion: "72"))
 }
 
 #if DEBUG
