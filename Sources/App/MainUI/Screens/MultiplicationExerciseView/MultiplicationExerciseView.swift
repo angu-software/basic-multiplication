@@ -21,9 +21,9 @@ struct MultiplicationExerciseView: View {
             Spacer()
             Label(state.operation)
             HStack(spacing: 16) {
-                ForEach(state.productSuggestions, id: \.self) {
-                    ResultButton($0,
-                                 isSelected: $0 == state.selectedSuggestion) {
+                ForEach(state.suggestionSelection, id: \.value) {
+                    ResultButton($0.value,
+                                 isSelected: $0.isSelected) {
 
                     }
                 }

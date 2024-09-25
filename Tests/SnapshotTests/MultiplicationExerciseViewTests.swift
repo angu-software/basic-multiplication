@@ -44,7 +44,7 @@ struct MultiplicationExerciseViewTests {
 
             assertSnapshot(of: view, as: .image(drawHierarchyInKeyWindow: true,
                                                 layout: .device(config: .iPhone13Mini),
-                                                traits: .init(userInterfaceStyle: .light)))
+                                                traits: .init(userInterfaceStyle: .light)),record: true)
         }
     }
 
