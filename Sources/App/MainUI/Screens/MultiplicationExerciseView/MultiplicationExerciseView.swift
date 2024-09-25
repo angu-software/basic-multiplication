@@ -25,6 +25,7 @@ struct MultiplicationExerciseView: View {
                     ResultButton($0) {
 
                     }
+                    // TODO: Use background property  (tuple/struct?)
                     .background($0 == state.selectedSuggestion ? .gray.opacity(0.5) : .white)
                 }
             }
@@ -34,6 +35,7 @@ struct MultiplicationExerciseView: View {
             SubmitButton(state.continueButtonTitle) {
 
             }
+            // TODO: invert the isContinueButtonEnabled property
             .disabled(state.isContinueButtonEnabled == false)
         }
         .padding()

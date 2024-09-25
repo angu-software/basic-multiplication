@@ -63,6 +63,16 @@ struct ViewAdapterTests {
             #expect(subject.selectedSuggestion == subject.exercise.productSuggestions[selectionIndex])
         }
 
+        @Test("it sets the selected suggestion on the state")
+        func it_sets_the_selected_suggestion_on_the_state() async throws {
+            let selectionIndex = 1
+
+            subject.selectSuggestion(at: selectionIndex)
+            
+            let selectedSuggestion = try #require(subject.selectedSuggestion)
+            #expect(subject.state.selectedSuggestion == "\(selectedSuggestion)")
+        }
+
         @Test("it enables the continue button")
         func it_enables_the_continue_button() async throws {
             subject.selectSuggestion(at: 1)

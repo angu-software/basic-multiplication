@@ -16,7 +16,11 @@ final class ViewAdapter: ObservableObject {
     var state: ViewState
 
     private let exerciseGenerator: ExerciseGenerator
-    private(set) var selectedSuggestion: Int?
+    private(set) var selectedSuggestion: Int? {
+        didSet {
+            updateState(for: selectedSuggestion)
+        }
+    }
 
     private(set) var exercise: MultiplicationExercise {
         didSet {
@@ -42,8 +46,8 @@ final class ViewAdapter: ObservableObject {
     }
 
     func didTapContinueButton() {
-        makeNewExercise()
         selectedSuggestion = nil
+        makeNewExercise()
     }
 
     func makeNewExercise() {
@@ -56,13 +60,18 @@ final class ViewAdapter: ObservableObject {
         }
 
         selectedSuggestion = exercise.productSuggestions[index]
-
-        updateState()
     }
 
-    private func updateState() {
-        state.isCorrectProductSelected = correctProduct == selectedSuggestion
-        state.isContinueButtonEnabled = true
+    private func updateState(for selectedSuggestion: Int?) {
+        if let selectedSuggestion {
+            state.isCorrectProductSelected = correctProduct == selectedSuggestion
+            state.selectedSuggestion = "\(selectedSuggestion)"
+            state.isContinueButtonEnabled = true
+        } else {
+            state.isCorrectProductSelected = nil
+            state.selectedSuggestion = nil
+            state.isContinueButtonEnabled = false
+        }
     }
 }
 
