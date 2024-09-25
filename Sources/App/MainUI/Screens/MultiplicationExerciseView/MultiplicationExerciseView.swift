@@ -26,7 +26,7 @@ struct MultiplicationExerciseView: View {
 
                     }
                     // TODO: Use background property  (tuple/struct?)
-                    .background($0 == state.selectedSuggestion ? .gray.opacity(0.5) : .white)
+                    .background($0 == state.selectedSuggestion ? .gray.opacity(0.5) : .clear)
                 }
             }
             SelectionIndicator(selection: state.isCorrectProductSelected)
