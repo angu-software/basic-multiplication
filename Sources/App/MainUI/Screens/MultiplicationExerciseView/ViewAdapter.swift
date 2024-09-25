@@ -66,11 +66,11 @@ final class ViewAdapter: ObservableObject {
         if let selectedSuggestion {
             state.isCorrectProductSelected = correctProduct == selectedSuggestion
             state.selectedSuggestion = "\(selectedSuggestion)"
-            state.isContinueButtonEnabled = true
+            state.isContinueButtonDisabled = false
         } else {
             state.isCorrectProductSelected = nil
             state.selectedSuggestion = nil
-            state.isContinueButtonEnabled = false
+            state.isContinueButtonDisabled = true
         }
     }
 }

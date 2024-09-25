@@ -36,7 +36,7 @@ struct MultiplicationExerciseViewTests {
         func it_indicates_the_selection_is_correct() async throws {
             let state = ViewState(operation: "1 x 1",
                                   productSuggestions: ["1", "9", "6"],
-                                  isContinueButtonEnabled: true,
+                                  isContinueButtonDisabled: false,
                                   isCorrectProductSelected: true,
                                   selectedSuggestion: "1")
 
@@ -55,7 +55,7 @@ struct MultiplicationExerciseViewTests {
         func it_indicates_the_selection_is_wrong() async throws {
             let state = ViewState(operation: "1 x 1",
                                   productSuggestions: ["1", "9", "6"],
-                                  isContinueButtonEnabled: true,
+                                  isContinueButtonDisabled: false,
                                   isCorrectProductSelected: false,
                                   selectedSuggestion: "9")
 

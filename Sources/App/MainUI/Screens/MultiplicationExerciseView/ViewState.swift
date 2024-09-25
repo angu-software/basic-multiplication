@@ -11,10 +11,18 @@ struct ViewState: Equatable {
     let productSuggestions: [String]
     let continueButtonTitle = MultiplicationExerciseView.Texts.continueButtonTitle
 
-    var isContinueButtonEnabled = false
+    var isContinueButtonDisabled = true
     var isCorrectProductSelected: Bool?
     var selectedSuggestion: String?
 
+    var isContinueButtonEnabled: Bool {
+        get {
+            return !isContinueButtonDisabled
+        }
+        set {
+            isContinueButtonDisabled = !newValue
+        }
+    }
     var suggestionSelection: [(value: String, isSelected: Bool)] {
         return productSuggestions.map({ ($0, $0 == selectedSuggestion) })
     }

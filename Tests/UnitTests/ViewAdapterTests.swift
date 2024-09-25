@@ -77,7 +77,7 @@ struct ViewAdapterTests {
         func it_enables_the_continue_button() async throws {
             subject.selectSuggestion(at: 1)
 
-            #expect(subject.state.isContinueButtonEnabled == true)
+            #expect(subject.state.isContinueButtonDisabled == false)
         }
 
         @Test("it prevents from selecting another suggestion")

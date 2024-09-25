@@ -33,8 +33,7 @@ struct MultiplicationExerciseView: View {
             SubmitButton(state.continueButtonTitle) {
 
             }
-            // TODO: invert the isContinueButtonEnabled property
-            .disabled(state.isContinueButtonEnabled == false)
+            .disabled(state.isContinueButtonDisabled)
         }
         .background(Color.background)
         .padding()
@@ -49,7 +48,7 @@ struct MultiplicationExerciseView: View {
 #Preview {
     MultiplicationExerciseView(viewState: ViewState(operation: "9 x 8",
                                                     productSuggestions: ["71", "72", "75"],
-                                                    isContinueButtonEnabled: true,
+                                                    isContinueButtonDisabled: false,
                                                     isCorrectProductSelected: true,
                                                     selectedSuggestion: "72"))
 }
@@ -57,7 +56,7 @@ struct MultiplicationExerciseView: View {
 #Preview {
     MultiplicationExerciseView(viewState: ViewState(operation: "9 x 8",
                                                     productSuggestions: ["71", "72", "75"],
-                                                    isContinueButtonEnabled: true,
+                                                    isContinueButtonDisabled: false,
                                                     isCorrectProductSelected: false,
                                                     selectedSuggestion: "71"))
 }
