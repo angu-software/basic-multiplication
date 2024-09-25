@@ -10,6 +10,7 @@ import XCTest
 final class MultiplicationExerciseUITests {
 
     // When selecting a suggestion
+    @MainActor
     final class WhenSelectingASuggestion: XCTestCase {
 
         private let timeout: TimeInterval = 10
@@ -34,26 +35,30 @@ final class MultiplicationExerciseUITests {
             try super.tearDownWithError()
         }
 
-        // it shows that the correct suggestion was tapped
-        @MainActor
         func test_it_shows_that_the_correct_suggestion_was_selected() throws {
-            let operation = app.otherElements["operation"]
-            let operationLabel = operation.staticTexts.firstMatch
-            let label = operationLabel.label
+            tapSuggestion(operationProduct())
 
-            let operands = label
-                .components(separatedBy: "x")
-                .compactMap { Int($0.trimmingCharacters(in: .whitespacesAndNewlines)) }
-            let product = operands[0] * operands[1]
-
-            app.buttons["\(product)"].tap()
-
-            XCTAssert(app.otherElements["correct"].exists)
-//            tap(correctProduct)
-//            assert(correctnessIndicatorCorrectSelection)
+            XCTAssert(correctSolutionIndicator.exists)
         }
 
         // it shows that the wrong suggestion was tapped
         // it can generate a new exercise
+
+        // MARK: - API
+
+        private lazy var operationLabel = app.otherElements["operation"].staticTexts.firstMatch
+        private lazy var correctSolutionIndicator = app.otherElements["correct"]
+
+        private func operationProduct() -> String {
+            let operands = operationLabel.label
+                .components(separatedBy: "x")
+                .compactMap { Int($0.trimmingCharacters(in: .whitespacesAndNewlines)) }
+
+            return "\(operands[0] * operands[1])"
+        }
+
+        private func tapSuggestion(_ product: String) {
+            app.buttons[product].tap()
+        }
     }
 }
