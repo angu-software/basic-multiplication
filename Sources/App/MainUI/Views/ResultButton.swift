@@ -9,10 +9,12 @@ import SwiftUI
 
 struct ResultButton: View {
     var value: String
+    var isSelected: Bool
     var action: () -> Void
 
-    init(_ value: String, action: @escaping () -> Void) {
+    init(_ value: String, isSelected: Bool, action: @escaping () -> Void) {
         self.value = value
+        self.isSelected = isSelected
         self.action = action
     }
 
@@ -20,6 +22,7 @@ struct ResultButton: View {
         Button(value,
                action: action)
         .frame(minWidth: 56, minHeight: 42)
+        .background(isSelected ? .selectedProduct : .clear)
         .border(.accent)
     }
 }

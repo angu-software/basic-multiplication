@@ -22,11 +22,10 @@ struct MultiplicationExerciseView: View {
             Label(state.operation)
             HStack(spacing: 16) {
                 ForEach(state.productSuggestions, id: \.self) {
-                    ResultButton($0) {
+                    ResultButton($0,
+                                 isSelected: $0 == state.selectedSuggestion) {
 
                     }
-                    // TODO: Use background property  (tuple/struct?)
-                    .background($0 == state.selectedSuggestion ? .selectedProduct : .clear)
                 }
             }
             SelectionIndicator(selection: state.isCorrectProductSelected)
