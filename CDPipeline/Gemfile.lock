@@ -1,7 +1,4 @@
 GEM
-  specs:
-
-GEM
   remote: https://rubygems.org/
   specs:
     diff-lcs (1.5.1)
@@ -24,7 +21,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  rspec!
+  rspec (~> 3.13)
 
 BUNDLED WITH
    2.5.15
