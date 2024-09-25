@@ -51,6 +51,8 @@
 				SnapshotTests/MultiplicationExerciseViewTests.swift,
 				"SwiftSpec idea.md",
 				UITests/MultiplicationExerciseUITests.swift,
+				UITests/ScreenRobots/MultiplicationExerciseRobot.swift,
+				UITests/ScreenRobots/ScreenRobot.swift,
 				UnitTests/ExerciseGeneratorTests.swift,
 				UnitTests/NumberGeneratorTests.swift,
 				UnitTests/ProductSuggestionsGenerator.swift,
@@ -72,6 +74,8 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				UITests/MultiplicationExerciseUITests.swift,
+				UITests/ScreenRobots/MultiplicationExerciseRobot.swift,
+				UITests/ScreenRobots/ScreenRobot.swift,
 			);
 			target = B332C8C32C9D458800953C58 /* UITests */;
 		};
