@@ -20,11 +20,13 @@ struct MultiplicationExerciseView: View {
         VStack(spacing: 32) {
             Spacer()
             Label(state.operation)
+                .accessibilityElement()
+                .accessibilityIdentifier("operation")
             HStack(spacing: 16) {
-                ForEach(state.suggestionSelection, id: \.value) {
-                    ResultButton($0.value,
-                                 isSelected: $0.isSelected) {
-
+                ForEach(state.suggestionSelection, id: \.value) { suggestion in
+                    ResultButton(suggestion.value,
+                                 isSelected: suggestion.isSelected) {
+                        viewAdapter.selectSuggestion(suggestion.value)
                     }
                 }
             }

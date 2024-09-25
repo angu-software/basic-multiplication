@@ -1,5 +1,5 @@
 //
-//  MultiplicationExcerciseUITests.swift
+//  MultiplicationExerciseUITests.swift
 //  UITests
 //
 //  Created by Andreas Guenther on 20.09.24.
@@ -7,7 +7,7 @@
 
 import XCTest
 
-final class MultiplicationExcerciseUITests {
+final class MultiplicationExerciseUITests {
 
     // When selecting a suggestion
     final class WhenSelectingASuggestion: XCTestCase {
@@ -36,8 +36,21 @@ final class MultiplicationExcerciseUITests {
 
         // it shows that the correct suggestion was tapped
         @MainActor
-        func it_shows_that_the_correct_suggestion_was_tapped() throws {
+        func test_it_shows_that_the_correct_suggestion_was_selected() throws {
+            let operation = app.otherElements["operation"]
+            let operationLabel = operation.staticTexts.firstMatch
+            let label = operationLabel.label
 
+            let operands = label
+                .components(separatedBy: "x")
+                .compactMap { Int($0.trimmingCharacters(in: .whitespacesAndNewlines)) }
+            let product = operands[0] * operands[1]
+
+            app.buttons["\(product)"].tap()
+
+            XCTAssert(app.otherElements["correct"].exists)
+//            tap(correctProduct)
+//            assert(correctnessIndicatorCorrectSelection)
         }
 
         // it shows that the wrong suggestion was tapped

@@ -13,7 +13,8 @@ struct SelectionIndicator: View {
 
         static func correctSelection() -> Self {
             return Self(imageName: "checkmark.seal.fill",
-                        imageTint: .correctSelection)
+                        imageTint: .correctSelection,
+                        accessibilityId: "correct")
         }
 
         static func wrongSelection() -> Self {
@@ -28,6 +29,7 @@ struct SelectionIndicator: View {
 
         let imageName: String
         let imageTint: Color
+        let accessibilityId: String
 
         init(selection: Bool?) {
             switch selection {
@@ -41,13 +43,14 @@ struct SelectionIndicator: View {
         }
 
         private init(imageName: String,
-                     imageTint: Color) {
+                     imageTint: Color,
+                     accessibilityId: String = "") {
             self.imageName = imageName
             self.imageTint = imageTint
+            self.accessibilityId = accessibilityId
         }
     }
 
-    @State
     var selection: Bool?
 
     var body: some View {
@@ -56,5 +59,7 @@ struct SelectionIndicator: View {
             .resizable()
             .foregroundStyle(style.imageTint)
             .frame(width: 64, height: 64)
+            .accessibilityElement()
+            .accessibilityIdentifier(style.accessibilityId)
     }
 }

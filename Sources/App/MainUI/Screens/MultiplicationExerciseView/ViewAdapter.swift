@@ -54,6 +54,15 @@ final class ViewAdapter: ObservableObject {
         exercise = exerciseGenerator.makeMultiplication()
     }
 
+    func selectSuggestion(_ value: String) {
+        guard let index = state.productSuggestions.firstIndex(of: value) else {
+            return
+        }
+
+        selectSuggestion(at: index)
+    }
+
+    // TODO: make private. selectSuggestion(_:) should be the main access point
     func selectSuggestion(at index: Int) {
         guard selectedSuggestion == nil else {
             return
