@@ -8,7 +8,7 @@
 struct ViewState: Equatable {
 
     let operation: String
-    let productSuggestions: [Int]
+    let productSuggestions: [String]
     let continueButtonTitle = MultiplicationExerciseView.Texts.continueButtonTitle
 
     var isContinueButtonEnabled = false

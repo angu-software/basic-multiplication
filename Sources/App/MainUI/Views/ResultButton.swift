@@ -8,16 +8,16 @@
 import SwiftUI
 
 struct ResultButton: View {
-    var value: Int
+    var value: String
     var action: () -> Void
 
-    init(_ value: Int, action: @escaping () -> Void) {
+    init(_ value: String, action: @escaping () -> Void) {
         self.value = value
         self.action = action
     }
 
     var body: some View {
-        Button("\(value)",
+        Button(value,
                action: action)
         .frame(minWidth: 56, minHeight: 42)
         .border(.accent)

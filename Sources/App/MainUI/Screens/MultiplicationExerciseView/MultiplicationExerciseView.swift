@@ -39,7 +39,7 @@ struct MultiplicationExerciseView: View {
 
 #Preview {
     MultiplicationExerciseView(viewState: ViewState(operation: "9 x 8",
-                                                    productSuggestions: [71, 72, 75]))
+                                                    productSuggestions: ["71", "72", "75"]))
 }
 
 #if DEBUG

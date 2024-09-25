@@ -55,7 +55,7 @@ final class ViewAdapter: ObservableObject {
             return
         }
 
-        selectedSuggestion = state.productSuggestions[index]
+        selectedSuggestion = exercise.productSuggestions[index]
 
         updateState()
     }
@@ -73,6 +73,6 @@ extension ViewState {
                                exercise.multiplicand,
                                exercise.multiplier)
         self.init(operation: operation,
-                  productSuggestions: exercise.productSuggestions)
+                  productSuggestions: exercise.productSuggestions.map({ "\($0)" }))
     }
 }
