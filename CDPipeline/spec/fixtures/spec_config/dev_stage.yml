@@ -1,0 +1,11 @@
+---
+stage:
+  name: Development Stage
+
+  steps:
+    - name: Select Xcode version
+      command: 'sudo xcode-select -s /Applications/Xcode_16.app'
+    - name: Build for testing
+      command: 'xcodebuild build-for-testing -scheme "Basic Multiplication" -testPlan "DevelopmentTests" -destination "platform=iOS Simulator,name=iPhone 16 Pro"'
+    - name: Test without building
+      command: 'xcodebuild test-without-building -scheme "Basic Multiplication" -testPlan "DevelopmentTests" -destination "platform=iOS Simulator,name=iPhone 16 Pro"'

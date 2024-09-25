@@ -1,0 +1,17 @@
+---
+environment:
+   - XCODE: /Applications/Xcode_16.app
+   - SCHEME: Basic Multiplication
+   - TEST_PLAN: DevelopmentTests
+   - DESTINATION: platform=iOS Simulator,name=iPhone 16 Pro
+
+stage:
+  name: Development Stage
+
+  steps:
+    - name: Select Xcode version
+      command: sudo xcode-select -s $XCODE
+    - name: Build for testing
+      command: 'xcodebuild build-for-testing -scheme "$SCHEME" -testPlan "$TEST_PLAN" -destination "$DESTINATION"'
+    - name: Test without building
+      command: 'xcodebuild test-without-building -scheme "$SCHEME" -testPlan "$TEST_PLAN" -destination "$DESTINATION"'
