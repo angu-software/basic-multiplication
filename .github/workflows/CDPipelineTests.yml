@@ -10,8 +10,14 @@ name: CD Pipeline Development Tests
 on:
   push:
     branches: [ "main" ]
+    paths:
+      - 'CDPipeline/**'
+      - '.github/workflows/CDPipelineTests.yml'
   pull_request:
     branches: [ "main" ]
+    paths:
+      - 'CDPipeline/**'
+      - '.github/workflows/CDPipelineTests.yml'
 
 permissions:
   contents: read
