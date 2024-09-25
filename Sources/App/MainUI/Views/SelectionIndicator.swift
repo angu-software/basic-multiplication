@@ -13,17 +13,17 @@ struct SelectionIndicator: View {
 
         static func correctSelection() -> Self {
             return Self(imageName: "checkmark.seal.fill",
-                        imageTint: .green)
+                        imageTint: .correctSelection)
         }
 
         static func wrongSelection() -> Self {
             return Self(imageName: "xmark.seal.fill",
-                        imageTint: .orange)
+                        imageTint: .wrongSelection)
         }
 
         static func noSelection() -> Self {
             return Self(imageName: "",
-                        imageTint: .white)
+                        imageTint: .clear)
         }
 
         let imageName: String

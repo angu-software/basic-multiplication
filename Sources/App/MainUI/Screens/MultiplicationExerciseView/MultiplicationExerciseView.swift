@@ -26,7 +26,7 @@ struct MultiplicationExerciseView: View {
 
                     }
                     // TODO: Use background property  (tuple/struct?)
-                    .background($0 == state.selectedSuggestion ? .gray.opacity(0.5) : .clear)
+                    .background($0 == state.selectedSuggestion ? .selectedProduct : .clear)
                 }
             }
             SelectionIndicator(selection: state.isCorrectProductSelected)
@@ -37,6 +37,7 @@ struct MultiplicationExerciseView: View {
             // TODO: invert the isContinueButtonEnabled property
             .disabled(state.isContinueButtonEnabled == false)
         }
+        .background(Color.background)
         .padding()
     }
 }
