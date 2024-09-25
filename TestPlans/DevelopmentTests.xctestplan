@@ -4,7 +4,7 @@
       "id" : "B26259C5-BB4E-48F8-B02C-25554CC173D3",
       "name" : "Test Scheme Action",
       "options" : {
-
+        "testExecutionOrdering" : "random"
       }
     }
   ],
