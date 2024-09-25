@@ -9,6 +9,16 @@
     }
   ],
   "defaultOptions" : {
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:Basic Multiplication.xcodeproj",
+          "identifier" : "B332C8A92C9D458200953C58",
+          "name" : "Basic Multiplication"
+        }
+      ]
+    },
+    "testExecutionOrdering" : "random",
     "testTimeoutsEnabled" : true
   },
   "testTargets" : [
