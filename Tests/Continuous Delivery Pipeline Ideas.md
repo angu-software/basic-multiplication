@@ -1,6 +1,6 @@
 # Continuous Delivery Pipeline Ideas
 
-* [ ] Define constants for in config file
+* [ ] Define constants in config file
 
 ## DevelopmentTests
 
