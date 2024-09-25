@@ -20,14 +20,9 @@ jobs:
   test:
 
     runs-on: macos-latest
-    env:
-      BUNDLE_GEMFILE: ./CDPipeline/Gemfile
     defaults:
       run:
         working-directory: ./CDPipeline
-    strategy:
-      matrix:
-        ruby-version: ['3.0']
 
     steps:
     - uses: actions/checkout@v4
@@ -36,7 +31,8 @@ jobs:
     # change this to (see https://github.com/ruby/setup-ruby#versioning):
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: ${{ matrix.ruby-version }}
+        ruby-version: '3.0'
+        working-directory: ./CDPipeline
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
     - name: Run tests
       run: bundle exec rspec -fd
