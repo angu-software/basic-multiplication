@@ -55,8 +55,24 @@ struct SelectionIndicator: View {
                         imageTint: .orange)
         }
 
+        static func noSelection() -> Self {
+            return Self(imageName: "",
+                        imageTint: .white)
+        }
+
         let imageName: String
         let imageTint: Color
+
+        init(selection: Bool?) {
+            switch selection {
+            case true:
+                self = .correctSelection()
+            case false:
+                self = .wrongSelection()
+            default:
+                self = .noSelection()
+            }
+        }
 
         private init(imageName: String,
                      imageTint: Color) {
@@ -65,23 +81,15 @@ struct SelectionIndicator: View {
         }
     }
 
+    @State
     var selection: Bool?
 
-    @ViewBuilder
     var body: some View {
-        if selection == true {
-            let style = Style.correctSelection()
-            Image(systemName: style.imageName)
-                .resizable()
-                .foregroundStyle(style.imageTint)
-                .frame(width: 64, height: 64)
-        } else if selection == false {
-            let style = Style.wrongSelection()
-            Image(systemName: style.imageName)
-                .resizable()
-                .foregroundStyle(style.imageTint)
-                .frame(width: 64, height: 64)
-        }
+        let style = Style(selection: selection)
+        Image(systemName: style.imageName)
+            .resizable()
+            .foregroundStyle(style.imageTint)
+            .frame(width: 64, height: 64)
     }
 }
 
