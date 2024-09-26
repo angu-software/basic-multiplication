@@ -1,10 +1,16 @@
 # frozen_string_literal: true
 
+require 'yaml'
+
 require_relative 'stage'
 require_relative 'step'
 
 class StageConfig
   attr_reader :stage
+
+  def self.load_yaml(config_file)
+    new(YAML.load_file(config_file))
+  end
 
   def initialize(config)
     @stage = build_stage(config['stage'])

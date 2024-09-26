@@ -8,7 +8,7 @@ require_relative '../lib/config/stage'
 describe 'StageConfig' do
   let(:yml_file) { 'dev_stage.yml' }
   let(:yml_path) { File.join(File.dirname(__FILE__), 'fixtures', 'spec_config', yml_file) }
-  subject { StageConfig.new(YAML.load_file(yml_path)) }
+  subject { StageConfig.load_yaml(yml_path) }
 
   context 'When given a configuration' do
     it 'it parses the stage content' do
