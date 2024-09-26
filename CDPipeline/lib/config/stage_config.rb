@@ -8,18 +8,19 @@ require_relative 'var_resolver'
 
 class StageConfig
   attr_reader :stage
-  attr_reader :environment
 
   def self.load_yaml(config_file)
     new(YAML.load_file(config_file))
   end
 
   def initialize(config)
-    @environment = config['environment']
+    @var_resolver = VarResolver.new(config['environment'])
     @stage = build_stage(config['stage'])
   end
 
   private
+
+  attr_reader :var_resolver
 
   def build_stage(stage_config)
     stage_name = stage_config['name']
@@ -32,11 +33,10 @@ class StageConfig
   end
 
   def build_step(step_config)
-    command = expand_variables(step_config['command'])
-    Step.new(name: step_config['name'], command: command)
+    Step.new(name: step_config['name'], command: expand_variables(step_config['command']))
   end
 
   def expand_variables(command)
-    VarResolver.resolve(command, environment)
+    var_resolver.resolve(command)
   end
 end

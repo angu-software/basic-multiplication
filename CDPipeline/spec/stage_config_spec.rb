@@ -19,16 +19,6 @@ describe 'StageConfig' do
   context 'When the yaml specifies environment variables' do
     let(:yml_file) { 'dev_stage_env_node.yml' }
 
-    it 'it parses the environment variables' do
-      expect(subject.environment).to eq([
-        { "XCODE" => "/Applications/Xcode_16.app" },
-        { "SCHEME" => "Basic Multiplication" },
-        { "TEST_PLAN" => "DevelopmentTests" },
-        { "DESTINATION" => "platform=iOS Simulator,name=iPhone 16 Pro" },
-        { "ARGUMENTS" => '-scheme "$SCHEME" -testPlan "$TEST_PLAN" -destination "$DESTINATION"' }
-      ])
-    end
-
     it 'it expands the variables in a command' do
       expect(subject.stage.steps[0].command).to eq('sudo xcode-select -s /Applications/Xcode_16.app')
     end
