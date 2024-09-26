@@ -27,13 +27,13 @@ describe 'VarResolver' do
       include_examples 'return original'
     end
 
-    context 'When there are variables to resolve' do
+    context 'When string contains no variable' do
       let(:string) { 'echo hello' }
 
       include_examples 'return original'
     end
 
-    context 'When there are variables to resolve' do
+    context 'When string contains a variable' do
       let(:env_vars) { [{ "HELLO" => "hello world"}] }
 
       context 'when the variable is not in the string' do
@@ -50,9 +50,10 @@ describe 'VarResolver' do
 
       context 'When variables value contains another variable' do
         let(:env_vars) { [{ "WORLD" => "world"},
-                          { "HELLO" => "hello $WORLD" }] }
+                          { "HELLO" => "hello $WORLD$STOP" },
+                          { "STOP" => "!"}] }
         it 'it resolves the variable recursively in the string' do
-          expect(subject).to eq('echo hello world')
+          expect(subject).to eq('echo hello world!')
         end
       end
     end
