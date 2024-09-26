@@ -7,19 +7,16 @@ require_relative 'step'
 
 class StageConfig
   attr_reader :stage
+  attr_reader :environment
 
   def self.load_yaml(config_file)
     new(YAML.load_file(config_file))
   end
 
   def initialize(config)
-    @stage = build_stage(config['stage'])
     @environment = config['environment']
+    @stage = build_stage(config['stage'])
   end
-
-  private
-  
-  attr_reader :environment
 
   private
 
@@ -34,6 +31,21 @@ class StageConfig
   end
 
   def build_step(step_config)
-    Step.new(name: step_config['name'], command: step_config['command'])
+    command = expand_variables(step_config['command'])
+    Step.new(name: step_config['name'], command: command)
+  end
+
+  def expand_variables(command)
+    if environment.nil?
+      return command
+    else
+      environment.each do |env|
+        env.each do |key, value|
+          command = command.gsub("${#{key}}", value)
+          command = command.gsub("$#{key}", value)
+        end
+      end
+      return command
+    end
   end
 end
