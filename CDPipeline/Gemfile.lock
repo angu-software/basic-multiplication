@@ -49,5 +49,8 @@ DEPENDENCIES
   factory_bot (~> 6.5)
   rspec (~> 3.13)
 
+RUBY VERSION
+   ruby 3.2.4p170
+
 BUNDLED WITH
    2.5.15
