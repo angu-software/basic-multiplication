@@ -32,12 +32,16 @@ describe 'StageConfig' do
     it 'it expands the variables in a command' do
       expect(subject.stage.steps[0].command).to eq('sudo xcode-select -s /Applications/Xcode_16.app')
     end
+
+    it 'it expands the variables in a command recusively' do
+      expect(subject.stage.steps[1].command).to eq('xcodebuild build-for-testing -scheme "Basic Multiplication" -testPlan "DevelopmentTests" -destination "platform=iOS Simulator,name=iPhone 16 Pro"')
+    end
   end
 
   # TODO: specs
   # - expand variables recursively
   # - expand variables recursively; gaurd against infinite loops
   # - raise an error if the stage is not specified
-  # - ignore steps without command
+  # - raise an error when step has no command
   # - use command as name if name is not specified
 end

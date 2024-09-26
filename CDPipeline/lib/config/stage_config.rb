@@ -37,7 +37,7 @@ class StageConfig
 
   def expand_variables(command)
     if environment.nil?
-      return command
+      command
     else
       environment.each do |env|
         env.each do |key, value|
@@ -45,7 +45,11 @@ class StageConfig
           command = command.gsub("$#{key}", value)
         end
       end
-      return command
+      if command.include?('$')
+        expand_variables(command)
+      else
+      command
+      end
     end
   end
 end
