@@ -7,47 +7,57 @@ describe 'VarResolver' do
   let(:string) { 'echo $HELLO' }
   subject { VarResolver.resolve(string, env_vars) }
   
-  context 'When there are no environment variables' do
-    # TODO also check for empty array
-    let(:env_vars) { nil }
+  describe 'When resolving known variable values in a string' do
 
-    it 'it returns the original string' do
-      expect(subject).to eq(string)
-    end
-  end
+    context 'When no variable parameter is given' do
+      let(:env_vars) { nil }
 
-  context 'When there are variables to resolve' do
-    let(:string) { 'echo hello' }
-
-    it 'it returns the original string' do
-      expect(subject).to eq(string)
-    end
-  end
-
-  context 'When there are variables to resolve' do
-    let(:env_vars) { [{ "HELLO" => "hello world"}] }
-
-    context 'when the variable is not in the string' do
-      let(:string) { 'echo $WORLD' }
       it 'it returns the original string' do
         expect(subject).to eq(string)
       end
     end
 
-    context 'When the variable is in the string' do
-      it 'it returns the resolved string' do
-        expect(subject).to eq('echo hello world')
+    context 'When variable parameter is empty' do
+      let(:env_vars) { [] }
+
+      it 'it returns the original string' do
+        expect(subject).to eq(string)
       end
     end
 
-    context 'When variables value contains another variable' do
-      let(:env_vars) { [{ "WORLD" => "world"},
-                        { "HELLO" => "hello $WORLD" }] }
-      it 'it resolves the variable recursively in the string' do
-        expect(subject).to eq('echo hello world')
+    context 'When there are variables to resolve' do
+      let(:string) { 'echo hello' }
+
+      it 'it returns the original string' do
+        expect(subject).to eq(string)
       end
     end
 
+    context 'When there are variables to resolve' do
+      let(:env_vars) { [{ "HELLO" => "hello world"}] }
+
+      context 'when the variable is not in the string' do
+        let(:string) { 'echo $WORLD' }
+        it 'it returns the original string' do
+          expect(subject).to eq(string)
+        end
+      end
+
+      context 'When the variable is in the string' do
+        it 'it returns the resolved string' do
+          expect(subject).to eq('echo hello world')
+        end
+      end
+
+      context 'When variables value contains another variable' do
+        let(:env_vars) { [{ "WORLD" => "world"},
+                          { "HELLO" => "hello $WORLD" }] }
+        it 'it resolves the variable recursively in the string' do
+          expect(subject).to eq('echo hello world')
+        end
+      end
+
+    end
   end
 end
 
