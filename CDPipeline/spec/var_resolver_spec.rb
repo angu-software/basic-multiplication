@@ -2,6 +2,12 @@
 
 require_relative '../lib/config/var_resolver'
 
+RSpec.shared_examples 'return original' do 
+    it 'it returns the original string' do
+      expect(subject).to eq(string)
+  end
+end 
+
 describe 'VarResolver' do
   let(:env_vars) { [{ "HELLO" => "hello world"}] }
   let(:string) { 'echo $HELLO' }
@@ -12,25 +18,19 @@ describe 'VarResolver' do
     context 'When no variable parameter is given' do
       let(:env_vars) { nil }
 
-      it 'it returns the original string' do
-        expect(subject).to eq(string)
-      end
+      include_examples 'return original'
     end
 
     context 'When variable parameter is empty' do
       let(:env_vars) { [] }
 
-      it 'it returns the original string' do
-        expect(subject).to eq(string)
-      end
+      include_examples 'return original'
     end
 
     context 'When there are variables to resolve' do
       let(:string) { 'echo hello' }
 
-      it 'it returns the original string' do
-        expect(subject).to eq(string)
-      end
+      include_examples 'return original'
     end
 
     context 'When there are variables to resolve' do
@@ -38,9 +38,8 @@ describe 'VarResolver' do
 
       context 'when the variable is not in the string' do
         let(:string) { 'echo $WORLD' }
-        it 'it returns the original string' do
-          expect(subject).to eq(string)
-        end
+
+        include_examples 'return original'
       end
 
       context 'When the variable is in the string' do
@@ -56,7 +55,6 @@ describe 'VarResolver' do
           expect(subject).to eq('echo hello world')
         end
       end
-
     end
   end
 end
