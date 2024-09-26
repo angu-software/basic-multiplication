@@ -12,13 +12,7 @@ describe 'StageConfig' do
 
   context 'When given a configuration' do
     it 'it parses the stage content' do
-      expect(subject.stage).to eq(
-        Stage.new(name: 'Development Stage',
-       steps: [
-          Step.new(name: 'Select Xcode version', command: 'sudo xcode-select -s /Applications/Xcode_16.app'),
-          Step.new(name: 'Build for testing', command: 'xcodebuild build-for-testing -scheme "Basic Multiplication" -testPlan "DevelopmentTests" -destination "platform=iOS Simulator,name=iPhone 16 Pro"'),
-          Step.new(name: 'Test without building', command: 'xcodebuild test-without-building -scheme "Basic Multiplication" -testPlan "DevelopmentTests" -destination "platform=iOS Simulator,name=iPhone 16 Pro"'),
-       ]))
+      expect(subject.stage).to eq(build(:stage))
     end
   end
 
