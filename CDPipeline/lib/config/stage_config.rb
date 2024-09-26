@@ -14,7 +14,7 @@ class StageConfig
   end
 
   def initialize(config)
-    @var_resolver = VarResolver.new(config['environment'])
+    @var_resolver = VarResolver.new(convert_to_hash(config['environment']))
     @stage = build_stage(config['stage'])
   end
 
@@ -38,5 +38,11 @@ class StageConfig
 
   def expand_variables(command)
     var_resolver.resolve(command)
+  end
+
+  def convert_to_hash(yaml_env)
+    return {} if yaml_env.nil?
+
+    yaml_env.each_with_object({}) { |env, hash| hash.merge!(env) }
   end
 end

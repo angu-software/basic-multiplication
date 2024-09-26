@@ -3,8 +3,8 @@
 class VarResolver
   attr_reader :environment
 
-  def initialize(yaml_environment)
-    @environment = convert_to_hash(yaml_environment)
+  def initialize(environment)
+    @environment = environment || {}
   end
 
   def resolve(str)
@@ -17,13 +17,5 @@ class VarResolver
     end
 
     resolve(str)
-  end
-
-  private
-
-  def convert_to_hash(env_vars)
-    return {} if env_vars.nil?
-
-    env_vars.each_with_object({}) { |env, hash| hash.merge!(env) }
   end
 end

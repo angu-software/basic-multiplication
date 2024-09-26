@@ -9,7 +9,7 @@ RSpec.shared_examples 'return original' do
 end
 
 describe VarResolver do
-  let(:yaml_env) { [{ 'HELLO' => 'hello world' }] }
+  let(:yaml_env) { { 'HELLO' => 'hello world' } }
   let(:string) { 'echo $HELLO' }
   subject { described_class.new(yaml_env).resolve(string) }
 
@@ -21,7 +21,7 @@ describe VarResolver do
     end
 
     context 'When variable parameter is empty' do
-      let(:yaml_env) { [] }
+      let(:yaml_env) { {} }
 
       include_examples 'return original'
     end
@@ -33,8 +33,6 @@ describe VarResolver do
     end
 
     context 'When string contains a variable' do
-      let(:yaml_env) { [{ 'HELLO' => 'hello world' }] }
-
       context 'when the variable is not in the string' do
         let(:string) { 'echo $WORLD' }
 
@@ -49,9 +47,11 @@ describe VarResolver do
 
       context 'When variables value contains another variable' do
         let(:yaml_env) do
-          [{ 'WORLD' => 'world' },
-           { 'HELLO' => 'hello $WORLD$STOP' },
-           { 'STOP' => '!' }]
+          {
+            'WORLD' => 'world',
+            'HELLO' => 'hello $WORLD$STOP',
+            'STOP' => '!'
+          }
         end
         it 'it resolves the variable recursively in the string' do
           expect(subject).to eq('echo hello world!')
