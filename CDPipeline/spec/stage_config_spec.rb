@@ -39,8 +39,6 @@ describe 'StageConfig' do
   end
 
   # TODO: specs
-  # - expand variables recursively
-  # - expand variables recursively; gaurd against infinite loops
   # - raise an error if the stage is not specified
   # - raise an error when step has no command
   # - use command as name if name is not specified

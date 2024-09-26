@@ -4,6 +4,7 @@ require 'yaml'
 
 require_relative 'stage'
 require_relative 'step'
+require_relative 'var_resolver'
 
 class StageConfig
   attr_reader :stage
@@ -36,20 +37,6 @@ class StageConfig
   end
 
   def expand_variables(command)
-    if environment.nil?
-      command
-    else
-      environment.each do |env|
-        env.each do |key, value|
-          command = command.gsub("${#{key}}", value)
-          command = command.gsub("$#{key}", value)
-        end
-      end
-      if command.include?('$')
-        expand_variables(command)
-      else
-      command
-      end
-    end
+    VarResolver.resolve(command, environment)
   end
 end
