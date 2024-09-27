@@ -12,7 +12,9 @@ class CommandRunner
     cmd = Shellwords.split(command)
     Open3.popen2e(*cmd) do |stdin, stdout_err, wait_thr|
       stdin.close
-      output.puts stdout_err.read
+      while (line = stdout_err.gets)
+        output.puts line
+      end
       status = wait_thr.value
       raise CommandExecError, "Command execution failed: #{command}" unless status.success?
     end
