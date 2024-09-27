@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'open3'
+require 'shellwords'
 
 class CommandRunner
   def initialize(output = $stdout)
@@ -8,7 +9,8 @@ class CommandRunner
   end
 
   def run(command)
-    Open3.popen2e(command) do |stdin, stdout_err, wait_thr|
+    cmd = Shellwords.split(command)
+    Open3.popen2e(*cmd) do |stdin, stdout_err, wait_thr|
       stdin.close
       output.puts stdout_err.read
       status = wait_thr.value

@@ -6,9 +6,9 @@ require 'shellwords'
 require_relative '../lib/command_runner'
 
 describe CommandRunner do
-  let(:command) { 'echo "Hello World"' }
+  let(:command) { 'sudo xcode-select -s /Applications/Xcode_16.app' }
   let(:output) { StringIO.new }
-  let(:cmd_success) { false }
+  let(:cmd_success) { true }
   let(:cmd_output) { 'Hello from CMD' }
   let(:stdout) { StringIO.new(cmd_output) }
   let(:cmd) { Shellwords.split(command) }
@@ -20,15 +20,25 @@ describe CommandRunner do
 
   before do
     allow(wait_thr).to receive(:value).and_return(status)
-    allow(Open3).to receive(:popen2e).with(command).and_yield(stdin,
-                                                              stdout,
-                                                              wait_thr)
+    allow(Open3).to receive(:popen2e).and_yield(stdin,
+                                                stdout,
+                                                wait_thr)
   end
 
   # inject the command as decomposed array using Shellwords.split
 
   context 'When runing a command' do
+    it 'it splits the command by parameters to avoid shell injection attacs' do
+      # https://knowledge-base.secureflag.com/vulnerabilities/code_injection/os_command_injection_ruby.html
+      # https://www.honeybadger.io/blog/capturing-stdout-stderr-from-shell-commands-via-ruby/
+      subject
+
+      expect(Open3).to have_received(:popen2e).with(*cmd)
+    end
+
     context 'When the command fails' do
+      let(:cmd_success) { false }
+
       it 'throws an error' do
         expect { subject }.to raise_error(CommandExecError, "Command execution failed: #{command}")
       end
