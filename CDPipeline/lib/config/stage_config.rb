@@ -4,6 +4,7 @@ require 'yaml'
 
 require_relative 'stage'
 require_relative 'step'
+require_relative 'stage_env'
 require_relative 'var_resolver'
 
 class StageConfig
@@ -14,7 +15,8 @@ class StageConfig
   end
 
   def initialize(config)
-    @var_resolver = VarResolver.new(convert_to_hash(config['environment']))
+    yaml_env = convert_to_hash(config['environment'])
+    @var_resolver = VarResolver.new(StageEnv.merge_env(yaml_env))
     @stage = build_stage(config['stage'])
   end
 

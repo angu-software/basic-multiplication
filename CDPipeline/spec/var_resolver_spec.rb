@@ -63,5 +63,3 @@ end
 
 # TODO:
 # var value contains itself -> original string
-# same vars with different values -> bottom value
-# yaml env vs system ENV. inject both. ENV is has default value -> yaml value
