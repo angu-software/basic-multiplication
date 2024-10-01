@@ -13,7 +13,7 @@ class CommandRunner
     Open3.popen2e(*cmd) do |stdin, stdout_err, wait_thr|
       stdin.close
       while (line = stdout_err.gets)
-        output.puts line
+        output.puts line # TODO: only in verbose mode
       end
       status = wait_thr.value
       raise CommandExecError, "Command execution failed: #{command}" unless status.success?
