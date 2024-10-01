@@ -3,7 +3,7 @@
 require 'open3'
 require 'shellwords'
 
-require_relative '../lib/command_runner'
+require_relative '../lib/runners/command_runner'
 
 describe CommandRunner do
   let(:command) { 'sudo xcode-select -s /Applications/Xcode_16.app' }

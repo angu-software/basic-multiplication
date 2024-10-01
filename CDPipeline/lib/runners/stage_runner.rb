@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative 'config/stage'
+require_relative '../config/stage'
 require_relative 'step_runner'
 
 class StageRunner

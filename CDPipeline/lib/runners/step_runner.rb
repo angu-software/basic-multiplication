@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative 'config/step'
+require_relative '../config/step'
 require_relative 'command_runner'
 
 class StepRunner
