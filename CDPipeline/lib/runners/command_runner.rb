@@ -4,6 +4,10 @@ require 'open3'
 require 'shellwords'
 
 class CommandRunner
+  def self.run(command, output = $stdout)
+    new(output).run(command)
+  end
+
   def initialize(output = $stdout)
     @output = output
   end

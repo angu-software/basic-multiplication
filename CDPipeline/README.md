@@ -39,6 +39,15 @@ Deploy -.-o AppStore[App Store*]
 - Uploads a RC to the artifact repo (`Pick up area`)
 - Tags the commit with the `RC id`
 
+#### Development Stage steps
+
+- Build tor testsing (generic device, any iOS simulator)
+- Run tests
+- Run swift lint
+- Tag
+  - find latest tag
+  - increase latest tag
+
 ### Artifact Repository considerations
 
 - Pick up area
@@ -71,11 +80,10 @@ jobs:
       uses: actions/checkout@v3
     - name: Run development stage
       run: pipeline development.yml
-
-    upload-rc:
-      steps:
-        - name: Create RC Artifact
-          run: pipeline create-rc
-        - name: Upload RC Artifact
-          run: pipeline artifacts upload-rc artifact_repo.yml
+    - name: Create RC Artifact
+      if: success()
+      run: pipeline create-rc
+    - name: Upload RC Artifact # Upload to pickup station
+      if: success()
+      run: pipeline artifacts upload-rc artifact_repo.yml
 ```
