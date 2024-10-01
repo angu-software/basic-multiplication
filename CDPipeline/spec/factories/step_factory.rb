@@ -3,6 +3,6 @@
 FactoryBot.define do
   factory :step do
     name { 'Select Xcode version' }
-    command  { 'sudo xcode-select -s /Applications/Xcode_16.app' }
+    command { 'sudo xcode-select -s /Applications/Xcode_16.app' }
   end
 end
