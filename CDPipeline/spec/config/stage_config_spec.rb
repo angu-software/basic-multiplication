@@ -7,7 +7,7 @@ require_relative '../../lib/config/stage'
 
 describe 'StageConfig' do
   let(:yml_file) { 'dev_stage.yml' }
-  let(:yml_path) { File.join(File.dirname(__FILE__), 'fixtures', 'spec_config', yml_file) }
+  let(:yml_path) { fixture("spec_config/#{yml_file}") }
   subject { StageConfig.load_yaml(yml_path) }
 
   context 'When given a configuration' do

@@ -5,7 +5,8 @@ source 'https://rubygems.org'
 ruby '>= 3.2'
 
 group :development do
-  gem 'rspec', '~> 3.13'
   gem 'factory_bot', '~> 6.5'
+  gem 'rspec', '~> 3.13'
+  gem 'rspec-file_fixtures'
   gem 'rubocop'
 end
