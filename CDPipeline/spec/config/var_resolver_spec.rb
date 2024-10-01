@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../lib/config/var_resolver'
+require_relative '../../lib/config/var_resolver'
 
 RSpec.shared_examples 'return original' do
   it 'it returns the original string' do

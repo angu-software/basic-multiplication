@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../lib/runners/stage_runner'
+require_relative '../../lib/runners/stage_runner'
 
 describe StageRunner do
   let(:output) { StringIO.new }

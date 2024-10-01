@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../lib/config/stage_env'
+require_relative '../../lib/config/stage_env'
 
 shared_examples 'empty hash' do
   it { is_expected.to be_empty }

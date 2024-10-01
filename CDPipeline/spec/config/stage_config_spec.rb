@@ -2,8 +2,8 @@
 
 require 'yaml'
 
-require_relative '../lib/config/stage_config'
-require_relative '../lib/config/stage'
+require_relative '../../lib/config/stage_config'
+require_relative '../../lib/config/stage'
 
 describe 'StageConfig' do
   let(:yml_file) { 'dev_stage.yml' }
