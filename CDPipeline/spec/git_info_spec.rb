@@ -1,9 +1,11 @@
 # frozen_string_literal: true
 
-require_relative '../Development_Stage/git_info'
+require_relative '../Development_Stage/development_stage'
 
 require_relative '../lib/runners/command_runner'
 
+# TODO:
+# - Refactor the DevelopmentStage.tag_rc_build method to use the GitInfo module
 describe GitInfo do
   let(:git_commit_sha) { '123456' }
   let(:command_runner) { CommandRunner }
@@ -20,7 +22,7 @@ describe GitInfo do
   end
 
   context 'when taging a new rc build' do
-    subject { GitInfo.git_tag_rc_build }
+    subject { DevelopmentStage.tag_rc_build }
 
     it 'obtains all rc build tags' do
       expect(command_runner).to have_received(:run).with(tag_query_command)

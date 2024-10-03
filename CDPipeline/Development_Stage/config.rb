@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require_relative 'tools'
 require_relative 'git_info'
 
 BUILD_ID = GIT_COMMIT_SHA

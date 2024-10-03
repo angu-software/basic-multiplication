@@ -12,10 +12,13 @@ module GitInfo
   end
 
   def self.git_tag_rc_build
-    build_number = next_rc_build_number
-    build_tag = make_rc_build_tag(build_number:)
+    build_tag = next_rc_build_tag
     CommandRunner.run("git tag -a #{build_tag} #{git_commit_sha(short: true)}")
     CommandRunner.run("git push origin #{build_tag}")
+  end
+
+  def self.next_rc_build_tag
+    make_rc_build_tag(build_number: next_rc_build_number)
   end
 
   def self.next_rc_build_number
