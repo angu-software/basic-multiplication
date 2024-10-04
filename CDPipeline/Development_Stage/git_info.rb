@@ -3,6 +3,16 @@
 require_relative '../lib/runners/command_runner'
 
 module GitInfo
+  module Commands
+    def self.tag_rc_build(tag:, commit_sha:)
+      "git tag -a '#{tag}' -m '#{tag}' #{commit_sha}"
+    end
+
+    def self.push_tag(tag:)
+      "git push origin '#{tag}'"
+    end
+  end
+
   GIT_RC_TAG_PREFIX = 'Staged-RC-' # TODO: move to config
   GIT_RC_TAG_QUERY_COMMAND = "git tag --list '#{GIT_RC_TAG_PREFIX}*'".freeze
   GIT_COMMIT_SHA_COMMAND = 'git rev-parse HEAD'

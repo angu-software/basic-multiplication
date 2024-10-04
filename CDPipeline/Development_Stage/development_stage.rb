@@ -31,11 +31,11 @@ module DevelopmentStage
   end
 
   def self.tag_rc_build
-    build_tag = GitInfo.next_rc_build_tag
+    tag = GitInfo.next_rc_build_tag
 
-    puts "Tagging RC commit: #{build_tag}"
-    CommandRunner.run("git tag -a '#{build_tag}' -m '#{build_tag}' #{GitInfo.git_commit_sha(short: true)}")
-    CommandRunner.run("git push origin '#{build_tag}'")
+    puts "Tagging RC commit: #{tag}"
+    CommandRunner.run(GitInfo::Commands.tag_rc_build(tag:, commit_sha: GitInfo.git_commit_sha(short: true)))
+    CommandRunner.run(GitInfo::Commands.push_tag(tag:))
   end
 
   def self.run_command(command)
