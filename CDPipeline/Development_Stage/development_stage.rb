@@ -21,7 +21,7 @@ module DevelopmentStage
   end
 
   def self.build_for_testing
-    puts "Build for testing: #{BUILD_DESTINATION}"
+    puts "Build for testing: #{TEST_BUILD_DESTINATION}"
     run_command(Commands::BUILD_FOR_TESTING_COMMAND)
   end
 

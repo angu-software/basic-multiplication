@@ -9,7 +9,7 @@ module DevelopmentStage
       build-for-testing \
       -scheme '#{SCHEME}' \
       -testPlan '#{TEST_PLAN}' \
-      -destination '#{BUILD_DESTINATION}' \
+      -destination '#{TEST_BUILD_DESTINATION}' \
       -derivedDataPath '#{DERIVED_DATA}' \
       -testProductsPath '#{ARTIFACTS_PATH}' \
       -resultBundlePath '#{BUILD_RESULTS_PATH}' \
