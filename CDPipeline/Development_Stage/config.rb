@@ -34,10 +34,6 @@ module DevelopmentStage
   end
 end
 
-RC_TAG_PREFIX = DevelopmentStage::Config::RC_TAG_PREFIX
-
-XCODE_PATH = DevelopmentStage::Config::XCODE_PATH
-
 BUILD_TOOL = DevelopmentStage::Config::BUILD_TOOL
 
 SCHEME = DevelopmentStage::Config::SCHEME

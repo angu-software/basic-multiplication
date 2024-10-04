@@ -16,8 +16,9 @@ module DevelopmentStage
 
   def self.select_xcode
     # TODO: check if already set
-    puts "Select Xcode: #{XCODE_PATH}"
-    run_command(Commands.select_xcode(path: XCODE_PATH))
+    path = Config::XCODE_PATH
+    puts "Select Xcode: #{path}"
+    run_command(Commands.select_xcode(path:))
   end
 
   def self.build_for_testing
@@ -31,7 +32,7 @@ module DevelopmentStage
   end
 
   def self.tag_rc_build
-    tag = GitInfo.next_rc_build_tag(prefix: RC_TAG_PREFIX)
+    tag = GitInfo.next_rc_build_tag(prefix: Config::RC_TAG_PREFIX)
 
     puts "Tagging RC commit: #{tag}"
     CommandRunner.run(GitInfo::Commands.tag_rc_build(tag:, commit_sha: GitInfo.git_commit_sha(short: true)))

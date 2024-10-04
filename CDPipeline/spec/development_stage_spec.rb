@@ -8,6 +8,7 @@ describe DevelopmentStage do
   let(:git_info) { GitInfo }
   let(:build_for_testing_command) { DevelopmentStage::Commands::BUILD_FOR_TESTING_COMMAND }
   let(:test_without_building_command) { DevelopmentStage::Commands::TEST_WITHOUT_BUILDING_COMMAND }
+  let(:xcode_path) { DevelopmentStage::Config::XCODE_PATH }
 
   describe '.run' do
     subject { described_class.run }
@@ -37,7 +38,7 @@ describe DevelopmentStage do
       end
 
       it 'selects an xcode version' do
-        expect(command_runner).to have_received(:run).with("sudo xcode-select -s #{XCODE_PATH}")
+        expect(command_runner).to have_received(:run).with("sudo xcode-select -s #{xcode_path}")
       end
 
       it 'builds for testing' do
