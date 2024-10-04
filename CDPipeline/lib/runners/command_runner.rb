@@ -2,6 +2,7 @@
 
 require 'open3'
 require 'shellwords'
+require 'stringio'
 
 class CommandRunner
   def self.run(command, output = $stdout)

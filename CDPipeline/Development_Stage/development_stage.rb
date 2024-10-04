@@ -28,6 +28,8 @@ module DevelopmentStage
     build_for_testing
     test_without_building
     tag_rc_build
+  rescue StandardError => e
+    puts "Error: #{e.message}"
   end
 
   def self.select_xcode
@@ -53,8 +55,6 @@ module DevelopmentStage
 
   def self.run_command(command)
     CommandRunner.run(command)
-  rescue StandardError => e
-    puts "Error: #{e.message}"
   end
 end
 

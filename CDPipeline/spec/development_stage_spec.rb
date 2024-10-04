@@ -20,33 +20,50 @@ describe DevelopmentStage do
       allow(git_info).to receive(:git_commit_sha).and_return('ab123')
 
       allow(command_runner).to receive(:run)
-
-      subject
     end
 
-    it 'it exectues all steps sequentially' do
-      expect(described_class).to have_received(:select_xcode).ordered
-      expect(described_class).to have_received(:build_for_testing).ordered
-      expect(described_class).to have_received(:test_without_building).ordered
-      expect(described_class).to have_received(:tag_rc_build).ordered
+    context 'When executing development statge' do
+      before do
+        subject
+      end
+
+      it 'it exectues all steps sequentially' do
+        expect(described_class).to have_received(:select_xcode).ordered
+        expect(described_class).to have_received(:build_for_testing).ordered
+        expect(described_class).to have_received(:test_without_building).ordered
+        expect(described_class).to have_received(:tag_rc_build).ordered
+      end
+
+      it 'selects an xcode version' do
+        expect(command_runner).to have_received(:run).with("sudo xcode-select -s #{XCODE_PATH}")
+      end
+
+      it 'builds for testing' do
+        expect(command_runner).to have_received(:run).with(BUILD_FOR_TESTING_COMMAND)
+      end
+
+      it 'tests without building' do
+        expect(command_runner).to have_received(:run).with(TEST_WITHOUT_BUILDING_COMMAND)
+      end
+
+      context 'when tagging the rc build' do
+        it 'it runs the necessary git commands' do
+          expect(command_runner).to have_received(:run).with('git tag -a Staged-RC-3 ab123').ordered
+          expect(command_runner).to have_received(:run).with('git push origin Staged-RC-3').ordered
+        end
+      end
     end
 
-    it 'selects an xcode version' do
-      expect(command_runner).to have_received(:run).with("sudo xcode-select -s #{XCODE_PATH}")
-    end
+    context 'When a command fails' do
+      before do
+        puts '>>> Before'
+        allow(described_class).to receive(:select_xcode).and_raise(StandardError, 'Something wend wrong')
 
-    it 'builds for testing' do
-      expect(command_runner).to have_received(:run).with(BUILD_FOR_TESTING_COMMAND)
-    end
+        subject
+      end
 
-    it 'tests without building' do
-      expect(command_runner).to have_received(:run).with(TEST_WITHOUT_BUILDING_COMMAND)
-    end
-
-    context 'when tagging the rc build' do
-      it 'it runs the necessary git commands' do
-        expect(command_runner).to have_received(:run).with('git tag -a Staged-RC-3 ab123').ordered
-        expect(command_runner).to have_received(:run).with('git push origin Staged-RC-3').ordered
+      it 'aborts execution' do
+        expect(described_class).to_not have_received(:build_for_testing)
       end
     end
   end
