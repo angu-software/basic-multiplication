@@ -2,6 +2,21 @@
 
 require_relative 'config'
 
+# TODO: resolve those conststants
+
+BUILD_TOOL = DevelopmentStage::Config::BUILD_TOOL
+
+SCHEME = DevelopmentStage::Config::SCHEME
+TEST_PLAN = DevelopmentStage::Config::TEST_PLAN
+TEST_BUILD_DESTINATION = DevelopmentStage::Config::TEST_BUILD_DESTINATION
+TEST_DESTINATION = DevelopmentStage::Config::TEST_DESTINATION
+TEST_CODE_SIGNING_SETTINGS = DevelopmentStage::Config::TEST_CODE_SIGNING_SETTINGS
+
+DERIVED_DATA = DevelopmentStage::Config::DERIVED_DATA
+ARTIFACTS_PATH = DevelopmentStage::Config::ARTIFACTS_PATH
+BUILD_RESULTS_PATH = DevelopmentStage::Config::BUILD_RESULTS_PATH
+TEST_RESULTS_PATH = DevelopmentStage::Config::TEST_RESULTS_PATH
+
 module DevelopmentStage
   module Commands
     BUILD_FOR_TESTING_COMMAND = <<~CMD.freeze

@@ -33,16 +33,3 @@ module DevelopmentStage
     TEST_RESULTS_PATH = "#{PRODUCTS_PATH}/Test_results.xcresult".freeze
   end
 end
-
-BUILD_TOOL = DevelopmentStage::Config::BUILD_TOOL
-
-SCHEME = DevelopmentStage::Config::SCHEME
-TEST_PLAN = DevelopmentStage::Config::TEST_PLAN
-TEST_BUILD_DESTINATION = DevelopmentStage::Config::TEST_BUILD_DESTINATION
-TEST_DESTINATION = DevelopmentStage::Config::TEST_DESTINATION
-TEST_CODE_SIGNING_SETTINGS = DevelopmentStage::Config::TEST_CODE_SIGNING_SETTINGS
-
-DERIVED_DATA = DevelopmentStage::Config::DERIVED_DATA
-ARTIFACTS_PATH = DevelopmentStage::Config::ARTIFACTS_PATH
-BUILD_RESULTS_PATH = DevelopmentStage::Config::BUILD_RESULTS_PATH
-TEST_RESULTS_PATH = DevelopmentStage::Config::TEST_RESULTS_PATH
