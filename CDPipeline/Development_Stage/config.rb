@@ -18,6 +18,5 @@ BUILD_PATH = '__builds__'
 DERIVED_DATA = "#{BUILD_PATH}/Derived_Data/#{ARTIFACT_NAME}".freeze
 PRODUCTS_PATH = "#{BUILD_PATH}/Products/#{ARTIFACT_NAME}".freeze
 ARTIFACTS_PATH = "#{PRODUCTS_PATH}/Test_build.xctestproducts".freeze
+BUILD_RESULTS_PATH = "#{PRODUCTS_PATH}/Build_results.xcresult".freeze
 TEST_RESULTS_PATH = "#{PRODUCTS_PATH}/Test_results.xcresult".freeze
-
-# TODO: secify error result bundle path

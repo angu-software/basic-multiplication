@@ -6,6 +6,8 @@ require_relative '../Development_Stage/development_stage'
 describe DevelopmentStage do
   let(:command_runner) { CommandRunner }
   let(:git_info) { GitInfo }
+  let(:build_for_testing_command) { DevelopmentStage::Commands::BUILD_FOR_TESTING_COMMAND }
+  let(:test_without_building_command) { DevelopmentStage::Commands::TEST_WITHOUT_BUILDING_COMMAND }
 
   describe '.run' do
     subject { described_class.run }
@@ -39,11 +41,11 @@ describe DevelopmentStage do
       end
 
       it 'builds for testing' do
-        expect(command_runner).to have_received(:run).with(BUILD_FOR_TESTING_COMMAND)
+        expect(command_runner).to have_received(:run).with(build_for_testing_command)
       end
 
       it 'tests without building' do
-        expect(command_runner).to have_received(:run).with(TEST_WITHOUT_BUILDING_COMMAND)
+        expect(command_runner).to have_received(:run).with(test_without_building_command)
       end
 
       context 'when tagging the rc build' do
