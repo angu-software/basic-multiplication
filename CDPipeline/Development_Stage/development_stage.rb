@@ -31,7 +31,7 @@ module DevelopmentStage
   end
 
   def self.tag_rc_build
-    tag = GitInfo.next_rc_build_tag
+    tag = GitInfo.next_rc_build_tag(prefix: GitInfo::GIT_RC_TAG_PREFIX)
 
     puts "Tagging RC commit: #{tag}"
     CommandRunner.run(GitInfo::Commands.tag_rc_build(tag:, commit_sha: GitInfo.git_commit_sha(short: true)))

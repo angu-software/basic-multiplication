@@ -11,7 +11,7 @@ describe GitInfo do
   let(:command_runner) { CommandRunner }
   let(:tag_query_command) { GitInfo::GIT_RC_TAG_QUERY_COMMAND }
   let(:existing_rc_tags) { '' }
-  let(:tag_prefix) { GitInfo::GIT_RC_TAG_PREFIX }
+  let(:tag_prefix) { 'Staged-RC-' }
 
   let(:git_tags) { %w[Staged-RC-1 Staged-RC-2].join("\n") }
 
@@ -34,7 +34,7 @@ describe GitInfo do
   end
 
   describe '.next_rc_build_tag' do
-    subject { GitInfo.next_rc_build_tag }
+    subject { GitInfo.next_rc_build_tag(prefix: tag_prefix) }
 
     it 'returns the next rc build tag' do
       expect(subject).to eq("#{tag_prefix}3")

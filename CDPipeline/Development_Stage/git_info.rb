@@ -23,8 +23,8 @@ module GitInfo
     CommandRunner.run_and_return_output(command)
   end
 
-  def self.next_rc_build_tag
-    make_rc_build_tag(build_number: next_rc_build_number)
+  def self.next_rc_build_tag(prefix:)
+    make_rc_build_tag(prefix:, build_number: next_rc_build_number)
   end
 
   def self.rc_tags
@@ -44,7 +44,7 @@ module GitInfo
     tags.map { |tag| tag.gsub(GIT_RC_TAG_PREFIX, '').to_i }
   end
 
-  private_class_method def self.make_rc_build_tag(build_number:)
-    "#{GIT_RC_TAG_PREFIX}#{build_number}"
+  private_class_method def self.make_rc_build_tag(build_number:, prefix:)
+    "#{prefix}#{build_number}"
   end
 end
