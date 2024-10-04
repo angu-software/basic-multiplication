@@ -40,5 +40,13 @@ describe GitInfo do
       expect(subject).to eq("#{tag_prefix}3")
       # 'tags the commit as initial rc build tag'
     end
+
+    context 'when there are no existing rc tags' do
+      let(:git_tags) { '' }
+
+      it 'returns the first rc build tag' do
+        expect(subject).to eq("#{tag_prefix}1")
+      end
+    end
   end
 end
