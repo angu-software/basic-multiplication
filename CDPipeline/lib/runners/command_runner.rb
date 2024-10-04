@@ -9,7 +9,9 @@ class CommandRunner
   end
 
   def self.run_and_return_output(command)
-    # TODO: test and implement
+    output = StringIO.new
+    new(output).run(command)
+    output.string
   end
 
   def initialize(output = $stdout)

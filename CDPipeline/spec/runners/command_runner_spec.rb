@@ -6,7 +6,7 @@ require 'shellwords'
 require_relative '../../lib/runners/command_runner'
 
 describe CommandRunner do
-  let(:command) { 'sudo xcode-select -s /Applications/Xcode_16.app' }
+  let(:command) { "echo #{cmd_output}" }
   let(:output) { StringIO.new }
   let(:cmd_success) { true }
   let(:cmd_output) { 'Hello from CMD' }
@@ -25,7 +25,26 @@ describe CommandRunner do
                                                 wait_thr)
   end
 
-  # inject the command as decomposed array using Shellwords.split
+  describe '.run_and_return_output' do
+    subject { described_class.run_and_return_output(command) }
+
+    it 'runs the command' do
+      subject
+      expect(Open3).to have_received(:popen2e).with(*cmd)
+    end
+
+    it 'returns the commands output' do
+      expect(subject).to eq("#{cmd_output}\n")
+    end
+
+    context 'When the command fails' do
+      let(:cmd_success) { false }
+
+      it 'throws an error with the error' do
+        expect { subject }.to raise_error(CommandExecError, "Command execution failed: #{command}")
+      end
+    end
+  end
 
   context 'When runing a command' do
     it 'it splits the command by parameters to avoid shell injection attacs' do
