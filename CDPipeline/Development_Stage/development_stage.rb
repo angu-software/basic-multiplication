@@ -33,6 +33,7 @@ module DevelopmentStage
   end
 
   def self.select_xcode
+    # TODO: check if already set
     puts "Select Xcode: #{XCODE_PATH}"
     run_command("sudo xcode-select -s #{XCODE_PATH}")
   end
@@ -57,5 +58,3 @@ module DevelopmentStage
     CommandRunner.run(command)
   end
 end
-
-DevelopmentStage.run if __FILE__ == $PROGRAM_NAME
