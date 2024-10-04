@@ -54,7 +54,7 @@ module DevelopmentStage
   def self.run_command(command)
     CommandRunner.run(command)
   rescue StandardError => e
-    puts "Error: #{e}"
+    puts "Error: #{e.message}"
   end
 end
 
