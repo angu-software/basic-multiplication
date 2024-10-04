@@ -10,8 +10,12 @@ class CommandRunner
 
   def self.run_and_return_output(command)
     output = StringIO.new
-    new(output).run(command)
-    output.string
+    begin
+      new(output).run(command)
+      output.string # TODO: strip
+    rescue StandardError
+      raise CommandExecError.new(command:, err_output: output.string)
+    end
   end
 
   def initialize(output = $stdout)
@@ -23,10 +27,10 @@ class CommandRunner
     Open3.popen2e(*cmd) do |stdin, stdout_err, wait_thr|
       stdin.close
       while (line = stdout_err.gets)
-        output.puts line # TODO: only in verbose mode
+        output.puts line
       end
       status = wait_thr.value
-      raise CommandExecError, "Command execution failed: #{command}" unless status.success?
+      raise CommandExecError.new(command:) unless status.success?
     end
   end
 
@@ -34,4 +38,10 @@ class CommandRunner
 end
 
 class CommandExecError < StandardError
+  def initialize(command:, err_output: nil)
+    err_output ||= ''
+    msg = "Command '#{command}' failed"
+    msg += " with '#{err_output.strip}'" unless err_output.empty?
+    super(msg)
+  end
 end

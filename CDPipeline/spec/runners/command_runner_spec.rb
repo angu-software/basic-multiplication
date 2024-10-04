@@ -38,10 +38,13 @@ describe CommandRunner do
     end
 
     context 'When the command fails' do
+      let(:cmd_output) { 'Something went wrong' }
       let(:cmd_success) { false }
 
-      it 'throws an error with the error' do
-        expect { subject }.to raise_error(CommandExecError, "Command execution failed: #{command}")
+      it 'throws an error with the error output' do
+        expect do
+          subject
+        end.to raise_error(CommandExecError, "Command '#{command}' failed with '#{cmd_output}'")
       end
     end
   end
@@ -59,7 +62,7 @@ describe CommandRunner do
       let(:cmd_success) { false }
 
       it 'throws an error' do
-        expect { subject }.to raise_error(CommandExecError, "Command execution failed: #{command}")
+        expect { subject }.to raise_error(CommandExecError, "Command '#{command}' failed")
       end
 
       it 'prints the commands error' do
