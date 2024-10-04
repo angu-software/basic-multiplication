@@ -13,7 +13,7 @@ class CommandRunner
     output = StringIO.new
     begin
       new(output).run(command)
-      output.string # TODO: strip
+      output.string.strip
     rescue StandardError
       raise CommandExecError.new(command:, err_output: output.string)
     end

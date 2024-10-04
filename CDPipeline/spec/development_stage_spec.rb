@@ -56,7 +56,6 @@ describe DevelopmentStage do
 
     context 'When a command fails' do
       before do
-        puts '>>> Before'
         allow(described_class).to receive(:select_xcode).and_raise(StandardError, 'Something wend wrong')
 
         subject

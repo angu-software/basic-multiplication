@@ -34,7 +34,7 @@ describe CommandRunner do
     end
 
     it 'returns the commands output' do
-      expect(subject).to eq("#{cmd_output}\n")
+      expect(subject).to eq(cmd_output) # TODO: multiline
     end
 
     context 'When the command fails' do
