@@ -4,6 +4,9 @@ require_relative '../lib/runners/command_runner'
 
 module GitInfo
   module Commands
+    GIT_COMMIT_SHA_COMMAND = 'git rev-parse HEAD'
+    GIT_COMMIT_SHA_SHORT_COMMAND = 'git rev-parse --short HEAD'
+
     def self.tag_rc_build(tag:, commit_sha:)
       "git tag -a '#{tag}' -m '#{tag}' #{commit_sha}"
     end
@@ -17,11 +20,8 @@ module GitInfo
     end
   end
 
-  GIT_COMMIT_SHA_COMMAND = 'git rev-parse HEAD'
-  GIT_COMMIT_SHA_SHORT_COMMAND = 'git rev-parse --short HEAD'
-
   def self.git_commit_sha(short: false)
-    command = short ? GIT_COMMIT_SHA_SHORT_COMMAND : GIT_COMMIT_SHA_COMMAND
+    command = short ? Commands::GIT_COMMIT_SHA_SHORT_COMMAND : Commands::GIT_COMMIT_SHA_COMMAND
     CommandRunner.run_and_return_output(command)
   end
 
