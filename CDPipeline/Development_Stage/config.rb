@@ -2,7 +2,7 @@
 
 require_relative 'git_info'
 
-BUILD_ID = GIT_COMMIT_SHA
+BUILD_ID = GitInfo.git_commit_sha
 
 XCODE_PATH = '/Applications/Xcode_16.app'
 

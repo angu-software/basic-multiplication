@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
-# TDOO: remove as them are duplicate
-GIT_COMMIT_SHA = `git rev-parse HEAD`.strip
-GIT_COMMIT_SHA_SHORT = `git rev-parse --short HEAD`.strip
+require_relative '../lib/runners/command_runner'
 
 module GitInfo
   GIT_RC_TAG_PREFIX = 'Staged-RC-' # TODO: move to config
@@ -11,13 +9,8 @@ module GitInfo
   GIT_COMMIT_SHA_SHORT_COMMAND = 'git rev-parse --short HEAD'
 
   def self.git_commit_sha(short: false)
-    short ? GIT_COMMIT_SHA_SHORT : GIT_COMMIT_SHA
-  end
-
-  def self.git_tag_rc_build # TODO: remove. Its duplicate
-    build_tag = next_rc_build_tag
-    CommandRunner.run("git tag -a #{build_tag} #{git_commit_sha(short: true)}")
-    CommandRunner.run("git push origin #{build_tag}")
+    command = short ? GIT_COMMIT_SHA_SHORT_COMMAND : GIT_COMMIT_SHA_COMMAND
+    CommandRunner.run_and_return_output(command)
   end
 
   def self.next_rc_build_tag
