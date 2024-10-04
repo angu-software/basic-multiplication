@@ -8,6 +8,10 @@ class CommandRunner
     new(output).run(command)
   end
 
+  def self.run_and_return_output(command)
+    # TODO: test and implement
+  end
+
   def initialize(output = $stdout)
     @output = output
   end

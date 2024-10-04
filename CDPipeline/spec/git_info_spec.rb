@@ -13,41 +13,32 @@ describe GitInfo do
   let(:existing_rc_tags) { '' }
   let(:tag_prefix) { GitInfo::GIT_RC_TAG_PREFIX }
 
+  let(:git_tags) { %w[Staged-RC-1 Staged-RC-2].join("\n") }
+
   before do
     allow(GitInfo).to receive(:git_commit_sha).and_return(git_commit_sha)
-    allow(command_runner).to receive(:run)
+
+    allow(command_runner).to receive(:run_and_return_output).with(tag_query_command).and_return(git_tags)
     allow(command_runner).to receive(:run).with(tag_query_command).and_return(existing_rc_tags)
 
     subject
   end
 
-  context 'when taging a new rc build' do
-    subject { DevelopmentStage.tag_rc_build }
+  describe '.rc_tags' do
+    subject { GitInfo.rc_tags }
+    it 'fetches all rc tags' do
+      expect(subject).to eq(git_tags.split("\n"))
 
-    it 'obtains all rc build tags' do
-      expect(command_runner).to have_received(:run).with(tag_query_command)
+      expect(command_runner).to have_received(:run_and_return_output).with("git tag --list '#{tag_prefix}*'")
     end
+  end
 
-    it 'obtains the git commit sha' do
-      expect(GitInfo).to have_received(:git_commit_sha).with(short: true)
-    end
+  describe '.next_rc_build_tag' do
+    subject { GitInfo.next_rc_build_tag }
 
-    context 'when there are no rc build tags' do
-      it 'tags the commit as initial rc build tag' do
-        expect(command_runner).to have_received(:run).with("git tag -a #{tag_prefix}1 #{git_commit_sha}")
-      end
-    end
-
-    context 'when there are rc build tags' do
-      let(:existing_rc_tags) { "#{tag_prefix}1\n#{tag_prefix}2\n" }
-
-      it 'tags the commit with an increment of the latest rc build tag' do
-        expect(command_runner).to have_received(:run).with("git tag -a #{tag_prefix}3 #{git_commit_sha}")
-      end
-    end
-
-    it 'pushes the tag to the remote' do
-      expect(command_runner).to have_received(:run).with("git push origin #{tag_prefix}1")
+    it 'returns the next rc build tag' do
+      expect(subject).to eq("#{tag_prefix}3")
+      # 'tags the commit as initial rc build tag'
     end
   end
 end
