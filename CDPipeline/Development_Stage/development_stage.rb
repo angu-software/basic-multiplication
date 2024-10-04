@@ -17,7 +17,7 @@ module DevelopmentStage
   def self.select_xcode
     # TODO: check if already set
     puts "Select Xcode: #{XCODE_PATH}"
-    run_command("sudo xcode-select -s #{XCODE_PATH}")
+    run_command(Commands.select_xcode(path: XCODE_PATH))
   end
 
   def self.build_for_testing

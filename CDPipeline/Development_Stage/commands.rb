@@ -23,5 +23,9 @@ module DevelopmentStage
       -testProductsPath '#{ARTIFACTS_PATH}' \
       -resultBundlePath '#{TEST_RESULTS_PATH}'
     CMD
+
+    def self.select_xcode(path:)
+      "sudo xcode-select -s #{path}"
+    end
   end
 end
