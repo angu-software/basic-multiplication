@@ -2,6 +2,8 @@
 
 require_relative '../lib/runners/command_runner'
 
+# TODO: ease chain of prefix parameter passing; build number handlign smells a bit; Seems not to belong here
+
 module GitInfo
   module Commands
     GIT_COMMIT_SHA_COMMAND = 'git rev-parse HEAD'
