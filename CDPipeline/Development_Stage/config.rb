@@ -3,6 +3,7 @@
 require_relative 'git_info'
 
 BUILD_ID = GitInfo.git_commit_sha(short: true)
+RC_TAG_PREFIX = 'Staged-RC-'
 
 XCODE_PATH = '/Applications/Xcode_16.app'
 

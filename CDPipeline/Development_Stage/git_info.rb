@@ -11,10 +11,12 @@ module GitInfo
     def self.push_tag(tag:)
       "git push origin '#{tag}'"
     end
+
+    def self.rc_tag_query(prefix:)
+      "git tag --list '#{prefix}*'"
+    end
   end
 
-  GIT_RC_TAG_PREFIX = 'Staged-RC-' # TODO: move to config
-  GIT_RC_TAG_QUERY_COMMAND = "git tag --list '#{GIT_RC_TAG_PREFIX}*'".freeze
   GIT_COMMIT_SHA_COMMAND = 'git rev-parse HEAD'
   GIT_COMMIT_SHA_SHORT_COMMAND = 'git rev-parse --short HEAD'
 
@@ -24,24 +26,24 @@ module GitInfo
   end
 
   def self.next_rc_build_tag(prefix:)
-    make_rc_build_tag(prefix:, build_number: next_rc_build_number)
+    make_rc_build_tag(prefix:, build_number: next_rc_build_number(tag_prefix: prefix))
   end
 
-  def self.rc_tags
-    output = CommandRunner.run_and_return_output(GIT_RC_TAG_QUERY_COMMAND)
+  def self.rc_tags(prefix:)
+    output = CommandRunner.run_and_return_output(Commands.rc_tag_query(prefix:))
     output.split("\n")
   end
 
-  private_class_method def self.next_rc_build_number
-    latest_build_number + 1
+  private_class_method def self.next_rc_build_number(tag_prefix:)
+    latest_build_number(tag_prefix:) + 1
   end
 
-  private_class_method def self.latest_build_number
-    build_numbers_from_tags(rc_tags).max || 0
+  private_class_method def self.latest_build_number(tag_prefix:)
+    build_numbers_from_tags(rc_tags(prefix: tag_prefix), prefix: tag_prefix).max || 0
   end
 
-  private_class_method def self.build_numbers_from_tags(tags)
-    tags.map { |tag| tag.gsub(GIT_RC_TAG_PREFIX, '').to_i }
+  private_class_method def self.build_numbers_from_tags(tags, prefix:)
+    tags.map { |tag| tag.gsub(prefix, '').to_i }
   end
 
   private_class_method def self.make_rc_build_tag(build_number:, prefix:)
