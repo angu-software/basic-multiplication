@@ -50,8 +50,8 @@ module DevelopmentStage
 
   def self.tag_rc_build
     build_tag = GitInfo.next_rc_build_tag
-    CommandRunner.run("git tag -a #{build_tag} #{GitInfo.git_commit_sha(short: true)}")
-    CommandRunner.run("git push origin #{build_tag}")
+    CommandRunner.run("git tag -a '#{build_tag}' -m '#{build_tag}' #{GitInfo.git_commit_sha(short: true)}")
+    CommandRunner.run("git push origin '#{build_tag}'")
   end
 
   def self.run_command(command)

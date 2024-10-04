@@ -48,8 +48,8 @@ describe DevelopmentStage do
 
       context 'when tagging the rc build' do
         it 'it runs the necessary git commands' do
-          expect(command_runner).to have_received(:run).with('git tag -a Staged-RC-3 ab123').ordered
-          expect(command_runner).to have_received(:run).with('git push origin Staged-RC-3').ordered
+          expect(command_runner).to have_received(:run).with("git tag -a 'Staged-RC-3' -m 'Staged-RC-3' ab123").ordered
+          expect(command_runner).to have_received(:run).with("git push origin 'Staged-RC-3'").ordered
         end
       end
     end
