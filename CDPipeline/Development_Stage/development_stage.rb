@@ -28,7 +28,7 @@ module DevelopmentStage
 
   def self.test_without_building
     puts "Test without building: #{Config::TEST_DESTINATION}"
-    run_command(Commands::TEST_WITHOUT_BUILDING_COMMAND)
+    run_command(Commands.test_without_building)
   end
 
   def self.tag_rc_build

@@ -25,13 +25,18 @@ module DevelopmentStage
       CMD
     end
 
-    TEST_WITHOUT_BUILDING_COMMAND = <<~CMD.freeze
-      #{Config::BUILD_TOOL} \
-      test-without-building \
-      -destination '#{Config::TEST_DESTINATION}' \
-      -testProductsPath '#{Config::ARTIFACTS_PATH}' \
-      -resultBundlePath '#{Config::TEST_RESULTS_PATH}'
-    CMD
+    def self.test_without_building(build_tool: Config::BUILD_TOOL,
+                                   destination: Config::TEST_DESTINATION,
+                                   test_products_path: Config::ARTIFACTS_PATH,
+                                   result_bundle_path: Config::TEST_RESULTS_PATH)
+      <<~CMD.freeze
+        #{build_tool} \
+        test-without-building \
+        -destination '#{destination}' \
+        -testProductsPath '#{test_products_path}' \
+        -resultBundlePath '#{result_bundle_path}'
+      CMD
+    end
 
     def self.select_xcode(path:)
       "sudo xcode-select -s #{path}"

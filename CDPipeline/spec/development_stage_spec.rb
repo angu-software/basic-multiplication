@@ -7,7 +7,7 @@ describe DevelopmentStage do
   let(:command_runner) { CommandRunner }
   let(:git_info) { GitInfo }
   let(:build_for_testing_command) { DevelopmentStage::Commands.build_for_testing }
-  let(:test_without_building_command) { DevelopmentStage::Commands::TEST_WITHOUT_BUILDING_COMMAND }
+  let(:test_without_building_command) { DevelopmentStage::Commands.test_without_building }
   let(:xcode_path) { DevelopmentStage::Config::XCODE_PATH }
 
   describe '.run' do
