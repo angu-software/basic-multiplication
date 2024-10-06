@@ -4,18 +4,6 @@ require_relative 'git_info'
 
 module DevelopmentStage
   module Config
-    BUILD_ID = GitInfo.git_commit_sha(short: true)
-    private_constant :BUILD_ID
-
-    ARTIFACT_NAME = "Basic_Multiplication_#{BUILD_ID}".freeze
-    private_constant :ARTIFACT_NAME
-
-    BUILD_PATH = '__builds__'
-    private_constant :BUILD_PATH
-
-    PRODUCTS_PATH = "#{BUILD_PATH}/Products/#{ARTIFACT_NAME}".freeze
-    private_constant :PRODUCTS_PATH
-
     RC_TAG_PREFIX = 'Staged-RC-'
 
     XCODE_PATH = '/Applications/Xcode_16.app'
@@ -27,9 +15,15 @@ module DevelopmentStage
     TEST_DESTINATION = 'platform=iOS Simulator,name=iPhone 16 Pro'
     TEST_CODE_SIGNING_SETTINGS = "CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY='' CODE_SIGNING_ALLOWED=NO"
 
-    DERIVED_DATA = "#{BUILD_PATH}/Derived_Data/#{ARTIFACT_NAME}".freeze
-    ARTIFACTS_PATH = "#{PRODUCTS_PATH}/Test_build.xctestproducts".freeze
-    BUILD_RESULTS_PATH = "#{PRODUCTS_PATH}/Build_results.xcresult".freeze
-    TEST_RESULTS_PATH = "#{PRODUCTS_PATH}/Test_results.xcresult".freeze
+    BUILD_ID = GitInfo.git_commit_sha(short: true)
+    BUILD_PATH = File.join('.xcpipeline', BUILD_ID)
+    DERIVED_DATA = File.join(BUILD_PATH, 'derived_data')
+    ARTIFACTS_PATH = File.join(BUILD_PATH, 'artifacts')
+    BUILD_RESULT_BUNDLE_PATH = File.join(ARTIFACTS_PATH, 'build_result_bundle.xcresult')
+    TESTING_RESULT_BUNDLE_PATH = File.join(ARTIFACTS_PATH, 'testing_result_bundle.xcresult')
+    TEST_PRODUCTS_PATH = File.join(ARTIFACTS_PATH, 'test_products.xctestproducts')
+
+    private_constant :BUILD_ID
+    private_constant :BUILD_PATH
   end
 end

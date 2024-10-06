@@ -9,8 +9,8 @@ module DevelopmentStage
                                test_plan: Config::TEST_PLAN,
                                destination: Config::TEST_BUILD_DESTINATION,
                                derived_data_path: Config::DERIVED_DATA,
-                               test_products_path: Config::ARTIFACTS_PATH,
-                               result_bundle_path: Config::BUILD_RESULTS_PATH,
+                               test_products_path: Config::TEST_PRODUCTS_PATH,
+                               result_bundle_path: Config::BUILD_RESULT_BUNDLE_PATH,
                                code_signing_settings: Config::TEST_CODE_SIGNING_SETTINGS)
       <<~CMD.freeze
         #{build_tool} \
@@ -27,8 +27,8 @@ module DevelopmentStage
 
     def self.test_without_building(build_tool: Config::BUILD_TOOL,
                                    destination: Config::TEST_DESTINATION,
-                                   test_products_path: Config::ARTIFACTS_PATH,
-                                   result_bundle_path: Config::TEST_RESULTS_PATH)
+                                   test_products_path: Config::TEST_PRODUCTS_PATH,
+                                   result_bundle_path: Config::TESTING_RESULT_BUNDLE_PATH)
       <<~CMD.freeze
         #{build_tool} \
         test-without-building \
