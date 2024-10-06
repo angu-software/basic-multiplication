@@ -6,7 +6,7 @@ require_relative '../Development_Stage/development_stage'
 describe DevelopmentStage do
   let(:command_runner) { CommandRunner }
   let(:git_info) { GitInfo }
-  let(:build_for_testing_command) { DevelopmentStage::Commands::BUILD_FOR_TESTING_COMMAND }
+  let(:build_for_testing_command) { DevelopmentStage::Commands.build_for_testing }
   let(:test_without_building_command) { DevelopmentStage::Commands::TEST_WITHOUT_BUILDING_COMMAND }
   let(:xcode_path) { DevelopmentStage::Config::XCODE_PATH }
 

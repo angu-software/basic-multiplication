@@ -4,24 +4,29 @@ require_relative 'config'
 
 module DevelopmentStage
   module Commands
-    def self.build_tool
-      DevelopmentStage::Config::BUILD_TOOL
+    def self.build_for_testing(build_tool: Config::BUILD_TOOL,
+                               scheme: Config::SCHEME,
+                               test_plan: Config::TEST_PLAN,
+                               destination: Config::TEST_BUILD_DESTINATION,
+                               derived_data_path: Config::DERIVED_DATA,
+                               test_products_path: Config::ARTIFACTS_PATH,
+                               result_bundle_path: Config::BUILD_RESULTS_PATH,
+                               code_signing_settings: Config::TEST_CODE_SIGNING_SETTINGS)
+      <<~CMD.freeze
+        #{build_tool} \
+        build-for-testing \
+        -scheme '#{scheme}' \
+        -testPlan '#{test_plan}' \
+        -destination '#{destination}' \
+        -derivedDataPath '#{derived_data_path}' \
+        -testProductsPath '#{test_products_path}' \
+        -resultBundlePath '#{result_bundle_path}' \
+        #{code_signing_settings}
+      CMD
     end
 
-    BUILD_FOR_TESTING_COMMAND = <<~CMD.freeze
-      #{build_tool} \
-      build-for-testing \
-      -scheme '#{Config::SCHEME}' \
-      -testPlan '#{Config::TEST_PLAN}' \
-      -destination '#{Config::TEST_BUILD_DESTINATION}' \
-      -derivedDataPath '#{Config::DERIVED_DATA}' \
-      -testProductsPath '#{Config::ARTIFACTS_PATH}' \
-      -resultBundlePath '#{Config::BUILD_RESULTS_PATH}' \
-      #{Config::TEST_CODE_SIGNING_SETTINGS}
-    CMD
-
     TEST_WITHOUT_BUILDING_COMMAND = <<~CMD.freeze
-      #{build_tool} \
+      #{Config::BUILD_TOOL} \
       test-without-building \
       -destination '#{Config::TEST_DESTINATION}' \
       -testProductsPath '#{Config::ARTIFACTS_PATH}' \

@@ -23,7 +23,7 @@ module DevelopmentStage
 
   def self.build_for_testing
     puts "Build for testing: #{Config::TEST_BUILD_DESTINATION}"
-    run_command(Commands::BUILD_FOR_TESTING_COMMAND)
+    run_command(Commands.build_for_testing)
   end
 
   def self.test_without_building
