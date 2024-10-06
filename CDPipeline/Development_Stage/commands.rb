@@ -4,6 +4,17 @@ require_relative 'config'
 
 module DevelopmentStage
   module Commands
+    def self.archive(build_tool: Config::BUILD_TOOL,
+                     scheme: Config::SCHEME,
+                     archive_path: Config::ARCHIVE_PATH)
+      <<~CMD
+        #{build_tool} \
+        archive \
+        -scheme '#{scheme}' \
+        -archivePath '#{archive_path}'
+      CMD
+    end
+
     def self.build_for_testing(build_tool: Config::BUILD_TOOL,
                                scheme: Config::SCHEME,
                                test_plan: Config::TEST_PLAN,

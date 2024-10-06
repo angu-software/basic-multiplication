@@ -9,6 +9,7 @@ module DevelopmentStage
     select_xcode
     build_for_testing
     test_without_building
+    archive
     tag_rc_build
   rescue StandardError => e
     puts "Error: #{e.message}"
@@ -29,6 +30,11 @@ module DevelopmentStage
   def self.test_without_building
     puts "Test without building: #{Config::TEST_DESTINATION}"
     run_command(Commands.test_without_building)
+  end
+
+  def self.archive
+    puts "Archiving: #{GitInfo.next_rc_build_tag(prefix: Config::RC_TAG_PREFIX)}"
+    run_command(Commands.archive)
   end
 
   def self.tag_rc_build

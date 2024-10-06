@@ -44,6 +44,8 @@ struct MultiplicationExerciseView: View {
     }
 }
 
+#if DEBUG
+
 #Preview {
     MultiplicationExerciseView(viewState: ViewState(operation: "9 x 8",
                                                     productSuggestions: ["71", "72", "75"]))
@@ -64,8 +66,6 @@ struct MultiplicationExerciseView: View {
                                                     isCorrectProductSelected: false,
                                                     selectedSuggestion: "71"))
 }
-
-#if DEBUG
 
 extension MultiplicationExerciseView {
 

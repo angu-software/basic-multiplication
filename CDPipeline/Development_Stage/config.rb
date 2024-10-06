@@ -23,6 +23,8 @@ module DevelopmentStage
     TESTING_RESULT_BUNDLE_PATH = File.join(ARTIFACTS_PATH, 'testing_result_bundle.xcresult')
     TEST_PRODUCTS_PATH = File.join(ARTIFACTS_PATH, 'test_products.xctestproducts')
 
+    ARCHIVE_PATH = File.join(ARTIFACTS_PATH, 'archive.xcarchive')
+
     private_constant :BUILD_ID
     private_constant :BUILD_PATH
   end

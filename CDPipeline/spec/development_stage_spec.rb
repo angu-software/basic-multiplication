@@ -17,6 +17,7 @@ describe DevelopmentStage do
       allow(described_class).to receive(:select_xcode).and_call_original
       allow(described_class).to receive(:build_for_testing).and_call_original
       allow(described_class).to receive(:test_without_building).and_call_original
+      allow(described_class).to receive(:archive).and_call_original
       allow(described_class).to receive(:tag_rc_build).and_call_original
 
       allow(git_info).to receive(:next_rc_build_tag).and_return('Staged-RC-3')
@@ -34,6 +35,7 @@ describe DevelopmentStage do
         expect(described_class).to have_received(:select_xcode).ordered
         expect(described_class).to have_received(:build_for_testing).ordered
         expect(described_class).to have_received(:test_without_building).ordered
+        expect(described_class).to have_received(:archive).ordered
         expect(described_class).to have_received(:tag_rc_build).ordered
       end
 
