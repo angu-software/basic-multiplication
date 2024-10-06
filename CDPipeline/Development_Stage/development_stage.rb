@@ -22,12 +22,12 @@ module DevelopmentStage
   end
 
   def self.build_for_testing
-    puts "Build for testing: #{TEST_BUILD_DESTINATION}"
+    puts "Build for testing: #{Config::TEST_BUILD_DESTINATION}"
     run_command(Commands::BUILD_FOR_TESTING_COMMAND)
   end
 
   def self.test_without_building
-    puts "Test without building: #{TEST_DESTINATION}"
+    puts "Test without building: #{Config::TEST_DESTINATION}"
     run_command(Commands::TEST_WITHOUT_BUILDING_COMMAND)
   end
 
