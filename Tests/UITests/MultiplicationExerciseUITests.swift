@@ -29,12 +29,21 @@ final class MultiplicationExerciseUITests {
             try super.tearDownWithError()
         }
 
+
+        /* Given: A random multiplication exercise with offered solutions
+         * When: The user selects the correct solution
+         * Then: It shows that the selection was correct
+         */
         func test_it_shows_that_the_correct_suggestion_was_selected() throws {
             robot.tapSuggestion(robot.operationProduct())
 
             XCTAssert(robot.correctSolutionIndicator.exists)
         }
 
+        /* Given: A random multiplication exercise with offered solutions
+         * When: The user selects the wrong solution
+         * Then: It shows that the selection was wrong
+         */
         func test_it_shows_that_the_wrong_suggestion_was_selected() throws {
             let operationProduct = robot.operationProduct()
             let wrongSolution = robot.suggestions()
@@ -45,6 +54,10 @@ final class MultiplicationExerciseUITests {
             XCTAssert(robot.wrongSolutionIndicator.exists)
         }
 
+        /* Given: A random multiplication exercise with offered solutions
+         * When: The user selects a solution and proceeds to the next exercise
+         * Then: A new exercise is presented to the user
+         */
         func test_it_generates_a_new_exercise_when_taping_continue() throws {
             let currentSuggestions = robot.suggestions()
 
@@ -55,7 +68,3 @@ final class MultiplicationExerciseUITests {
         }
     }
 }
-
-
-
-
