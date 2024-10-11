@@ -62,15 +62,12 @@ final class MultiplicationExerciseUITests {
          */
         func test_it_generates_a_new_exercise_when_taping_continue() throws {
             try exercise.showsRandomExerciseWithOfferedSolutions()
-
-            try exercise.selectSolution()
-            // proceedToNextExercise
             let currentSuggestions = robot.suggestions()
 
-            robot.tap(robot.continueButton)
+            try exercise.selectSolution()
+            try exercise.proceedToNextExercise()
 
             // assertNewExerciseIsShown
-
             XCTAssertNotEqual(robot.suggestions(), currentSuggestions)
         }
     }

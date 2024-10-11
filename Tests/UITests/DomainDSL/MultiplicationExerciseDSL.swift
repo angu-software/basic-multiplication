@@ -23,6 +23,8 @@ final class MultiplicationExerciseDSL {
         self.protocolDriver = protocolDriver
     }
 
+    // MARK: Actions
+
     func showsRandomExerciseWithOfferedSolutions() throws {
         protocolDriver.launchApp()
     }
@@ -34,6 +36,12 @@ final class MultiplicationExerciseDSL {
 
         protocolDriver.tapSuggestion("\(selectedProduct)")
     }
+
+    func proceedToNextExercise() throws {
+        protocolDriver.tap(protocolDriver.continueButton)
+    }
+
+    // MARK: Asserts
 
     func assertSelectionFeedback(_ feedback: SolutionFeedback = .any,
                                  file: StaticString = #file,
@@ -52,6 +60,8 @@ final class MultiplicationExerciseDSL {
                   file: file,
                   line: line)
     }
+
+    // MARK: Internals
 
     private func correctSolution() throws -> Int {
         let operation = try exerciseOperation()
