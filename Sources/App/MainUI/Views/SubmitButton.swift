@@ -17,8 +17,10 @@ struct SubmitButton: View {
     }
 
     var body: some View {
-        Button(label, action: action)
-        .frame(maxWidth: .infinity, maxHeight: 64)
+        Button(action: action) {
+            Text(label)
+                .frame(maxWidth: .infinity, maxHeight: 64)
+        }
         .border(.accent)
     }
 }

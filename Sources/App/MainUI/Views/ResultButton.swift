@@ -19,9 +19,10 @@ struct ResultButton: View {
     }
 
     var body: some View {
-        Button(value,
-               action: action)
-        .frame(minWidth: 56, minHeight: 42)
+        Button(action: action) {
+            Text(value)
+                .frame(minWidth: 56, minHeight: 42)
+        }
         .background(isSelected ? .selectedProduct : .clear)
         .border(.accent)
     }
