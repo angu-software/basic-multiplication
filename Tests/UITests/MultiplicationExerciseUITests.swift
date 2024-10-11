@@ -7,6 +7,8 @@
 
 import XCTest
 
+/* Acceptance tests */
+
 final class MultiplicationExerciseUITests {
 
     // When selecting a suggestion
@@ -14,6 +16,7 @@ final class MultiplicationExerciseUITests {
     final class WhenSelectingASuggestion: XCTestCase {
 
         private lazy var robot = MultiplicationExerciseRobot()
+        private var exercise: MultiplicationExerciseDSL!
 
         override func setUpWithError() throws {
             try super.setUpWithError()
@@ -21,6 +24,8 @@ final class MultiplicationExerciseUITests {
             continueAfterFailure = false
 
             robot.launchApp()
+
+            exercise = MultiplicationExerciseDSL(protocolDriver: robot)
         }
 
         override func tearDownWithError() throws {
@@ -35,6 +40,9 @@ final class MultiplicationExerciseUITests {
          * Then: It shows that the selection was correct
          */
         func test_it_shows_that_the_correct_suggestion_was_selected() throws {
+            try exercise.showsRandomExerciseWithOfferedSolutions()
+            // selectOption(isCorrect)
+            // assertSelectionFeedback(isCorrect)
             robot.tapSuggestion(robot.operationProduct())
 
             XCTAssert(robot.correctSolutionIndicator.exists)
@@ -45,6 +53,9 @@ final class MultiplicationExerciseUITests {
          * Then: It shows that the selection was wrong
          */
         func test_it_shows_that_the_wrong_suggestion_was_selected() throws {
+            try exercise.showsRandomExerciseWithOfferedSolutions()
+            // selectOption(isWrong)
+            // assertSelectionFeedback(isWrong)
             let operationProduct = robot.operationProduct()
             let wrongSolution = robot.suggestions()
                 .first(where: { $0 != operationProduct }) ?? ""
@@ -59,6 +70,10 @@ final class MultiplicationExerciseUITests {
          * Then: A new exercise is presented to the user
          */
         func test_it_generates_a_new_exercise_when_taping_continue() throws {
+            try exercise.showsRandomExerciseWithOfferedSolutions()
+            // selectAnOption
+            // proceedToNextExercise
+            // assertNewExerciseIsShown
             let currentSuggestions = robot.suggestions()
 
             robot.tapSuggestion(robot.operationProduct())
