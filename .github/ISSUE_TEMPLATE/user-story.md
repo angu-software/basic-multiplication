@@ -1,13 +1,13 @@
 ---
 name: User Story
 about: Template for a user story
-title: "\U0001F680 Title of the user story"
-labels: user-story
+title: "\U0001F680 Title"
+labels: user story
 assignees: angu-software
 
 ---
 
-**As a [role],**
+**As a user,**
 **I want [an action or feature],**
 **So that [a reason or benefit].**
 
