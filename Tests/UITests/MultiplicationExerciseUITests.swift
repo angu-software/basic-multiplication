@@ -34,16 +34,14 @@ final class MultiplicationExerciseUITests {
             try super.tearDownWithError()
         }
 
-
         /* Given: A random multiplication exercise with offered solutions
          * When: The user selects the correct solution
          * Then: It shows that the selection was correct
          */
         func test_it_shows_that_the_correct_suggestion_was_selected() throws {
             try exercise.showsRandomExerciseWithOfferedSolutions()
-            // selectOption(isCorrect)
+            try exercise.selectSolution(.correct)
             // assertSelectionFeedback(isCorrect)
-            robot.tapSuggestion(robot.operationProduct())
 
             XCTAssert(robot.correctSolutionIndicator.exists)
         }

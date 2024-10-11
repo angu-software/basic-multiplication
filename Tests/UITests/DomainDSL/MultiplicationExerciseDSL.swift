@@ -10,43 +10,58 @@ final class MultiplicationExerciseDSL {
     enum SolutionSelection {
         case any
         case wrong
+        case correct
     }
 
     private let protocolDriver: MultiplicationProtocolDriver
-
-    private var operation: (Int, Int)?
-    private var offeredSolutions: [Int] = []
 
     init(protocolDriver: MultiplicationProtocolDriver) {
         self.protocolDriver = protocolDriver
     }
 
     func showsRandomExerciseWithOfferedSolutions() throws {
-        // get the current exercise
-        operation = try protocolDriver.exerciseOperation()
-        offeredSolutions = try protocolDriver.operationProductSuggestions()
+        // Do nothing yet
     }
-
+    
     func selectSolution(_ selection: SolutionSelection = .any) throws {
-        var suggestion: Int?
-
-        switch selection {
-        case .any:
-            suggestion = offeredSolutions.randomElement()
-        case .wrong:
-            let correctSolution = operation!.0 * operation!.1
-            let wrongSolutions = offeredSolutions.filter { $0 != correctSolution }
-            suggestion = wrongSolutions.randomElement()
-        }
-
-        guard let suggestion else {
+        guard let selectedProduct = try solution(for: selection) else {
             throw ProtocolDriverError("Solution suggestions not found")
         }
 
-        protocolDriver.tapSuggestion("\(suggestion)")
+        protocolDriver.tapSuggestion("\(selectedProduct)")
     }
 
     func assertSelectionFeedback() {
 
+    }
+
+    private func correctSolution() throws -> Int {
+        let operation = try exerciseOperation()
+
+        return operation.0 * operation.1
+    }
+
+    private func wrongSolutions() throws -> [Int] {
+        let correctSolution = try correctSolution()
+        return try offeredSolutions().filter { $0 != correctSolution }
+    }
+
+    private func solution(for selection: SolutionSelection) throws -> Int? {
+        switch selection {
+        case .any:
+            return try offeredSolutions().randomElement()
+        case .wrong:
+            return try wrongSolutions().randomElement()
+        case .correct:
+            return try correctSolution()
+        }
+    }
+
+    private func exerciseOperation() throws -> (Int, Int) {
+        try protocolDriver.exerciseOperation()
+    }
+
+    private func offeredSolutions() throws -> [Int] {
+        return try protocolDriver.operationProductSuggestions()
     }
 }
