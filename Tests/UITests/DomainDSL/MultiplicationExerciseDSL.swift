@@ -5,6 +5,8 @@
 //  Created by Andreas Guenther on 11.10.24.
 //
 
+import XCTest
+
 final class MultiplicationExerciseDSL {
 
     enum SolutionSelection {
@@ -13,6 +15,8 @@ final class MultiplicationExerciseDSL {
         case correct
     }
 
+    typealias SolutionFeedback = SolutionSelection
+
     private let protocolDriver: MultiplicationProtocolDriver
 
     init(protocolDriver: MultiplicationProtocolDriver) {
@@ -20,7 +24,7 @@ final class MultiplicationExerciseDSL {
     }
 
     func showsRandomExerciseWithOfferedSolutions() throws {
-        // Do nothing yet
+        protocolDriver.launchApp()
     }
     
     func selectSolution(_ selection: SolutionSelection = .any) throws {
@@ -31,8 +35,22 @@ final class MultiplicationExerciseDSL {
         protocolDriver.tapSuggestion("\(selectedProduct)")
     }
 
-    func assertSelectionFeedback() {
+    func assertSelectionFeedback(_ feedback: SolutionFeedback = .any,
+                                 file: StaticString = #file,
+                                 line: UInt = #line) {
+        let indicator: XCUIElement?
 
+        switch feedback {
+        case .any,
+             .correct:
+            indicator = protocolDriver.correctSolutionIndicator
+        case .wrong:
+            indicator = protocolDriver.wrongSolutionIndicator
+        }
+
+        XCTAssert(indicator?.exists == true,
+                  file: file,
+                  line: line)
     }
 
     private func correctSolution() throws -> Int {

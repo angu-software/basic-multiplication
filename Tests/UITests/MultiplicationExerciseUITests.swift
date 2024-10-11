@@ -40,10 +40,10 @@ final class MultiplicationExerciseUITests {
          */
         func test_it_shows_that_the_correct_suggestion_was_selected() throws {
             try exercise.showsRandomExerciseWithOfferedSolutions()
-            try exercise.selectSolution(.correct)
-            // assertSelectionFeedback(isCorrect)
 
-            XCTAssert(robot.correctSolutionIndicator.exists)
+            try exercise.selectSolution(.correct)
+
+            exercise.assertSelectionFeedback(.correct)
         }
 
         /* Given: A random multiplication exercise with offered solutions
@@ -53,9 +53,8 @@ final class MultiplicationExerciseUITests {
         func test_it_shows_that_the_wrong_suggestion_was_selected() throws {
             try exercise.showsRandomExerciseWithOfferedSolutions()
             try exercise.selectSolution(.wrong)
-            // assertSelectionFeedback(isWrong)
 
-            XCTAssert(robot.wrongSolutionIndicator.exists)
+            exercise.assertSelectionFeedback(.wrong)
         }
 
         /* Given: A random multiplication exercise with offered solutions
