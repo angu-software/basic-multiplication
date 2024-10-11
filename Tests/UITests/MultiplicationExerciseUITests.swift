@@ -23,8 +23,6 @@ final class MultiplicationExerciseUITests {
 
             continueAfterFailure = false
 
-            robot.launchApp()
-
             exercise = MultiplicationExerciseDSL(protocolDriver: robot)
         }
 
@@ -52,6 +50,7 @@ final class MultiplicationExerciseUITests {
          */
         func test_it_shows_that_the_wrong_suggestion_was_selected() throws {
             try exercise.showsRandomExerciseWithOfferedSolutions()
+
             try exercise.selectSolution(.wrong)
 
             exercise.assertSelectionFeedback(.wrong)
@@ -63,12 +62,14 @@ final class MultiplicationExerciseUITests {
          */
         func test_it_generates_a_new_exercise_when_taping_continue() throws {
             try exercise.showsRandomExerciseWithOfferedSolutions()
+
             try exercise.selectSolution()
             // proceedToNextExercise
-            // assertNewExerciseIsShown
             let currentSuggestions = robot.suggestions()
 
             robot.tap(robot.continueButton)
+
+            // assertNewExerciseIsShown
 
             XCTAssertNotEqual(robot.suggestions(), currentSuggestions)
         }
