@@ -62,13 +62,11 @@ final class MultiplicationExerciseUITests {
          */
         func test_it_generates_a_new_exercise_when_taping_continue() throws {
             try exercise.showsRandomExerciseWithOfferedSolutions()
-            let currentSuggestions = robot.suggestions()
 
             try exercise.selectSolution()
             try exercise.proceedToNextExercise()
 
-            // assertNewExerciseIsShown
-            XCTAssertNotEqual(robot.suggestions(), currentSuggestions)
+            exercise.assertNewExerciseIsShown()
         }
     }
 }

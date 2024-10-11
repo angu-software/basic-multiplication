@@ -19,6 +19,13 @@ final class MultiplicationExerciseDSL {
 
     private let protocolDriver: MultiplicationProtocolDriver
 
+    private var previousOfferedSolutions: [Int] = []
+    private var currentOfferedSolutions: [Int] = [] {
+        didSet {
+            previousOfferedSolutions = oldValue
+        }
+    }
+
     init(protocolDriver: MultiplicationProtocolDriver) {
         self.protocolDriver = protocolDriver
     }
@@ -27,6 +34,8 @@ final class MultiplicationExerciseDSL {
 
     func showsRandomExerciseWithOfferedSolutions() throws {
         protocolDriver.launchApp()
+
+        try fetchCurrentState()
     }
     
     func selectSolution(_ selection: SolutionSelection = .any) throws {
@@ -39,6 +48,8 @@ final class MultiplicationExerciseDSL {
 
     func proceedToNextExercise() throws {
         protocolDriver.tap(protocolDriver.continueButton)
+
+        try fetchCurrentState()
     }
 
     // MARK: Asserts
@@ -61,7 +72,19 @@ final class MultiplicationExerciseDSL {
                   line: line)
     }
 
+    func assertNewExerciseIsShown(file: StaticString = #file,
+                                  line: UInt = #line) {
+        XCTAssertNotEqual(currentOfferedSolutions,
+                          previousOfferedSolutions,
+                          file: file,
+                          line: line)
+    }
+
     // MARK: Internals
+
+    private func fetchCurrentState() throws {
+        currentOfferedSolutions = try offeredSolutions()
+    }
 
     private func correctSolution() throws -> Int {
         let operation = try exerciseOperation()
@@ -71,13 +94,13 @@ final class MultiplicationExerciseDSL {
 
     private func wrongSolutions() throws -> [Int] {
         let correctSolution = try correctSolution()
-        return try offeredSolutions().filter { $0 != correctSolution }
+        return currentOfferedSolutions.filter { $0 != correctSolution }
     }
 
     private func solution(for selection: SolutionSelection) throws -> Int? {
         switch selection {
         case .any:
-            return try offeredSolutions().randomElement()
+            return currentOfferedSolutions.randomElement()
         case .wrong:
             return try wrongSolutions().randomElement()
         case .correct:
@@ -90,6 +113,6 @@ final class MultiplicationExerciseDSL {
     }
 
     private func offeredSolutions() throws -> [Int] {
-        return try protocolDriver.operationProductSuggestions()
+        return  try protocolDriver.operationProductSuggestions()
     }
 }
