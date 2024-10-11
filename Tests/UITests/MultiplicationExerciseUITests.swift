@@ -54,13 +54,8 @@ final class MultiplicationExerciseUITests {
          */
         func test_it_shows_that_the_wrong_suggestion_was_selected() throws {
             try exercise.showsRandomExerciseWithOfferedSolutions()
-            // selectOption(isWrong)
+            try exercise.selectSolution(.wrong)
             // assertSelectionFeedback(isWrong)
-            let operationProduct = robot.operationProduct()
-            let wrongSolution = robot.suggestions()
-                .first(where: { $0 != operationProduct }) ?? ""
-
-            robot.tapSuggestion(wrongSolution)
 
             XCTAssert(robot.wrongSolutionIndicator.exists)
         }

@@ -9,6 +9,7 @@ final class MultiplicationExerciseDSL {
 
     enum SolutionSelection {
         case any
+        case wrong
     }
 
     private let protocolDriver: MultiplicationProtocolDriver
@@ -27,7 +28,18 @@ final class MultiplicationExerciseDSL {
     }
 
     func selectSolution(_ selection: SolutionSelection = .any) throws {
-        guard let suggestion = offeredSolutions.randomElement() else {
+        var suggestion: Int?
+
+        switch selection {
+        case .any:
+            suggestion = offeredSolutions.randomElement()
+        case .wrong:
+            let correctSolution = operation!.0 * operation!.1
+            let wrongSolutions = offeredSolutions.filter { $0 != correctSolution }
+            suggestion = wrongSolutions.randomElement()
+        }
+
+        guard let suggestion else {
             throw ProtocolDriverError("Solution suggestions not found")
         }
 
