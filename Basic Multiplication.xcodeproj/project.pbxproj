@@ -50,7 +50,10 @@
 				"Continuous Delivery Pipeline Ideas.md",
 				SnapshotTests/MultiplicationExerciseViewTests.swift,
 				"SwiftSpec idea.md",
+				UITests/DomainDSL/MultiplicationExerciseDSL.swift,
 				UITests/MultiplicationExerciseUITests.swift,
+				UITests/ProtocolDrivers/MultiplicationProtocolDriver.swift,
+				UITests/ProtocolDrivers/ProtocolDriverError.swift,
 				UITests/ScreenRobots/MultiplicationExerciseRobot.swift,
 				UITests/ScreenRobots/ScreenRobot.swift,
 				UnitTests/ExerciseGeneratorTests.swift,
@@ -73,7 +76,10 @@
 		B3E1F63E2C9D694E00B9EC93 /* Exceptions for "Tests" folder in "UITests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				UITests/DomainDSL/MultiplicationExerciseDSL.swift,
 				UITests/MultiplicationExerciseUITests.swift,
+				UITests/ProtocolDrivers/MultiplicationProtocolDriver.swift,
+				UITests/ProtocolDrivers/ProtocolDriverError.swift,
 				UITests/ScreenRobots/MultiplicationExerciseRobot.swift,
 				UITests/ScreenRobots/ScreenRobot.swift,
 			);
