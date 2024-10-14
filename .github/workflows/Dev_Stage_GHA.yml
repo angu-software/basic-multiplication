@@ -38,6 +38,25 @@ jobs:
       with:
         path: '.xcpipeline/${{ github.sha }}/artifacts'
         key: repo-artifact-${{ github.sha }}
+  unit-tests:
+    name: Unit Tests
+    runs-on: macos-latest
+    needs: build-app-for-testing
+    steps:
+    - name: Restore artifacts
+      id: repo-artifact-cache
+      uses: actions/cache@v3
+      with:
+        path: '.xcpipeline/${{ github.sha }}/artifacts'
+        key: repo-artifact-${{ github.sha }}
+    - name: Run Tests
+      run: >
+        xcodebuild
+        test-without-building
+        -testPlan 'UnitTests'
+        -destination 'platform=iOS Simulator,name=iPhone 16 Pro'
+        -testProductsPath '.xcpipeline/${{ github.sha }}/artifacts/BasicMultiplication.xctestproducts'
+        -resultBundlePath '.xcpipeline/${{ github.sha }}/artifacts/UnitTests.xcresult'
   development-tests:
     name: Development Tests
     runs-on: macos-latest
