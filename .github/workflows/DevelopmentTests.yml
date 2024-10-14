@@ -6,14 +6,8 @@ name: DevelopmentTests
 on:
   push:
     branches: [ "main" ]
-    paths-ignore:
-      - 'CDPipeline/**'
-      - '.github/workflows/CDPipelineTests.yml'
   pull_request:
     branches: [ "main" ]
-    paths-ignore:
-      - 'CDPipeline/**'
-      - '.github/workflows/CDPipelineTests.yml'
 
 jobs:
   development-tests:
