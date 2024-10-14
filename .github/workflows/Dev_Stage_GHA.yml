@@ -38,10 +38,11 @@ jobs:
         -testProductsPath '.xcpipeline/${{ github.sha }}/artifacts/test_products.xctestproducts'
         -resultBundlePath '.xcpipeline/${{ github.sha }}/artifacts/testing_result_bundle.xcresult'
     - name: Archive
-      run: >
-        xcodebuild
-        archive
-        -scheme 'Basic Multiplication'
-        -archivePath '.xcpipeline/${{ github.sha }}/artifacts/archive.xcarchive'
+      run: echo Skipped for now
+#      run: >
+#        xcodebuild
+#        archive
+#        -scheme 'Basic Multiplication'
+#        -archivePath '.xcpipeline/${{ github.sha }}/artifacts/archive.xcarchive'
     - name: Tag RC build
-      run: echo This would tag the RC
+      run: echo Skipped for now
