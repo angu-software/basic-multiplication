@@ -21,4 +21,11 @@ jobs:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v3
-    - run: ruby CDPipeline/Development_Stage/run.rb
+    - name: Set up Ruby
+    # To automatically get bug fixes and new Ruby versions for ruby/setup-ruby,
+    # change this to (see https://github.com/ruby/setup-ruby#versioning):
+      uses: ruby/setup-ruby@v1
+      with:
+        working-directory: ./CDPipeline
+        bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+    - run: ruby Development_Stage/run.rb
