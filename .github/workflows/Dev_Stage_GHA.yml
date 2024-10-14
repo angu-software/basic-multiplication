@@ -60,5 +60,7 @@ jobs:
       with:
         working-directory: './CDPipeline'
         bundler-cache: true
+    - name: Fetch all tags
+      run: git fetch --tags
     - name: Tag Staged RC
       run: ruby ./CDPipeline/Development_Stage/run.rb --tag_rc
