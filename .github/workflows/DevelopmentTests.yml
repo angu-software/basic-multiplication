@@ -28,4 +28,4 @@ jobs:
       with:
         working-directory: ./CDPipeline
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
-    - run: ruby Development_Stage/run.rb
+    - run: ruby ./CDPipeline/Development_Stage/run.rb
