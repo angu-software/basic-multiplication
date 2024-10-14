@@ -24,8 +24,8 @@ jobs:
         -scheme 'Basic Multiplication'
         -destination 'generic/platform=iOS Simulator'
         -derivedDataPath '.xcpipeline/${{ github.sha }}/derived_data'
-        -testProductsPath '.xcpipeline/${{ github.sha }}/artifacts/test_products.xctestproducts'
-        -resultBundlePath '.xcpipeline/${{ github.sha }}/artifacts/build_result_bundle.xcresult'
+        -testProductsPath '.xcpipeline/${{ github.sha }}/artifacts/BasicMultiplication.xctestproducts'
+        -resultBundlePath '.xcpipeline/${{ github.sha }}/artifacts/BasicMultiplication.xcresult'
         CODE_SIGNING_REQUIRED=NO
         CODE_SIGN_IDENTITY=''
         CODE_SIGNING_ALLOWED=NO        
@@ -35,16 +35,16 @@ jobs:
         test-without-building
         -testPlan 'UnitTests'
         -destination 'platform=iOS Simulator,name=iPhone 16 Pro'
-        -testProductsPath '.xcpipeline/${{ github.sha }}/artifacts/test_products.xctestproducts'
-        -resultBundlePath '.xcpipeline/${{ github.sha }}/artifacts/testing_result_bundle.xcresult'
+        -testProductsPath '.xcpipeline/${{ github.sha }}/artifacts/BasicMultiplication.xctestproducts'
+        -resultBundlePath '.xcpipeline/${{ github.sha }}/artifacts/UnitTests.xcresult'
     - name: Snapshot Tests
       run: >
         xcodebuild
         test-without-building
         -testPlan 'SnapshotTests'
         -destination 'platform=iOS Simulator,name=iPhone 16 Pro'
-        -testProductsPath '.xcpipeline/${{ github.sha }}/artifacts/test_products.xctestproducts'
-        -resultBundlePath '.xcpipeline/${{ github.sha }}/artifacts/testing_result_bundle.xcresult'
+        -testProductsPath '.xcpipeline/${{ github.sha }}/artifacts/BasicMultiplication.xctestproducts'
+        -resultBundlePath '.xcpipeline/${{ github.sha }}/artifacts/SnapshotTests.xcresult'
     - name: Archive
       run: echo Skipped for now
 #      run: >
