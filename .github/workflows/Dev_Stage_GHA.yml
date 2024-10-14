@@ -3,9 +3,6 @@
 
 name: '[GHA] Development Stage'
 
-permissions:
-  contents: write
-
 on:
   push:
     branches: [ "main" ]
@@ -13,8 +10,8 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build-app-for-testing:
-    name: Build for testing
+  development-tests:
+    name: Development Tests (Simple)
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v3
@@ -23,88 +20,13 @@ jobs:
     - name: Build for testing
       run: >
         xcodebuild
-        build-for-testing
+        test
         -scheme 'Basic Multiplication'
-        -destination 'generic/platform=iOS Simulator'
+        -testPlan 'DevelopmentTests'
+        -destination 'platform=iOS Simulator,name=iPhone 16 Pro'
         -derivedDataPath '.xcpipeline/${{ github.sha }}/derived_data'
         -testProductsPath '.xcpipeline/${{ github.sha }}/artifacts/BasicMultiplication.xctestproducts'
         -resultBundlePath '.xcpipeline/${{ github.sha }}/artifacts/BasicMultiplication.xcresult'
         CODE_SIGNING_REQUIRED=NO
         CODE_SIGN_IDENTITY=''
         CODE_SIGNING_ALLOWED=NO
-    - name: Cache Artifacts
-      id: repo-artifact-cache
-      uses: actions/cache@v3
-      with:
-        path: '.xcpipeline/${{ github.sha }}/artifacts'
-        key: repo-artifact-${{ github.sha }}
-  unit-tests:
-    name: Unit Tests
-    runs-on: macos-latest
-    needs: build-app-for-testing
-    steps:
-    - name: Restore artifacts
-      id: repo-artifact-cache
-      uses: actions/cache@v3
-      with:
-        path: '.xcpipeline/${{ github.sha }}/artifacts'
-        key: repo-artifact-${{ github.sha }}
-    - name: Run Tests
-      run: >
-        xcodebuild
-        test-without-building
-        -testPlan 'UnitTests'
-        -destination 'platform=iOS Simulator,name=iPhone 16 Pro'
-        -testProductsPath '.xcpipeline/${{ github.sha }}/artifacts/BasicMultiplication.xctestproducts'
-        -resultBundlePath '.xcpipeline/${{ github.sha }}/artifacts/UnitTests.xcresult'
-  development-tests:
-    name: Development Tests
-    runs-on: macos-latest
-    steps:
-    - uses: actions/checkout@v3
-    - name: Select Xcode
-      run: sudo xcode-select -s /Applications/Xcode_16.app
-    - name: Build for testing
-      run: >
-        xcodebuild
-        build-for-testing
-        -scheme 'Basic Multiplication'
-        -destination 'generic/platform=iOS Simulator'
-        -derivedDataPath '.xcpipeline/${{ github.sha }}/derived_data'
-        -testProductsPath '.xcpipeline/${{ github.sha }}/artifacts/BasicMultiplication.xctestproducts'
-        -resultBundlePath '.xcpipeline/${{ github.sha }}/artifacts/BasicMultiplication.xcresult'
-        CODE_SIGNING_REQUIRED=NO
-        CODE_SIGN_IDENTITY=''
-        CODE_SIGNING_ALLOWED=NO        
-    - name: Unit Tests
-      run: >
-        xcodebuild
-        test-without-building
-        -testPlan 'UnitTests'
-        -destination 'platform=iOS Simulator,name=iPhone 16 Pro'
-        -testProductsPath '.xcpipeline/${{ github.sha }}/artifacts/BasicMultiplication.xctestproducts'
-        -resultBundlePath '.xcpipeline/${{ github.sha }}/artifacts/UnitTests.xcresult'
-    - name: Snapshot Tests
-      run: >
-        xcodebuild
-        test-without-building
-        -testPlan 'SnapshotTests'
-        -destination 'platform=iOS Simulator,name=iPhone 16 Pro'
-        -testProductsPath '.xcpipeline/${{ github.sha }}/artifacts/BasicMultiplication.xctestproducts'
-        -resultBundlePath '.xcpipeline/${{ github.sha }}/artifacts/SnapshotTests.xcresult'
-    - name: Archive
-      run: echo Skipped for now
-#      run: >
-#        xcodebuild
-#        archive
-#        -scheme 'Basic Multiplication'
-#        -archivePath '.xcpipeline/${{ github.sha }}/artifacts/archive.xcarchive'
-    - name: Prepare Staged RC tag
-      uses: ruby/setup-ruby@v1
-      with:
-        working-directory: './CDPipeline'
-        bundler-cache: true
-    - name: Fetch all tags
-      run: git fetch --tags
-    - name: Tag Staged RC
-      run: ruby ./CDPipeline/Development_Stage/run.rb --tag_rc
