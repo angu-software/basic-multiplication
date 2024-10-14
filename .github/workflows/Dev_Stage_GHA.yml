@@ -37,7 +37,7 @@ jobs:
         xcodebuild
         test-without-building
         -testPlan 'UnitTests'
-        -destination 'platform=iOS Simulator,name=iPhone SE (3rd generation)'
+        -destination 'platform=iOS Simulator,name=iPhone 16 Pro'
         -testProductsPath '.xcpipeline/${{ github.sha }}/artifacts/BasicMultiplication.xctestproducts'
         -resultBundlePath '.xcpipeline/${{ github.sha }}/artifacts/UnitTests.xcresult'
     - name: Snapshot Tests
@@ -45,7 +45,7 @@ jobs:
         xcodebuild
         test-without-building
         -testPlan 'SnapshotTests'
-        -destination 'platform=iOS Simulator,name=iPhone SE (3rd generation)'
+        -destination 'platform=iOS Simulator,name=iPhone 16 Pro'
         -testProductsPath '.xcpipeline/${{ github.sha }}/artifacts/BasicMultiplication.xctestproducts'
         -resultBundlePath '.xcpipeline/${{ github.sha }}/artifacts/SnapshotTests.xcresult'
     - name: Archive
