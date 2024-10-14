@@ -17,12 +17,6 @@ jobs:
     name: Build for testing
     runs-on: macos-latest
     steps:
-    - name: Cache Workspace
-      id: repo-cache
-      uses: actions/cache@v3
-      with:
-        path: ${{ github.workspace }}  # Cache the entire workspace (repository)
-        key: repo-${{ github.sha }}  # Use a unique cache key based on the commit SHA
     - uses: actions/checkout@v3
     - name: Select Xcode
       run: sudo xcode-select -s /Applications/Xcode_16.app
@@ -38,6 +32,12 @@ jobs:
         CODE_SIGNING_REQUIRED=NO
         CODE_SIGN_IDENTITY=''
         CODE_SIGNING_ALLOWED=NO
+    - name: Cache Artifacts
+      id: repo-artifact-cache
+      uses: actions/cache@v3
+      with:
+        path: '.xcpipeline/${{ github.sha }}/artifacts'
+        key: repo-artifact-${{ github.sha }}
   development-tests:
     name: Development Tests
     runs-on: macos-latest
