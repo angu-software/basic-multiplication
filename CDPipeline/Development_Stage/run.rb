@@ -2,4 +2,10 @@
 
 require_relative 'development_stage'
 
-DevelopmentStage.run if __FILE__ == $PROGRAM_NAME
+if __FILE__ == $PROGRAM_NAME
+  if ARGV.include?('--tag_rc')
+    DevelopmentStage.tag_rc_build
+  else
+    DevelopmentStage.run
+  end
+end
