@@ -22,7 +22,6 @@ jobs:
         xcodebuild
         build-for-testing
         -scheme 'Basic Multiplication'
-        -testPlan 'DevelopmentTests'
         -destination 'generic/platform=iOS Simulator'
         -derivedDataPath '.xcpipeline/${{ github.sha }}/derived_data'
         -testProductsPath '.xcpipeline/${{ github.sha }}/artifacts/test_products.xctestproducts'
@@ -30,10 +29,19 @@ jobs:
         CODE_SIGNING_REQUIRED=NO
         CODE_SIGN_IDENTITY=''
         CODE_SIGNING_ALLOWED=NO        
-    - name: Test without building
+    - name: Unit Tests
       run: >
         xcodebuild
         test-without-building
+        -testPlan 'UnitTests'
+        -destination 'platform=iOS Simulator,name=iPhone 16 Pro'
+        -testProductsPath '.xcpipeline/${{ github.sha }}/artifacts/test_products.xctestproducts'
+        -resultBundlePath '.xcpipeline/${{ github.sha }}/artifacts/testing_result_bundle.xcresult'
+    - name: Snapshot Tests
+      run: >
+        xcodebuild
+        test-without-building
+        -testPlan 'SnapshotTests'
         -destination 'platform=iOS Simulator,name=iPhone 16 Pro'
         -testProductsPath '.xcpipeline/${{ github.sha }}/artifacts/test_products.xctestproducts'
         -resultBundlePath '.xcpipeline/${{ github.sha }}/artifacts/testing_result_bundle.xcresult'
@@ -49,7 +57,5 @@ jobs:
       with:
         working-directory: './CDPipeline'
         bundler-cache: true
-    - name: Install gem dependencies
-      run: bundle install
     - name: Tag Staged RC
       run: ruby .CDPipeline/run.rb --tag_rc
