@@ -19,7 +19,6 @@ jobs:
       run: sudo xcode-select -s /Applications/Xcode_16.app
     - name: Build for testing
       run: |
-        "CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY='' CODE_SIGNING_ALLOWED=NO"
         xcodebuild
         build-for-testing
         -scheme 'Basic Multiplication'
@@ -28,6 +27,9 @@ jobs:
         -derivedDataPath '.xcpipeline/${{ github.sha }}/derived_data'
         -testProductsPath '.xcpipeline/${{ github.sha }}/artifacts/test_products.xctestproducts'
         -resultBundlePath '.xcpipeline/${{ github.sha }}/artifacts/build_result_bundle.xcresult'
+        CODE_SIGNING_REQUIRED=NO
+        CODE_SIGN_IDENTITY=''
+        CODE_SIGNING_ALLOWED=NO        
     - name: Test without building
       run: |
         xcodebuild
