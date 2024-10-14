@@ -13,6 +13,25 @@ on:
     branches: [ "main" ]
 
 jobs:
+  build-app-for-testing:
+    name: Build for testing
+    runs-on: macos-latest
+    steps: 
+    - uses: actions/checkout@v3
+    - name: Select Xcode
+      run: sudo xcode-select -s /Applications/Xcode_16.app
+    - name: Build for testing
+      run: >
+        xcodebuild
+        build-for-testing
+        -scheme 'Basic Multiplication'
+        -destination 'generic/platform=iOS Simulator'
+        -derivedDataPath '.xcpipeline/${{ github.sha }}/derived_data'
+        -testProductsPath '.xcpipeline/${{ github.sha }}/artifacts/BasicMultiplication.xctestproducts'
+        -resultBundlePath '.xcpipeline/${{ github.sha }}/artifacts/BasicMultiplication.xcresult'
+        CODE_SIGNING_REQUIRED=NO
+        CODE_SIGN_IDENTITY=''
+        CODE_SIGNING_ALLOWED=NO
   development-tests:
     name: Development Tests
     runs-on: macos-latest
