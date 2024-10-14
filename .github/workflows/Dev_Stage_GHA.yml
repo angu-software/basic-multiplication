@@ -23,7 +23,7 @@ jobs:
         test
         -scheme 'Basic Multiplication'
         -testPlan 'DevelopmentTests'
-        -destination 'platform=iOS Simulator,name=iPhone 16 Pro'
+        -destination 'platform=iOS Simulator,name=iPhone 16 Pro,OS=18.0'
         -derivedDataPath '.xcpipeline/${{ github.sha }}/derived_data'
         -testProductsPath '.xcpipeline/${{ github.sha }}/artifacts/BasicMultiplication.xctestproducts'
         -resultBundlePath '.xcpipeline/${{ github.sha }}/artifacts/BasicMultiplication.xcresult'
