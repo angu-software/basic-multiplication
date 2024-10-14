@@ -44,5 +44,12 @@ jobs:
 #        archive
 #        -scheme 'Basic Multiplication'
 #        -archivePath '.xcpipeline/${{ github.sha }}/artifacts/archive.xcarchive'
-    - name: Tag RC build
-      run: echo Skipped for now
+    - name: Prepare Staged RC tag
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version-file: 'CDPipeline/.ruby-version'
+        bundler-cache: true
+    - name: Install gem dependencies
+      run: bundle install
+    - name: Tag Staged RC
+      run: ruby .CDPipeline/run.rb --tag_rc
