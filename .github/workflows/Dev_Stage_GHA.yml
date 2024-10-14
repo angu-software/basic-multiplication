@@ -58,4 +58,4 @@ jobs:
         working-directory: './CDPipeline'
         bundler-cache: true
     - name: Tag Staged RC
-      run: ruby .CDPipeline/run.rb --tag_rc
+      run: ruby ./CDPipeline/run.rb --tag_rc
