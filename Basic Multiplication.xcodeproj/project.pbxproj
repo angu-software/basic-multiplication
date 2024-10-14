@@ -96,6 +96,8 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				DevelopmentTests.xctestplan,
+				SnapshotTests.xctestplan,
+				UnitTests.xctestplan,
 			);
 			target = B332C8A92C9D458200953C58 /* Basic Multiplication */;
 		};
