@@ -1,13 +1,12 @@
 #!/bin/bash
 set -e
 
-export BUILD_DIR='.xcpipeline'
-export BUILD_ARTIFACTS_DIR="$BUILD_DIR/artifacts"
+source ./CDPipeline/dev_stage/.env
 
 # setting xcode version
 export DEVELOPER_DIR='/Applications/Xcode_16.app/Contents/Developer'
 
-export XCODEBUILD_SCHEME='Basic Multiplication'
+export XCODEBUILD_SCHEME="$APP_SCHEME"
 export XCODEBUILD_TEST_PLAN='DevelopmentTests'
 export XCODEBUILD_DESTINATION='platform=iOS Simulator,name=iPhone 16 Pro,OS=18.0'
 export XCODEBUILD_DERIVED_DATA_PATH="$BUILD_DIR/derived_data"
