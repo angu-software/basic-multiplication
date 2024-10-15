@@ -22,3 +22,5 @@ jobs:
       run: ./CDPipeline/dev_stage/run_dev_tests.sh
     - name: Collect artifacts
       run: ./CDPipeline/dev_stage/collect_artifacts.sh
+    - name: Tag staged RC
+      run: ./CDPipeline/dev_stage/tag_staged_rc.sh
