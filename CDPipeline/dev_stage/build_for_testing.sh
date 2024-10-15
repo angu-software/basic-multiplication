@@ -6,7 +6,7 @@ source ./CDPipeline/dev_stage/.env
 xcodebuild \
 build-for-testing \
 -scheme "$XCODEBUILD_SCHEME" \
--destination "$XCODEBUILD_DESTINATION" \
+-destination "$XCODEBUILD_BUILD_DESTINATION" \
 -derivedDataPath "$XCODEBUILD_DERIVED_DATA_PATH" \
 -testProductsPath "$XCODEBUILD_TEST_PRODUCTS_PATH" \
 -resultBundlePath "$XCODEBUILD_BUILD_RESULT_BUNDLE_PATH" \
