@@ -109,8 +109,8 @@
 			exceptions = (
 				B3E1F63C2C9D694E00B9EC93 /* Exceptions for "Tests" folder in "Basic Multiplication" target */,
 				B3E1F63D2C9D694E00B9EC93 /* Exceptions for "Tests" folder in "UnitTests" target */,
-				B3E1F63E2C9D694E00B9EC93 /* Exceptions for "Tests" folder in "UITests" target */,
 				B3E1F63F2C9D694E00B9EC93 /* Exceptions for "Tests" folder in "SnapshotTests" target */,
+				B3E1F63E2C9D694E00B9EC93 /* Exceptions for "Tests" folder in "UITests" target */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -327,8 +327,8 @@
 			targets = (
 				B332C8A92C9D458200953C58 /* Basic Multiplication */,
 				B332C8B92C9D458800953C58 /* UnitTests */,
-				B332C8C32C9D458800953C58 /* UITests */,
 				B3E1F5F42C9D5C6A00B9EC93 /* SnapshotTests */,
+				B332C8C32C9D458800953C58 /* UITests */,
 			);
 		};
 /* End PBXProject section */
