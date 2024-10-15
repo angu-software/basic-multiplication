@@ -14,7 +14,7 @@ on:
 
 jobs:
   development-tests:
-    name: Development Tests (Simple)
+    name: Development Tests
     runs-on: macos-latest
     steps:
     - name: Checkout
