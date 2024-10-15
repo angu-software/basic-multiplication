@@ -62,8 +62,7 @@ final class ViewAdapter: ObservableObject {
         selectSuggestion(at: index)
     }
 
-    // TODO: make private. selectSuggestion(_:) should be the main access point
-    func selectSuggestion(at index: Int) {
+    private func selectSuggestion(at index: Int) {
         guard selectedSuggestion == nil else {
             return
         }

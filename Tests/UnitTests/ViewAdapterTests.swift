@@ -140,3 +140,11 @@ struct ViewAdapterTests {
         }
     }
 }
+
+extension ViewAdapter {
+
+    fileprivate func selectSuggestion(at index: Int) {
+        let selectedValue = "\(exercise.productSuggestions[index])"
+        didSelectSuggestion(selectedValue)
+    }
+}
