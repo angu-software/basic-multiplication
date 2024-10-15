@@ -41,21 +41,24 @@ class DevStageGenerator
       #!/bin/bash
       set -e
 
+      # Task: Execute Dev Tests
       export DEVELOPER_DIR='/Applications/Xcode_16.app/Contents/Developer'
+      GIT_SHA=`git rev-parse --short HEAD`
 
       xcodebuild \
       test \
       -scheme 'Basic Multiplication' \
       -testPlan 'DevelopmentTests' \
       -destination 'platform=iOS Simulator,name=iPhone 16 Pro,OS=18.0' \
-      -derivedDataPath '.xcpipeline/_LOCAL_/derived_data' \
-      -testProductsPath '.xcpipeline/_LOCAL_/artifacts/BasicMultiplication.xctestproducts' \
-      -resultBundlePath '.xcpipeline/_LOCAL_/artifacts/BasicMultiplication.xcresult' \
+      -derivedDataPath ".xcpipeline/$GIT_SHA/derived_data" \
+      -testProductsPath ".xcpipeline/$GIT_SHA/artifacts/BasicMultiplication.xctestproducts" \
+      -resultBundlePath ".xcpipeline/$GIT_SHA/artifacts/BasicMultiplication.xcresult" \
       -skipUnavailableActions \
       CODE_SIGNING_REQUIRED=NO \
       CODE_SIGN_IDENTITY='' \
       CODE_SIGNING_ALLOWED=NO
 
+      # Task: Create Staged RC
       git fetch --tags
       ruby ./CDPipeline/Development_Stage/run.rb --tag_rc
 
