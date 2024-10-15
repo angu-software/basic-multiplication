@@ -4,7 +4,7 @@
       "id" : "B26259C5-BB4E-48F8-B02C-25554CC173D3",
       "name" : "Test Scheme Action",
       "options" : {
-        "testExecutionOrdering" : "random"
+
       }
     }
   ],
@@ -22,10 +22,12 @@
       "containerPath" : "container:Basic Multiplication.xcodeproj",
       "identifier" : "B332C8A92C9D458200953C58",
       "name" : "Basic Multiplication"
-    }
+    },
+    "testExecutionOrdering" : "random"
   },
   "testTargets" : [
     {
+      "parallelizable" : false,
       "target" : {
         "containerPath" : "container:Basic Multiplication.xcodeproj",
         "identifier" : "B3E1F5F42C9D5C6A00B9EC93",
