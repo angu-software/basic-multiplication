@@ -39,4 +39,32 @@ describe DevStageGenerator do
     CONFIG
                          )
   end
+
+  it 'generates a local excutable command' do
+    expect(DevStageGenerator.generate_bash).to eq(<<~LOCAL_SCRIPT
+      #!/bin/bash
+      set -e
+
+      export DEVELOPER_DIR='/Applications/Xcode_16.app/Contents/Developer'
+
+      xcodebuild \
+      test \
+      -scheme 'Basic Multiplication' \
+      -testPlan 'DevelopmentTests' \
+      -destination 'platform=iOS Simulator,name=iPhone 16 Pro,OS=18.0' \
+      -derivedDataPath '.xcpipeline/_LOCAL_/derived_data' \
+      -testProductsPath '.xcpipeline/_LOCAL_/artifacts/BasicMultiplication.xctestproducts' \
+      -resultBundlePath '.xcpipeline/_LOCAL_/artifacts/BasicMultiplication.xcresult' \
+      -skipUnavailableActions \
+      CODE_SIGNING_REQUIRED=NO \
+      CODE_SIGN_IDENTITY='' \
+      CODE_SIGNING_ALLOWED=NO
+
+      git fetch --tags
+      ruby ./CDPipeline/Development_Stage/run.rb --tag_rc
+
+      unset DEVELOPER_DIR
+    LOCAL_SCRIPT
+                                                 )
+  end
 end
