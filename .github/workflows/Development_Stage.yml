@@ -15,5 +15,7 @@ jobs:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v3
+    - name: Build for testing
+      run: ./CDPipeline/dev_stage/build_for_testing.sh
     - name: Run development tests
       run: ./CDPipeline/dev_stage/run_dev_tests.sh
