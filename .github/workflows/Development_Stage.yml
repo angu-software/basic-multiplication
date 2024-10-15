@@ -3,6 +3,9 @@
 
 name: 'Development Stage'
 
+permissions:
+  contents: write
+
 on:
   push:
     branches: [ "main" ]
