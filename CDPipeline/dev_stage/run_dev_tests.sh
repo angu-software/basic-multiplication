@@ -1,14 +1,18 @@
 #!/bin/bash
       set -e
 
-      # Task: Execute Dev Tests
+      export BUILD_DIR='.xcpipeline'
+      export BUILD_ARTIFACTS_DIR="$BUILD_DIR/artifacts"
+
+      # setting xcode version
       export DEVELOPER_DIR='/Applications/Xcode_16.app/Contents/Developer'
+
       export XCODEBUILD_SCHEME='Basic Multiplication'
       export XCODEBUILD_TEST_PLAN='DevelopmentTests'
       export XCODEBUILD_DESTINATION='platform=iOS Simulator,name=iPhone 16 Pro,OS=18.0'
-      export XCODEBUILD_DERIVED_DATA_PATH='.xcpipeline/derived_data'
-      export XCODEBUILD_TEST_PRODUCTS_PATH='.xcpipeline/artifacts/BasicMultiplication.xctestproducts'
-      export XCODEBUILD_RESULT_BUNDLE_PATH='.xcpipeline/artifacts/BasicMultiplication.xcresult'
+      export XCODEBUILD_DERIVED_DATA_PATH="$BUILD_DIR/derived_data"
+      export XCODEBUILD_TEST_PRODUCTS_PATH="$BUILD_ARTIFACTS_DIR/$XCODEBUILD_TEST_PLAN.xctestproducts"
+      export XCODEBUILD_RESULT_BUNDLE_PATH="$BUILD_ARTIFACTS_DIR/$XCODEBUILD_TEST_PLAN.xcresult"
 
       xcodebuild \
       test \
