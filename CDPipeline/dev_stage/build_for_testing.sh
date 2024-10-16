@@ -10,6 +10,7 @@ build-for-testing \
 -derivedDataPath "$XCODEBUILD_DERIVED_DATA_PATH" \
 -testProductsPath "$XCODEBUILD_TEST_PRODUCTS_PATH" \
 -resultBundlePath "$XCODEBUILD_BUILD_RESULT_BUNDLE_PATH" \
+-quiet \
 -skipUnavailableActions \
 CODE_SIGNING_REQUIRED=NO \
 CODE_SIGN_IDENTITY='' \
