@@ -15,7 +15,7 @@ jobs:
     runs-on: macos-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
     - name: Build for testing
       run: ./CDPipeline/dev_stage/build_for_testing.sh ./CDPipeline/dev_stage/.env
     - name: Run development tests
@@ -27,7 +27,7 @@ jobs:
     if: needs.development-tests.result == 'success'
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Set up ruby
         uses: ruby/setup-ruby@v1
         with:
@@ -44,7 +44,7 @@ jobs:
     if: needs.acceptance-tests.result == 'success'
     steps:
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
     - name: Set up ruby
       uses: ruby/setup-ruby@v1
       with:
