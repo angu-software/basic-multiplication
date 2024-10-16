@@ -36,7 +36,7 @@ jobs:
       - name: Build for testing
         run: ./CDPipeline/dev_stage/build_for_testing.sh ./CDPipeline/dev_stage/.env
       - name: Run acceptance tests
-        run: ./CDPipeline/acc_stage/run_acceptance_tests.sh ./CDPipeline/dev_stage/.env
+        run: ./CDPipeline/acc_stage/run_ui_tests.sh ./CDPipeline/dev_stage/.env
   create-staged-rc:
     name: Deployment Stage
     runs-on: macos-latest
