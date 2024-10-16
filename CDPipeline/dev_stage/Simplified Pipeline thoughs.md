@@ -27,3 +27,7 @@ Steps should be able to execute locally
         |- tests
     |- deploy
         |- build
+
+## Notes
+
+* cancel running ACC tests if a new dev test is started
