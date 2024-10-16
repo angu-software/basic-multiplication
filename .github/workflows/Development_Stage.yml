@@ -20,12 +20,20 @@ jobs:
       run: ./CDPipeline/dev_stage/build_for_testing.sh ./CDPipeline/dev_stage/.env
     - name: Run development tests
       run: ./CDPipeline/dev_stage/run_dev_tests.sh ./CDPipeline/dev_stage/.env
-    - name: Create staged RC
-      run: ./CDPipeline/dev_stage/create_staged_rc.sh ./CDPipeline/dev_stage/.env
+  create-staged-rc:
+    name: Create Staged RC
+    runs-on: macos-latest
+    needs: development-tests
+    if: needs.development-tests.result == 'success'
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
     - name: Set up ruby
       uses: ruby/setup-ruby@v1
       with:
         working-directory: './CDPipeline'
         bundler-cache: true
+    - name: Create staged RC
+      run: ./CDPipeline/dev_stage/create_staged_rc.sh ./CDPipeline/dev_stage/.env
     - name: Tag staged RC
       run: ./CDPipeline/dev_stage/tag_staged_rc.sh

@@ -3,7 +3,7 @@ set -e
 
 source $1
 
-# TODO Build the artifacts
+./CDPipeline/dev_stage/build_for_testing.sh $1
 
 # TODO: get the current build tag (build number)
 RC_TAG_PREFIX="Staged-RC-"
