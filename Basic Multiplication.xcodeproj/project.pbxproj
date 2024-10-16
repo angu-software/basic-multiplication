@@ -91,6 +91,15 @@
 			);
 			target = B3C5EE692CBFD13F00BD1D2B /* ExerciseKernel */;
 		};
+		B3C5EE962CBFD4E600BD1D2B /* Exceptions for "Tests" folder in "ExerciseKernelTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				ExerciseKernelTests/ExerciseGeneratorTests.swift,
+				ExerciseKernelTests/NumberGeneratorTests.swift,
+				ExerciseKernelTests/ProductSuggestionsGenerator.swift,
+			);
+			target = B3C5EE832CBFD39600BD1D2B /* ExerciseKernelTests */;
+		};
 		B3E1F63C2C9D694E00B9EC93 /* Exceptions for "Tests" folder in "Basic Multiplication" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -113,9 +122,6 @@
 		B3E1F63D2C9D694E00B9EC93 /* Exceptions for "Tests" folder in "UnitTests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				ExerciseKernelTests/ExerciseGeneratorTests.swift,
-				ExerciseKernelTests/NumberGeneratorTests.swift,
-				ExerciseKernelTests/ProductSuggestionsGenerator.swift,
 				UnitTests/ViewAdapterTests.swift,
 			);
 			target = B332C8B92C9D458800953C58 /* UnitTests */;
@@ -158,6 +164,7 @@
 				B3E1F63D2C9D694E00B9EC93 /* Exceptions for "Tests" folder in "UnitTests" target */,
 				B3E1F63F2C9D694E00B9EC93 /* Exceptions for "Tests" folder in "SnapshotTests" target */,
 				B3E1F63E2C9D694E00B9EC93 /* Exceptions for "Tests" folder in "UITests" target */,
+				B3C5EE962CBFD4E600BD1D2B /* Exceptions for "Tests" folder in "ExerciseKernelTests" target */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
