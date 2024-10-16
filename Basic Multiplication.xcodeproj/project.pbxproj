@@ -35,6 +35,13 @@
 			remoteGlobalIDString = B3C5EE692CBFD13F00BD1D2B;
 			remoteInfo = ExerciseKernel;
 		};
+		B3C5EE882CBFD39700BD1D2B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B332C8A22C9D458200953C58 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B332C8A92C9D458200953C58;
+			remoteInfo = "Basic Multiplication";
+		};
 		B3E1F5F92C9D5C6A00B9EC93 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B332C8A22C9D458200953C58 /* Project object */;
@@ -64,6 +71,7 @@
 		B332C8C42C9D458800953C58 /* UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B332C8D72C9D467E00953C58 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B3C5EE6A2CBFD13F00BD1D2B /* ExerciseKernel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ExerciseKernel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3C5EE842CBFD39600BD1D2B /* ExerciseKernelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExerciseKernelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3E1F5F52C9D5C6A00B9EC93 /* SnapshotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SnapshotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -202,6 +210,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B3C5EE812CBFD39600BD1D2B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B3E1F5F22C9D5C6A00B9EC93 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -233,6 +248,7 @@
 				B332C8C42C9D458800953C58 /* UITests.xctest */,
 				B3E1F5F52C9D5C6A00B9EC93 /* SnapshotTests.xctest */,
 				B3C5EE6A2CBFD13F00BD1D2B /* ExerciseKernel.framework */,
+				B3C5EE842CBFD39600BD1D2B /* ExerciseKernelTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -343,6 +359,26 @@
 			productReference = B3C5EE6A2CBFD13F00BD1D2B /* ExerciseKernel.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		B3C5EE832CBFD39600BD1D2B /* ExerciseKernelTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B3C5EE8A2CBFD39700BD1D2B /* Build configuration list for PBXNativeTarget "ExerciseKernelTests" */;
+			buildPhases = (
+				B3C5EE802CBFD39600BD1D2B /* Sources */,
+				B3C5EE812CBFD39600BD1D2B /* Frameworks */,
+				B3C5EE822CBFD39600BD1D2B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B3C5EE892CBFD39700BD1D2B /* PBXTargetDependency */,
+			);
+			name = ExerciseKernelTests;
+			packageProductDependencies = (
+			);
+			productName = ExerciseKernelTests;
+			productReference = B3C5EE842CBFD39600BD1D2B /* ExerciseKernelTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		B3E1F5F42C9D5C6A00B9EC93 /* SnapshotTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B3E1F5FB2C9D5C6A00B9EC93 /* Build configuration list for PBXNativeTarget "SnapshotTests" */;
@@ -388,6 +424,10 @@
 					B3C5EE692CBFD13F00BD1D2B = {
 						CreatedOnToolsVersion = 16.0;
 					};
+					B3C5EE832CBFD39600BD1D2B = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = B332C8A92C9D458200953C58;
+					};
 					B3E1F5F42C9D5C6A00B9EC93 = {
 						CreatedOnToolsVersion = 16.0;
 						TestTargetID = B332C8A92C9D458200953C58;
@@ -416,6 +456,7 @@
 				B3E1F5F42C9D5C6A00B9EC93 /* SnapshotTests */,
 				B332C8C32C9D458800953C58 /* UITests */,
 				B3C5EE692CBFD13F00BD1D2B /* ExerciseKernel */,
+				B3C5EE832CBFD39600BD1D2B /* ExerciseKernelTests */,
 			);
 		};
 /* End PBXProject section */
@@ -444,6 +485,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		B3C5EE682CBFD13F00BD1D2B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B3C5EE822CBFD39600BD1D2B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -488,6 +536,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B3C5EE802CBFD39600BD1D2B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B3E1F5F12C9D5C6A00B9EC93 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -512,6 +567,11 @@
 			isa = PBXTargetDependency;
 			target = B3C5EE692CBFD13F00BD1D2B /* ExerciseKernel */;
 			targetProxy = B3C5EE6E2CBFD13F00BD1D2B /* PBXContainerItemProxy */;
+		};
+		B3C5EE892CBFD39700BD1D2B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B332C8A92C9D458200953C58 /* Basic Multiplication */;
+			targetProxy = B3C5EE882CBFD39700BD1D2B /* PBXContainerItemProxy */;
 		};
 		B3E1F5FA2C9D5C6A00B9EC93 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -850,6 +910,44 @@
 			};
 			name = Release;
 		};
+		B3C5EE8B2CBFD39700BD1D2B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 94RX8Q59P5;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "de.angu-software.ExerciseKernelTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Basic Multiplication.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Basic Multiplication";
+			};
+			name = Debug;
+		};
+		B3C5EE8C2CBFD39700BD1D2B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 94RX8Q59P5;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "de.angu-software.ExerciseKernelTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Basic Multiplication.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Basic Multiplication";
+			};
+			name = Release;
+		};
 		B3E1F5FC2C9D5C6A00B9EC93 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -932,6 +1030,15 @@
 			buildConfigurations = (
 				B3C5EE742CBFD13F00BD1D2B /* Debug */,
 				B3C5EE752CBFD13F00BD1D2B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B3C5EE8A2CBFD39700BD1D2B /* Build configuration list for PBXNativeTarget "ExerciseKernelTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B3C5EE8B2CBFD39700BD1D2B /* Debug */,
+				B3C5EE8C2CBFD39700BD1D2B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

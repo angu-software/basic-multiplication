@@ -55,6 +55,17 @@
                ReferencedContainer = "container:Basic Multiplication.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B3C5EE832CBFD39600BD1D2B"
+               BuildableName = "ExerciseKernelTests.xctest"
+               BlueprintName = "ExerciseKernelTests"
+               ReferencedContainer = "container:Basic Multiplication.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
