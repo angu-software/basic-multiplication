@@ -86,7 +86,7 @@ final class ViewAdapter: ObservableObject {
 extension ViewState {
 
     init(exercise: MultiplicationExercise) {
-        let operation = String(format: MultiplicationExerciseView.Texts.operationFormat,
+        let operation = String(format: Texts.operationFormat,
                                exercise.multiplicand,
                                exercise.multiplier)
         self.init(operation: operation,
