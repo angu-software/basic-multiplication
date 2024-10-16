@@ -35,7 +35,6 @@
       }
     },
     {
-      "enabled" : false,
       "parallelizable" : false,
       "skippedTests" : {
         "suites" : [
@@ -57,15 +56,6 @@
         "containerPath" : "container:Basic Multiplication.xcodeproj",
         "identifier" : "B332C8B92C9D458800953C58",
         "name" : "UnitTests"
-      }
-    },
-    {
-      "enabled" : false,
-      "parallelizable" : false,
-      "target" : {
-        "containerPath" : "container:Basic Multiplication.xcodeproj",
-        "identifier" : "B3E1F5F42C9D5C6A00B9EC93",
-        "name" : "SnapshotTests"
       }
     }
   ],

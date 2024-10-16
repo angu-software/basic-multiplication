@@ -148,6 +148,7 @@
 		B3E1F66C2C9D86EC00B9EC93 /* Exceptions for "TestPlans" folder in "Basic Multiplication" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				AcceptanceTests.xctestplan,
 				DevelopmentTests.xctestplan,
 				SnapshotTests.xctestplan,
 				UnitTests.xctestplan,

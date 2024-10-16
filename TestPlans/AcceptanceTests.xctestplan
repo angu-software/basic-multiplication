@@ -23,6 +23,14 @@
   },
   "testTargets" : [
     {
+      "parallelizable" : false,
+      "target" : {
+        "containerPath" : "container:Basic Multiplication.xcodeproj",
+        "identifier" : "B3E1F5F42C9D5C6A00B9EC93",
+        "name" : "SnapshotTests"
+      }
+    },
+    {
       "target" : {
         "containerPath" : "container:Basic Multiplication.xcodeproj",
         "identifier" : "B332C8C32C9D458800953C58",
