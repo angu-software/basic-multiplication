@@ -79,6 +79,9 @@
 		B3C5EE7A2CBFD14300BD1D2B /* Exceptions for "Sources" folder in "ExerciseKernel" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				BasicMultiplication/MainUI/Screens/MultiplicationExerciseView/Texts.swift,
+				BasicMultiplication/MainUI/Screens/MultiplicationExerciseView/ViewAdapter.swift,
+				BasicMultiplication/MainUI/Screens/MultiplicationExerciseView/ViewState.swift,
 				ExerciseKernel/ExerciseGenerator.swift,
 				ExerciseKernel/ExerciseKernel.h,
 				ExerciseKernel/Multiplication.swift,
@@ -97,6 +100,7 @@
 				ExerciseKernelTests/ExerciseGeneratorTests.swift,
 				ExerciseKernelTests/NumberGeneratorTests.swift,
 				ExerciseKernelTests/ProductSuggestionsGenerator.swift,
+				UnitTests/ViewAdapterTests.swift,
 			);
 			target = B3C5EE832CBFD39600BD1D2B /* ExerciseKernelTests */;
 		};
@@ -118,13 +122,6 @@
 				UnitTests/ViewAdapterTests.swift,
 			);
 			target = B332C8A92C9D458200953C58 /* Basic Multiplication */;
-		};
-		B3E1F63D2C9D694E00B9EC93 /* Exceptions for "Tests" folder in "UnitTests" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				UnitTests/ViewAdapterTests.swift,
-			);
-			target = B332C8B92C9D458800953C58 /* UnitTests */;
 		};
 		B3E1F63E2C9D694E00B9EC93 /* Exceptions for "Tests" folder in "UITests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
@@ -162,7 +159,6 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				B3E1F63C2C9D694E00B9EC93 /* Exceptions for "Tests" folder in "Basic Multiplication" target */,
-				B3E1F63D2C9D694E00B9EC93 /* Exceptions for "Tests" folder in "UnitTests" target */,
 				B3E1F63F2C9D694E00B9EC93 /* Exceptions for "Tests" folder in "SnapshotTests" target */,
 				B3E1F63E2C9D694E00B9EC93 /* Exceptions for "Tests" folder in "UITests" target */,
 				B3C5EE962CBFD4E600BD1D2B /* Exceptions for "Tests" folder in "ExerciseKernelTests" target */,

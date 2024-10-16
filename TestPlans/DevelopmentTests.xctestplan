@@ -33,30 +33,6 @@
         "identifier" : "B3C5EE832CBFD39600BD1D2B",
         "name" : "ExerciseKernelTests"
       }
-    },
-    {
-      "parallelizable" : false,
-      "skippedTests" : {
-        "suites" : [
-          {
-            "name" : "CreatingExercise"
-          },
-          {
-            "name" : "GeneratingNumber"
-          },
-          {
-            "name" : "GeneratingNumberWithCustomRange"
-          },
-          {
-            "name" : "GeneratingProductSuggestions"
-          }
-        ]
-      },
-      "target" : {
-        "containerPath" : "container:Basic Multiplication.xcodeproj",
-        "identifier" : "B332C8B92C9D458800953C58",
-        "name" : "UnitTests"
-      }
     }
   ],
   "version" : 1

@@ -7,7 +7,7 @@
 
 import Testing
 
-@testable import Basic_Multiplication
+@testable import ExerciseKernel
 
 struct ViewAdapterTests {
 
