@@ -11,3 +11,19 @@ Steps should be able to execute locally
 3. Deployment Stage
    1. Build archive
    2. Mark as RC
+
+## Execution artifacts folder structure
+
+* Share build artifacts for testing
+
+.xcpipeline
+  |- derived_data
+  |- artifacts
+    |- development
+        |- build
+        |- tests
+    |- acceptance
+        |- build
+        |- tests
+    |- deploy
+        |- build

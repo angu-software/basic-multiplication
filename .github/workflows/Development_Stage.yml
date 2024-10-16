@@ -1,4 +1,4 @@
-name: 'Development Stage'
+name: 'XCPipleine'
 
 permissions:
   contents: write
@@ -11,7 +11,7 @@ on:
 
 jobs:
   development-tests:
-    name: Development Tests
+    name: Development Stage
     runs-on: macos-latest
     steps:
     - name: Checkout
@@ -20,11 +20,28 @@ jobs:
       run: ./CDPipeline/dev_stage/build_for_testing.sh ./CDPipeline/dev_stage/.env
     - name: Run development tests
       run: ./CDPipeline/dev_stage/run_dev_tests.sh ./CDPipeline/dev_stage/.env
-  create-staged-rc:
-    name: Create Staged RC
+  acceptance-tests:
+    name: Acceptance Stage
     runs-on: macos-latest
     needs: development-tests
     if: needs.development-tests.result == 'success'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Set up ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          working-directory: './CDPipeline'
+          bundler-cache: true
+      - name: Build for testing
+        run: ./CDPipeline/dev_stage/build_for_testing.sh ./CDPipeline/dev_stage/.env
+      - name: Run acceptance tests
+        run: ./CDPipeline/dev_stage/run_acceptance_tests.sh ./CDPipeline/dev_stage/.env
+  create-staged-rc:
+    name: Deployment Stage
+    runs-on: macos-latest
+    needs: acceptance-tests
+    if: needs.acceptance-tests.result == 'success'
     steps:
     - name: Checkout
       uses: actions/checkout@v3
@@ -33,7 +50,5 @@ jobs:
       with:
         working-directory: './CDPipeline'
         bundler-cache: true
-    - name: Create staged RC
-      run: ./CDPipeline/dev_stage/create_staged_rc.sh ./CDPipeline/dev_stage/.env
     - name: Tag staged RC
       run: ./CDPipeline/dev_stage/tag_staged_rc.sh
