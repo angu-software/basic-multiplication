@@ -3,6 +3,8 @@ set -e
 
 source $1
 
+# TODO Build the artifacts
+
 # TODO: get the current build tag (build number)
 RC_TAG_PREFIX="Staged-RC-"
 UNIX_TIMESTAMP=$(date +%s)

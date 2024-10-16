@@ -20,8 +20,8 @@ jobs:
       run: ./CDPipeline/dev_stage/build_for_testing.sh ./CDPipeline/dev_stage/.env
     - name: Run development tests
       run: ./CDPipeline/dev_stage/run_dev_tests.sh ./CDPipeline/dev_stage/.env
-    - name: Collect artifacts
-      run: ./CDPipeline/dev_stage/collect_artifacts.sh ./CDPipeline/dev_stage/.env
+    - name: Create staged RC
+      run: ./CDPipeline/dev_stage/create_staged_rc.sh ./CDPipeline/dev_stage/.env
     - name: Set up ruby
       uses: ruby/setup-ruby@v1
       with:
