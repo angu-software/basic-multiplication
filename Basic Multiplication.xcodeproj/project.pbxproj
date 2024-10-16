@@ -95,6 +95,9 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				"Continuous Delivery Pipeline Ideas.md",
+				ExerciseKernelTests/ExerciseGeneratorTests.swift,
+				ExerciseKernelTests/NumberGeneratorTests.swift,
+				ExerciseKernelTests/ProductSuggestionsGenerator.swift,
 				SnapshotTests/MultiplicationExerciseViewTests.swift,
 				"SwiftSpec idea.md",
 				UITests/DomainDSL/MultiplicationExerciseDSL.swift,
@@ -103,9 +106,6 @@
 				UITests/ProtocolDrivers/ProtocolDriverError.swift,
 				UITests/ScreenRobots/MultiplicationExerciseRobot.swift,
 				UITests/ScreenRobots/ScreenRobot.swift,
-				UnitTests/ExerciseGeneratorTests.swift,
-				UnitTests/NumberGeneratorTests.swift,
-				UnitTests/ProductSuggestionsGenerator.swift,
 				UnitTests/ViewAdapterTests.swift,
 			);
 			target = B332C8A92C9D458200953C58 /* Basic Multiplication */;
@@ -113,9 +113,9 @@
 		B3E1F63D2C9D694E00B9EC93 /* Exceptions for "Tests" folder in "UnitTests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				UnitTests/ExerciseGeneratorTests.swift,
-				UnitTests/NumberGeneratorTests.swift,
-				UnitTests/ProductSuggestionsGenerator.swift,
+				ExerciseKernelTests/ExerciseGeneratorTests.swift,
+				ExerciseKernelTests/NumberGeneratorTests.swift,
+				ExerciseKernelTests/ProductSuggestionsGenerator.swift,
 				UnitTests/ViewAdapterTests.swift,
 			);
 			target = B332C8B92C9D458800953C58 /* UnitTests */;
