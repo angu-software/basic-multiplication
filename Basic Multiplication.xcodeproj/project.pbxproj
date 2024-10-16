@@ -71,7 +71,12 @@
 		B3C5EE7A2CBFD14300BD1D2B /* Exceptions for "Sources" folder in "ExerciseKernel" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				ExerciseKernel/ExerciseGenerator.swift,
 				ExerciseKernel/ExerciseKernel.h,
+				ExerciseKernel/Multiplication.swift,
+				ExerciseKernel/MultiplicationExercise.swift,
+				ExerciseKernel/NumberGenerator.swift,
+				ExerciseKernel/ProductSuggestionsGenerator.swift,
 			);
 			publicHeaders = (
 				ExerciseKernel/ExerciseKernel.h,
