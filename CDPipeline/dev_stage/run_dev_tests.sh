@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-source ./CDPipeline/dev_stage/.env
+source $1
 
 xcodebuild \
 test-without-building \

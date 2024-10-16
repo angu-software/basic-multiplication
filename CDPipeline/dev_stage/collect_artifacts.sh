@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
 
-source ./CDPipeline/dev_stage/.env
+source $1
 
 zip -qr "$ARTIFACT_ARCHIVE" "$BUILD_ARTIFACTS_DIR"

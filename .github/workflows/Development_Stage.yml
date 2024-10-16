@@ -17,11 +17,11 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
     - name: Build for testing
-      run: ./CDPipeline/dev_stage/build_for_testing.sh
+      run: ./CDPipeline/dev_stage/build_for_testing.sh ./CDPipeline/dev_stage/.env
     - name: Run development tests
-      run: ./CDPipeline/dev_stage/run_dev_tests.sh
+      run: ./CDPipeline/dev_stage/run_dev_tests.sh ./CDPipeline/dev_stage/.env
     - name: Collect artifacts
-      run: ./CDPipeline/dev_stage/collect_artifacts.sh
+      run: ./CDPipeline/dev_stage/collect_artifacts.sh ./CDPipeline/dev_stage/.env
     - name: Set up ruby
       uses: ruby/setup-ruby@v1
       with:
