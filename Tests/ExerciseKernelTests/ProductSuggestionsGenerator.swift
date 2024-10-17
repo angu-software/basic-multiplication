@@ -24,7 +24,7 @@ struct ProductSuggestionsGeneratorTests {
             return ProductSuggestionsGenerator(numberOfSuggestions: numberOfSuggestions,
                                                maxSuggestionRange: Self.maxSuggestionRange,
                                                maxDistanceToProduct: maxDistanceToProduct)
-            .makeSuggestions(product: product)
+                .makeSuggestions(product: product)
         }
 
         @Test("it returns three suggestions",

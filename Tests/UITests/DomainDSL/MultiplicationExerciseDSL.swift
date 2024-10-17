@@ -37,7 +37,7 @@ final class MultiplicationExerciseDSL {
 
         try fetchCurrentState()
     }
-    
+
     func selectSolution(_ selection: SolutionSelection = .any) throws {
         guard let selectedProduct = try solution(for: selection) else {
             throw ProtocolDriverError("Solution suggestions not found")

@@ -68,7 +68,7 @@ struct ViewAdapterTests {
             let selectionIndex = 1
 
             subject.selectSuggestion(at: selectionIndex)
-            
+
             let selectedSuggestion = try #require(subject.selectedSuggestion)
             #expect(subject.state.selectedSuggestion == "\(selectedSuggestion)")
         }
