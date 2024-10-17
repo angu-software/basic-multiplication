@@ -7,7 +7,7 @@ LINT_REPORT=$2
 LINT_REPORT=${LINT_REPORT:-'emoji'}
 
 # Store benchmarking results in a file --benchmark
-$XCODEBUILD_DERIVED_DATA_PATH/**/bin/**/swiftlint lint \
+$SWIFT_LINT_PATH lint \
 'Sources' \
 'Tests' \
 --progress \
