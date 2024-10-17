@@ -452,7 +452,6 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				B3E1F5EA2C9D5C0100B9EC93 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */,
-				B32130622CC0DF1D00625A53 /* XCRemoteSwiftPackageReference "SwiftLint" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = B332C8AB2C9D458200953C58 /* Products */;
@@ -1087,14 +1086,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		B32130622CC0DF1D00625A53 /* XCRemoteSwiftPackageReference "SwiftLint" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/realm/SwiftLint";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.57.0;
-			};
-		};
 		B3E1F5EA2C9D5C0100B9EC93 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pointfreeco/swift-snapshot-testing.git";
