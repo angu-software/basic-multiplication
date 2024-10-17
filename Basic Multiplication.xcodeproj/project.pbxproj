@@ -291,7 +291,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				B32130DD2CC10E7B00625A53 /* PBXTargetDependency */,
 				B3C5EE6F2CBFD13F00BD1D2B /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
@@ -317,7 +316,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				B32130E72CC10F6800625A53 /* PBXTargetDependency */,
 				B332C8BC2C9D458800953C58 /* PBXTargetDependency */,
 			);
 			name = UnitTests;
@@ -338,7 +336,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				B32130E52CC10F6200625A53 /* PBXTargetDependency */,
 				B332C8C62C9D458800953C58 /* PBXTargetDependency */,
 			);
 			name = UITests;
@@ -360,7 +357,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				B32130E12CC10F5800625A53 /* PBXTargetDependency */,
 			);
 			name = ExerciseKernel;
 			packageProductDependencies = (
@@ -380,7 +376,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				B32130DF2CC10F5100625A53 /* PBXTargetDependency */,
 				B3C5EE892CBFD39700BD1D2B /* PBXTargetDependency */,
 			);
 			name = ExerciseKernelTests;
@@ -401,7 +396,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				B32130E32CC10F5D00625A53 /* PBXTargetDependency */,
 				B3E1F5FA2C9D5C6A00B9EC93 /* PBXTargetDependency */,
 			);
 			name = SnapshotTests;
@@ -566,30 +560,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		B32130DD2CC10E7B00625A53 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			productRef = B32130DC2CC10E7B00625A53 /* SwiftLintBuildToolPlugin */;
-		};
-		B32130DF2CC10F5100625A53 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			productRef = B32130DE2CC10F5100625A53 /* SwiftLintBuildToolPlugin */;
-		};
-		B32130E12CC10F5800625A53 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			productRef = B32130E02CC10F5800625A53 /* SwiftLintBuildToolPlugin */;
-		};
-		B32130E32CC10F5D00625A53 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			productRef = B32130E22CC10F5D00625A53 /* SwiftLintBuildToolPlugin */;
-		};
-		B32130E52CC10F6200625A53 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			productRef = B32130E42CC10F6200625A53 /* SwiftLintBuildToolPlugin */;
-		};
-		B32130E72CC10F6800625A53 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			productRef = B32130E62CC10F6800625A53 /* SwiftLintBuildToolPlugin */;
-		};
 		B332C8BC2C9D458800953C58 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = B332C8A92C9D458200953C58 /* Basic Multiplication */;
@@ -1111,36 +1081,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		B32130DC2CC10E7B00625A53 /* SwiftLintBuildToolPlugin */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = B32130622CC0DF1D00625A53 /* XCRemoteSwiftPackageReference "SwiftLint" */;
-			productName = "plugin:SwiftLintBuildToolPlugin";
-		};
-		B32130DE2CC10F5100625A53 /* SwiftLintBuildToolPlugin */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = B32130622CC0DF1D00625A53 /* XCRemoteSwiftPackageReference "SwiftLint" */;
-			productName = "plugin:SwiftLintBuildToolPlugin";
-		};
-		B32130E02CC10F5800625A53 /* SwiftLintBuildToolPlugin */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = B32130622CC0DF1D00625A53 /* XCRemoteSwiftPackageReference "SwiftLint" */;
-			productName = "plugin:SwiftLintBuildToolPlugin";
-		};
-		B32130E22CC10F5D00625A53 /* SwiftLintBuildToolPlugin */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = B32130622CC0DF1D00625A53 /* XCRemoteSwiftPackageReference "SwiftLint" */;
-			productName = "plugin:SwiftLintBuildToolPlugin";
-		};
-		B32130E42CC10F6200625A53 /* SwiftLintBuildToolPlugin */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = B32130622CC0DF1D00625A53 /* XCRemoteSwiftPackageReference "SwiftLint" */;
-			productName = "plugin:SwiftLintBuildToolPlugin";
-		};
-		B32130E62CC10F6800625A53 /* SwiftLintBuildToolPlugin */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = B32130622CC0DF1D00625A53 /* XCRemoteSwiftPackageReference "SwiftLint" */;
-			productName = "plugin:SwiftLintBuildToolPlugin";
-		};
 		B3E1F5FF2C9D5CE700B9EC93 /* SnapshotTesting */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = B3E1F5EA2C9D5C0100B9EC93 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
