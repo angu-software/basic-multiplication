@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MultiplicationExerciseView: View {
 
-    @StateObject
+    @ObservedObject
     var viewAdapter = ViewAdapter()
 
     private var state: ViewState {
