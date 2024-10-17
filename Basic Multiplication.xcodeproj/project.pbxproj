@@ -534,6 +534,7 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/CDPipeline/dev_stage/lint_code.sh\" \"${SRCROOT}/CDPipeline/dev_stage/.env\" xcode\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
