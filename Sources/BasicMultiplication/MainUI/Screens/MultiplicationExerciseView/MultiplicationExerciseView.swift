@@ -75,6 +75,5 @@ extension MultiplicationExerciseView {
 
         self.init(viewAdapter: viewAdapter)
     }
-
 }
 #endif
