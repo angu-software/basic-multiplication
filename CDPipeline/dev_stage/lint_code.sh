@@ -1,11 +1,13 @@
-#!/bin/bash
+#!/bin/zsh
 set -e
 
-LINT_REPORT=$1
+source $1
+
+LINT_REPORT=$2
 LINT_REPORT=${LINT_REPORT:-'emoji'}
 
 # Store benchmarking results in a file --benchmark
-swiftlint lint \
+$XCODEBUILD_DERIVED_DATA_PATH/**/bin/**/swiftlint lint \
 'Sources' \
 'Tests' \
 --progress \
