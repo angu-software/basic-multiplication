@@ -37,6 +37,8 @@ jobs:
         with:
           working-directory: './CDPipeline'
           bundler-cache: true
+      - name: Install project tools
+        run: ./tools/install_tools.sh
       - name: Build for testing
         run: ./CDPipeline/dev_stage/build_for_testing.sh ./CDPipeline/dev_stage/.env
       - name: Run acceptance tests
