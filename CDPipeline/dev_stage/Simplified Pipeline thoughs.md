@@ -28,6 +28,11 @@ Steps should be able to execute locally
     |- deploy
         |- build
 
+## Features
+
+* swiftlint in dev stage separate from test run
+* swiftlint analyse in Acc state again build product
+
 ## Notes
 
 * cancel running ACC tests if a new dev test is started
