@@ -84,6 +84,10 @@
 		B39E1A2A2CC1A113005C3C9A /* AppName.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = AppName.txt; sourceTree = "<group>"; };
 		B39E1A2B2CC1A113005C3C9A /* Description.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Description.txt; sourceTree = "<group>"; };
 		B39E1A2C2CC1A113005C3C9A /* Keywords.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Keywords.txt; sourceTree = "<group>"; };
+		B39E1AA32CC1AD61005C3C9A /* bug_report.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = bug_report.md; sourceTree = "<group>"; };
+		B39E1AA42CC1AD61005C3C9A /* user-story.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "user-story.md"; sourceTree = "<group>"; };
+		B39E1AA62CC1AD61005C3C9A /* CDPipelineTests.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = CDPipelineTests.yml; sourceTree = "<group>"; };
+		B39E1AA72CC1AD61005C3C9A /* JABOSPipeline.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = JABOSPipeline.yml; sourceTree = "<group>"; };
 		B3C5EE6A2CBFD13F00BD1D2B /* ExerciseKernel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ExerciseKernel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3C5EE842CBFD39600BD1D2B /* ExerciseKernelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExerciseKernelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3E1F5F52C9D5C6A00B9EC93 /* SnapshotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SnapshotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -250,6 +254,7 @@
 		B332C8A12C9D458200953C58 = {
 			isa = PBXGroup;
 			children = (
+				B39E1AA92CC1AD61005C3C9A /* .github */,
 				B332C8D72C9D467E00953C58 /* README.md */,
 				B32130EA2CC11A1600625A53 /* .swiftlint.yml */,
 				B39E1A1F2CC1A049005C3C9A /* CDPipeline */,
@@ -348,6 +353,33 @@
 				B39E1A2C2CC1A113005C3C9A /* Keywords.txt */,
 			);
 			path = "Release Artifacts";
+			sourceTree = "<group>";
+		};
+		B39E1AA52CC1AD61005C3C9A /* ISSUE_TEMPLATE */ = {
+			isa = PBXGroup;
+			children = (
+				B39E1AA32CC1AD61005C3C9A /* bug_report.md */,
+				B39E1AA42CC1AD61005C3C9A /* user-story.md */,
+			);
+			path = ISSUE_TEMPLATE;
+			sourceTree = "<group>";
+		};
+		B39E1AA82CC1AD61005C3C9A /* workflows */ = {
+			isa = PBXGroup;
+			children = (
+				B39E1AA62CC1AD61005C3C9A /* CDPipelineTests.yml */,
+				B39E1AA72CC1AD61005C3C9A /* JABOSPipeline.yml */,
+			);
+			path = workflows;
+			sourceTree = "<group>";
+		};
+		B39E1AA92CC1AD61005C3C9A /* .github */ = {
+			isa = PBXGroup;
+			children = (
+				B39E1AA52CC1AD61005C3C9A /* ISSUE_TEMPLATE */,
+				B39E1AA82CC1AD61005C3C9A /* workflows */,
+			);
+			path = .github;
 			sourceTree = "<group>";
 		};
 		B3E1F5FE2C9D5CE700B9EC93 /* Frameworks */ = {
