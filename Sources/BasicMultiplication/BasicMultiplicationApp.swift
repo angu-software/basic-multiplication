@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct Basic_MultiplicationApp: App {
+struct BasicMultiplicationApp: App {
     var body: some Scene {
         WindowGroup {
             MultiplicationExerciseView()
