@@ -19,7 +19,7 @@ jobs:
     - name: Build for testing
       run: ./CDPipeline/dev_stage/build_for_testing.sh ./CDPipeline/dev_stage/.env
     - name: Linting
-      run: ./CDPipeline/dev_stage/lint_code.sh github-actions-logging
+      run: ./CDPipeline/dev_stage/lint_code.sh ./CDPipeline/dev_stage/.env github-actions-logging
     - name: Run development tests
       run: ./CDPipeline/dev_stage/run_dev_tests.sh ./CDPipeline/dev_stage/.env
   acceptance-tests:
