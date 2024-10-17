@@ -10,7 +10,7 @@ SWIFT_LINT_URL="https://github.com/realm/SwiftLint/releases/download/${SWIFT_LIN
 
 # -- Install SwiftLint --
 
-TOOLS_DIR=tools
+TOOLS_DIR=Tools
 DOWNLOAD_DIR=$TOOLS_DIR/__tmp__
 TOOLS_BIN_DIR=$TOOLS_DIR/bin
 
