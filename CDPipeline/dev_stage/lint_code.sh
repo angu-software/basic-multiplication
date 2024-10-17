@@ -10,5 +10,6 @@ LINT_REPORT=${LINT_REPORT:-'emoji'}
 $XCODEBUILD_DERIVED_DATA_PATH/**/bin/**/swiftlint lint \
 'Sources' \
 'Tests' \
+--strict \
 --progress \
 --reporter $LINT_REPORT
