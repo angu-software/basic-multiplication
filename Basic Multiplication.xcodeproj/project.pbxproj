@@ -108,6 +108,7 @@
 		B3E1F63C2C9D694E00B9EC93 /* Exceptions for "Tests" folder in "Basic Multiplication" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				.swiftlint.yml,
 				"Continuous Delivery Pipeline Ideas.md",
 				ExerciseKernelTests/ExerciseGeneratorTests.swift,
 				ExerciseKernelTests/NumberGeneratorTests.swift,
