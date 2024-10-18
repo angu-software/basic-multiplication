@@ -71,23 +71,6 @@
 		B332C8BA2C9D458800953C58 /* UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B332C8C42C9D458800953C58 /* UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B332C8D72C9D467E00953C58 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		B39E19E92CC1A049005C3C9A /* run_acc_tests.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = run_acc_tests.sh; sourceTree = "<group>"; };
-		B39E19EB2CC1A049005C3C9A /* .env */ = {isa = PBXFileReference; lastKnownFileType = text; path = .env; sourceTree = "<group>"; };
-		B39E19EC2CC1A049005C3C9A /* build_for_testing.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = build_for_testing.sh; sourceTree = "<group>"; };
-		B39E19ED2CC1A049005C3C9A /* create_staged_rc.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = create_staged_rc.sh; sourceTree = "<group>"; };
-		B39E19EE2CC1A049005C3C9A /* lint_code.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = lint_code.sh; sourceTree = "<group>"; };
-		B39E19EF2CC1A049005C3C9A /* run_dev_tests.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = run_dev_tests.sh; sourceTree = "<group>"; };
-		B39E19F02CC1A049005C3C9A /* Simplified Pipeline thoughs.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "Simplified Pipeline thoughs.md"; sourceTree = "<group>"; };
-		B39E19F12CC1A049005C3C9A /* tag_staged_rc.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = tag_staged_rc.sh; sourceTree = "<group>"; };
-		B39E1A242CC1A0BE005C3C9A /* install_tools.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = install_tools.sh; sourceTree = "<group>"; };
-		B39E1A272CC1A113005C3C9A /* 1.0.0.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = 1.0.0.txt; sourceTree = "<group>"; };
-		B39E1A2A2CC1A113005C3C9A /* AppName.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = AppName.txt; sourceTree = "<group>"; };
-		B39E1A2B2CC1A113005C3C9A /* Description.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Description.txt; sourceTree = "<group>"; };
-		B39E1A2C2CC1A113005C3C9A /* Keywords.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Keywords.txt; sourceTree = "<group>"; };
-		B39E1AA32CC1AD61005C3C9A /* bug_report.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = bug_report.md; sourceTree = "<group>"; };
-		B39E1AA42CC1AD61005C3C9A /* user-story.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "user-story.md"; sourceTree = "<group>"; };
-		B39E1AA62CC1AD61005C3C9A /* CDPipelineTests.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = CDPipelineTests.yml; sourceTree = "<group>"; };
-		B39E1AA72CC1AD61005C3C9A /* JABOSPipeline.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = JABOSPipeline.yml; sourceTree = "<group>"; };
 		B3C5EE6A2CBFD13F00BD1D2B /* ExerciseKernel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ExerciseKernel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3C5EE842CBFD39600BD1D2B /* ExerciseKernelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExerciseKernelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3E1F5F52C9D5C6A00B9EC93 /* SnapshotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SnapshotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -174,6 +157,26 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		B39E1AE82CC22CE7005C3C9A /* CDPipeline */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = CDPipeline;
+			sourceTree = "<group>";
+		};
+		B39E1AEF2CC22D14005C3C9A /* .github */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = .github;
+			sourceTree = "<group>";
+		};
+		B39E1AF42CC22D2B005C3C9A /* Tools */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		B39E1AFC2CC22D88005C3C9A /* Release Artifacts */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "Release Artifacts";
+			sourceTree = "<group>";
+		};
 		B3E1F62C2C9D694E00B9EC93 /* Tests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
@@ -254,17 +257,17 @@
 		B332C8A12C9D458200953C58 = {
 			isa = PBXGroup;
 			children = (
-				B39E1AA92CC1AD61005C3C9A /* .github */,
+				B39E1AFC2CC22D88005C3C9A /* Release Artifacts */,
+				B39E1AF42CC22D2B005C3C9A /* Tools */,
+				B39E1AEF2CC22D14005C3C9A /* .github */,
+				B39E1AE82CC22CE7005C3C9A /* CDPipeline */,
 				B332C8D72C9D467E00953C58 /* README.md */,
 				B32130EA2CC11A1600625A53 /* .swiftlint.yml */,
-				B39E1A1F2CC1A049005C3C9A /* CDPipeline */,
 				B3E1F5FE2C9D5CE700B9EC93 /* Frameworks */,
 				B332C8AB2C9D458200953C58 /* Products */,
-				B39E1A2D2CC1A113005C3C9A /* Release Artifacts */,
 				B3E1F6402C9D6A9C00B9EC93 /* Sources */,
 				B3E1F66B2C9D86EC00B9EC93 /* TestPlans */,
 				B3E1F62C2C9D694E00B9EC93 /* Tests */,
-				B39E1A252CC1A0BE005C3C9A /* Tools */,
 			);
 			sourceTree = "<group>";
 		};
@@ -279,107 +282,6 @@
 				B3C5EE842CBFD39600BD1D2B /* ExerciseKernelTests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		B39E19EA2CC1A049005C3C9A /* acc_stage */ = {
-			isa = PBXGroup;
-			children = (
-				B39E19E92CC1A049005C3C9A /* run_acc_tests.sh */,
-			);
-			path = acc_stage;
-			sourceTree = "<group>";
-		};
-		B39E19F22CC1A049005C3C9A /* dev_stage */ = {
-			isa = PBXGroup;
-			children = (
-				B39E19F02CC1A049005C3C9A /* Simplified Pipeline thoughs.md */,
-				B39E19EB2CC1A049005C3C9A /* .env */,
-				B39E19EC2CC1A049005C3C9A /* build_for_testing.sh */,
-				B39E19ED2CC1A049005C3C9A /* create_staged_rc.sh */,
-				B39E19EE2CC1A049005C3C9A /* lint_code.sh */,
-				B39E19EF2CC1A049005C3C9A /* run_dev_tests.sh */,
-				B39E19F12CC1A049005C3C9A /* tag_staged_rc.sh */,
-			);
-			path = dev_stage;
-			sourceTree = "<group>";
-		};
-		B39E1A1F2CC1A049005C3C9A /* CDPipeline */ = {
-			isa = PBXGroup;
-			children = (
-				B39E19EA2CC1A049005C3C9A /* acc_stage */,
-				B39E19F22CC1A049005C3C9A /* dev_stage */,
-			);
-			path = CDPipeline;
-			sourceTree = "<group>";
-		};
-		B39E1A252CC1A0BE005C3C9A /* Tools */ = {
-			isa = PBXGroup;
-			children = (
-				B39E1A242CC1A0BE005C3C9A /* install_tools.sh */,
-			);
-			path = Tools;
-			sourceTree = "<group>";
-		};
-		B39E1A262CC1A113005C3C9A /* PreviewVideo */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = PreviewVideo;
-			sourceTree = "<group>";
-		};
-		B39E1A282CC1A113005C3C9A /* ReleaseNotes */ = {
-			isa = PBXGroup;
-			children = (
-				B39E1A272CC1A113005C3C9A /* 1.0.0.txt */,
-			);
-			path = ReleaseNotes;
-			sourceTree = "<group>";
-		};
-		B39E1A292CC1A113005C3C9A /* ScreenShots */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ScreenShots;
-			sourceTree = "<group>";
-		};
-		B39E1A2D2CC1A113005C3C9A /* Release Artifacts */ = {
-			isa = PBXGroup;
-			children = (
-				B39E1A262CC1A113005C3C9A /* PreviewVideo */,
-				B39E1A282CC1A113005C3C9A /* ReleaseNotes */,
-				B39E1A292CC1A113005C3C9A /* ScreenShots */,
-				B39E1A2A2CC1A113005C3C9A /* AppName.txt */,
-				B39E1A2B2CC1A113005C3C9A /* Description.txt */,
-				B39E1A2C2CC1A113005C3C9A /* Keywords.txt */,
-			);
-			path = "Release Artifacts";
-			sourceTree = "<group>";
-		};
-		B39E1AA52CC1AD61005C3C9A /* ISSUE_TEMPLATE */ = {
-			isa = PBXGroup;
-			children = (
-				B39E1AA32CC1AD61005C3C9A /* bug_report.md */,
-				B39E1AA42CC1AD61005C3C9A /* user-story.md */,
-			);
-			path = ISSUE_TEMPLATE;
-			sourceTree = "<group>";
-		};
-		B39E1AA82CC1AD61005C3C9A /* workflows */ = {
-			isa = PBXGroup;
-			children = (
-				B39E1AA62CC1AD61005C3C9A /* CDPipelineTests.yml */,
-				B39E1AA72CC1AD61005C3C9A /* JABOSPipeline.yml */,
-			);
-			path = workflows;
-			sourceTree = "<group>";
-		};
-		B39E1AA92CC1AD61005C3C9A /* .github */ = {
-			isa = PBXGroup;
-			children = (
-				B39E1AA52CC1AD61005C3C9A /* ISSUE_TEMPLATE */,
-				B39E1AA82CC1AD61005C3C9A /* workflows */,
-			);
-			path = .github;
 			sourceTree = "<group>";
 		};
 		B3E1F5FE2C9D5CE700B9EC93 /* Frameworks */ = {
