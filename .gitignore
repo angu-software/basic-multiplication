@@ -64,4 +64,4 @@ fastlane/test_output
 # XCDPipeline
 __builds__
 .xcpipeline
-tools/bin
+Tools/bin
