@@ -5,8 +5,7 @@ next_rc_tag_from_tag() {
     local TAG=$1
 
     if [[ -z "$TAG" ]]; then
-        # echo '1.0.0+1-RC'
-        echo ''
+        echo 1.0.0+1-RC
         return
     fi
 

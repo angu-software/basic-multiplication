@@ -6,9 +6,9 @@ Describe 'next_rc_tag_from_tag()'
     Describe 'when tag is empty'
         TAG=''
 
-        It 'returns an empty string'
+        It 'returns intial  RC tag'
             When call next_rc_tag_from_tag $TAG
-            The output should equal ''
+            The output should equal '1.0.0+1-RC'
         End
     End
 
