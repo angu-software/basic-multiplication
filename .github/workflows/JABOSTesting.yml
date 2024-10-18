@@ -1,4 +1,4 @@
-name: JABOS Pipline Tests
+name: JABOS Pipeline Tests
 
 on:
   push:
