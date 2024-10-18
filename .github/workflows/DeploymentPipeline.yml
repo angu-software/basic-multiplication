@@ -30,6 +30,9 @@ jobs:
     name: Acceptance Stage
     runs-on: macos-latest
     needs: development-tests
+    concurrency: 
+      group: acceptance-tests-${{ github.ref }}
+      cancel-in-progress: true
     if: needs.development-tests.result == 'success'
     steps:
       - name: Checkout
