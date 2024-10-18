@@ -12,10 +12,10 @@ permissions:
 jobs:
   test:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./CDPipeline
     steps:
     - uses: actions/checkout@v4
+    - name: Install project tools
+      run: ./tools/install_tools.sh
     - name: Run tests
+      working-directory: ./CDPipeline
       run: ../Tools/bin/shellspec/shellspec 
