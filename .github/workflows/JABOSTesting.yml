@@ -1,0 +1,21 @@
+name: JABOS Pipline Tests
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./CDPipeline
+    steps:
+    - uses: actions/checkout@v4
+    - name: Run tests
+      run: ../Tools/bin/shellspec/shellspec 

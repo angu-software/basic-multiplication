@@ -1,7 +1,6 @@
 name: 'JABOSPipeline'
-description: |
-  Just A Bunch Of Scripts Pipeline (JABOSPipeline)
-  as a Continuous Deployment Pipeline for an Xcode project
+# description:  Just A Bunch Of Scripts Pipeline (JABOSPipeline)
+#               as a Continuous Deployment Pipeline for an Xcode project
 
 permissions:
   contents: write
