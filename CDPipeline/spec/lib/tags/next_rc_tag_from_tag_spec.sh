@@ -1,6 +1,6 @@
 Describe 'next_rc_tag_from_tag()'
     Include 'lib/tags/next_rc_tag_from_tag.sh'
-    
+
     local TAG=''
 
     Describe 'when tag is empty'
@@ -13,8 +13,6 @@ Describe 'next_rc_tag_from_tag()'
     End
 
     Describe 'when tag exists'
-        Pending 'Internal implementaion needs more refinement'
-
         TAG='1.0.0+1-RC'
 
         It 'returns the next RC tag'
