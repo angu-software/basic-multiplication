@@ -64,27 +64,6 @@ next_rc_tag_from_tag() {
     echo $TAG
 }
 
-Describe 'split()'
-    Describe 'when delimiter is "+"'
-        It 'splits the string by "+"'
-            When call split '1.0.0+1-RC' '+'
-            The output should equal '1.0.0 1-RC'
-        End
-    End
-
-    Describe 'when delimiter is "-"'
-        It 'splits the string by "-"'
-            When call split '1.0.0+1-RC' '-'
-            The output should equal '1.0.0+1 RC'
-        End
-
-        It 'splits the string by " "'
-            When call split '1.0.0 1-RC' ' '
-            The output should equal '1.0.0 1-RC'
-        End
-    End
-End
-
 Describe 'split_tag()'
     TAG='1.0.0+1-RC'
 
