@@ -53,6 +53,20 @@ split_tag() {
     echo "$VERSION $BUILD_NUMBER $RC"
 }
 
+version_from_tag() {
+    local TAG=$1
+
+    if [[ -z "$TAG" ]]; then
+        echo $INITIAL_VERSION
+        return
+    fi
+
+    local SPLIT_TAG=($(split_tag $TAG))
+    local VERSION=${SPLIT_TAG[0]}
+
+    echo $VERSION
+}
+
 build_number_from_tag() {
     local TAG=$1
 
@@ -75,8 +89,9 @@ next_rc_tag_from_tag() {
         return
     fi
 
+    local CURRENT_VERSION=$(version_from_tag $TAG)
     local CURRENT_BUILD_NUMBER=$(build_number_from_tag $TAG)
     local NEXT_BUILD_NUMBER=$((CURRENT_BUILD_NUMBER + 1))
 
-    echo $(make_version_tag "1.0.0" $NEXT_BUILD_NUMBER true)
+    echo $(make_version_tag $CURRENT_VERSION $NEXT_BUILD_NUMBER true)
 }

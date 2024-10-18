@@ -55,10 +55,9 @@ Describe 'verstion_tag'
         End
 
         Describe 'when tag exists'
-            Pending 'Needs extraction of version from tag'
             It 'it returns the next RC tag'
                 When call next_rc_tag_from_tag $TAG
-                The output should equal "$VERSION+2-RC"
+                The output should equal "$VERSION+3-RC"
             End
         End
     End
