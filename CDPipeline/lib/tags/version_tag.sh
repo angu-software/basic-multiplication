@@ -1,4 +1,5 @@
 local SCRIPT_DIR=$(dirname "${BASH_SOURCE[0]}")
+source $SCRIPT_DIR/split_tag.sh
 
 local INITIAL_VERSION="1.0.0"
 local INITIAL_BUILD_NUMBER=1
@@ -21,4 +22,18 @@ make_version_tag() {
 
 initial_version_rc_tag() {
     echo $(make_version_tag $INITIAL_VERSION $INITIAL_BUILD_NUMBER true)
+}
+
+build_number_from_tag() {
+    local TAG=$1
+
+    if [[ -z "$TAG" ]]; then
+        echo 1
+        return
+    fi
+
+    local SPLIT_TAG=($(split_tag $TAG))
+    local BUILD_NUMBER=${SPLIT_TAG[1]}
+
+    echo $BUILD_NUMBER
 }

@@ -1,5 +1,4 @@
 SCRIPT_DIR=$(dirname "${BASH_SOURCE[0]}")
-source $SCRIPT_DIR/build_number_from_tag.sh
 source $SCRIPT_DIR/version_tag.sh
 
 next_rc_tag_from_tag() {

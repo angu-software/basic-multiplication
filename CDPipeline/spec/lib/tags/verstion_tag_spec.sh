@@ -1,5 +1,5 @@
 Describe 'build_number_from_tag()'
-    Include 'lib/tags/build_number_from_tag.sh'
+    Include 'lib/tags/version_tag.sh'
 
     TAG='1.0.0+2-RC'
 
