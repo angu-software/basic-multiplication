@@ -1,4 +1,4 @@
-name: 'JABOSPipeline'
+name: 'Deployment Pipeline (JABOS)'
 # description:  Just A Bunch Of Scripts Pipeline (JABOSPipeline)
 #               as a Continuous Deployment Pipeline for an Xcode project
 
@@ -19,7 +19,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
     - name: Install project tools
-      run: ./tools/install_tools.sh
+      run: ./Tools/install_tools.sh
     - name: Linting
       run: ./CDPipeline/dev_stage/lint_code.sh ./CDPipeline/dev_stage/.env github-actions-logging
     - name: Build for testing
@@ -40,7 +40,7 @@ jobs:
           working-directory: './CDPipeline'
           bundler-cache: true
       - name: Install project tools
-        run: ./tools/install_tools.sh
+        run: ./Tools/install_tools.sh
       - name: Build for testing
         run: ./CDPipeline/dev_stage/build_for_testing.sh ./CDPipeline/dev_stage/.env
       - name: Run acceptance tests
