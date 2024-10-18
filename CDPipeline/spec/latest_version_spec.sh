@@ -44,44 +44,11 @@ split_tag() {
     echo "$VERSION $BUILD_NUMBER $RC"
 }
 
-build_number_from_tag() {
-    local TAG=$1
-
-    if [[ -z "$TAG" ]]; then
-        echo 1
-        return
-    fi
-
-    local SPLIT_TAG=($(split_tag $TAG))
-    local BUILD_NUMBER=${SPLIT_TAG[1]}
-
-    echo $BUILD_NUMBER
-}
-
 next_rc_tag_from_tag() {
     local TAG=$1
 
     echo $TAG
 }
-
-Describe 'build_number_from_tag()'
-    TAG='1.0.0+2-RC'
-
-    Describe 'when tag is empty'
-        TAG=''
-        It 'it returns 1'
-            When call build_number_from_tag ''
-            The output should equal 1
-        End
-    End
-
-    Describe 'when tag is not empty'
-        It 'it returns the build number'
-            When call build_number_from_tag $TAG
-            The output should equal 2
-        End
-    End
-End
 
 Describe 'next_rc_tag_from_tag()'
     local TAG=''
