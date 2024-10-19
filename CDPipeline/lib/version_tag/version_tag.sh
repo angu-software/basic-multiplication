@@ -42,7 +42,7 @@ split_tag() {
 
     local TAG_SPLIT=($(split "$TAG" '+'))
     local VERSION="${TAG_SPLIT[0]}"
-    local META=${TAG_SPLIT[1]}
+    local META="${TAG_SPLIT[1]}"
     local META_SPLIT=($(split "$META" '-'))
     local BUILD_NUMBER="${META_SPLIT[0]}"
     local RC="${META_SPLIT[1]}"

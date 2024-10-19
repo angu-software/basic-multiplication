@@ -7,12 +7,12 @@
 # Returns:
 #   The elements of the string as an array.
 split() {
-    local STRING=$1
-    local DELIMITER=$2
+    local STRING="$1"
+    local DELIMITER="$2"
 
     IFS="$DELIMITER"
     read -r -a ARRAY <<< "$STRING"
     unset IFS
 
-    echo ${ARRAY[@]}
+    echo "${ARRAY[@]}"
 }
