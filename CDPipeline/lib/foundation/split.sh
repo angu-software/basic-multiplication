@@ -8,7 +8,6 @@ split() {
     local STRING="$1"
     local DELIMITER="$2"
 
-    IFS="$DELIMITER"
     ARRAY=()
     while IFS="$DELIMITER" read -r -d "$DELIMITER" element; do
         ARRAY+=("$element")
