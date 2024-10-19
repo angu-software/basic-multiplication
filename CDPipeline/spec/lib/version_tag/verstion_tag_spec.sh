@@ -2,10 +2,11 @@ Describe 'verstion_tag'
     Include 'lib/version_tag/version_tag.sh'
     local VERSION='1.2.3'
     local TAG="$VERSION+2-RC"
+    local TAG_LIST=$'1.0.0+1-RC\n1.0.0+3-RC\n1.0.0+2-RC'
 
     Describe 'split_tag()'
         It 'it splits the tag into its compnents'
-            When call split_tag $TAG
+            When call split_tag "$TAG"
             The output should equal '1.2.3 2 RC'
         End
 
@@ -13,7 +14,7 @@ Describe 'verstion_tag'
             TAG="$VERSION+3"
 
             It 'it splits the tag into its compnents'
-                When call split_tag $TAG
+                When call split_tag "$TAG"
                 The output should equal '1.2.3 3'
             End
         End
@@ -21,7 +22,7 @@ Describe 'verstion_tag'
         Describe 'when tag is empty'
             TAG=''
             It 'it returns an empty string'
-                When call split_tag $TAG
+                When call split_tag "$TAG"
                 The output should equal ''
             End
         End
@@ -38,7 +39,7 @@ Describe 'verstion_tag'
 
         Describe 'when tag is not empty'
             It 'it returns the build number'
-                When call build_number_from_tag $TAG
+                When call build_number_from_tag "$TAG"
                 The output should equal 2
             End
         End
@@ -49,32 +50,38 @@ Describe 'verstion_tag'
             TAG=''
 
             It 'it returns intial RC tag'
-                When call next_rc_tag_from_tag $TAG
+                When call next_rc_tag_from_tag "$TAG"
                 The output should equal $(initial_version_rc_tag)
             End
         End
 
         Describe 'when tag exists'
             It 'it returns the next RC tag'
-                When call next_rc_tag_from_tag $TAG
+                When call next_rc_tag_from_tag "$TAG"
                 The output should equal "$VERSION+3-RC"
             End
         End
     End
 
+    Describe 'sort_tags()'
+        It 'it sorts the tags'
+            When call sort_tags "$TAG_LIST"
+            The output should equal $'1.0.0+1-RC\n1.0.0+2-RC\n1.0.0+3-RC'
+        End
+    End
+
     Describe 'next_rc_tag_from_tag_list()'
-        TAG_LIST="1.0.0+1-RC\n1.0.0+3-RC\n1.0.0+2-RC"
         Describe 'when list is empty'
             TAG_LIST=''
             It 'it returns the intial RC tag'
-                When call next_rc_tag_from_tag_list $TAG_LIST
+                When call next_rc_tag_from_tag_list "$TAG_LIST"
                 The output should equal $(initial_version_rc_tag)
             End
         End
 
         Describe 'when given a tag list'
             It 'it returns the next RC tag'
-                When call next_rc_tag_from_tag_list $TAG_LIST
+                When call next_rc_tag_from_tag_list "$TAG_LIST"
                 The output should equal '1.0.0+4-RC'
             End
         End

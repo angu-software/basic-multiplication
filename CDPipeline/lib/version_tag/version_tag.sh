@@ -33,19 +33,19 @@ initial_version_rc_tag() {
 # Returns:
 #   The components of the tag string.
 split_tag() {
-    local TAG=$1
+    local TAG="$1"
 
     if [[ -z "$TAG" ]]; then
-        echo ''
+        echo ""
         return
     fi
 
-    local TAG_SPLIT=($(split $TAG '+'))
-    local VERSION=${TAG_SPLIT[0]}
+    local TAG_SPLIT=($(split "$TAG" '+'))
+    local VERSION="${TAG_SPLIT[0]}"
     local META=${TAG_SPLIT[1]}
-    local META_SPLIT=($(split $META '-'))
-    local BUILD_NUMBER=${META_SPLIT[0]}
-    local RC=${META_SPLIT[1]}
+    local META_SPLIT=($(split "$META" '-'))
+    local BUILD_NUMBER="${META_SPLIT[0]}"
+    local RC="${META_SPLIT[1]}"
 
     if [[ -z "$RC" ]]; then
         echo "$VERSION $BUILD_NUMBER"
@@ -59,57 +59,57 @@ version_from_tag() {
     local TAG=$1
 
     if [[ -z "$TAG" ]]; then
-        echo $INITIAL_VERSION
+        echo "$INITIAL_VERSION"
         return
     fi
 
     local SPLIT_TAG=($(split_tag $TAG))
     local VERSION=${SPLIT_TAG[0]}
 
-    echo $VERSION
+    echo "$VERSION"
 }
 
 build_number_from_tag() {
-    local TAG=$1
+    local TAG="$1"
 
     if [[ -z "$TAG" ]]; then
-        echo $INITIAL_BUILD_NUMBER
+        echo "$INITIAL_BUILD_NUMBER"
         return
     fi
 
-    local SPLIT_TAG=($(split_tag $TAG))
-    local BUILD_NUMBER=${SPLIT_TAG[1]}
+    local SPLIT_TAG=($(split_tag "$TAG"))
+    local BUILD_NUMBER="${SPLIT_TAG[1]}"
 
-    echo $BUILD_NUMBER
+    echo "$BUILD_NUMBER"
 }
 
 sort_tags() {
     local TAG_LIST="$1"
-    echo "$(echo "$TAG_LIST" | sort -V)"
+    echo "$(sort -V <<< "$TAG_LIST")"
 }
 
 latest_rc_tag_from_tag_list() {
     local TAG_LIST="$1"
 
-    local SORTED_TAGS=$(sort_tags "$TAG_LIST")
-    local LATEST_TAG=$(echo "$SORTED_TAGS" | tail -n 1)
+    local SORTED_TAGS="$(sort_tags "$TAG_LIST")"
+    local LATEST_TAG="$(echo "$SORTED_TAGS" | tail -n 1)"
 
-    echo $LATEST_TAG
+    echo "$LATEST_TAG"
 }
 
 next_rc_tag_from_tag() {
-    local TAG=$1
+    local TAG="$1"
 
     if [[ -z "$TAG" ]]; then
         echo "$(initial_version_rc_tag)"
         return
     fi
 
-    local CURRENT_VERSION=$(version_from_tag $TAG)
-    local CURRENT_BUILD_NUMBER=$(build_number_from_tag $TAG)
-    local NEXT_BUILD_NUMBER=$((CURRENT_BUILD_NUMBER + 1))
+    local CURRENT_VERSION="$(version_from_tag $TAG)"
+    local CURRENT_BUILD_NUMBER="$(build_number_from_tag $TAG)"
+    local NEXT_BUILD_NUMBER="$((CURRENT_BUILD_NUMBER + 1))"
 
-    echo $(make_version_tag $CURRENT_VERSION $NEXT_BUILD_NUMBER true)
+    echo "$(make_version_tag $CURRENT_VERSION $NEXT_BUILD_NUMBER true)"
 }
 
 # Description: Determines the next RC tag from a list of tags.
@@ -125,7 +125,7 @@ next_rc_tag_from_tag_list() {
         return
     fi
 
-    local LAST_TAG=$(latest_rc_tag_from_tag_list "$TAG_LIST")
+    local LAST_TAG="$(latest_rc_tag_from_tag_list "$TAG_LIST")"
 
-    echo $(next_rc_tag_from_tag "$LAST_TAG")
+    echo "$(next_rc_tag_from_tag "$LAST_TAG")"
 }
