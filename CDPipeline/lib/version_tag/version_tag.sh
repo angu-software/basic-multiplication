@@ -8,9 +8,9 @@ local META_SEPARATOR="+"
 local RC_SEPARATOR="-"
 
 make_version_tag() {
-    local VERSION=$1
-    local BUILD_NUMBER=$2
-    local IS_RC=$3
+    local VERSION="$1"
+    local BUILD_NUMBER="$2"
+    local IS_RC="$3"
 
     if [[ "$IS_RC" == "false" ]]; then
         echo "$VERSION${META_SEPARATOR}$BUILD_NUMBER"
@@ -38,12 +38,14 @@ split_tag() {
         return
     fi
 
-    local TAG_SPLIT=($(split "$TAG" "$META_SEPARATOR")) 
-    local VERSION="${TAG_SPLIT[0]}"
-    local META="${TAG_SPLIT[1]}"
+    local TAG_SPLIT=($(split "$TAG" "$META_SEPARATOR"))
+    set -- "${TAG_SPLIT[@]}"
+    local VERSION="$1"
+    local META="$2"
     local META_SPLIT=($(split "$META" "$RC_SEPARATOR"))
-    local BUILD_NUMBER="${META_SPLIT[0]}"
-    local RC="${META_SPLIT[1]}"
+    set -- "${META_SPLIT[@]}"
+    local BUILD_NUMBER="$1"
+    local RC="$2"
 
     if [[ -z "$RC" ]]; then
         echo "$VERSION $BUILD_NUMBER"
@@ -54,15 +56,16 @@ split_tag() {
 }
 
 version_from_tag() {
-    local TAG=$1
+    local TAG="$1"
 
     if [[ -z "$TAG" ]]; then
         echo "$INITIAL_VERSION"
         return
     fi
 
-    local SPLIT_TAG=($(split_tag $TAG))
-    local VERSION=${SPLIT_TAG[0]}
+    local SPLIT_TAG=($(split "$TAG" "$META_SEPARATOR"))
+    set -- "${SPLIT_TAG[@]}"
+    local VERSION="$1"
 
     echo "$VERSION"
 }
@@ -76,7 +79,8 @@ build_number_from_tag() {
     fi
 
     local SPLIT_TAG=($(split_tag "$TAG"))
-    local BUILD_NUMBER="${SPLIT_TAG[1]}"
+    set -- "${SPLIT_TAG[@]}"
+    local BUILD_NUMBER="$2"
 
     echo "$BUILD_NUMBER"
 }

@@ -28,6 +28,23 @@ Describe 'version_tag.sh'
         End
     End
 
+    Describe 'version_from_tag()'
+        Describe 'when tag is empty'
+            TAG=''
+            It 'it returns the initial version'
+                When call version_from_tag "$TAG"
+                The output should equal "$INITIAL_VERSION"
+            End
+        End
+
+        Describe 'when tag is not empty'
+            It 'it returns the version'
+                When call version_from_tag "$TAG"
+                The output should equal "$VERSION"
+            End
+        End
+    End
+
     Describe 'build_number_from_tag()'
         Describe 'when tag is empty'
             TAG=''
@@ -51,7 +68,7 @@ Describe 'version_tag.sh'
 
             It 'it returns intial RC tag'
                 When call next_rc_tag_from_tag "$TAG"
-                The output should equal $(initial_version_rc_tag)
+                The output should equal "$(initial_version_rc_tag)"
             End
         End
 
@@ -75,7 +92,7 @@ Describe 'version_tag.sh'
             TAG_LIST=''
             It 'it returns the intial RC tag'
                 When call next_rc_tag_from_tag_list "$TAG_LIST"
-                The output should equal $(initial_version_rc_tag)
+                The output should equal "$(initial_version_rc_tag)"
             End
         End
 
