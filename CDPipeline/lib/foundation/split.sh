@@ -1,5 +1,3 @@
-#!/bin/sh
-
 # Splits a string into an array based on a delimiter.
 # Parameters:
 #   $1 - The string to be split.
@@ -11,7 +9,10 @@ split() {
     local DELIMITER="$2"
 
     IFS="$DELIMITER"
-    read -r -a ARRAY <<< "$STRING"
+    ARRAY=()
+    while IFS="$DELIMITER" read -r -d "$DELIMITER" element; do
+        ARRAY+=("$element")
+    done <<< "$STRING$DELIMITER"
     unset IFS
 
     echo "${ARRAY[@]}"

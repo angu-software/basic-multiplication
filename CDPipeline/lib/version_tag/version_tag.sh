@@ -1,7 +1,5 @@
-#!/bin/sh
-
-local SCRIPT_DIR=$(dirname "${BASH_SOURCE[0]}")
-source $SCRIPT_DIR/../foundation/split.sh
+local SCRIPT_DIR=$(dirname "$(realpath "${BASH_SOURCE[0]:-${(%):-%x}}")")
+source "$SCRIPT_DIR/../foundation/split.sh"
 
 local INITIAL_VERSION="1.0.0"
 local INITIAL_BUILD_NUMBER=1
@@ -40,10 +38,10 @@ split_tag() {
         return
     fi
 
-    local TAG_SPLIT=($(split "$TAG" '+'))
+    local TAG_SPLIT=($(split "$TAG" "+")) #TODO: Use the META_SEPARATOR
     local VERSION="${TAG_SPLIT[0]}"
     local META="${TAG_SPLIT[1]}"
-    local META_SPLIT=($(split "$META" '-'))
+    local META_SPLIT=($(split "$META" "-")) #TODO: Use the RC_SEPARATOR
     local BUILD_NUMBER="${META_SPLIT[0]}"
     local RC="${META_SPLIT[1]}"
 

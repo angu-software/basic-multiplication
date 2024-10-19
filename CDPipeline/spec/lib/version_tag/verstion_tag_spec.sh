@@ -1,4 +1,4 @@
-Describe 'verstion_tag'
+Describe 'version_tag.sh'
     Include 'lib/version_tag/version_tag.sh'
     local VERSION='1.2.3'
     local TAG="$VERSION+2-RC"
@@ -10,7 +10,7 @@ Describe 'verstion_tag'
             The output should equal '1.2.3 2 RC'
         End
 
-        Describe 'when tag dose not contain RC indicator'
+        Describe 'when tag does not contain RC indicator'
             TAG="$VERSION+3"
 
             It 'it splits the tag into its compnents'
