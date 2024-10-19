@@ -81,6 +81,20 @@ build_number_from_tag() {
     echo $BUILD_NUMBER
 }
 
+sort_tags() {
+    local TAG_LIST="$1"
+    echo "$(echo "$TAG_LIST" | sort -V)"
+}
+
+latest_rc_tag_from_tag_list() {
+    local TAG_LIST="$1"
+
+    local SORTED_TAGS=$(sort_tags "$TAG_LIST")
+    local LATEST_TAG=$(echo "$SORTED_TAGS" | tail -n 1)
+
+    echo $LATEST_TAG
+}
+
 next_rc_tag_from_tag() {
     local TAG=$1
 
@@ -94,4 +108,18 @@ next_rc_tag_from_tag() {
     local NEXT_BUILD_NUMBER=$((CURRENT_BUILD_NUMBER + 1))
 
     echo $(make_version_tag $CURRENT_VERSION $NEXT_BUILD_NUMBER true)
+}
+
+# TAG_LIST - must be a list of tags separated by newlines.
+next_rc_tag_from_tag_list() {
+    local TAG_LIST="$1"
+
+    if [[ -z "$TAG_LIST" ]]; then
+        echo "$(initial_version_rc_tag)"
+        return
+    fi
+
+    local LAST_TAG=$(latest_rc_tag_from_tag_list "$TAG_LIST")
+
+    echo $(next_rc_tag_from_tag "$LAST_TAG")
 }

@@ -61,4 +61,22 @@ Describe 'verstion_tag'
             End
         End
     End
+
+    Describe 'next_rc_tag_from_tag_list()'
+        TAG_LIST="1.0.0+1-RC\n1.0.0+2-RC\n1.0.0+3-RC"
+        Describe 'when list is empty'
+            TAG_LIST=''
+            It 'it returns the intial RC tag'
+                When call next_rc_tag_from_tag_list $TAG_LIST
+                The output should equal $(initial_version_rc_tag)
+            End
+        End
+
+        Describe 'when given a tag list'
+            It 'it returns the next RC tag'
+                When call next_rc_tag_from_tag_list $TAG_LIST
+                The output should equal '1.0.0+4-RC'
+            End
+        End
+    End
 End
