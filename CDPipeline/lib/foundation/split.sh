@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # Splits a string into an array based on a delimiter.
 # Parameters:
 #   $1 - The string to be split.

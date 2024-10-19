@@ -1,3 +1,5 @@
+#!/bin/sh
+
 local SCRIPT_DIR=$(dirname "${BASH_SOURCE[0]}")
 source $SCRIPT_DIR/../foundation/split.sh
 
