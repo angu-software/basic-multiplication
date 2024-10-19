@@ -13,7 +13,6 @@ split() {
     while IFS="$DELIMITER" read -r -d "$DELIMITER" element; do
         ARRAY+=("$element")
     done <<< "$STRING$DELIMITER"
-    unset IFS
 
     echo "${ARRAY[@]}"
 }

@@ -42,6 +42,7 @@ split_tag() {
     set -- "${TAG_SPLIT[@]}"
     local VERSION="$1"
     local META="$2"
+
     local META_SPLIT=($(split "$META" "$RC_SEPARATOR"))
     set -- "${META_SPLIT[@]}"
     local BUILD_NUMBER="$1"
