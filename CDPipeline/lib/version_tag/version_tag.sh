@@ -38,10 +38,10 @@ split_tag() {
         return
     fi
 
-    local TAG_SPLIT=($(split "$TAG" "+")) #TODO: Use the META_SEPARATOR
+    local TAG_SPLIT=($(split "$TAG" "$META_SEPARATOR")) 
     local VERSION="${TAG_SPLIT[0]}"
     local META="${TAG_SPLIT[1]}"
-    local META_SPLIT=($(split "$META" "-")) #TODO: Use the RC_SEPARATOR
+    local META_SPLIT=($(split "$META" "$RC_SEPARATOR"))
     local BUILD_NUMBER="${META_SPLIT[0]}"
     local RC="${META_SPLIT[1]}"
 
