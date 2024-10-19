@@ -110,7 +110,11 @@ next_rc_tag_from_tag() {
     echo $(make_version_tag $CURRENT_VERSION $NEXT_BUILD_NUMBER true)
 }
 
-# TAG_LIST - must be a list of tags separated by newlines.
+# Description: Determines the next RC tag from a list of tags.
+# Parameters:
+#   $1 - A string containing a list of tags. List must be newline separated.
+# Returns:
+#   The next RC tag. If the $1 is empty, it returns the initial version RC tag.
 next_rc_tag_from_tag_list() {
     local TAG_LIST="$1"
 
