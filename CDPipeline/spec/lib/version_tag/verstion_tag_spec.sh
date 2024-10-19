@@ -1,5 +1,5 @@
 Describe 'verstion_tag'
-    Include 'lib/tags/version_tag.sh'
+    Include 'lib/version_tag/version_tag.sh'
     local VERSION='1.2.3'
     local TAG="$VERSION+2-RC"
 
@@ -50,7 +50,7 @@ Describe 'verstion_tag'
 
             It 'it returns intial RC tag'
                 When call next_rc_tag_from_tag $TAG
-                The output should equal '1.0.0+1-RC'
+                The output should equal $(initial_version_rc_tag)
             End
         End
 
@@ -63,7 +63,7 @@ Describe 'verstion_tag'
     End
 
     Describe 'next_rc_tag_from_tag_list()'
-        TAG_LIST="1.0.0+1-RC\n1.0.0+2-RC\n1.0.0+3-RC"
+        TAG_LIST="1.0.0+1-RC\n1.0.0+3-RC\n1.0.0+2-RC"
         Describe 'when list is empty'
             TAG_LIST=''
             It 'it returns the intial RC tag'
