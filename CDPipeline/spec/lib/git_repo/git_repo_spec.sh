@@ -3,9 +3,11 @@ Describe 'git_repo.sh'
 
     local NEW_RC_TAG="1.0.0+4-RC"
     local EXISTING_RC_TAG="1.0.0+3-RC"
+    local EXECUTED_GIT_COMMAND
 
     # Mocked git command
     git_command() {
+        EXECUTED_GIT_COMMAND="git $@" # TODO: check also the other cases
         case "$1 $2" in
             "tag -l")
                 echo "1.0.0+3-RC"
@@ -17,6 +19,9 @@ Describe 'git_repo.sh'
                 ;;
             "tag $EXISTING_RC_TAG")
                 return 1
+                ;;
+            "fetch --tags")
+                return 0
                 ;;
             *)
                 return 1
@@ -42,6 +47,13 @@ Describe 'git_repo.sh'
                 When call set_rc_version_tag "$EXISTING_RC_TAG"
                 The status should be failure
             End
+        End
+    End
+
+    Describe 'fetch_tags()'
+        It 'it fetches the tags'
+            When call fetch_tags
+            The variable EXECUTED_GIT_COMMAND should equal "git fetch --tags"
         End
     End
 End
