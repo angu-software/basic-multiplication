@@ -3,6 +3,17 @@ git_command() {
     git $@
 }
 
+git_sha() {
+    local IS_SHORT="$1"
+
+    if [[ -n "$IS_SHORT" ]]; then
+        git_command rev-parse --short HEAD
+        return
+    fi
+
+    git_command rev-parse HEAD
+}
+
 fetch_tags() {
     git_command fetch --tags
 }

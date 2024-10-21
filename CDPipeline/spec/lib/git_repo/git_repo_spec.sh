@@ -1,6 +1,8 @@
 Describe 'git_repo.sh'
     Include 'lib/git_repo/git_repo.sh'
 
+    local SHA="a1b2c3d4e5f6"
+    local SHA_SHORT="a1b2c3"
     local EXECUTED_GIT_COMMAND
 
     # Mocked git command
@@ -11,6 +13,12 @@ Describe 'git_repo.sh'
                 echo "1.0.0+3-RC"
                 echo "1.0.0+2-RC"
                 echo "1.0.0+1-RC"
+                ;;
+            "rev-parse HEAD")
+                echo "$SHA"
+                ;;
+            "rev-parse --short")
+                echo "$SHA_SHORT"
                 ;;
             *)
                 ;;
@@ -33,7 +41,7 @@ Describe 'git_repo.sh'
     Describe 'set_rc_version_tag()'
         It 'it sets the RC version tag'
             When call set_rc_version_tag "1.0.0+4-RC"
-            The variable EXECUTED_GIT_COMMAND should eq "git tag 1.0.0+4-RC"
+            The variable EXECUTED_GIT_COMMAND should equal "git tag 1.0.0+4-RC"
         End
     End
 
@@ -48,6 +56,22 @@ Describe 'git_repo.sh'
         It 'it pushes the tag'
             When call push_tag "1.0.0+4-RC"
             The variable EXECUTED_GIT_COMMAND should equal "git push origin 1.0.0+4-RC"
+        End
+    End
+
+    Describe 'git_sha()'
+        It 'it returns the git SHA'
+            When call git_sha
+            The output should equal "$SHA"
+            The variable EXECUTED_GIT_COMMAND should equal "git rev-parse HEAD"
+        End
+
+        Describe 'when specified short'
+            It 'it returns the short SHA'
+                When call git_sha short
+                The output should equal "$SHA_SHORT"
+                The variable EXECUTED_GIT_COMMAND should equal "git rev-parse --short HEAD"
+            End
         End
     End
 End
