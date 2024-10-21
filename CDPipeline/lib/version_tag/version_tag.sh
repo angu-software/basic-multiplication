@@ -1,4 +1,4 @@
-local SCRIPT_DIR=$(dirname "$(realpath "${BASH_SOURCE[0]:-${(%):-%x}}")")
+local SCRIPT_DIR=$(dirname "$(realpath "${BASH_SOURCE[0]:-$0}")")
 source "$SCRIPT_DIR/../foundation/foundation.sh"
 
 local INITIAL_VERSION="1.0.0"
