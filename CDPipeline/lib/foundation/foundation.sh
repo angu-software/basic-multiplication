@@ -1,9 +1,5 @@
-# TODO: make foundation.sh jist sourcing split.sh and join_args.sh and is_empty and is_not_empty
-
-is_empty() {
-    [[ -z "$1" ]]
-}
-
-is_not_empty() {
-    [[ -n "$1" ]]
-}
+local SCRIPT_DIR=$(dirname "$(realpath "${BASH_SOURCE[0]:-${(%):-%x}}")")
+source "$SCRIPT_DIR/is_empty.sh"
+source "$SCRIPT_DIR/is_not_empty.sh"
+source "$SCRIPT_DIR/split.sh"
+source "$SCRIPT_DIR/join_args.sh"

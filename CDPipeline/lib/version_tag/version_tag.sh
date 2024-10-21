@@ -1,7 +1,5 @@
 local SCRIPT_DIR=$(dirname "$(realpath "${BASH_SOURCE[0]:-${(%):-%x}}")")
 source "$SCRIPT_DIR/../foundation/foundation.sh"
-source "$SCRIPT_DIR/../foundation/join_args.sh" # Include the join_args and split in foundation
-source "$SCRIPT_DIR/../foundation/split.sh"
 
 local INITIAL_VERSION="1.0.0"
 local INITIAL_BUILD_NUMBER=1

@@ -1,5 +1,5 @@
 local SCRIPT_DIR=$(dirname "$(realpath "${BASH_SOURCE[0]:-${(%):-%x}}")")
-source "$SCRIPT_DIR/../foundation/join_args.sh"
+source "$SCRIPT_DIR/../foundation/foundation.sh"
 
 git_command() {
     git $@
