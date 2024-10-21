@@ -1,13 +1,16 @@
+local SCRIPT_DIR=$(dirname "$(realpath "${BASH_SOURCE[0]:-${(%):-%x}}")")
+source "$SCRIPT_DIR/../foundation/foundation.sh"
+
 join_args() {
   local delimiter=" "  # Get the last parameter (delimiter)
   local result=""
 
-  for param in "$@"; do  # Loop through all parameters except the last
-    if [[ -n "$param" ]]; then  # Check if the parameter is not empty
-      if [[ -z "$result" ]]; then
-        result="$param"  # First non-empty parameter
+  for param in "$@"; do
+    if is_not_empty "$param"; then
+      if is_empty "$result"; then
+        result="$param"
       else
-        result="$result$delimiter$param"  # Append with delimiter
+        result="${result}${delimiter}${param}"
       fi
     fi
   done

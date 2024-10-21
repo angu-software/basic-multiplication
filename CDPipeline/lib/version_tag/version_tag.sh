@@ -1,4 +1,5 @@
 local SCRIPT_DIR=$(dirname "$(realpath "${BASH_SOURCE[0]:-${(%):-%x}}")")
+source "$SCRIPT_DIR/../foundation/foundation.sh"
 source "$SCRIPT_DIR/../foundation/split.sh"
 
 local INITIAL_VERSION="1.0.0"
@@ -12,7 +13,7 @@ make_version_tag() {
     local BUILD_NUMBER="$2"
     local IS_RC="$3"
 
-    if [[ -z "$IS_RC" ]]; then
+    if is_empty "$IS_RC"; then
         echo "$VERSION${META_SEPARATOR}$BUILD_NUMBER"
         return
     fi
@@ -33,7 +34,7 @@ initial_version_rc_tag() {
 split_tag() {
     local TAG="$1"
 
-    if [[ -z "$TAG" ]]; then
+    if is_empty "$TAG"; then
         echo ""
         return
     fi
@@ -48,7 +49,7 @@ split_tag() {
     local BUILD_NUMBER="$1"
     local RC="$2"
 
-    if [[ -z "$RC" ]]; then
+    if is_empty "$RC"; then
         echo "$VERSION $BUILD_NUMBER"
         return
     fi
@@ -59,7 +60,7 @@ split_tag() {
 version_from_tag() {
     local TAG="$1"
 
-    if [[ -z "$TAG" ]]; then
+    if is_empty "$TAG"; then
         echo "$INITIAL_VERSION"
         return
     fi
@@ -74,7 +75,7 @@ version_from_tag() {
 build_number_from_tag() {
     local TAG="$1"
 
-    if [[ -z "$TAG" ]]; then
+    if is_empty "$TAG"; then
         echo "$INITIAL_BUILD_NUMBER"
         return
     fi
@@ -103,7 +104,7 @@ latest_rc_tag_from_tag_list() {
 next_rc_tag_from_tag() {
     local TAG="$1"
 
-    if [[ -z "$TAG" ]]; then
+    if is_empty "$TAG"; then
         echo "$(initial_version_rc_tag)"
         return
     fi
@@ -123,7 +124,7 @@ next_rc_tag_from_tag() {
 next_rc_tag_from_tag_list() {
     local TAG_LIST="$1"
 
-    if [[ -z "$TAG_LIST" ]]; then
+    if is_empty "$TAG_LIST"; then
         echo "$(initial_version_rc_tag)"
         return
     fi
