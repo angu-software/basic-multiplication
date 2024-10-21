@@ -8,7 +8,7 @@ git_command() {
 git_sha() {
     local IS_SHORT="$1"
 
-    if [[ -n "$IS_SHORT" ]]; then
+    if is_not_empty "$IS_SHORT"; then
         git_command rev-parse --short HEAD
         return
     fi
