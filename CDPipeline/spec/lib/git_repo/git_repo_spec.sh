@@ -37,4 +37,11 @@ Describe 'git_repo.sh'
             The variable EXECUTED_GIT_COMMAND should equal "git fetch --tags"
         End
     End
+
+    Describe 'push_tag()'
+        It 'it pushes the tag'
+            When call push_tag "1.0.0+4-RC"
+            The variable EXECUTED_GIT_COMMAND should equal "git push origin 1.0.0+4-RC"
+        End
+    End
 End
