@@ -8,7 +8,7 @@ fetch_tags() {
 }
 
 get_rc_version_tags() {
-    echo "$(git_command tag -l --sort=-v:refname)"
+    git_command tag -l --sort=-v:refname
 }
 
 # TODO: Consider checking for tag format

@@ -22,6 +22,12 @@ Describe 'git_repo.sh'
             When call get_rc_version_tags
             The output should equal $'1.0.0+3-RC\n1.0.0+2-RC\n1.0.0+1-RC'
         End
+
+        It 'it executes the git list tags command'
+            When call get_rc_version_tags
+            The variable EXECUTED_GIT_COMMAND should eq "git tag -l --sort=-v:refname"
+            The output should be present
+        End
     End
 
     Describe 'set_rc_version_tag()'
