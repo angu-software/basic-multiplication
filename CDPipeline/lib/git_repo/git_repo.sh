@@ -6,9 +6,9 @@ git_command() {
 }
 
 git_sha() {
-    local IS_SHORT="$1"
+    local is_short="$1"
 
-    if is_not_empty "$IS_SHORT"; then
+    if is_not_empty "$is_short"; then
         git_command rev-parse --short HEAD
         return
     fi
@@ -24,17 +24,21 @@ get_rc_version_tags() {
     git_command tag -l --sort=-v:refname
 }
 
-# TODO: Consider checking for tag format
 set_rc_version_tag() {
-    local TAG="$1"
-    local SHA="$2"
+    # TODO: Consider checking for tag format
+    set_tag "$@"
+}
 
-    local args=$(join_args "$TAG" "$SHA")
+set_tag() {
+    local tag="$1"
+    local sha="$2"
+
+    local args=$(join_args "$tag" "$sha")
 
     git_command tag "$args"
 }
 
 push_tag() {
-    local TAG="$1"
-    git_command push origin "$TAG"
+    local tag="$1"
+    git_command push origin "$tag"
 }
