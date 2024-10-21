@@ -1,6 +1,5 @@
-local SCRIPT_DIR=$(dirname "$(realpath "${BASH_SOURCE[0]:-$0}")")
-source "$SCRIPT_DIR/is_empty.sh"
-source "$SCRIPT_DIR/is_not_empty.sh"
+source "$JABOS_FOUNDATION_DIR/is_empty.sh"
+source "$JABOS_FOUNDATION_DIR/is_not_empty.sh"
 
 join_args() {
   local delimiter=" "  # Get the last parameter (delimiter)

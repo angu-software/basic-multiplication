@@ -1,5 +1,4 @@
-local SCRIPT_DIR=$(dirname "$(realpath "${BASH_SOURCE[0]:-$0}")")
-source "$SCRIPT_DIR/../foundation/foundation.sh"
+source "$JABOS_FOUNDATION_DIR/foundation.sh"
 
 local INITIAL_VERSION="1.0.0"
 local INITIAL_BUILD_NUMBER=1

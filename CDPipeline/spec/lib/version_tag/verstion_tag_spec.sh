@@ -1,3 +1,5 @@
+source 'JABOS.sh'
+
 Describe 'version_tag.sh'
     Include 'lib/version_tag/version_tag.sh'
     local VERSION='1.2.3'
