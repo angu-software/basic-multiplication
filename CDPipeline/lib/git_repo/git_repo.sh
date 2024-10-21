@@ -1,3 +1,5 @@
+local SCRIPT_DIR=$(dirname "$(realpath "${BASH_SOURCE[0]:-${(%):-%x}}")")
+source "$SCRIPT_DIR/../foundation/join_args.sh"
 
 git_command() {
     git $@
@@ -27,12 +29,9 @@ set_rc_version_tag() {
     local TAG="$1"
     local SHA="$2"
 
-    if [[ -n "$SHA" ]]; then
-        git_command tag "$TAG" "$SHA"
-        return
-    fi
+    local args=$(join_args "$TAG" "$SHA")
 
-    git_command tag "$TAG"
+    git_command tag "$args"
 }
 
 push_tag() {

@@ -12,7 +12,7 @@ make_version_tag() {
     local BUILD_NUMBER="$2"
     local IS_RC="$3"
 
-    if [[ "$IS_RC" == "false" ]]; then
+    if [[ "$IS_RC" == "false" ]]; then #TODO: just check if IS_RC is empty
         echo "$VERSION${META_SEPARATOR}$BUILD_NUMBER"
         return
     fi
