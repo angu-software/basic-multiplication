@@ -1,5 +1,6 @@
 local SCRIPT_DIR=$(dirname "$(realpath "${BASH_SOURCE[0]:-${(%):-%x}}")")
 source "$SCRIPT_DIR/../foundation/foundation.sh"
+source "$SCRIPT_DIR/../foundation/join_args.sh" # Include the join_args and split in foundation
 source "$SCRIPT_DIR/../foundation/split.sh"
 
 local INITIAL_VERSION="1.0.0"
@@ -13,12 +14,13 @@ make_version_tag() {
     local BUILD_NUMBER="$2"
     local IS_RC="$3"
 
-    if is_empty "$IS_RC"; then
-        echo "$VERSION${META_SEPARATOR}$BUILD_NUMBER"
-        return
+    local version_tag="${VERSION}${META_SEPARATOR}${BUILD_NUMBER}"
+
+    if is_not_empty "$IS_RC"; then
+        version_tag="${version_tag}${RC_SEPARATOR}${RC_IDENTIFIER}"
     fi
 
-    echo "$VERSION${META_SEPARATOR}${BUILD_NUMBER}${RC_SEPARATOR}${RC_IDENTIFIER}"
+    echo "$version_tag"
 }
 
 initial_version_rc_tag() {
@@ -49,12 +51,7 @@ split_tag() {
     local BUILD_NUMBER="$1"
     local RC="$2"
 
-    if is_empty "$RC"; then
-        echo "$VERSION $BUILD_NUMBER"
-        return
-    fi
-
-    echo "$VERSION $BUILD_NUMBER $RC"
+    echo "$(join_args "$VERSION" "$BUILD_NUMBER" "$RC")"
 }
 
 version_from_tag() {
