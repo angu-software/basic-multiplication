@@ -23,9 +23,15 @@ get_rc_version_tags() {
 }
 
 # TODO: Consider checking for tag format
-# TODO: take SHA as argument
 set_rc_version_tag() {
     local TAG="$1"
+    local SHA="$2"
+
+    if [[ -n "$SHA" ]]; then
+        git_command tag "$TAG" "$SHA"
+        return
+    fi
+
     git_command tag "$TAG"
 }
 

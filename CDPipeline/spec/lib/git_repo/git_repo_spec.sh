@@ -43,6 +43,13 @@ Describe 'git_repo.sh'
             When call set_rc_version_tag "1.0.0+4-RC"
             The variable EXECUTED_GIT_COMMAND should equal "git tag 1.0.0+4-RC"
         End
+
+        Describe 'when specifying a SHA'
+            It 'it sets the RC version tag with the SHA'
+                When call set_rc_version_tag "1.0.0+4-RC" "$SHA_SHORT"
+                The variable EXECUTED_GIT_COMMAND should equal "git tag 1.0.0+4-RC $SHA_SHORT"
+            End
+        End
     End
 
     Describe 'fetch_tags()'
