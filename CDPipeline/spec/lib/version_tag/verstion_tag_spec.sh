@@ -1,4 +1,4 @@
-source 'JABOS.sh'
+source 'jabos_paths.sh'
 
 Describe 'version_tag.sh'
     Include 'lib/version_tag/version_tag.sh'

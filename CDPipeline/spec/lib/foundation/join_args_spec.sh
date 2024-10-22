@@ -1,4 +1,4 @@
-source 'JABOS.sh'
+source 'jabos_paths.sh'
 
 Describe 'join_args.sh'
     Include 'lib/foundation/join_args.sh'

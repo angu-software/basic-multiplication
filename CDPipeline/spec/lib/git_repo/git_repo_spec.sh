@@ -1,4 +1,4 @@
-source 'JABOS.sh'
+source 'jabos_paths.sh'
 
 Describe 'git_repo.sh'
     Include 'lib/git_repo/git_repo.sh'
