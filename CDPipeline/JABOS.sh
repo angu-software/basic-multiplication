@@ -1,4 +1,4 @@
-source 'jabos_paths.sh'
+source "$(dirname "$(realpath "${BASH_SOURCE[0]:-$0}")")/jabos_paths.sh"
 
 source "$JABOS_LIB_DIR/git_repo/git_repo.sh"
 source "$JABOS_LIB_DIR/version_tag/version_tag.sh"
