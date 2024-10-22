@@ -23,17 +23,17 @@ Describe 'JABOS.sh'
     Describe 'when executed to tag a release candidate'
         It 'fetches the git tags'
             When run source ./JABOS.sh
-            The output should include 'fetch_tags'
+            The output line 1 should equal 'fetch_tags'
         End
 
         It 'it sets the new rc tag'
             When run source ./JABOS.sh
-            The output should include "set_tag 1.0.0+4-RC $SHA"
+            The output line 2 should include "set_tag 1.0.0+4-RC $SHA"
         End
 
         It 'it pushes the RC tag'
             When run source ./JABOS.sh
-            The output should include "push_tag 1.0.0+4-RC"
+            The output line 3 should include "push_tag 1.0.0+4-RC"
         End
     End
 End
