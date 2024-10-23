@@ -13,8 +13,7 @@ is_uint() {
 }
 
 is_not_uint() { 
-    $(is_uint "$1")
-    if [[ $? -eq 0 ]]; then
+    if is_uint "$1"; then
         return 1
     fi
 }
@@ -31,8 +30,7 @@ is_version() {
 }
 
 is_not_version() {
-    $(is_version "$1")
-    if [[ $? -eq 0 ]]; then
+    if is_version "$1"; then
         return 1
     fi
 }
