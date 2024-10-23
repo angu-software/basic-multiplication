@@ -1,7 +1,7 @@
 source "$JABOS_FOUNDATION_DIR/foundation.sh"
 
 # https://stackoverflow.com/a/61835747 
-func is_uint() { 
+is_uint() {
     case "$1" in 
         *[0-9]*)
             return 0
@@ -12,14 +12,14 @@ func is_uint() {
     esac
 }
 
-func is_not_uint() { 
+is_not_uint() { 
     $(is_uint "$1")
     if [[ $? -eq 0 ]]; then
         return 1
     fi
 }
 
-func is_version() {
+is_version() {
     local version="$1"
     local version_regex="^([0-9]+\.){2}[0-9]+$"
     
@@ -30,7 +30,7 @@ func is_version() {
     return 1
 }
 
-func is_not_version() {
+is_not_version() {
     $(is_version "$1")
     if [[ $? -eq 0 ]]; then
         return 1
