@@ -12,12 +12,6 @@ is_uint() {
     esac
 }
 
-is_not_uint() { 
-    if is_uint "$1"; then
-        return 1
-    fi
-}
-
 is_version() {
     local version="$1"
     local version_regex="^([0-9]+\.){2}[0-9]+$"
@@ -27,12 +21,6 @@ is_version() {
     fi
 
     return 1
-}
-
-is_not_version() {
-    if is_version "$1"; then
-        return 1
-    fi
 }
 
 verify_rc_version_tag() {
@@ -54,7 +42,7 @@ is_rc_version_tag() {
     local tag_build="$2"
     local tag_rc="$3"
     
-    if is_not_version "$tag_version" || is_not_uint "$tag_build" || [[ "$tag_rc" != "$RC_IDENTIFIER" ]]; then
+    if ! is_version "$tag_version" || ! is_uint "$tag_build" || [[ "$tag_rc" != "$RC_IDENTIFIER" ]]; then
         return 1
     fi
 }
