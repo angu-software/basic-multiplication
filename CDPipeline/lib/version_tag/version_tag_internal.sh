@@ -1,4 +1,4 @@
-
+source "$JABOS_LIB_DIR/version_tag/verify_version_tag.sh"
 
 INITIAL_VERSION="1.0.0"
 INITIAL_BUILD_NUMBER=1
@@ -98,7 +98,8 @@ latest_rc_tag_from_tag_list() {
 next_rc_tag_from_tag() {
     local TAG="$1"
 
-    if is_empty "$TAG"; then
+# TODO: Filter list instead of returning inital tag here
+    if is_empty "$TAG" || ! is_rc_version_tag "$TAG"; then
         echo "$(initial_version_rc_tag)"
         return
     fi

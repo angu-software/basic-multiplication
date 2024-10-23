@@ -40,15 +40,23 @@ is_not_version() {
 verify_rc_version_tag() {
     local tag="$1"
 
+    if ! is_rc_version_tag "$tag"; then
+        echo "Tag $tag is not a valid RC version tag.
+Tag must be in the format: <version>${META_SEPARATOR}<build>${RC_SEPARATOR}${RC_IDENTIFIER}
+Example: 1.0.0+1-RC" >&2
+        return 1
+    fi
+}
+
+is_rc_version_tag() {
+    local tag="$1"
+
     set -- $(split_tag "$tag")
     local tag_version="$1"
     local tag_build="$2"
     local tag_rc="$3"
     
     if is_not_version "$tag_version" || is_not_uint "$tag_build" || [[ "$tag_rc" != "$RC_IDENTIFIER" ]]; then
-        echo "Tag $tag is not a valid RC version tag.
-Tag must be in the format: <version>${META_SEPARATOR}<build>${RC_SEPARATOR}${RC_IDENTIFIER}
-Example: 1.0.0+1-RC" >&2
         return 1
     fi
 }

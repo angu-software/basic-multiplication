@@ -104,5 +104,13 @@ Describe 'version_tag.sh'
                 The output should equal '1.0.0+4-RC'
             End
         End
+
+        Describe 'when tag list contains otehr tags'
+            It 'it returns the next valid RC tag'
+                TAG_LIST=$'Staged-RC-10'
+                When call next_rc_tag_from_tag_list "$TAG_LIST"
+                The output should equal "$(initial_version_rc_tag)"
+            End
+        End
     End
 End
