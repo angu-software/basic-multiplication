@@ -9,6 +9,8 @@ source "$JABOS_LIB_DIR/version_tag/version_tag_internal.sh"
 next_rc_tag_from_tag_list() {
     local TAG_LIST="$1"
 
+    TAG_LIST="$(filter_list "$TAG_LIST" "is_rc_version_tag")"
+
     if is_empty "$TAG_LIST"; then
         echo "$(initial_version_rc_tag)"
         return
