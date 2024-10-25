@@ -5,6 +5,7 @@
         "message": "*** Running TCR mode ***",
         "commands": [
             {
+                "name": "Run ShellSpec",
                 "match": "\\.sh$",
                 "cmd": "'${workspaceFolder}/Tools/bin/shellspec/shellspec' -c '${workspaceFolder}/CDPipeline' -s bash && git commit -am '[${fileBasename}] change working' || git reset --hard"
             }

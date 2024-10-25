@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-source $1
+source "$1"
 
 xcodebuild \
 build-for-testing \
