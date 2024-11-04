@@ -1,4 +1,4 @@
-Welcome to Basic Multiplication! In this first version, you can:
+Welcome to One Times One! In this first version, you can:
 
  • Practice your multiplication skills with random problems.
  • Choose from three possible answers for each question.
