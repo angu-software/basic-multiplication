@@ -1,0 +1,20 @@
+//
+//  ProjectBase.xcconfig
+//  Basic Multiplication
+//
+//  Created by Andreas Guenther on 06.11.24.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+// -- Architecture --
+
+// SUPPORTED_PLATFORMS
+//
+// The list of supported platforms from which a base SDK can be used. This setting is used if the product can be built for multiple platforms using different SDKs.
+// Declaration
+//
+// - Value Type: Platform Identifier List
+//
+SUPPORTED_PLATFORMS = iphoneos iphonesimulator
