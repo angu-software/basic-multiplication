@@ -1,0 +1,45 @@
+name: 'Deployment Pipeline (Fastlane)'
+
+permissions:
+  contents: write
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  development-tests:
+    name: Development Stage
+    runs-on: macos-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Set up ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        bundler-cache: true
+    - name: Install project tools
+      run: ./Tools/install_tools.sh
+    - name: Execute Development Stage
+      run: fastlane dev_stage
+  acceptance-tests:
+    name: Acceptance Stage
+    runs-on: macos-latest
+    needs: development-tests
+    concurrency: 
+      group: acceptance-tests-${{ github.ref }}
+      cancel-in-progress: true
+    if: needs.development-tests.result == 'success'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+      - name: Install project tools
+        run: ./Tools/install_tools.sh
+      - name: Execute Acceptance Stage
+        run: fastlane acc_stage
