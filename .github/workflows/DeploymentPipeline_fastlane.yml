@@ -20,9 +20,18 @@ jobs:
       uses: ruby/setup-ruby@v1
       with:
         bundler-cache: true
+    - name: Cache SPM packages
+      uses: actions/cache@v3
+      id: spm_packages-cache
+      with:
+        path: .jabos/package_dependencies
+        key: ${{ runner.os }}-packages-${{ hashFiles('**/Package.resolved') }}
+        restore-keys:  ${{ runner.os }}-packages-
     - name: Install project tools
       run: ./Tools/install_tools.sh
     - name: Execute Development Stage
+      env: 
+        HAS_SPM_PACKAGES_CACHE_HIT: ${{ steps.spm_packages-cache.outputs.cache-hit == 'true' }}
       run: bundle exec fastlane dev_stage
   acceptance-tests:
     name: Acceptance Stage
