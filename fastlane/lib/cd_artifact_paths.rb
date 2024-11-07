@@ -11,7 +11,7 @@ class CDArtifactPaths
   end
 
   def cloned_source_packages_path
-      join_paths(build_dir, 'package_dependencies')
+    join_paths(build_dir, 'package_dependencies')
   end
 
   def derived_data_path
