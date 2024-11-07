@@ -21,9 +21,9 @@ final class MultiplicationExerciseRobot: ScreenRobot {
             .compactMap { $0.toInt() }
         if operands.count == 2 {
             return (operands[0], operands[1])
-        } else {
-            throw ProtocolDriverError("Exercise not found")
         }
+
+        throw ProtocolDriverError("Exercise not found")
     }
 
     func operationProductSuggestions() throws -> [Int] {
