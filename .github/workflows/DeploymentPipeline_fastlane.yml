@@ -23,7 +23,7 @@ jobs:
     - name: Install project tools
       run: ./Tools/install_tools.sh
     - name: Execute Development Stage
-      run: fastlane dev_stage
+      run: bundle exec fastlane dev_stage
   acceptance-tests:
     name: Acceptance Stage
     runs-on: macos-latest
@@ -42,4 +42,4 @@ jobs:
       - name: Install project tools
         run: ./Tools/install_tools.sh
       - name: Execute Acceptance Stage
-        run: fastlane acc_stage
+        run: bundle exec fastlane acc_stage
