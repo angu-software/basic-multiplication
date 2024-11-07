@@ -184,6 +184,15 @@
 			path = xcconfig;
 			sourceTree = "<group>";
 		};
+		B3AE8DD02CDBBAA90054059A /* fastlane */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			explicitFileTypes = {
+				Appfile = text.script.ruby;
+				Fastfile = text.script.ruby;
+			};
+			path = fastlane;
+			sourceTree = "<group>";
+		};
 		B3E1F62C2C9D694E00B9EC93 /* Tests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
@@ -264,6 +273,7 @@
 		B332C8A12C9D458200953C58 = {
 			isa = PBXGroup;
 			children = (
+				B3AE8DD02CDBBAA90054059A /* fastlane */,
 				B3AE8BCA2CDB6FF50054059A /* Deliverfile */,
 				B3AE8BC92CDB6E790054059A /* Gemfile */,
 				B3AE8BC52CDB52AD0054059A /* xcconfig */,
