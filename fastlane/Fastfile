@@ -13,62 +13,65 @@
 # Uncomment the line if you want fastlane to automatically update itself
 # update_fastlane
 
-APP_SCHEME='Basic Multiplication'
-BUILD_DIR='.jabos'
-BUILD_ARTIFACTS_DIR="#{BUILD_DIR}/artifacts"
-BUILD_RESULT='BasicMultiplication.xcresult'
-TEST_RESULT='DevelopmentTests.xcresult'
-
-XCODEBUILD_SCHEME="#{APP_SCHEME}"
-XCODEBUILD_TEST_PLAN='DevelopmentTests'
-
-XCODEBUILD_BUILD_DESTINATION='generic/platform=iOS Simulator'
-XCODEBUILD_TEST_DESTINATION='platform=iOS Simulator,name=iPhone 16 Pro,OS=18.0'
-
-XCODEBUILD_DERIVED_DATA_PATH="#{BUILD_DIR}/derived_data"
-
-XCODEBUILD_TEST_PRODUCTS_PATH="#{BUILD_ARTIFACTS_DIR}/#{XCODEBUILD_TEST_PLAN}.xctestproducts"
-
-XCODEBUILD_BUILD_RESULT_BUNDLE_PATH="#{BUILD_ARTIFACTS_DIR}/#{BUILD_RESULT}"
-XCODEBUILD_TEST_RESULT_BUNDLE_PATH="#{BUILD_ARTIFACTS_DIR}/#{TEST_RESULT}"
-
-# setting xcode version
-DEVELOPER_DIR='/Applications/Xcode_16.app/Contents/Developer'
-
-SWIFT_LINT_PATH='Tools/bin/swiftlint'
+require_relative 'lib/cd_stages'
+require_relative 'lib/cd_artifact_paths'
 
 default_platform(:ios)
 
 platform :ios do
-  desc "Development Stage"
+  desc 'Development Stage'
   lane :dev_stage do
-    ENV['DEVELOPER_DIR']=DEVELOPER_DIR
-
-    run_tests(scheme: XCODEBUILD_SCHEME,
-              build_for_testing: true,
-              destination: XCODEBUILD_BUILD_DESTINATION,
-              derived_data_path: "#{BUILD_DIR}/dev_stage/derived_data",
-              result_bundle_path: "#{BUILD_DIR}/dev_stage/build_result/testing_build.xcresult",
-              output_directory: "#{BUILD_DIR}/dev_stage/build_result",
-              buildlog_path: "#{BUILD_DIR}/dev_stage/build_result",
-              xcargs: "-quiet -skipUnavailableActions CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY='' CODE_SIGNING_ALLOWED=NO",
-              skip_detect_devices: true,
-              output_style: 'raw',
-              skip_build: true,
-              clean: true)
-    # TODO: do not lint when building for testing
-
-    run_tests(scheme: XCODEBUILD_SCHEME,
-              test_without_building: true,
-              testplan: XCODEBUILD_TEST_PLAN,
-              destination: XCODEBUILD_TEST_DESTINATION,
-              derived_data_path: "#{BUILD_DIR}/dev_stage/derived_data",
-              result_bundle_path: "#{BUILD_DIR}/dev_stage/test_result/dev_tests.xcresult",
-              output_directory: "#{BUILD_DIR}/dev_stage/test_result",
-              buildlog_path: "#{BUILD_DIR}/dev_stage/test_result",
-              xcargs: "-quiet",
-              skip_detect_devices: true,
-              output_style: 'raw',
-              skip_build: true)
+    scheme = 'Basic Multiplication'
+    set_xcode_version
+    build_for_testing(scheme: scheme)
+    test_without_building(scheme: scheme,
+                          test_plan: 'DevelopmentTests')
   end
+end
+
+def dev_stage_paths(results_dir_name)
+  CDArtifactPaths.new(CD_STAGES[:DEV], results_dir_name)
+end
+
+def testing_build_paths
+  dev_stage_paths('build_result')
+end
+
+def testing_paths
+  dev_stage_paths('test_result')
+end
+
+def set_xcode_version
+  ENV['DEVELOPER_DIR'] = '/Applications/Xcode_16.app/Contents/Developer'
+end
+
+def build_for_testing(scheme:)
+  run_tests(scheme: scheme,
+            build_for_testing: true,
+            destination: 'generic/platform=iOS Simulator',
+            derived_data_path: testing_build_paths.derived_data_path,
+            result_bundle_path: testing_build_paths.result_bundle_path('testing_build'),
+            output_directory: testing_build_paths.output_directory,
+            buildlog_path: testing_build_paths.buildlog_path,
+            xcargs: "-quiet -skipUnavailableActions CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY='' CODE_SIGNING_ALLOWED=NO",
+            skip_detect_devices: true,
+            output_style: 'raw',
+            skip_build: true,
+            clean: true)
+  # TODO: do not lint when building for testing
+end
+
+def test_without_building(scheme:, test_plan:)
+  run_tests(scheme: scheme,
+            test_without_building: true,
+            testplan: test_plan,
+            destination: 'platform=iOS Simulator,name=iPhone 16 Pro,OS=18.0',
+            derived_data_path: testing_paths.derived_data_path,
+            result_bundle_path: testing_paths.result_bundle_path('dev_tests'),
+            output_directory: testing_paths.output_directory,
+            buildlog_path: testing_paths.buildlog_path,
+            xcargs: '-quiet',
+            skip_detect_devices: true,
+            output_style: 'raw',
+            skip_build: true)
 end
