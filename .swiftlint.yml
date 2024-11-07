@@ -90,7 +90,7 @@ opt_in_rules:
   - pattern_matching_keywords
   - period_spacing
   - prefer_key_path
-  - prefer_nimble
+  #- prefer_nimble
   - prefer_self_in_static_references
   - prefer_self_type_over_type_of_self
   - prefer_zero_over_explicit_init
