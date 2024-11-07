@@ -10,7 +10,7 @@ import XCTest
 import SnapshotTesting
 import SwiftUI
 
-@testable import Basic_Multiplication
+@testable import One_Times_One
 
 @MainActor
 final class MultiplicationExerciseViewTests: XCTestCase {

@@ -67,7 +67,7 @@
 
 /* Begin PBXFileReference section */
 		B32130EA2CC11A1600625A53 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
-		B332C8AA2C9D458200953C58 /* Basic Multiplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Basic Multiplication.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B332C8AA2C9D458200953C58 /* One Times One.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "One Times One.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B332C8BA2C9D458800953C58 /* UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B332C8C42C9D458800953C58 /* UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B332C8D72C9D467E00953C58 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -107,7 +107,7 @@
 			);
 			target = B3C5EE832CBFD39600BD1D2B /* ExerciseKernelTests */;
 		};
-		B3E1F63C2C9D694E00B9EC93 /* Exceptions for "Tests" folder in "Basic Multiplication" target */ = {
+		B3E1F63C2C9D694E00B9EC93 /* Exceptions for "Tests" folder in "One Times One" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				.swiftlint.yml,
@@ -125,7 +125,7 @@
 				UITests/ScreenRobots/ScreenRobot.swift,
 				UnitTests/ViewAdapterTests.swift,
 			);
-			target = B332C8A92C9D458200953C58 /* Basic Multiplication */;
+			target = B332C8A92C9D458200953C58 /* One Times One */;
 		};
 		B3E1F63E2C9D694E00B9EC93 /* Exceptions for "Tests" folder in "UITests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
@@ -146,7 +146,7 @@
 			);
 			target = B3E1F5F42C9D5C6A00B9EC93 /* SnapshotTests */;
 		};
-		B3E1F66C2C9D86EC00B9EC93 /* Exceptions for "TestPlans" folder in "Basic Multiplication" target */ = {
+		B3E1F66C2C9D86EC00B9EC93 /* Exceptions for "TestPlans" folder in "One Times One" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				AcceptanceTests.xctestplan,
@@ -154,7 +154,7 @@
 				SnapshotTests.xctestplan,
 				UnitTests.xctestplan,
 			);
-			target = B332C8A92C9D458200953C58 /* Basic Multiplication */;
+			target = B332C8A92C9D458200953C58 /* One Times One */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
@@ -196,7 +196,7 @@
 		B3E1F62C2C9D694E00B9EC93 /* Tests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				B3E1F63C2C9D694E00B9EC93 /* Exceptions for "Tests" folder in "Basic Multiplication" target */,
+				B3E1F63C2C9D694E00B9EC93 /* Exceptions for "Tests" folder in "One Times One" target */,
 				B3E1F63F2C9D694E00B9EC93 /* Exceptions for "Tests" folder in "SnapshotTests" target */,
 				B3E1F63E2C9D694E00B9EC93 /* Exceptions for "Tests" folder in "UITests" target */,
 				B3C5EE962CBFD4E600BD1D2B /* Exceptions for "Tests" folder in "ExerciseKernelTests" target */,
@@ -215,7 +215,7 @@
 		B3E1F66B2C9D86EC00B9EC93 /* TestPlans */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				B3E1F66C2C9D86EC00B9EC93 /* Exceptions for "TestPlans" folder in "Basic Multiplication" target */,
+				B3E1F66C2C9D86EC00B9EC93 /* Exceptions for "TestPlans" folder in "One Times One" target */,
 			);
 			path = TestPlans;
 			sourceTree = "<group>";
@@ -294,7 +294,7 @@
 		B332C8AB2C9D458200953C58 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B332C8AA2C9D458200953C58 /* Basic Multiplication.app */,
+				B332C8AA2C9D458200953C58 /* One Times One.app */,
 				B332C8BA2C9D458800953C58 /* UnitTests.xctest */,
 				B332C8C42C9D458800953C58 /* UITests.xctest */,
 				B3E1F5F52C9D5C6A00B9EC93 /* SnapshotTests.xctest */,
@@ -324,9 +324,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		B332C8A92C9D458200953C58 /* Basic Multiplication */ = {
+		B332C8A92C9D458200953C58 /* One Times One */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B332C8CE2C9D458800953C58 /* Build configuration list for PBXNativeTarget "Basic Multiplication" */;
+			buildConfigurationList = B332C8CE2C9D458800953C58 /* Build configuration list for PBXNativeTarget "One Times One" */;
 			buildPhases = (
 				B332C8A62C9D458200953C58 /* Sources */,
 				B332C8A72C9D458200953C58 /* Frameworks */,
@@ -344,11 +344,11 @@
 				B3E1F6402C9D6A9C00B9EC93 /* Sources */,
 				B3E1F66B2C9D86EC00B9EC93 /* TestPlans */,
 			);
-			name = "Basic Multiplication";
+			name = "One Times One";
 			packageProductDependencies = (
 			);
 			productName = "Basic Multiplication";
-			productReference = B332C8AA2C9D458200953C58 /* Basic Multiplication.app */;
+			productReference = B332C8AA2C9D458200953C58 /* One Times One.app */;
 			productType = "com.apple.product-type.application";
 		};
 		B332C8B92C9D458800953C58 /* UnitTests */ = {
@@ -478,7 +478,6 @@
 					};
 					B3C5EE832CBFD39600BD1D2B = {
 						CreatedOnToolsVersion = 16.0;
-						TestTargetID = B332C8A92C9D458200953C58;
 					};
 					B3E1F5F42C9D5C6A00B9EC93 = {
 						CreatedOnToolsVersion = 16.0;
@@ -504,7 +503,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B332C8A92C9D458200953C58 /* Basic Multiplication */,
+				B332C8A92C9D458200953C58 /* One Times One */,
 				B332C8B92C9D458800953C58 /* UnitTests */,
 				B3E1F5F42C9D5C6A00B9EC93 /* SnapshotTests */,
 				B332C8C32C9D458800953C58 /* UITests */,
@@ -631,12 +630,12 @@
 /* Begin PBXTargetDependency section */
 		B332C8BC2C9D458800953C58 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B332C8A92C9D458200953C58 /* Basic Multiplication */;
+			target = B332C8A92C9D458200953C58 /* One Times One */;
 			targetProxy = B332C8BB2C9D458800953C58 /* PBXContainerItemProxy */;
 		};
 		B332C8C62C9D458800953C58 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B332C8A92C9D458200953C58 /* Basic Multiplication */;
+			target = B332C8A92C9D458200953C58 /* One Times One */;
 			targetProxy = B332C8C52C9D458800953C58 /* PBXContainerItemProxy */;
 		};
 		B3C5EE6F2CBFD13F00BD1D2B /* PBXTargetDependency */ = {
@@ -646,12 +645,12 @@
 		};
 		B3C5EE892CBFD39700BD1D2B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B332C8A92C9D458200953C58 /* Basic Multiplication */;
+			target = B332C8A92C9D458200953C58 /* One Times One */;
 			targetProxy = B3C5EE882CBFD39700BD1D2B /* PBXContainerItemProxy */;
 		};
 		B3E1F5FA2C9D5C6A00B9EC93 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B332C8A92C9D458200953C58 /* Basic Multiplication */;
+			target = B332C8A92C9D458200953C58 /* One Times One */;
 			targetProxy = B3E1F5F92C9D5C6A00B9EC93 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -867,7 +866,7 @@
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Basic Multiplication.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Basic Multiplication";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/One Times One.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/One Times One";
 			};
 			name = Debug;
 		};
@@ -888,7 +887,7 @@
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Basic Multiplication.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Basic Multiplication";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/One Times One.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/One Times One";
 			};
 			name = Release;
 		};
@@ -1007,7 +1006,6 @@
 		B3C5EE8B2CBFD39700BD1D2B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = D5QKU6QD59;
@@ -1021,14 +1019,12 @@
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Basic Multiplication.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Basic Multiplication";
 			};
 			name = Debug;
 		};
 		B3C5EE8C2CBFD39700BD1D2B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = D5QKU6QD59;
@@ -1042,7 +1038,6 @@
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Basic Multiplication.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Basic Multiplication";
 			};
 			name = Release;
 		};
@@ -1063,7 +1058,7 @@
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Basic Multiplication.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Basic Multiplication";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/One Times One.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/One Times One";
 			};
 			name = Debug;
 		};
@@ -1084,7 +1079,7 @@
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Basic Multiplication.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Basic Multiplication";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/One Times One.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/One Times One";
 			};
 			name = Release;
 		};
@@ -1100,7 +1095,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B332C8CE2C9D458800953C58 /* Build configuration list for PBXNativeTarget "Basic Multiplication" */ = {
+		B332C8CE2C9D458800953C58 /* Build configuration list for PBXNativeTarget "One Times One" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B332C8CF2C9D458800953C58 /* Debug */,

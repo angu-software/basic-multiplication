@@ -7,7 +7,7 @@
 
 import Testing
 
-@testable import Basic_Multiplication
+@testable import One_Times_One
 
 enum ProductSuggestionsGeneratorTests {
 

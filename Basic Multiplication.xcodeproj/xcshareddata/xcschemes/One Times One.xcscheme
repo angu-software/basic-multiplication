@@ -16,8 +16,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B332C8A92C9D458200953C58"
-               BuildableName = "Basic Multiplication.app"
-               BlueprintName = "Basic Multiplication"
+               BuildableName = "One Times One.app"
+               BlueprintName = "One Times One"
                ReferencedContainer = "container:Basic Multiplication.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -83,8 +83,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B332C8A92C9D458200953C58"
-            BuildableName = "Basic Multiplication.app"
-            BlueprintName = "Basic Multiplication"
+            BuildableName = "One Times One.app"
+            BlueprintName = "One Times One"
             ReferencedContainer = "container:Basic Multiplication.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -100,8 +100,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B332C8A92C9D458200953C58"
-            BuildableName = "Basic Multiplication.app"
-            BlueprintName = "Basic Multiplication"
+            BuildableName = "One Times One.app"
+            BlueprintName = "One Times One"
             ReferencedContainer = "container:Basic Multiplication.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
