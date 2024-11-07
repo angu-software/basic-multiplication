@@ -9,7 +9,7 @@ import Testing
 
 @testable import Basic_Multiplication
 
-struct NumberGeneratorTests {
+enum NumberGeneratorTests {
 
     static let operandRange = 0...10
 

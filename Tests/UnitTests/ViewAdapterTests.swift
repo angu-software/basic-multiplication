@@ -9,7 +9,7 @@ import Testing
 
 @testable import ExerciseKernel
 
-struct ViewAdapterTests {
+enum ViewAdapterTests {
 
     private static let configuration = ViewAdapter.Configuration.numberRangeUpTo100()
 

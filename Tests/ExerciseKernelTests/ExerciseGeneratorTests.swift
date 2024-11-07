@@ -9,7 +9,7 @@ import Testing
 
 @testable import Basic_Multiplication
 
-struct ExerciseGeneratorTests {
+enum ExerciseGeneratorTests {
 
     @Suite("When creating a multiplication exercise")
     struct CreatingExercise {

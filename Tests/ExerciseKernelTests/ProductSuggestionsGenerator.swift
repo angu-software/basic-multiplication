@@ -9,7 +9,7 @@ import Testing
 
 @testable import Basic_Multiplication
 
-struct ProductSuggestionsGeneratorTests {
+enum ProductSuggestionsGeneratorTests {
 
     @Suite("When generating product suggestions")
     struct GeneratingProductSuggestions {
