@@ -38,7 +38,7 @@ opt_in_rules:
   - explicit_init
   # - explicit_top_level_acl
   # - explicit_type_interface
-  - extension_access_modifier
+  # - extension_access_modifier
   - fallthrough
   - fatal_error_message
   - file_header
