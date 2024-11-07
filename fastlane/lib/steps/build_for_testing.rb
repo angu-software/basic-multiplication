@@ -23,6 +23,8 @@ def build_for_testing(stage:, scheme:)
             output_directory: testing_build_paths.output_directory,
             buildlog_path: testing_build_paths.buildlog_path,
             cloned_source_packages_path: testing_build_paths.cloned_source_packages_path,
+            disable_package_automatic_updates: true,
+            skip_package_dependencies_resolution: ENV['HAS_SPM_PACKAGES_CACHE_HIT'],
             xcargs: xcargs,
             skip_detect_devices: true,
             output_style: 'raw',
