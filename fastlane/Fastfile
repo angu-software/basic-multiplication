@@ -15,7 +15,7 @@
 # Uncomment the line if you want fastlane to automatically update itself
 # update_fastlane
 
-require_relative 'lib/stages/dev_stage'
+require_relative 'lib/cd_steps'
 
 scheme = 'Basic Multiplication'
 
