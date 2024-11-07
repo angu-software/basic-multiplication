@@ -1,6 +1,10 @@
 #!/bin/zsh
 set -e
 
+if [[ -n "$DISABLE_CODE_LINT" ]]; then
+    exit 0
+fi
+
 source $1
 
 LINT_REPORT=$2
