@@ -39,7 +39,7 @@ struct ProductSuggestionsGeneratorTests {
         func it_returns_one_correct_product_among_the_suggestions() async throws {
             let numberOfCorrectSuggestions = 1
 
-            let correctProductCount = try #require(subject().count(where: { $0 == Self.correctProduct }))
+            let correctProductCount = try #require(subject().count { $0 == Self.correctProduct })
 
             #expect(correctProductCount == numberOfCorrectSuggestions)
         }
@@ -48,19 +48,19 @@ struct ProductSuggestionsGeneratorTests {
         func it_returns_wrong_suggestions_around_the_correct_product() async throws {
             let suggestionRange = (9...15)
 
-            let wrongProducts = subject().filter({ $0 != Self.correctProduct })
+            let wrongProducts = subject().filter { $0 != Self.correctProduct }
 
-            #expect(wrongProducts.allSatisfy({ suggestionRange.contains($0) }))
+            #expect(wrongProducts.allSatisfy { suggestionRange.contains($0) })
         }
 
         @Test("it returns suggestions less than or equal to upper max suggestion range")
         func it_returns_suggestions_less_than_or_equal_to_upper_max_suggestion_range() async throws {
-            #expect(subject(product: Self.maxSuggestionRange.upperBound).allSatisfy({ $0 <= 100 }))
+            #expect(subject(product: Self.maxSuggestionRange.upperBound).allSatisfy { $0 <= 100 })
         }
 
         @Test("it returns suggestions greater than or equal to lower max suggestion range")
         func it_returns_suggestions_greater_than_or_equal_to_lower_max_suggestion_range() async throws {
-            #expect(subject(product: Self.maxSuggestionRange.lowerBound).allSatisfy({ $0 >= 0 }))
+            #expect(subject(product: Self.maxSuggestionRange.lowerBound).allSatisfy { $0 >= 0 })
         }
 
         @Test("it returns unique suggestions")

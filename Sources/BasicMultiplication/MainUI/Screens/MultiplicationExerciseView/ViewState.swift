@@ -24,6 +24,6 @@ struct ViewState: Equatable {
         }
     }
     var suggestionSelection: [(value: String, isSelected: Bool)] {
-        return productSuggestions.map({ ($0, $0 == selectedSuggestion) })
+        return productSuggestions.map { ($0, $0 == selectedSuggestion) }
     }
 }

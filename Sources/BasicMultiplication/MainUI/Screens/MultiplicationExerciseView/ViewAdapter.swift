@@ -90,6 +90,6 @@ extension ViewState {
                                exercise.multiplicand,
                                exercise.multiplier)
         self.init(operation: operation,
-                  productSuggestions: exercise.productSuggestions.map({ "\($0)" }))
+                  productSuggestions: exercise.productSuggestions.map { "\($0)" })
     }
 }

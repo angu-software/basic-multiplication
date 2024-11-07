@@ -30,7 +30,7 @@ final class MultiplicationExerciseRobot: ScreenRobot {
         return suggestionsList
             .buttons
             .allElementsBoundByAccessibilityElement
-            .compactMap({ $0.label.toInt() })
+            .compactMap { $0.label.toInt() }
     }
 
     func operation() -> String {
@@ -49,7 +49,7 @@ final class MultiplicationExerciseRobot: ScreenRobot {
         return suggestionsList
             .buttons
             .allElementsBoundByAccessibilityElement
-            .map({ $0.label })
+            .map { $0.label }
     }
 
     func tapSuggestion(_ product: String) {
