@@ -1,0 +1,24 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "next_exercise_button_title" : {
+      "comment" : "Title of the button that advances to the next exercise",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nächste Aufgabe"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Next exercise"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

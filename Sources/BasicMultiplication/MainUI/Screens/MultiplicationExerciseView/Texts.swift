@@ -7,6 +7,6 @@
 
 enum Texts {
 
-    static let continueButtonTitle = "Next exercise"
+    static let continueButtonTitle = String(localized: "next_exercise_button_title")
     static let operationFormat = "%d x %d"
 }
