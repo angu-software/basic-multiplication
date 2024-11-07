@@ -67,9 +67,10 @@ final class MultiplicationExerciseDSL {
             indicator = protocolDriver.wrongSolutionIndicator
         }
 
-        XCTAssert(indicator?.exists == true,
-                  file: file,
-                  line: line)
+        XCTAssertEqual(indicator?.exists,
+                       true,
+                       file: file,
+                       line: line)
     }
 
     func assertNewExerciseIsShown(file: StaticString = #file,
