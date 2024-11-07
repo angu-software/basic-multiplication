@@ -21,7 +21,15 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 [bundle exec] fastlane ios dev_stage
 ```
 
-Development Stage
+
+
+### ios acc_stage
+
+```sh
+[bundle exec] fastlane ios acc_stage
+```
+
+
 
 ----
 

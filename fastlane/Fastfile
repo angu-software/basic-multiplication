@@ -17,15 +17,32 @@
 
 require_relative 'lib/stages/dev_stage'
 
+scheme = 'Basic Multiplication'
+
 default_platform(:ios)
 
 platform :ios do
-  desc 'Development Stage'
-  lane :dev_stage do
-    scheme = 'Basic Multiplication'
+  before_each do
     set_xcode_version
-    build_for_testing(scheme: scheme)
-    test_without_building(scheme: scheme,
+  end
+
+  lane :dev_stage do
+    stage = CD_STAGES[:DEV]
+
+    build_for_testing(stage: stage,
+                      scheme: scheme)
+    test_without_building(stage: stage,
+                          scheme: scheme,
                           test_plan: 'DevelopmentTests')
+  end
+
+  lane :acc_stage do
+    stage = CD_STAGES[:ACC]
+
+    build_for_testing(stage: stage,
+                      scheme: scheme)
+    test_without_building(stage: stage,
+                          scheme: scheme,
+                          test_plan: 'AcceptanceTests')
   end
 end

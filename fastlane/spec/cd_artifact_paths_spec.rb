@@ -7,8 +7,8 @@ describe CDArtifactPaths do
     let(:stage) { CD_STAGES[:DEV] }
     subject { described_class.new(stage, 'build_result') }
 
-    it 'it specifies the derived data path in the stage directoy' do
-      expect(subject.derived_data_path).to eq('.jabos/dev_stage/derived_data')
+    it 'it specifies the derived data path in the build directoy' do
+      expect(subject.derived_data_path).to eq('.jabos/derived_data')
     end
 
     it 'it specifies the result bundle in stage directoy' do

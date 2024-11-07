@@ -11,7 +11,7 @@ class CDArtifactPaths
   end
 
   def derived_data_path
-    join_paths(stage_dir, 'derived_data')
+    join_paths(build_dir, 'derived_data')
   end
 
   def result_bundle_path(file_name)
