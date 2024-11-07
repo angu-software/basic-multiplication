@@ -30,6 +30,8 @@ platform :ios do
   lane :dev_stage do
     stage = CD_STAGES[:DEV]
 
+    # TODO: clear output directory for build and testing
+
     build_for_testing(stage: stage,
                       scheme: scheme)
     test_without_building(stage: stage,
