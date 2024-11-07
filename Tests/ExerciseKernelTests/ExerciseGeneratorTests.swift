@@ -14,7 +14,7 @@ enum ExerciseGeneratorTests {
     @Suite("When creating a multiplication exercise")
     struct CreatingExercise {
 
-        private let configuration = ExerciseGenerator.Configuration.numberRangeUpTo100()
+        private let configuration = ExerciseGenerator.Configuration.numberRangeUpTo100
 
         private var operandRange: ClosedRange<Int> {
             return configuration.operandRange

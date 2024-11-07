@@ -32,7 +32,7 @@ final class ViewAdapter: ObservableObject {
         return exercise.multiplication.product
     }
 
-    convenience init(configuration: Configuration = .numberRangeUpTo100()) {
+    convenience init(configuration: Configuration = .numberRangeUpTo100) {
         let generator = ExerciseGenerator(configuration: configuration)
         self.init(exerciseGenerator: generator,
                   exercise: generator.makeMultiplication())

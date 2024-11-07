@@ -9,12 +9,12 @@ struct ExerciseGenerator {
 
     struct Configuration {
 
-        static func numberRangeUpTo100() -> Self {
-            Self(operandRange: 0...10,
-                 numberOfSuggestions: 3,
-                 maxSuggestionRange: 0...100,
-                 maxSuggestionDistanceToProduct: 3)
-        }
+        // swiftlint:disable no_magic_numbers
+        static let numberRangeUpTo100 = Self(operandRange: 0...10,
+                                             numberOfSuggestions: 3,
+                                             maxSuggestionRange: 0...100,
+                                             maxSuggestionDistanceToProduct: 3)
+        // swiftlint:enable no_magic_numbers
 
         let operandRange: ClosedRange<Int>
         let numberOfSuggestions: Int
@@ -35,7 +35,7 @@ struct ExerciseGenerator {
     private let operandGenerator: NumberGenerator
     private let suggestionGenerator: ProductSuggestionsGenerator
 
-    init(configuration: Configuration = .numberRangeUpTo100()) {
+    init(configuration: Configuration = .numberRangeUpTo100) {
         operandGenerator = NumberGenerator(range: configuration.operandRange)
         suggestionGenerator = ProductSuggestionsGenerator(numberOfSuggestions: configuration.numberOfSuggestions,
                                                           maxSuggestionRange: configuration.maxSuggestionRange,

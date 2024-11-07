@@ -11,7 +11,7 @@ import Testing
 
 enum ViewAdapterTests {
 
-    private static let configuration = ViewAdapter.Configuration.numberRangeUpTo100()
+    private static let configuration = ViewAdapter.Configuration.numberRangeUpTo100
 
     @MainActor
     private static func viewAdapter() -> ViewAdapter {
