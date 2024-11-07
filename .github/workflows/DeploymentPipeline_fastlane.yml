@@ -29,7 +29,7 @@ jobs:
     runs-on: macos-latest
     needs: development-tests
     concurrency: 
-      group: acceptance-tests-${{ github.ref }}
+      group: acceptance-tests-fastlane-${{ github.ref }}
       cancel-in-progress: true
     if: needs.development-tests.result == 'success'
     steps:
