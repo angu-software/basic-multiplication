@@ -22,6 +22,7 @@ def build_for_testing(stage:, scheme:)
             result_bundle_path: testing_build_paths.result_bundle_path('testing_build_result'),
             output_directory: testing_build_paths.output_directory,
             buildlog_path: testing_build_paths.buildlog_path,
+            cloned_source_packages_path: testing_build_paths.cloned_source_packages_path,
             xcargs: xcargs,
             skip_detect_devices: true,
             output_style: 'raw',

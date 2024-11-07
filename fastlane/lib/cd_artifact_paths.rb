@@ -10,6 +10,10 @@ class CDArtifactPaths
     @results_dir_name = results_dir_name
   end
 
+  def cloned_source_packages_path
+      join_paths(build_dir, 'package_dependencies')
+  end
+
   def derived_data_path
     join_paths(build_dir, 'derived_data')
   end
