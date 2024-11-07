@@ -1,3 +1,4 @@
 disabled_rules:
   - implicitly_unwrapped_optional
+  - nesting
 
