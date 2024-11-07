@@ -102,7 +102,7 @@
 			membershipExceptions = (
 				ExerciseKernelTests/ExerciseGeneratorTests.swift,
 				ExerciseKernelTests/NumberGeneratorTests.swift,
-				ExerciseKernelTests/ProductSuggestionsGenerator.swift,
+				ExerciseKernelTests/ProductSuggestionsGeneratorTests.swift,
 				UnitTests/ViewAdapterTests.swift,
 			);
 			target = B3C5EE832CBFD39600BD1D2B /* ExerciseKernelTests */;
@@ -114,7 +114,7 @@
 				"Continuous Delivery Pipeline Ideas.md",
 				ExerciseKernelTests/ExerciseGeneratorTests.swift,
 				ExerciseKernelTests/NumberGeneratorTests.swift,
-				ExerciseKernelTests/ProductSuggestionsGenerator.swift,
+				ExerciseKernelTests/ProductSuggestionsGeneratorTests.swift,
 				SnapshotTests/MultiplicationExerciseViewTests.swift,
 				"SwiftSpec idea.md",
 				UITests/DomainDSL/MultiplicationExerciseDSL.swift,
