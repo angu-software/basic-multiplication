@@ -19,6 +19,8 @@ require_relative 'lib/cd_steps'
 
 scheme = 'One Times One'
 
+ENV['FASTLANE_XCODEBUILD_SETTINGS_TIMEOUT'] = '60'
+
 opt_out_usage
 default_platform(:ios)
 
@@ -29,8 +31,6 @@ platform :ios do
 
   lane :dev_stage do
     stage = CD_STAGES[:DEV]
-
-    # TODO: clear output directory for build and testing
 
     build_for_testing(stage: stage,
                       scheme: scheme)
