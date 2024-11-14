@@ -32,13 +32,13 @@ public enum SizeToken: CGFloat {
     // S (24pt): Suitable for small buttons, labels, or smaller icons.
     // M (32pt): Ideal for standard icon sizes or compact buttons.
     /// L (48pt): Common size for main buttons, smaller cards, or medium-sized images.
-    case l = 48
+    case large = 48
 
     /// XL (64pt): Great for primary images, larger buttons, or card elements.
-    case xl = 64
+    case xLarge = 64
 
     /// XXL (80pt): For large visuals like hero images or prominent buttons.
-    case xxl = 80
+    case xxLarge = 80
 
     // XXXL (96pt) Useful for larger hero elements, wide cards, or full-width banners.
 }

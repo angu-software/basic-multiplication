@@ -14,7 +14,7 @@ struct SubmitButton: View {
     var label: String
     var action: () -> Void
 
-    private let maxHeight = SizeToken.xl.rawValue
+    private let maxHeight = SizeToken.xLarge.rawValue
 
     init(_ label: String, action: @escaping () -> Void) {
         self.label = label

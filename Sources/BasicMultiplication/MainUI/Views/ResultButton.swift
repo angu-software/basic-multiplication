@@ -14,8 +14,8 @@ struct ResultButton: View {
     var isSelected: Bool
     var action: () -> Void
 
-    private let size = CGSize(width: .xxl,
-                              height: .l)
+    private let size = CGSize(width: .xxLarge,
+                              height: .large)
 
     init(_ value: String, isSelected: Bool, action: @escaping () -> Void) {
         self.value = value

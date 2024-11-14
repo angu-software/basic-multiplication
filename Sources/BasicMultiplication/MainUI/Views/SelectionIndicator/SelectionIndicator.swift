@@ -13,8 +13,8 @@ struct SelectionIndicator: View {
 
     var selection: Selection = .notChosen
 
-    private let size = CGSize(width: SizeToken.xl,
-                              height: SizeToken.xl)
+    private let size = CGSize(width: SizeToken.xLarge,
+                              height: SizeToken.xLarge)
 
     var body: some View {
         let style = Style(selection: selection)
