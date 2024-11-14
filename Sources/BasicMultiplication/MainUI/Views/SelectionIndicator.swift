@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+import UITokens
+
 struct SelectionIndicator: View {
 
     struct Style {
@@ -54,12 +56,16 @@ struct SelectionIndicator: View {
 
     var selection: Bool?
 
+    private let size = CGSize(width: SizeToken.xl,
+                              height: SizeToken.xl)
+
     var body: some View {
         let style = Style(selection: selection)
         Image(systemName: style.imageName)
             .resizable()
             .foregroundStyle(style.imageTint)
-            .frame(width: 64, height: 64)
+            .frame(width: size.width,
+                   height: size.height)
             .accessibilityElement()
             .accessibilityIdentifier(style.accessibilityId)
     }
