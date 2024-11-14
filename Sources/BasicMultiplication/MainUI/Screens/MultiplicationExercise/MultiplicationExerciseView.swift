@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+import A11yUI
+
 struct MultiplicationExerciseView: View {
 
     typealias A11yIDs = MultiplicationExerciseScreen.A11IDs
@@ -44,8 +46,7 @@ struct MultiplicationExerciseView: View {
                 viewAdapter.didTapContinueButton()
             }
             .disabled(state.isContinueButtonDisabled)
-            .accessibilityElement(children: .combine)
-            .accessibilityIdentifier(A11yIDs.nextExerciseButton.value)
+            .a11yID(A11yIDs.nextExerciseButton)
         }
         .background(Color.background)
         .padding()

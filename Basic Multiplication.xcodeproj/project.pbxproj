@@ -10,8 +10,9 @@
 		B309F9AA2CE6424800B8BD6E /* UITokens in Frameworks */ = {isa = PBXBuildFile; productRef = B309F9A92CE6424800B8BD6E /* UITokens */; };
 		B3313C9E2CE5DF7C00A146A9 /* MathExercise in Frameworks */ = {isa = PBXBuildFile; productRef = B3313C9D2CE5DF7C00A146A9 /* MathExercise */; };
 		B332C8D82C9D468600953C58 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B332C8D72C9D467E00953C58 /* README.md */; };
-		B39AF8A32CE6A678002B80B6 /* A11y in Frameworks */ = {isa = PBXBuildFile; productRef = B39AF8A22CE6A678002B80B6 /* A11y */; };
 		B39AF8AF2CE6B1A6002B80B6 /* A11yUITesting in Frameworks */ = {isa = PBXBuildFile; productRef = B39AF8AE2CE6B1A6002B80B6 /* A11yUITesting */; };
+		B39AF8B12CE6B40F002B80B6 /* A11yUI in Frameworks */ = {isa = PBXBuildFile; productRef = B39AF8B02CE6B40F002B80B6 /* A11yUI */; };
+		B39AF8B32CE6B44A002B80B6 /* A11y in Frameworks */ = {isa = PBXBuildFile; productRef = B39AF8B22CE6B44A002B80B6 /* A11y */; };
 		B3E1F6002C9D5CE700B9EC93 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = B3E1F5FF2C9D5CE700B9EC93 /* SnapshotTesting */; };
 /* End PBXBuildFile section */
 
@@ -188,8 +189,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B39AF8B32CE6B44A002B80B6 /* A11y in Frameworks */,
 				B309F9AA2CE6424800B8BD6E /* UITokens in Frameworks */,
-				B39AF8A32CE6A678002B80B6 /* A11y in Frameworks */,
+				B39AF8B12CE6B40F002B80B6 /* A11yUI in Frameworks */,
 				B3313C9E2CE5DF7C00A146A9 /* MathExercise in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -285,7 +287,8 @@
 			packageProductDependencies = (
 				B3313C9D2CE5DF7C00A146A9 /* MathExercise */,
 				B309F9A92CE6424800B8BD6E /* UITokens */,
-				B39AF8A22CE6A678002B80B6 /* A11y */,
+				B39AF8B02CE6B40F002B80B6 /* A11yUI */,
+				B39AF8B22CE6B44A002B80B6 /* A11y */,
 			);
 			productName = "Basic Multiplication";
 			productReference = B332C8AA2C9D458200953C58 /* One Times One.app */;
@@ -916,13 +919,17 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = MathExercise;
 		};
-		B39AF8A22CE6A678002B80B6 /* A11y */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = A11y;
-		};
 		B39AF8AE2CE6B1A6002B80B6 /* A11yUITesting */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = A11yUITesting;
+		};
+		B39AF8B02CE6B40F002B80B6 /* A11yUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = A11yUI;
+		};
+		B39AF8B22CE6B44A002B80B6 /* A11y */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = A11y;
 		};
 		B3E1F5FF2C9D5CE700B9EC93 /* SnapshotTesting */ = {
 			isa = XCSwiftPackageProductDependency;
