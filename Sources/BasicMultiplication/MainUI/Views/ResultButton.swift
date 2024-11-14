@@ -7,10 +7,15 @@
 
 import SwiftUI
 
+import UITokens
+
 struct ResultButton: View {
     var value: String
     var isSelected: Bool
     var action: () -> Void
+
+    private let size = CGSize(width: .xxl,
+                              height: .l)
 
     init(_ value: String, isSelected: Bool, action: @escaping () -> Void) {
         self.value = value
@@ -21,7 +26,8 @@ struct ResultButton: View {
     var body: some View {
         Button(action: action) {
             Text(value)
-                .frame(minWidth: 56, minHeight: 42)
+                .frame(minWidth: size.width,
+                       minHeight: size.height)
         }
         .background(isSelected ? .selectedProduct : .clear)
         .border(.accent)
