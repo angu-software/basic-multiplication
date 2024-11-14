@@ -1,21 +1,13 @@
 //
-//  SelectionIndicator.swift
+//  Style.swift
 //  Basic Multiplication
 //
-//  Created by Andreas Guenther on 25.09.24.
+//  Created by Andreas Guenther on 14.11.24.
 //
 
 import SwiftUI
 
-import UITokens
-
-struct SelectionIndicator: View {
-
-    enum Selection {
-        case correct
-        case wrong
-        case notChosen
-    }
+extension SelectionIndicator {
 
     struct Style {
 
@@ -58,21 +50,5 @@ struct SelectionIndicator: View {
             self.imageTint = imageTint
             self.accessibilityId = accessibilityId
         }
-    }
-
-    var selection: Selection = .notChosen
-
-    private let size = CGSize(width: SizeToken.xl,
-                              height: SizeToken.xl)
-
-    var body: some View {
-        let style = Style(selection: selection)
-        Image(systemName: style.imageName)
-            .resizable()
-            .foregroundStyle(style.imageTint)
-            .frame(width: size.width,
-                   height: size.height)
-            .accessibilityElement()
-            .accessibilityIdentifier(style.accessibilityId)
     }
 }
