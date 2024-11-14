@@ -7,7 +7,7 @@
 
 import Testing
 
-@testable import ExerciseKernel
+@testable import One_Times_One
 
 enum ViewAdapterTests {
 
@@ -38,9 +38,7 @@ enum ViewAdapterTests {
 
         @Test("it creates the configured amount of suggestions")
         func it_creates_the_configured_amount_of_suggestions() async throws {
-            let numberOfSuggestions = configuration.numberOfSuggestions
-
-            #expect(subject.state.productSuggestions.count == numberOfSuggestions)
+            #expect(subject.state.productSuggestions.count == 3)
         }
     }
 
