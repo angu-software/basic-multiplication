@@ -8,6 +8,6 @@
 import UITokens
 
 struct Layout: Equatable {
-    let spacingOperationSuggestions = Spacing.xLarge
-    let suggestionElementSpacing = Spacing.medium
+    let spacingOperationSuggestions = SpacingToken.extraLarge.rawValue
+    let suggestionElementSpacing = SpacingToken.medium.rawValue
 }
