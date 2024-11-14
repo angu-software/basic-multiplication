@@ -19,6 +19,13 @@
   "testTargets" : [
     {
       "target" : {
+        "containerPath" : "container:Packages\/A11y",
+        "identifier" : "A11yTests",
+        "name" : "A11yTests"
+      }
+    },
+    {
+      "target" : {
         "containerPath" : "container:Basic Multiplication.xcodeproj",
         "identifier" : "B332C8B92C9D458800953C58",
         "name" : "UnitTests"
