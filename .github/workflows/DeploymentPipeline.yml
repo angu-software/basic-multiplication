@@ -14,7 +14,7 @@ on:
 jobs:
   development-tests:
     name: Development Stage
-    runs-on: macos-latest
+    runs-on: macos-15
     steps:
     - name: Checkout
       uses: actions/checkout@v4
@@ -28,7 +28,7 @@ jobs:
       run: ./CDPipeline/dev_stage/run_dev_tests.sh ./CDPipeline/dev_stage/.env
   acceptance-tests:
     name: Acceptance Stage
-    runs-on: macos-latest
+    runs-on: macos-15
     needs: development-tests
     concurrency: 
       group: acceptance-tests-${{ github.ref }}
@@ -50,7 +50,7 @@ jobs:
         run: ./CDPipeline/acc_stage/run_acc_tests.sh ./CDPipeline/dev_stage/.env
   create-staged-rc:
     name: Deployment Stage
-    runs-on: macos-latest
+    runs-on: macos-15
     needs: acceptance-tests
     if: needs.acceptance-tests.result == 'success'
     steps:

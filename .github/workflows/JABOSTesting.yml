@@ -12,7 +12,7 @@ permissions:
 jobs:
   development-stage:
     name: Development Stage
-    runs-on: macos-latest
+    runs-on: macos-15
     steps:
     - uses: actions/checkout@v4
     - name: Install project tools

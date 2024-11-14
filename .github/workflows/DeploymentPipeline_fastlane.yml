@@ -12,7 +12,7 @@ on:
 jobs:
   development-tests:
     name: Development Stage
-    runs-on: macos-latest
+    runs-on: macos-15
     steps:
     - name: Checkout
       uses: actions/checkout@v4
@@ -35,7 +35,7 @@ jobs:
       run: bundle exec fastlane dev_stage
   acceptance-tests:
     name: Acceptance Stage
-    runs-on: macos-latest
+    runs-on: macos-15
     needs: development-tests
     concurrency: 
       group: acceptance-tests-fastlane-${{ github.ref }}
