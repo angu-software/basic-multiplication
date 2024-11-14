@@ -1,8 +1,2 @@
-Welcome to One Times One! In this first version, you can:
 
- • Practice your multiplication skills with random problems.
- • Choose from three possible answers for each question.
- • Get instant feedback on your selections.
- • Enjoy a clean and simple design for quick math practice.
-
-Perfect for anyone looking to improve their multiplication skills. Enjoy!
+• German localization
