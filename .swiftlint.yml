@@ -159,6 +159,7 @@ analyzer_rules:
 included: 
   - Sources
   - Tests
+  - Packages
 # excluded:
 
 # -- Configuration options --
