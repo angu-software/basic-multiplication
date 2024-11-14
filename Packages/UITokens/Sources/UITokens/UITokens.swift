@@ -3,15 +3,20 @@
 
 import Foundation
 
-public enum Size {
+public enum SizeToken: CGFloat {
 
     /*
-    Extra Small (4pt): For small elements like icons or very tight spacing.
-    Small (8pt): Often used for padding between small elements, text and icons, or small touch targets.
-    Medium (16pt): Standard spacing for common UI elements, like padding around buttons.
-    Large (24pt): For larger touch targets, like icons or images, and for more generous padding between sections.
-    Extra Large (32pt):
+     XS (16pt): For very small UI elements, such as tiny icons.
+     S (24pt): Suitable for small buttons, labels, or smaller icons.
+     M (32pt): Ideal for standard icon sizes or compact buttons.
+     L (48pt): Common size for main buttons, smaller cards, or medium-sized images.
+     XL (64pt): Great for primary images, larger buttons, or card elements.
+     XXL (80pt): For large visuals like hero images or prominent buttons.
+     XXXL (96pt)
     */
+
+    /// 64pt
+    case xl = 64
 }
 
 public enum Spacing {

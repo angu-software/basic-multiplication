@@ -7,9 +7,14 @@
 
 import SwiftUI
 
+import UITokens
+
 struct SubmitButton: View {
+
     var label: String
     var action: () -> Void
+
+    private let maxHeight = SizeToken.xl.rawValue
 
     init(_ label: String, action: @escaping () -> Void) {
         self.label = label
@@ -19,7 +24,8 @@ struct SubmitButton: View {
     var body: some View {
         Button(action: action) {
             Text(label)
-                .frame(maxWidth: .infinity, maxHeight: 64)
+                .frame(maxWidth: .infinity,
+                       maxHeight: maxHeight)
         }
         .border(.accent)
     }
