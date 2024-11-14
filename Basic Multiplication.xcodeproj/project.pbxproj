@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B309F9AA2CE6424800B8BD6E /* UITokens in Frameworks */ = {isa = PBXBuildFile; productRef = B309F9A92CE6424800B8BD6E /* UITokens */; };
 		B3313C9E2CE5DF7C00A146A9 /* MathExercise in Frameworks */ = {isa = PBXBuildFile; productRef = B3313C9D2CE5DF7C00A146A9 /* MathExercise */; };
 		B332C8D82C9D468600953C58 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B332C8D72C9D467E00953C58 /* README.md */; };
 		B3E1F6002C9D5CE700B9EC93 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = B3E1F5FF2C9D5CE700B9EC93 /* SnapshotTesting */; };
@@ -174,6 +175,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B309F9AA2CE6424800B8BD6E /* UITokens in Frameworks */,
 				B3313C9E2CE5DF7C00A146A9 /* MathExercise in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -267,6 +269,7 @@
 			name = "One Times One";
 			packageProductDependencies = (
 				B3313C9D2CE5DF7C00A146A9 /* MathExercise */,
+				B309F9A92CE6424800B8BD6E /* UITokens */,
 			);
 			productName = "Basic Multiplication";
 			productReference = B332C8AA2C9D458200953C58 /* One Times One.app */;
@@ -373,6 +376,7 @@
 			packageReferences = (
 				B3E1F5EA2C9D5C0100B9EC93 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */,
 				B3313C9C2CE5DF7C00A146A9 /* XCLocalSwiftPackageReference "Packages/MathExercise" */,
+				B309F9A82CE6424800B8BD6E /* XCLocalSwiftPackageReference "Packages/UITokens" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = B332C8AB2C9D458200953C58 /* Products */;
@@ -858,6 +862,10 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
+		B309F9A82CE6424800B8BD6E /* XCLocalSwiftPackageReference "Packages/UITokens" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/UITokens;
+		};
 		B3313C9C2CE5DF7C00A146A9 /* XCLocalSwiftPackageReference "Packages/MathExercise" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = Packages/MathExercise;
@@ -876,6 +884,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		B309F9A92CE6424800B8BD6E /* UITokens */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = UITokens;
+		};
 		B3313C9D2CE5DF7C00A146A9 /* MathExercise */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = MathExercise;

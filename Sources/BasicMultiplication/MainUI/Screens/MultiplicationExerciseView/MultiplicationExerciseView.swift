@@ -16,13 +16,17 @@ struct MultiplicationExerciseView: View {
         return viewAdapter.state
     }
 
+    private var layout: Layout {
+        return state.layout
+    }
+
     var body: some View {
-        VStack(spacing: 32) {
+        VStack(spacing: layout.spacingOperationSuggestions) {
             Spacer()
             Label(state.operation)
                 .accessibilityElement()
                 .accessibilityIdentifier("operation")
-            HStack(spacing: 16) {
+            HStack(spacing: layout.suggestionElementSpacing) {
                 ForEach(state.suggestionSelection, id: \.value) { suggestion in
                     ResultButton(suggestion.value,
                                  isSelected: suggestion.isSelected) {

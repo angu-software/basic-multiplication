@@ -7,6 +7,8 @@
 
 struct ViewState: Equatable {
 
+    let layout = Layout()
+
     let operation: String
     let productSuggestions: [String]
     let continueButtonTitle = Texts.continueButtonTitle
