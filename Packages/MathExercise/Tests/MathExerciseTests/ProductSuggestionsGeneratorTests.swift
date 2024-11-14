@@ -46,7 +46,7 @@ enum ProductSuggestionsGeneratorTests {
 
         @Test("it returns wrong suggestions around the correct product")
         func it_returns_wrong_suggestions_around_the_correct_product() async throws {
-            let suggestionRange = (9...15)
+            let suggestionRange = (9...15) // swiftlint:disable:this no_magic_numbers
 
             let wrongProducts = subject().filter { $0 != Self.correctProduct }
 
