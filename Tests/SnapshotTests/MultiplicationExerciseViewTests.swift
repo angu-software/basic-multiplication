@@ -34,7 +34,7 @@ final class MultiplicationExerciseViewTests: XCTestCase {
         let state = ViewState(operation: "1 x 1",
                               productSuggestions: ["1", "9", "6"],
                               isContinueButtonDisabled: false,
-                              isCorrectProductSelected: true,
+                              selection: .correct,
                               selectedSuggestion: "1")
 
         let view = MultiplicationExerciseView(viewState: state)
@@ -51,7 +51,7 @@ final class MultiplicationExerciseViewTests: XCTestCase {
         let state = ViewState(operation: "1 x 1",
                               productSuggestions: ["1", "9", "6"],
                               isContinueButtonDisabled: false,
-                              isCorrectProductSelected: false,
+                              selection: .wrong,
                               selectedSuggestion: "9")
 
         let view = MultiplicationExerciseView(viewState: state)

@@ -134,7 +134,7 @@ enum ViewAdapterTests {
 
             subject.selectSuggestion(at: correctProductIndex)
 
-            #expect(subject.state.isCorrectProductSelected == true)
+            #expect(subject.state.selection == .correct)
         }
     }
 }

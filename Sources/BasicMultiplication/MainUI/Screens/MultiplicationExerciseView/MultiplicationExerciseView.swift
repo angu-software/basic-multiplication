@@ -36,7 +36,7 @@ struct MultiplicationExerciseView: View {
                 .accessibilityElement()
                 .accessibilityIdentifier("suggestions")
             }
-            SelectionIndicator(selection: state.isCorrectProductSelected)
+            SelectionIndicator(selection: state.selection)
             Spacer()
             SubmitButton(state.continueButtonTitle) {
                 viewAdapter.didTapContinueButton()
@@ -59,7 +59,7 @@ struct MultiplicationExerciseView: View {
     MultiplicationExerciseView(viewState: ViewState(operation: "9 x 8",
                                                     productSuggestions: ["71", "72", "75"],
                                                     isContinueButtonDisabled: false,
-                                                    isCorrectProductSelected: true,
+                                                    selection: .correct,
                                                     selectedSuggestion: "72"))
 }
 
@@ -67,7 +67,7 @@ struct MultiplicationExerciseView: View {
     MultiplicationExerciseView(viewState: ViewState(operation: "9 x 8",
                                                     productSuggestions: ["71", "72", "75"],
                                                     isContinueButtonDisabled: false,
-                                                    isCorrectProductSelected: false,
+                                                    selection: .wrong,
                                                     selectedSuggestion: "71"))
 }
 

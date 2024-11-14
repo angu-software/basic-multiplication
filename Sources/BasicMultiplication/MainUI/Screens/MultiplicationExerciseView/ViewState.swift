@@ -7,6 +7,8 @@
 
 struct ViewState: Equatable {
 
+    typealias Selection = SelectionIndicator.Selection
+
     let layout = Layout()
 
     let operation: String
@@ -14,7 +16,7 @@ struct ViewState: Equatable {
     let continueButtonTitle = Texts.continueButtonTitle
 
     var isContinueButtonDisabled = true
-    var isCorrectProductSelected: Bool?
+    var selection: Selection = .notChosen
     var selectedSuggestion: String?
 
     var isContinueButtonEnabled: Bool {

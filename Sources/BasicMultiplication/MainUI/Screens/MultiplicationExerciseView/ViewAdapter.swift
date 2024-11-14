@@ -74,11 +74,15 @@ final class ViewAdapter: ObservableObject {
 
     private func updateState(for selectedSuggestion: Int?) {
         if let selectedSuggestion {
-            state.isCorrectProductSelected = correctProduct == selectedSuggestion
+            if correctProduct == selectedSuggestion {
+                state.selection = .correct
+            } else {
+                state.selection = .wrong
+            }
             state.selectedSuggestion = "\(selectedSuggestion)"
             state.isContinueButtonDisabled = false
         } else {
-            state.isCorrectProductSelected = nil
+            state.selection = .notChosen
             state.selectedSuggestion = nil
             state.isContinueButtonDisabled = true
         }

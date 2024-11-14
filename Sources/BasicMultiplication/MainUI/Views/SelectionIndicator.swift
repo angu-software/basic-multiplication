@@ -11,6 +11,12 @@ import UITokens
 
 struct SelectionIndicator: View {
 
+    enum Selection {
+        case correct
+        case wrong
+        case notChosen
+    }
+
     struct Style {
 
         static func correctSelection() -> Self {
@@ -34,13 +40,13 @@ struct SelectionIndicator: View {
         let imageTint: Color
         let accessibilityId: String
 
-        init(selection: Bool?) {
+        init(selection: Selection) {
             switch selection {
-            case true:
+            case .correct:
                 self = .correctSelection()
-            case false:
+            case .wrong:
                 self = .wrongSelection()
-            default:
+            case .notChosen:
                 self = .noSelection()
             }
         }
@@ -54,7 +60,7 @@ struct SelectionIndicator: View {
         }
     }
 
-    var selection: Bool?
+    var selection: Selection = .notChosen
 
     private let size = CGSize(width: SizeToken.xl,
                               height: SizeToken.xl)
