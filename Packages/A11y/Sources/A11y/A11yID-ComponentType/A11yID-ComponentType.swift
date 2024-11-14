@@ -7,7 +7,7 @@
 
 extension A11yID {
 
-    struct ComponentType: Equatable {
+    public struct ComponentType: Equatable, Sendable {
         let rawValue: String
 
         init(rawValue: String) {

@@ -7,11 +7,11 @@
 
 extension A11yID.ComponentType {
 
-    static let button  = Self.custom("Button")
-    static let view    = Self.custom("View")
-    static let subView = Self.custom("SubView")
+    public static let button  = Self.custom("Button")
+    public static let view    = Self.custom("View")
+    public static let subView = Self.custom("SubView")
 
-    static func custom(_ rawValue: String) -> Self {
+    public static func custom(_ rawValue: String) -> Self {
         return Self(rawValue: rawValue)
     }
 }

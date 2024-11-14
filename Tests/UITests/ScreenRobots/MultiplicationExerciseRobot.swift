@@ -9,11 +9,13 @@ import XCTest
 
 final class MultiplicationExerciseRobot: ScreenRobot {
 
+    private typealias A11IDs = MultiplicationExerciseScreen.A11IDs
+
     private(set) lazy var operationLabel = app.otherElements["operation"].staticTexts.firstMatch
     private(set) lazy var suggestionsList = app.otherElements["suggestions"]
     private(set) lazy var correctSolutionIndicator = app.otherElements["correct"]
     private(set) lazy var wrongSolutionIndicator = app.otherElements["wrong"]
-    private(set) lazy var continueButton = app.buttons["Next exercise"]
+    private(set) lazy var continueButton = app.buttons[A11IDs.nextExerciseButton.value]
 
     func exerciseOperation() throws -> (Int, Int) {
         let operands = operation()

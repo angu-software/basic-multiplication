@@ -9,7 +9,7 @@ extension A11yID.ComponentType: ExpressibleByStringLiteral {
 
     // MARK: ExpressibleByStringLiteral
 
-    init(stringLiteral value: StringLiteralType) {
+    public init(stringLiteral value: StringLiteralType) {
         self.init(rawValue: value)
     }
 }

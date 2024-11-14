@@ -17,9 +17,23 @@ enum A11yIDTests {
         func it_creates_an_identifier_containing_all_specified_segments() {
             let a11yId = A11yID(screenName: "MainScreen",
                                 componentType: .button,
-                                actionOrState: "Next")
+                                actionOrState: "Next",
+                                optionalDetails: "Enabled")
 
-            #expect(a11yId.value == "MainScreen_Button_Next")
+            #expect(a11yId.value == "MainScreen_Button_Next_Enabled")
+        }
+
+        @Suite("and no details are specified")
+        struct NoDetailsSpecified {
+
+            @Test("it creates an identifier without the details segment")
+            func it_creates_an_identifier_without_the_details_segment() {
+                let a11yId = A11yID(screenName: "MainScreen",
+                                    componentType: .button,
+                                    actionOrState: "Next")
+
+                #expect(a11yId.value == "MainScreen_Button_Next")
+            }
         }
     }
 }
