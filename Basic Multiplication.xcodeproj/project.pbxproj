@@ -7,9 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B3313C9E2CE5DF7C00A146A9 /* MathExercise in Frameworks */ = {isa = PBXBuildFile; productRef = B3313C9D2CE5DF7C00A146A9 /* MathExercise */; };
 		B332C8D82C9D468600953C58 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B332C8D72C9D467E00953C58 /* README.md */; };
-		B3C5EE702CBFD13F00BD1D2B /* ExerciseKernel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3C5EE6A2CBFD13F00BD1D2B /* ExerciseKernel.framework */; };
-		B3C5EE712CBFD13F00BD1D2B /* ExerciseKernel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B3C5EE6A2CBFD13F00BD1D2B /* ExerciseKernel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B3E1F6002C9D5CE700B9EC93 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = B3E1F5FF2C9D5CE700B9EC93 /* SnapshotTesting */; };
 /* End PBXBuildFile section */
 
@@ -28,20 +27,6 @@
 			remoteGlobalIDString = B332C8A92C9D458200953C58;
 			remoteInfo = "Basic Multiplication";
 		};
-		B3C5EE6E2CBFD13F00BD1D2B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B332C8A22C9D458200953C58 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B3C5EE692CBFD13F00BD1D2B;
-			remoteInfo = ExerciseKernel;
-		};
-		B3C5EE882CBFD39700BD1D2B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B332C8A22C9D458200953C58 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B332C8A92C9D458200953C58;
-			remoteInfo = "Basic Multiplication";
-		};
 		B3E1F5F92C9D5C6A00B9EC93 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B332C8A22C9D458200953C58 /* Project object */;
@@ -51,20 +36,6 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		B3C5EE762CBFD13F00BD1D2B /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				B3C5EE712CBFD13F00BD1D2B /* ExerciseKernel.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		B32130EA2CC11A1600625A53 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		B332C8AA2C9D458200953C58 /* One Times One.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "One Times One.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,48 +44,22 @@
 		B332C8D72C9D467E00953C58 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B3AE8BC92CDB6E790054059A /* Gemfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Gemfile; sourceTree = "<group>"; };
 		B3AE8BCA2CDB6FF50054059A /* Deliverfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Deliverfile; sourceTree = "<group>"; };
-		B3C5EE6A2CBFD13F00BD1D2B /* ExerciseKernel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ExerciseKernel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B3C5EE842CBFD39600BD1D2B /* ExerciseKernelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExerciseKernelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3E1F5F52C9D5C6A00B9EC93 /* SnapshotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SnapshotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		B3C5EE7A2CBFD14300BD1D2B /* Exceptions for "Sources" folder in "ExerciseKernel" target */ = {
+		B3313CA02CE5E4CD00A146A9 /* Exceptions for "Tests" folder in "UnitTests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				BasicMultiplication/MainUI/Screens/MultiplicationExerciseView/Texts.swift,
-				BasicMultiplication/MainUI/Screens/MultiplicationExerciseView/ViewAdapter.swift,
-				BasicMultiplication/MainUI/Screens/MultiplicationExerciseView/ViewState.swift,
-				ExerciseKernel/ExerciseGenerator.swift,
-				ExerciseKernel/ExerciseKernel.h,
-				ExerciseKernel/Multiplication.swift,
-				ExerciseKernel/MultiplicationExercise.swift,
-				ExerciseKernel/NumberGenerator.swift,
-				ExerciseKernel/ProductSuggestionsGenerator.swift,
-			);
-			publicHeaders = (
-				ExerciseKernel/ExerciseKernel.h,
-			);
-			target = B3C5EE692CBFD13F00BD1D2B /* ExerciseKernel */;
-		};
-		B3C5EE962CBFD4E600BD1D2B /* Exceptions for "Tests" folder in "ExerciseKernelTests" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				ExerciseKernelTests/ExerciseGeneratorTests.swift,
-				ExerciseKernelTests/NumberGeneratorTests.swift,
-				ExerciseKernelTests/ProductSuggestionsGeneratorTests.swift,
 				UnitTests/ViewAdapterTests.swift,
 			);
-			target = B3C5EE832CBFD39600BD1D2B /* ExerciseKernelTests */;
+			target = B332C8B92C9D458800953C58 /* UnitTests */;
 		};
 		B3E1F63C2C9D694E00B9EC93 /* Exceptions for "Tests" folder in "One Times One" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				.swiftlint.yml,
 				"Continuous Delivery Pipeline Ideas.md",
-				ExerciseKernelTests/ExerciseGeneratorTests.swift,
-				ExerciseKernelTests/NumberGeneratorTests.swift,
-				ExerciseKernelTests/ProductSuggestionsGeneratorTests.swift,
 				SnapshotTests/MultiplicationExerciseViewTests.swift,
 				"SwiftSpec idea.md",
 				UITests/DomainDSL/MultiplicationExerciseDSL.swift,
@@ -159,6 +104,11 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		B3313C9A2CE5DD3000A146A9 /* Packages */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Packages;
+			sourceTree = "<group>";
+		};
 		B39E1AE82CC22CE7005C3C9A /* CDPipeline */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = CDPipeline;
@@ -197,18 +147,15 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				B3E1F63C2C9D694E00B9EC93 /* Exceptions for "Tests" folder in "One Times One" target */,
+				B3313CA02CE5E4CD00A146A9 /* Exceptions for "Tests" folder in "UnitTests" target */,
 				B3E1F63F2C9D694E00B9EC93 /* Exceptions for "Tests" folder in "SnapshotTests" target */,
 				B3E1F63E2C9D694E00B9EC93 /* Exceptions for "Tests" folder in "UITests" target */,
-				B3C5EE962CBFD4E600BD1D2B /* Exceptions for "Tests" folder in "ExerciseKernelTests" target */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
 		};
 		B3E1F6402C9D6A9C00B9EC93 /* Sources */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				B3C5EE7A2CBFD14300BD1D2B /* Exceptions for "Sources" folder in "ExerciseKernel" target */,
-			);
 			path = Sources;
 			sourceTree = "<group>";
 		};
@@ -227,7 +174,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3C5EE702CBFD13F00BD1D2B /* ExerciseKernel.framework in Frameworks */,
+				B3313C9E2CE5DF7C00A146A9 /* MathExercise in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,20 +186,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		B332C8C12C9D458800953C58 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B3C5EE672CBFD13F00BD1D2B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B3C5EE812CBFD39600BD1D2B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -273,6 +206,7 @@
 		B332C8A12C9D458200953C58 = {
 			isa = PBXGroup;
 			children = (
+				B3313C9A2CE5DD3000A146A9 /* Packages */,
 				B3AE8DD02CDBBAA90054059A /* fastlane */,
 				B3AE8BCA2CDB6FF50054059A /* Deliverfile */,
 				B3AE8BC92CDB6E790054059A /* Gemfile */,
@@ -298,8 +232,6 @@
 				B332C8BA2C9D458800953C58 /* UnitTests.xctest */,
 				B332C8C42C9D458800953C58 /* UITests.xctest */,
 				B3E1F5F52C9D5C6A00B9EC93 /* SnapshotTests.xctest */,
-				B3C5EE6A2CBFD13F00BD1D2B /* ExerciseKernel.framework */,
-				B3C5EE842CBFD39600BD1D2B /* ExerciseKernelTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -313,16 +245,6 @@
 		};
 /* End PBXGroup section */
 
-/* Begin PBXHeadersBuildPhase section */
-		B3C5EE652CBFD13F00BD1D2B /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
-
 /* Begin PBXNativeTarget section */
 		B332C8A92C9D458200953C58 /* One Times One */ = {
 			isa = PBXNativeTarget;
@@ -331,13 +253,11 @@
 				B332C8A62C9D458200953C58 /* Sources */,
 				B332C8A72C9D458200953C58 /* Frameworks */,
 				B332C8A82C9D458200953C58 /* Resources */,
-				B3C5EE762CBFD13F00BD1D2B /* Embed Frameworks */,
 				B39CA1BB2CC1427B00C2BFE7 /* Lint Code */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				B3C5EE6F2CBFD13F00BD1D2B /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				B3E1F62C2C9D694E00B9EC93 /* Tests */,
@@ -346,6 +266,7 @@
 			);
 			name = "One Times One";
 			packageProductDependencies = (
+				B3313C9D2CE5DF7C00A146A9 /* MathExercise */,
 			);
 			productName = "Basic Multiplication";
 			productReference = B332C8AA2C9D458200953C58 /* One Times One.app */;
@@ -391,46 +312,6 @@
 			productReference = B332C8C42C9D458800953C58 /* UITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
-		B3C5EE692CBFD13F00BD1D2B /* ExerciseKernel */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B3C5EE732CBFD13F00BD1D2B /* Build configuration list for PBXNativeTarget "ExerciseKernel" */;
-			buildPhases = (
-				B3C5EE652CBFD13F00BD1D2B /* Headers */,
-				B3C5EE662CBFD13F00BD1D2B /* Sources */,
-				B3C5EE672CBFD13F00BD1D2B /* Frameworks */,
-				B3C5EE682CBFD13F00BD1D2B /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = ExerciseKernel;
-			packageProductDependencies = (
-			);
-			productName = ExerciseKernel;
-			productReference = B3C5EE6A2CBFD13F00BD1D2B /* ExerciseKernel.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		B3C5EE832CBFD39600BD1D2B /* ExerciseKernelTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B3C5EE8A2CBFD39700BD1D2B /* Build configuration list for PBXNativeTarget "ExerciseKernelTests" */;
-			buildPhases = (
-				B3C5EE802CBFD39600BD1D2B /* Sources */,
-				B3C5EE812CBFD39600BD1D2B /* Frameworks */,
-				B3C5EE822CBFD39600BD1D2B /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				B3C5EE892CBFD39700BD1D2B /* PBXTargetDependency */,
-			);
-			name = ExerciseKernelTests;
-			packageProductDependencies = (
-			);
-			productName = ExerciseKernelTests;
-			productReference = B3C5EE842CBFD39600BD1D2B /* ExerciseKernelTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		B3E1F5F42C9D5C6A00B9EC93 /* SnapshotTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B3E1F5FB2C9D5C6A00B9EC93 /* Build configuration list for PBXNativeTarget "SnapshotTests" */;
@@ -473,12 +354,6 @@
 						CreatedOnToolsVersion = 16.0;
 						TestTargetID = B332C8A92C9D458200953C58;
 					};
-					B3C5EE692CBFD13F00BD1D2B = {
-						CreatedOnToolsVersion = 16.0;
-					};
-					B3C5EE832CBFD39600BD1D2B = {
-						CreatedOnToolsVersion = 16.0;
-					};
 					B3E1F5F42C9D5C6A00B9EC93 = {
 						CreatedOnToolsVersion = 16.0;
 						TestTargetID = B332C8A92C9D458200953C58;
@@ -497,6 +372,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				B3E1F5EA2C9D5C0100B9EC93 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */,
+				B3313C9C2CE5DF7C00A146A9 /* XCLocalSwiftPackageReference "Packages/MathExercise" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = B332C8AB2C9D458200953C58 /* Products */;
@@ -507,8 +383,6 @@
 				B332C8B92C9D458800953C58 /* UnitTests */,
 				B3E1F5F42C9D5C6A00B9EC93 /* SnapshotTests */,
 				B332C8C32C9D458800953C58 /* UITests */,
-				B3C5EE692CBFD13F00BD1D2B /* ExerciseKernel */,
-				B3C5EE832CBFD39600BD1D2B /* ExerciseKernelTests */,
 			);
 		};
 /* End PBXProject section */
@@ -530,20 +404,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		B332C8C22C9D458800953C58 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B3C5EE682CBFD13F00BD1D2B /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B3C5EE822CBFD39600BD1D2B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -604,20 +464,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B3C5EE662CBFD13F00BD1D2B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B3C5EE802CBFD39600BD1D2B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		B3E1F5F12C9D5C6A00B9EC93 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -637,16 +483,6 @@
 			isa = PBXTargetDependency;
 			target = B332C8A92C9D458200953C58 /* One Times One */;
 			targetProxy = B332C8C52C9D458800953C58 /* PBXContainerItemProxy */;
-		};
-		B3C5EE6F2CBFD13F00BD1D2B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B3C5EE692CBFD13F00BD1D2B /* ExerciseKernel */;
-			targetProxy = B3C5EE6E2CBFD13F00BD1D2B /* PBXContainerItemProxy */;
-		};
-		B3C5EE892CBFD39700BD1D2B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B332C8A92C9D458200953C58 /* One Times One */;
-			targetProxy = B3C5EE882CBFD39700BD1D2B /* PBXContainerItemProxy */;
 		};
 		B3E1F5FA2C9D5C6A00B9EC93 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -929,118 +765,6 @@
 			};
 			name = Release;
 		};
-		B3C5EE742CBFD13F00BD1D2B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = D5QKU6QD59;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_MODULE_VERIFIER = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
-				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
-				PRODUCT_BUNDLE_IDENTIFIER = "de.angu-software.ExerciseKernel";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_INSTALL_OBJC_HEADER = NO;
-				SWIFT_VERSION = 5.0;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		B3C5EE752CBFD13F00BD1D2B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = D5QKU6QD59;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_MODULE_VERIFIER = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
-				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
-				PRODUCT_BUNDLE_IDENTIFIER = "de.angu-software.ExerciseKernel";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_INSTALL_OBJC_HEADER = NO;
-				SWIFT_VERSION = 5.0;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		B3C5EE8B2CBFD39700BD1D2B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = D5QKU6QD59;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "de.angu-software.ExerciseKernelTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-			};
-			name = Debug;
-		};
-		B3C5EE8C2CBFD39700BD1D2B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = D5QKU6QD59;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "de.angu-software.ExerciseKernelTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-			};
-			name = Release;
-		};
 		B3E1F5FC2C9D5C6A00B9EC93 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1122,24 +846,6 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B3C5EE732CBFD13F00BD1D2B /* Build configuration list for PBXNativeTarget "ExerciseKernel" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B3C5EE742CBFD13F00BD1D2B /* Debug */,
-				B3C5EE752CBFD13F00BD1D2B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		B3C5EE8A2CBFD39700BD1D2B /* Build configuration list for PBXNativeTarget "ExerciseKernelTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B3C5EE8B2CBFD39700BD1D2B /* Debug */,
-				B3C5EE8C2CBFD39700BD1D2B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		B3E1F5FB2C9D5C6A00B9EC93 /* Build configuration list for PBXNativeTarget "SnapshotTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1150,6 +856,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		B3313C9C2CE5DF7C00A146A9 /* XCLocalSwiftPackageReference "Packages/MathExercise" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/MathExercise;
+		};
+/* End XCLocalSwiftPackageReference section */
 
 /* Begin XCRemoteSwiftPackageReference section */
 		B3E1F5EA2C9D5C0100B9EC93 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */ = {
@@ -1163,6 +876,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		B3313C9D2CE5DF7C00A146A9 /* MathExercise */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MathExercise;
+		};
 		B3E1F5FF2C9D5CE700B9EC93 /* SnapshotTesting */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = B3E1F5EA2C9D5C0100B9EC93 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;

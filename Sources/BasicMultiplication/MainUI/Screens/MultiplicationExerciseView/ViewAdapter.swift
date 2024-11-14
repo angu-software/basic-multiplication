@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+import MathExercise
+
 @MainActor
 final class ViewAdapter: ObservableObject {
 

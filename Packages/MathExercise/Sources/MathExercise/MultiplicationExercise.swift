@@ -5,16 +5,16 @@
 //  Created by Andreas Guenther on 24.09.24.
 //
 
-struct MultiplicationExercise {
+public struct MultiplicationExercise {
 
-    let multiplication: Multiplication
-    let productSuggestions: [Int]
+    public let multiplication: Multiplication
+    public let productSuggestions: [Int]
 
-    var multiplicand: Int {
+    public var multiplicand: Int {
         return multiplication.multiplicand
     }
 
-    var multiplier: Int {
+    public var multiplier: Int {
         return multiplication.multiplier
     }
 }

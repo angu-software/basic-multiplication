@@ -9,15 +9,6 @@
     }
   ],
   "defaultOptions" : {
-    "codeCoverage" : {
-      "targets" : [
-        {
-          "containerPath" : "container:Basic Multiplication.xcodeproj",
-          "identifier" : "B332C8A92C9D458200953C58",
-          "name" : "Basic Multiplication"
-        }
-      ]
-    },
     "targetForVariableExpansion" : {
       "containerPath" : "container:Basic Multiplication.xcodeproj",
       "identifier" : "B332C8A92C9D458200953C58",
@@ -27,13 +18,19 @@
   },
   "testTargets" : [
     {
-      "parallelizable" : false,
       "target" : {
         "containerPath" : "container:Basic Multiplication.xcodeproj",
-        "identifier" : "B3C5EE832CBFD39600BD1D2B",
-        "name" : "ExerciseKernelTests"
+        "identifier" : "B332C8B92C9D458800953C58",
+        "name" : "UnitTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Packages\/MathExercise",
+        "identifier" : "MathExerciseTests",
+        "name" : "MathExerciseTests"
       }
     }
   ],
-  "version" : 1
+  "version" : 2
 }

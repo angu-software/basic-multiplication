@@ -5,11 +5,11 @@
 //  Created by Andreas Guenther on 24.09.24.
 //
 
-struct Multiplication {
+public struct Multiplication {
 
     let multiplicand: Int
     let multiplier: Int
-    let product: Int
+    public let product: Int
 
     init(multiplicand: Int, multiplier: Int) {
         self.multiplicand = multiplicand

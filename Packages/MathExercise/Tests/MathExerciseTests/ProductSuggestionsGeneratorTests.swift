@@ -7,7 +7,7 @@
 
 import Testing
 
-@testable import ExerciseKernel
+@testable import MathExercise
 
 enum ProductSuggestionsGeneratorTests {
 

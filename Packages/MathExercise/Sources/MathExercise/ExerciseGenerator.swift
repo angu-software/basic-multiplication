@@ -5,15 +5,15 @@
 //  Created by Andreas Guenther on 20.09.24.
 //
 
-struct ExerciseGenerator {
+public struct ExerciseGenerator {
 
-    struct Configuration {
+    public struct Configuration: Sendable {
 
         // swiftlint:disable no_magic_numbers
-        static let numberRangeUpTo100 = Self(operandRange: 0...10,
-                                             numberOfSuggestions: 3,
-                                             maxSuggestionRange: 0...100,
-                                             maxSuggestionDistanceToProduct: 3)
+        public static let numberRangeUpTo100 = Self(operandRange: 0...10,
+                                                    numberOfSuggestions: 3,
+                                                    maxSuggestionRange: 0...100,
+                                                    maxSuggestionDistanceToProduct: 3)
         // swiftlint:enable no_magic_numbers
 
         let operandRange: ClosedRange<Int>
@@ -35,14 +35,14 @@ struct ExerciseGenerator {
     private let operandGenerator: NumberGenerator
     private let suggestionGenerator: ProductSuggestionsGenerator
 
-    init(configuration: Configuration = .numberRangeUpTo100) {
+    public init(configuration: Configuration = .numberRangeUpTo100) {
         operandGenerator = NumberGenerator(range: configuration.operandRange)
         suggestionGenerator = ProductSuggestionsGenerator(numberOfSuggestions: configuration.numberOfSuggestions,
                                                           maxSuggestionRange: configuration.maxSuggestionRange,
                                                           maxDistanceToProduct: configuration.maxSuggestionDistanceToProduct)
     }
 
-    func makeMultiplication() -> MultiplicationExercise {
+    public func makeMultiplication() -> MultiplicationExercise {
         let multiplicand = operandGenerator.makeNumber()
         let multiplier = operandGenerator.makeNumber()
         let product = multiplicand * multiplier
