@@ -66,3 +66,4 @@ __builds__
 .xcpipeline
 Tools/bin
 .jabos
+*.xcresult
