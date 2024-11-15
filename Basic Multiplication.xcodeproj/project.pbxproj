@@ -31,6 +31,13 @@
 			remoteGlobalIDString = B332C8A92C9D458200953C58;
 			remoteInfo = "Basic Multiplication";
 		};
+		B39AF8C02CE7E4D6002B80B6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B332C8A22C9D458200953C58 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B332C8A92C9D458200953C58;
+			remoteInfo = "One Times One";
+		};
 		B3E1F5F92C9D5C6A00B9EC93 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B332C8A22C9D458200953C58 /* Project object */;
@@ -46,6 +53,7 @@
 		B332C8BA2C9D458800953C58 /* UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B332C8C42C9D458800953C58 /* UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B332C8D72C9D467E00953C58 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		B39AF8BA2CE7E4D6002B80B6 /* AppStoreScreenshots.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppStoreScreenshots.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3AE8BC92CDB6E790054059A /* Gemfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Gemfile; sourceTree = "<group>"; };
 		B3AE8BCA2CDB6FF50054059A /* Deliverfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Deliverfile; sourceTree = "<group>"; };
 		B3E1F5F52C9D5C6A00B9EC93 /* SnapshotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SnapshotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,6 +74,13 @@
 				BasicMultiplication/MainUI/Screens/MultiplicationExercise/MultiplicationExerciseScreen.swift,
 			);
 			target = B332C8C32C9D458800953C58 /* UITests */;
+		};
+		B39AF8C62CE7E517002B80B6 /* Exceptions for "fastlane" folder in "AppStoreScreenshots" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				SnapshotHelper.swift,
+			);
+			target = B39AF8B92CE7E4D6002B80B6 /* AppStoreScreenshots */;
 		};
 		B3E1F63C2C9D694E00B9EC93 /* Exceptions for "Tests" folder in "One Times One" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
@@ -121,6 +136,11 @@
 			path = Packages;
 			sourceTree = "<group>";
 		};
+		B39AF8BB2CE7E4D6002B80B6 /* AppStoreScreenshots */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = AppStoreScreenshots;
+			sourceTree = "<group>";
+		};
 		B39E1AE82CC22CE7005C3C9A /* CDPipeline */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = CDPipeline;
@@ -148,6 +168,9 @@
 		};
 		B3AE8DD02CDBBAA90054059A /* fastlane */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				B39AF8C62CE7E517002B80B6 /* Exceptions for "fastlane" folder in "AppStoreScreenshots" target */,
+			);
 			explicitFileTypes = {
 				Appfile = text.script.ruby;
 				Fastfile = text.script.ruby;
@@ -211,6 +234,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B39AF8B72CE7E4D6002B80B6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B3E1F5F22C9D5C6A00B9EC93 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -232,6 +262,7 @@
 				B39E1AEF2CC22D14005C3C9A /* .github */,
 				B39E1AE82CC22CE7005C3C9A /* CDPipeline */,
 				B3AE8DD02CDBBAA90054059A /* fastlane */,
+				B39AF8BB2CE7E4D6002B80B6 /* AppStoreScreenshots */,
 				B3E1F5FE2C9D5CE700B9EC93 /* Frameworks */,
 				B3313C9A2CE5DD3000A146A9 /* Packages */,
 				B332C8AB2C9D458200953C58 /* Products */,
@@ -251,6 +282,7 @@
 				B332C8BA2C9D458800953C58 /* UnitTests.xctest */,
 				B332C8C42C9D458800953C58 /* UITests.xctest */,
 				B3E1F5F52C9D5C6A00B9EC93 /* SnapshotTests.xctest */,
+				B39AF8BA2CE7E4D6002B80B6 /* AppStoreScreenshots.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -335,6 +367,29 @@
 			productReference = B332C8C42C9D458800953C58 /* UITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		B39AF8B92CE7E4D6002B80B6 /* AppStoreScreenshots */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B39AF8C22CE7E4D6002B80B6 /* Build configuration list for PBXNativeTarget "AppStoreScreenshots" */;
+			buildPhases = (
+				B39AF8B62CE7E4D6002B80B6 /* Sources */,
+				B39AF8B72CE7E4D6002B80B6 /* Frameworks */,
+				B39AF8B82CE7E4D6002B80B6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B39AF8C12CE7E4D6002B80B6 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				B39AF8BB2CE7E4D6002B80B6 /* AppStoreScreenshots */,
+			);
+			name = AppStoreScreenshots;
+			packageProductDependencies = (
+			);
+			productName = AppStoreScreenshots;
+			productReference = B39AF8BA2CE7E4D6002B80B6 /* AppStoreScreenshots.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		B3E1F5F42C9D5C6A00B9EC93 /* SnapshotTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B3E1F5FB2C9D5C6A00B9EC93 /* Build configuration list for PBXNativeTarget "SnapshotTests" */;
@@ -377,6 +432,10 @@
 						CreatedOnToolsVersion = 16.0;
 						TestTargetID = B332C8A92C9D458200953C58;
 					};
+					B39AF8B92CE7E4D6002B80B6 = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = B332C8A92C9D458200953C58;
+					};
 					B3E1F5F42C9D5C6A00B9EC93 = {
 						CreatedOnToolsVersion = 16.0;
 						TestTargetID = B332C8A92C9D458200953C58;
@@ -408,6 +467,7 @@
 				B332C8B92C9D458800953C58 /* UnitTests */,
 				B3E1F5F42C9D5C6A00B9EC93 /* SnapshotTests */,
 				B332C8C32C9D458800953C58 /* UITests */,
+				B39AF8B92CE7E4D6002B80B6 /* AppStoreScreenshots */,
 			);
 		};
 /* End PBXProject section */
@@ -429,6 +489,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		B332C8C22C9D458800953C58 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B39AF8B82CE7E4D6002B80B6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -489,6 +556,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B39AF8B62CE7E4D6002B80B6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B3E1F5F12C9D5C6A00B9EC93 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -508,6 +582,11 @@
 			isa = PBXTargetDependency;
 			target = B332C8A92C9D458200953C58 /* One Times One */;
 			targetProxy = B332C8C52C9D458800953C58 /* PBXContainerItemProxy */;
+		};
+		B39AF8C12CE7E4D6002B80B6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B332C8A92C9D458200953C58 /* One Times One */;
+			targetProxy = B39AF8C02CE7E4D6002B80B6 /* PBXContainerItemProxy */;
 		};
 		B3E1F5FA2C9D5C6A00B9EC93 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -792,6 +871,46 @@
 			};
 			name = Release;
 		};
+		B39AF8C32CE7E4D6002B80B6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 94RX8Q59P5;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "de.angu-software.AppStoreScreenshots";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = "One Times One";
+			};
+			name = Debug;
+		};
+		B39AF8C42CE7E4D6002B80B6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 94RX8Q59P5;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "de.angu-software.AppStoreScreenshots";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = "One Times One";
+			};
+			name = Release;
+		};
 		B3E1F5FC2C9D5C6A00B9EC93 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -869,6 +988,15 @@
 			buildConfigurations = (
 				B332C8D52C9D458800953C58 /* Debug */,
 				B332C8D62C9D458800953C58 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B39AF8C22CE7E4D6002B80B6 /* Build configuration list for PBXNativeTarget "AppStoreScreenshots" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B39AF8C32CE7E4D6002B80B6 /* Debug */,
+				B39AF8C42CE7E4D6002B80B6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
