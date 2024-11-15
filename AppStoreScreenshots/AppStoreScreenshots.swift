@@ -7,7 +7,8 @@
 
 import XCTest
 
-// TODO: extract the DSL into its own package and reference in UITests
+// TODO: Extract the DSL into its own package and reference in UITests
+// TODO: Use the same operation always
 
 @MainActor
 final class AppStoreScreenshots: XCTestCase {

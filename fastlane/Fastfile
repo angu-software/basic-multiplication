@@ -50,8 +50,11 @@ platform :ios do
   end
 
   lane :app_store_screenshots do
+    devices = ['iPhone 16 Pro Max']
+    languages = %w[en-US de-DE]
     stage = 'store_snapshot'
     scheme = 'AppStoreScreenshots'
+    testplan = 'AppStoreScreenshots'
     output_directory = './Release Artifacts/screenshots'
     clear_previous_screenshots = true
 
@@ -71,11 +74,11 @@ platform :ios do
 
     build_for_testing(stage: stage,
                       scheme: scheme)
-    # TODO: status bar override seems not to work
-    capture_screenshots(devices: ['iPhone 16 Pro Max'],
-                        languages: %w[en-US de-DE],
+
+    capture_screenshots(devices: devices,
+                        languages: languages,
                         scheme: scheme,
-                        testplan: 'AppStoreScreenshots',
+                        testplan: testplan,
                         test_without_building: true,
                         clear_previous_screenshots: clear_previous_screenshots,
                         override_status_bar: true,
@@ -89,7 +92,7 @@ platform :ios do
                         buildlog_path: testing_build_paths.buildlog_path,
                         result_bundle: true,
                         namespace_log_files: true,
-                        headless: false,
+                        headless: true,
                         concurrent_simulators: false,
                         stop_after_first_error: true,
                         skip_open_summary: true)
