@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "1DE016F2-7305-44FF-AB61-3356EC233A06",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:Basic Multiplication.xcodeproj",
+        "identifier" : "B39AF8B92CE7E4D6002B80B6",
+        "name" : "AppStoreScreenshots"
+      }
+    }
+  ],
+  "version" : 1
+}

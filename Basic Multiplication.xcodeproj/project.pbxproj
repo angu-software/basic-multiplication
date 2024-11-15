@@ -13,6 +13,7 @@
 		B39AF8AF2CE6B1A6002B80B6 /* A11yUITesting in Frameworks */ = {isa = PBXBuildFile; productRef = B39AF8AE2CE6B1A6002B80B6 /* A11yUITesting */; };
 		B39AF8B12CE6B40F002B80B6 /* A11yUI in Frameworks */ = {isa = PBXBuildFile; productRef = B39AF8B02CE6B40F002B80B6 /* A11yUI */; };
 		B39AF8B32CE6B44A002B80B6 /* A11y in Frameworks */ = {isa = PBXBuildFile; productRef = B39AF8B22CE6B44A002B80B6 /* A11y */; };
+		B39AF8D12CE7E766002B80B6 /* A11yUITesting in Frameworks */ = {isa = PBXBuildFile; productRef = B39AF8D02CE7E766002B80B6 /* A11yUITesting */; };
 		B3E1F6002C9D5CE700B9EC93 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = B3E1F5FF2C9D5CE700B9EC93 /* SnapshotTesting */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +80,25 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				SnapshotHelper.swift,
+			);
+			target = B39AF8B92CE7E4D6002B80B6 /* AppStoreScreenshots */;
+		};
+		B39AF8CC2CE7E71F002B80B6 /* Exceptions for "Tests" folder in "AppStoreScreenshots" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				UITests/DomainDSL/MultiplicationExerciseDSL.swift,
+				UITests/ProtocolDrivers/MultiplicationProtocolDriver.swift,
+				UITests/ProtocolDrivers/ProtocolDriverError.swift,
+				UITests/ScreenRobots/MultiplicationExerciseRobot.swift,
+				UITests/ScreenRobots/ScreenRobot.swift,
+			);
+			target = B39AF8B92CE7E4D6002B80B6 /* AppStoreScreenshots */;
+		};
+		B39AF8CF2CE7E745002B80B6 /* Exceptions for "Sources" folder in "AppStoreScreenshots" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				BasicMultiplication/MainUI/Screens/MultiplicationExercise/A11IDs.swift,
+				BasicMultiplication/MainUI/Screens/MultiplicationExercise/MultiplicationExerciseScreen.swift,
 			);
 			target = B39AF8B92CE7E4D6002B80B6 /* AppStoreScreenshots */;
 		};
@@ -185,6 +205,7 @@
 				B3313CA02CE5E4CD00A146A9 /* Exceptions for "Tests" folder in "UnitTests" target */,
 				B3E1F63F2C9D694E00B9EC93 /* Exceptions for "Tests" folder in "SnapshotTests" target */,
 				B3E1F63E2C9D694E00B9EC93 /* Exceptions for "Tests" folder in "UITests" target */,
+				B39AF8CC2CE7E71F002B80B6 /* Exceptions for "Tests" folder in "AppStoreScreenshots" target */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -193,6 +214,7 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				B39AF8A82CE6AACF002B80B6 /* Exceptions for "Sources" folder in "UITests" target */,
+				B39AF8CF2CE7E745002B80B6 /* Exceptions for "Sources" folder in "AppStoreScreenshots" target */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -238,6 +260,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B39AF8D12CE7E766002B80B6 /* A11yUITesting in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -385,6 +408,7 @@
 			);
 			name = AppStoreScreenshots;
 			packageProductDependencies = (
+				B39AF8D02CE7E766002B80B6 /* A11yUITesting */,
 			);
 			productName = AppStoreScreenshots;
 			productReference = B39AF8BA2CE7E4D6002B80B6 /* AppStoreScreenshots.xctest */;
@@ -1058,6 +1082,10 @@
 		B39AF8B22CE6B44A002B80B6 /* A11y */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = A11y;
+		};
+		B39AF8D02CE7E766002B80B6 /* A11yUITesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = A11yUITesting;
 		};
 		B3E1F5FF2C9D5CE700B9EC93 /* SnapshotTesting */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -48,4 +48,35 @@ platform :ios do
                           scheme: scheme,
                           test_plan: 'AcceptanceTests')
   end
+
+  lane :app_store_screenshots do
+    stage = 'store_snapshot'
+    scheme = 'AppStoreScreenshots'
+    output_directory = './Release Artifacts/screenshots'
+
+    testing_build_paths = CDArtifactPaths.new(stage, 'store_snapshot_result')
+
+    build_for_testing(stage: stage,
+                      scheme: scheme)
+    # TODO: status bar override seems not to work
+    capture_screenshots(devices: ['iPhone 16 Pro Max'],
+                        languages: ['en-US', 'de-DE'],
+                        scheme: scheme,
+                        testplan: "AppStoreScreenshots",
+                        test_without_building: true,
+                        override_status_bar: true,
+                        disable_package_automatic_updates: true,
+                        skip_package_dependencies_resolution: true,
+                        xcargs: '-quiet',
+                        output_directory: output_directory,
+                        derived_data_path: testing_build_paths.derived_data_path,
+                        cloned_source_packages_path: testing_build_paths.cloned_source_packages_path,
+                        buildlog_path: testing_build_paths.buildlog_path,
+                        result_bundle: true,
+                        namespace_log_files: true,
+                        headless: true,
+                        concurrent_simulators: false,
+                        stop_after_first_error: true,
+                        skip_open_summary: true)
+  end
 end

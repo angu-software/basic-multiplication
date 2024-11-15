@@ -160,6 +160,7 @@ included:
   - Sources
   - Tests
   - Packages
+  - AppStoreScreenshots
 # excluded:
 
 # -- Configuration options --
