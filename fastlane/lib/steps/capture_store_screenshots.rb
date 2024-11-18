@@ -39,6 +39,8 @@ def capture_store_screenshots(devices:,
 end
 
 def status_bar_settings
+  time = Time.new(2007, 1, 9, 9, 41, 0)
+  iso_time = time.iso8601(1)
   [
     '--dataNetwork wifi',
     '--wifiMode active',
@@ -48,6 +50,6 @@ def status_bar_settings
     '--cellularBars 4',
     '--batteryState charged',
     '--batteryLevel 100',
-    '--time 2007-01-09T09:41:00.000+01:00Z' # The time set by fastlane by default is not a value IOS date/time string. it is missing the '.000' part after the seconds
+    "--time #{iso_time}"
   ].join(' ')
 end
