@@ -15,6 +15,7 @@
 # Uncomment the line if you want fastlane to automatically update itself
 # update_fastlane
 
+require 'fileutils'
 require_relative 'lib/cd_steps'
 
 scheme = 'One Times One'
@@ -25,18 +26,13 @@ opt_out_usage
 default_platform(:ios)
 
 platform :ios do
-  before_each do
+  before_all do
     set_xcode_version
   end
 
   lane :dev_stage do
-    stage = CD_STAGES[:DEV]
-
-    build_for_testing(stage: stage,
-                      scheme: scheme)
-    test_without_building(stage: stage,
-                          scheme: scheme,
-                          test_plan: 'DevelopmentTests')
+    dev_build
+    dev_test
   end
 
   lane :acc_stage do
@@ -56,5 +52,20 @@ platform :ios do
                               test_plan: 'AppStoreScreenshots',
                               output_directory: './Release Artifacts/screenshots',
                               clear_previous_screenshots: true)
+  end
+
+  lane :dev_build do
+    build_for_testing(stage: CD_STAGES[:DEV],
+                      scheme: scheme)
+  end
+
+  lane :dev_test do
+    test_without_building(stage: CD_STAGES[:DEV],
+                          scheme: scheme,
+                          test_plan: 'DevelopmentTests')
+  end
+
+  lane :dev_clean do
+    clean_build_artifacts(stage: CD_STAGES[:DEV])
   end
 end

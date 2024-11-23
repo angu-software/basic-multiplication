@@ -2,10 +2,14 @@
 
 require_relative '../cd_artifact_paths'
 
+def testing_build_paths(stage:)
+  CDArtifactPaths.new(stage, 'build_result')
+end
+
 def build_for_testing(stage:, scheme:)
   ENV['DISABLE_CODE_LINT'] = 'true'
 
-  testing_build_paths = CDArtifactPaths.new(stage, 'build_result')
+  testing_build_paths = testing_build_paths(stage: stage)
 
   xcargs = [
     '-quiet',

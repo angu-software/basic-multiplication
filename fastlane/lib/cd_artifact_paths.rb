@@ -30,18 +30,18 @@ class CDArtifactPaths
     build_result_dir
   end
 
-  private
-
-  def build_dir
-    '.jabos'
+  def build_result_dir
+    join_paths(stage_dir, results_dir_name)
   end
 
   def stage_dir
     join_paths(build_dir, stage_name)
   end
 
-  def build_result_dir
-    join_paths(stage_dir, results_dir_name)
+  private
+
+  def build_dir
+    '.jabos'
   end
 
   def join_paths(*paths)
