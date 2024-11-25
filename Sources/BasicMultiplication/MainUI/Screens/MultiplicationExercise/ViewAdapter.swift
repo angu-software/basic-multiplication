@@ -17,6 +17,10 @@ final class ViewAdapter: ObservableObject {
     @Published
     var state: ViewState
 
+    private(set) var exerciseNumber: UInt = 1
+    private(set) var correctNumberOfSuggestions: UInt = 0
+    private(set) var wrongNumberOfSuggestions: UInt = 0
+
     private let exerciseGenerator: ExerciseGenerator
     private(set) var selectedSuggestion: Int? {
         didSet {
@@ -54,6 +58,7 @@ final class ViewAdapter: ObservableObject {
 
     func makeNewExercise() {
         exercise = exerciseGenerator.makeMultiplication()
+        exerciseNumber += 1
     }
 
     func didSelectSuggestion(_ value: String) {
@@ -76,8 +81,10 @@ final class ViewAdapter: ObservableObject {
         if let selectedSuggestion {
             if correctProduct == selectedSuggestion {
                 state.selection = .correct
+                correctNumberOfSuggestions += 1
             } else {
                 state.selection = .wrong
+                wrongNumberOfSuggestions += 1
             }
             state.selectedSuggestion = "\(selectedSuggestion)"
             state.isContinueButtonDisabled = false

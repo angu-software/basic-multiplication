@@ -40,6 +40,11 @@ enum ViewAdapterTests {
         func it_creates_the_configured_amount_of_suggestions() async throws {
             #expect(subject.state.productSuggestions.count == 3)
         }
+
+        @Test("it increases exercise number")
+        func it_increases_exercise_number() async throws {
+            #expect(subject.exerciseNumber == 2)
+        }
     }
 
     @MainActor
@@ -98,19 +103,16 @@ enum ViewAdapterTests {
                 subject = viewAdapter()
                 subject.makeNewExercise()
                 subject.selectSuggestion(at: 0)
+                subject.didTapContinueButton()
             }
 
             @Test("it resets the state")
             func it_resets_the_state() async throws {
-                subject.didTapContinueButton()
-
                 #expect(subject.state == ViewState(exercise: subject.exercise))
             }
 
             @Test("it resets the selection")
             func it_resets_the_selection() async throws {
-                subject.didTapContinueButton()
-
                 #expect(subject.selectedSuggestion == nil)
             }
         }
@@ -122,24 +124,64 @@ enum ViewAdapterTests {
 
         private let subject: ViewAdapter
 
-        init() {
+        init() throws {
             subject = viewAdapter()
             subject.makeNewExercise()
+            try subject.selectCorrectSuggestion()
         }
 
         @Test("it indicates the selection is correct")
         func it_indicates_the_selection_is_correct() async throws {
-            let correctProduct = subject.exercise.multiplication.product
-            let correctProductIndex = try #require(subject.exercise.productSuggestions.firstIndex(of: correctProduct))
-
-            subject.selectSuggestion(at: correctProductIndex)
-
             #expect(subject.state.selection == .correct)
+        }
+
+        @Test("it increases the number of correct exercises")
+        func it_increases_the_number_of_correct_exercises() async throws {
+            #expect(subject.correctNumberOfSuggestions == 1)
+        }
+    }
+
+    @MainActor
+    @Suite("When the wrong suggestion is selected")
+    struct WhenTheWrongSuggestionIsSelected {
+
+        private let subject: ViewAdapter
+
+        init() throws {
+            subject = viewAdapter()
+            subject.makeNewExercise()
+            try subject.selectWrongSuggestion()
+        }
+
+        @Test("it indicates the selection is wrong")
+        func it_indicates_the_selection_is_wrong() async throws {
+            #expect(subject.state.selection == .wrong)
+        }
+
+        @Test("it increases the number of wrong exercises")
+        func it_increases_the_number_of_wrong_exercises() async throws {
+            #expect(subject.wrongNumberOfSuggestions == 1)
         }
     }
 }
 
 extension ViewAdapter {
+
+    fileprivate func selectCorrectSuggestion() throws {
+        let correctProduct = exercise.multiplication.product
+        let correctProductIndex = try #require(exercise.productSuggestions.firstIndex(of: correctProduct))
+
+        selectSuggestion(at: correctProductIndex)
+    }
+
+    fileprivate func selectWrongSuggestion() throws {
+        let correctProduct = exercise.multiplication.product
+        let wrongSuggestions = exercise.productSuggestions.filter { $0 != correctProduct }
+        let wrongProduct = try #require(wrongSuggestions.randomElement())
+        let wrongProductIndex = try #require(exercise.productSuggestions.firstIndex(of: wrongProduct))
+
+        selectSuggestion(at: wrongProductIndex)
+    }
 
     fileprivate func selectSuggestion(at index: Int) {
         let selectedValue = "\(exercise.productSuggestions[index])"

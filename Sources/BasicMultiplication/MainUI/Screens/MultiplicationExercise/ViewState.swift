@@ -27,6 +27,7 @@ struct ViewState: Equatable {
             isContinueButtonDisabled = !newValue
         }
     }
+
     var suggestionSelection: [(value: String, isSelected: Bool)] {
         return productSuggestions.map { ($0, $0 == selectedSuggestion) }
     }
