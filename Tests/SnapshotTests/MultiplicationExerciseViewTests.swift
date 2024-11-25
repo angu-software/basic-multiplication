@@ -24,10 +24,11 @@ final class MultiplicationExerciseViewTests: XCTestCase {
         let view = MultiplicationExerciseView(viewState: ViewState(operation: "1 x 1",
                                                                    productSuggestions: ["1", "9", "6"]))
 
-        assertSnapshot(of: view, as: .image(drawHierarchyInKeyWindow: true,
-                                            layout: .device(config: .iPhone13Mini),
-                                            traits: .init(userInterfaceStyle: .light)),
-                        record: isRecording)
+        assertSnapshot(of: view,
+                       as: .image(drawHierarchyInKeyWindow: true,
+                                  layout: .device(config: .iPhone13Mini),
+                                  traits: .init(userInterfaceStyle: .light)),
+                       record: isRecording)
     }
 
     @MainActor
@@ -42,9 +43,10 @@ final class MultiplicationExerciseViewTests: XCTestCase {
 
         let view = MultiplicationExerciseView(viewState: state)
 
-        assertSnapshot(of: view, as: .image(drawHierarchyInKeyWindow: true,
-                                            layout: .device(config: .iPhone13Mini),
-                                            traits: .init(userInterfaceStyle: .light)),
+        assertSnapshot(of: view,
+                       as: .image(drawHierarchyInKeyWindow: true,
+                                  layout: .device(config: .iPhone13Mini),
+                                  traits: .init(userInterfaceStyle: .light)),
                        record: isRecording)
     }
 
@@ -60,9 +62,10 @@ final class MultiplicationExerciseViewTests: XCTestCase {
 
         let view = MultiplicationExerciseView(viewState: state)
 
-        assertSnapshot(of: view, as: .image(drawHierarchyInKeyWindow: true,
-                                            layout: .device(config: .iPhone13Mini),
-                                            traits: .init(userInterfaceStyle: .light)),
+        assertSnapshot(of: view,
+                       as: .image(drawHierarchyInKeyWindow: true,
+                                  layout: .device(config: .iPhone13Mini),
+                                  traits: .init(userInterfaceStyle: .light)),
                        record: isRecording)
     }
 }
