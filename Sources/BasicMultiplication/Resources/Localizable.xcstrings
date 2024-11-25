@@ -1,6 +1,12 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "Correctly solved: 1" : {
+
+    },
+    "Exercises 3" : {
+
+    },
     "next_exercise_button_title" : {
       "comment" : "Title of the button that advances to the next exercise",
       "extractionState" : "manual",
@@ -18,6 +24,12 @@
           }
         }
       }
+    },
+    "Solved exercises: 2" : {
+
+    },
+    "Wrongly solved: 1" : {
+
     }
   },
   "version" : "1.0"

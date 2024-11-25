@@ -15,6 +15,8 @@ import SwiftUI
 @MainActor
 final class MultiplicationExerciseViewTests: XCTestCase {
 
+    private let isRecording = false
+
     @MainActor
     // "When initially shown"
     // it should vertically layout operation and suggestions
@@ -24,7 +26,8 @@ final class MultiplicationExerciseViewTests: XCTestCase {
 
         assertSnapshot(of: view, as: .image(drawHierarchyInKeyWindow: true,
                                             layout: .device(config: .iPhone13Mini),
-                                            traits: .init(userInterfaceStyle: .light)))
+                                            traits: .init(userInterfaceStyle: .light)),
+                        record: isRecording)
     }
 
     @MainActor
@@ -41,7 +44,8 @@ final class MultiplicationExerciseViewTests: XCTestCase {
 
         assertSnapshot(of: view, as: .image(drawHierarchyInKeyWindow: true,
                                             layout: .device(config: .iPhone13Mini),
-                                            traits: .init(userInterfaceStyle: .light)))
+                                            traits: .init(userInterfaceStyle: .light)),
+                       record: isRecording)
     }
 
     @MainActor
@@ -58,6 +62,7 @@ final class MultiplicationExerciseViewTests: XCTestCase {
 
         assertSnapshot(of: view, as: .image(drawHierarchyInKeyWindow: true,
                                             layout: .device(config: .iPhone13Mini),
-                                            traits: .init(userInterfaceStyle: .light)))
+                                            traits: .init(userInterfaceStyle: .light)),
+                       record: isRecording)
     }
 }

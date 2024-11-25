@@ -26,6 +26,16 @@ struct MultiplicationExerciseView: View {
 
     var body: some View {
         VStack(spacing: layout.spacingOperationSuggestions) {
+            VStack(alignment: .leading,
+                   spacing: layout.exerciseNumberSpacing) {
+                Text(state.exerciseIdentifier)
+                VStack(alignment: .leading,
+                       spacing: layout.exerciseStatsSpacing) {
+                    Text(state.statsOverallExercises)
+                    Text(state.statsCorrectExercises)
+                    Text(state.statsWrongExercises)
+                }
+            }
             Spacer()
             Label(state.operation)
                 .accessibilityElement()

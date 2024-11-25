@@ -14,6 +14,11 @@ struct ViewState: Equatable {
     let operation: String
     let productSuggestions: [String]
     let continueButtonTitle = Texts.continueButtonTitle
+    let exerciseIdentifier = String(localized: "Exercises 3")
+
+    let statsOverallExercises = String(localized: "Solved exercises: 2")
+    let statsCorrectExercises = String(localized: "Correctly solved: 1")
+    let statsWrongExercises = String(localized: "Wrongly solved: 1")
 
     var isContinueButtonDisabled = true
     var selection: Selection = .notChosen

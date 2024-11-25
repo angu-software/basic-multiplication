@@ -8,7 +8,8 @@
 import Foundation
 
 public enum SpacingToken: CGFloat {
-    // tiny (4pt): For subtle adjustments, often used sparingly to fine-tune layouts.
+    /// tiny (4pt): For subtle adjustments, often used sparingly to fine-tune layouts.
+    case tiny = 4
     // small (8pt): For minor spacing, like between small icons or text elements.
 
     /// medium (16pt): Standard padding or spacing, suitable for common UI elements.
