@@ -39,7 +39,7 @@ enum ProductSuggestionsGeneratorTests {
         func it_returns_one_correct_product_among_the_suggestions() async throws {
             let numberOfCorrectSuggestions = 1
 
-            let correctProductCount = try #require(subject().count { $0 == Self.correctProduct })
+            let correctProductCount = subject().count { $0 == Self.correctProduct }
 
             #expect(correctProductCount == numberOfCorrectSuggestions)
         }
