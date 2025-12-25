@@ -42,9 +42,7 @@ describe CommandRunner do
       let(:cmd_success) { false }
 
       it 'throws an error with the error output' do
-        expect do
-          subject
-        end.to error_raise(CommandExecError, "Command '#{command}' failed with '#{cmd_output}'")
+        expect { subject }.to raise_error(CommandExecError, "Command '#{command}' failed with '#{cmd_output}'")
       end
     end
   end
@@ -62,7 +60,7 @@ describe CommandRunner do
       let(:cmd_success) { false }
 
       it 'throws an error' do
-        expect { subject }.to error_raise(CommandExecError, "Command '#{command}' failed")
+        expect { subject }.to raise_error(CommandExecError, "Command '#{command}' failed")
       end
 
       it 'prints the commands error' do
