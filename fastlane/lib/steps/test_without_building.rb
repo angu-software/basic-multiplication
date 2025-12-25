@@ -16,9 +16,7 @@ def test_without_building(stage:, scheme:, test_plan:)
             cloned_source_packages_path: testing_paths.cloned_source_packages_path,
             disable_package_automatic_updates: true,
             skip_package_dependencies_resolution: true,
-            # xcargs: '-quiet',
             skip_detect_devices: true,
-            output_style: 'raw',
             skip_build: true,
             step_name: "Testing #{test_plan}")
 end

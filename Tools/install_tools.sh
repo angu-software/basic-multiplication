@@ -59,3 +59,6 @@ install_tool $SHELL_SPEC_NAME $SHELL_SPEC_VERSION $SHELL_SPEC_ARCHIVE $SHELL_SPE
 
 # Clean up
 rm -rf $DOWNLOAD_DIR
+
+# Install Homwebrew dependencies
+brew bundle

@@ -31,7 +31,6 @@ def build_for_testing(stage:, scheme:)
             skip_package_dependencies_resolution: ENV['HAS_SPM_PACKAGES_CACHE_HIT'],
             xcargs: xcargs,
             skip_detect_devices: true,
-            output_style: 'raw',
             skip_build: true,
             clean: true,
             step_name: 'Build for Testing')
