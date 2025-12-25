@@ -17,7 +17,6 @@ final class MultiplicationExerciseViewTests: XCTestCase {
 
     private let isRecording = false
 
-    @MainActor
     // "When initially shown"
     // it should vertically layout operation and suggestions
     func test_it_should_vertically_layout_operation_and_suggestions() async throws {
@@ -31,7 +30,6 @@ final class MultiplicationExerciseViewTests: XCTestCase {
                        record: isRecording)
     }
 
-    @MainActor
     // "When the correct suggestion is selected"
     // "it indicates the selection is correct"
     func test_it_indicates_the_selection_is_correct() async throws {
@@ -50,7 +48,6 @@ final class MultiplicationExerciseViewTests: XCTestCase {
                        record: isRecording)
     }
 
-    @MainActor
     // "When the wrong suggestion is selected"
     // "it indicates the selection is wrong"
     func test_it_indicates_the_selection_is_wrong() async throws {
