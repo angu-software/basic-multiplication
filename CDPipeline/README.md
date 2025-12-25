@@ -1,6 +1,6 @@
 # XCPipeline
 
-> **Disclamer**
+> **Disclaimer**
 >
 > This is still a work in progress!<br>
 > All content is prone to change!
