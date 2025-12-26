@@ -5,7 +5,7 @@
 //  Created by Andreas Guenther on 14.11.24.
 //
 
-public struct A11yID: Equatable {
+public struct A11yID: Equatable, Sendable {
 
     let screenName: String
     let componentType: ComponentType
