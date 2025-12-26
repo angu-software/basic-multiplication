@@ -12,12 +12,12 @@ struct Card<Content: View>: View {
     // Layout
     private let cornerRadius: CGFloat = 25
     private let borderWidth: CGFloat = 2
-    private let shadwoRadius: CGFloat = 10
+    var shadwoRadius: CGFloat = 10
     private let contentPadding: CGFloat = 20
 
     // Style
-    private let backgroundColor = Color.white
-    private let borderColor: Color = .clear
+    var backgroundColor = Color.white
+    var borderColor: Color = .clear
 
     @ViewBuilder var content: Content
 
