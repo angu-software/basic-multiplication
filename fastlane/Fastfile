@@ -46,7 +46,7 @@ platform :ios do
   end
 
   lane :app_store_screenshots do
-    capture_store_screenshots(devices: ['iPhone 16 Pro Max'],
+    capture_store_screenshots(devices: ['iPhone 18 Pro'],
                               languages: %w[en-US de-DE],
                               scheme: 'AppStoreScreenshots',
                               test_plan: 'AppStoreScreenshots',
