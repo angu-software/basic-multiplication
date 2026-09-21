@@ -2,7 +2,7 @@
 
 source 'https://rubygems.org'
 
-gem 'fastlane', '~> 2.225'
+gem 'fastlane', '~> 2.240'
 
 group :development do
   gem 'rspec', '~> 3.13'
