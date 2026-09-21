@@ -28,13 +28,7 @@ struct MultiplicationExerciseView: View {
         VStack(spacing: layout.spacingOperationSuggestions) {
             VStack(alignment: .leading,
                    spacing: layout.exerciseNumberSpacing) {
-                Text(state.exerciseIdentifier)
-                VStack(alignment: .leading,
-                       spacing: layout.exerciseStatsSpacing) {
-                    Text(state.statsOverallExercises)
-                    Text(state.statsCorrectExercises)
-                    Text(state.statsWrongExercises)
-                }
+                StatisticsView(correctCount: 5, wrongCount: 2)
             }
             Spacer()
             Label(state.operation)
