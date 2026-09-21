@@ -21,7 +21,9 @@ final class MultiplicationExerciseViewTests: XCTestCase {
     // it should vertically layout operation and suggestions
     func test_it_should_vertically_layout_operation_and_suggestions() async throws {
         let view = MultiplicationExerciseView(viewState: ViewState(operation: "1 x 1",
-                                                                   productSuggestions: ["1", "9", "6"]))
+                                                                   productSuggestions: ["1", "9", "6"],
+                                                                   correctAnswers: 5,
+                                                                   wrongAnswers: 2))
 
         assertSnapshot(of: view,
                        as: .image(drawHierarchyInKeyWindow: true,
@@ -35,6 +37,8 @@ final class MultiplicationExerciseViewTests: XCTestCase {
     func test_it_indicates_the_selection_is_correct() async throws {
         let state = ViewState(operation: "1 x 1",
                               productSuggestions: ["1", "9", "6"],
+                              correctAnswers: 5,
+                              wrongAnswers: 2,
                               isContinueButtonDisabled: false,
                               selection: .correct,
                               selectedSuggestion: "1")
@@ -53,6 +57,8 @@ final class MultiplicationExerciseViewTests: XCTestCase {
     func test_it_indicates_the_selection_is_wrong() async throws {
         let state = ViewState(operation: "1 x 1",
                               productSuggestions: ["1", "9", "6"],
+                              correctAnswers: 5,
+                              wrongAnswers: 2,
                               isContinueButtonDisabled: false,
                               selection: .wrong,
                               selectedSuggestion: "9")

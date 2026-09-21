@@ -28,7 +28,8 @@ struct MultiplicationExerciseView: View {
         VStack(spacing: layout.spacingOperationSuggestions) {
             VStack(alignment: .leading,
                    spacing: layout.exerciseNumberSpacing) {
-                StatisticsView(correctCount: 5, wrongCount: 2)
+                StatisticsView(correctCount: state.correctAnswers,
+                               wrongCount: state.wrongAnswers)
             }
             Spacer()
             Label(state.operation)
@@ -67,6 +68,8 @@ struct MultiplicationExerciseView: View {
 #Preview {
     MultiplicationExerciseView(viewState: ViewState(operation: "9 x 8",
                                                     productSuggestions: ["71", "72", "75"],
+                                                    correctAnswers: 3,
+                                                    wrongAnswers: 4,
                                                     isContinueButtonDisabled: false,
                                                     selection: .correct,
                                                     selectedSuggestion: "72"))

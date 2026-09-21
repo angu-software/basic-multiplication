@@ -40,11 +40,6 @@ enum ViewAdapterTests {
         func it_creates_the_configured_amount_of_suggestions() async throws {
             #expect(subject.state.productSuggestions.count == 3)
         }
-
-        @Test("it increases exercise number")
-        func it_increases_exercise_number() async throws {
-            #expect(subject.exerciseNumber == 2)
-        }
     }
 
     @MainActor
@@ -137,7 +132,7 @@ enum ViewAdapterTests {
 
         @Test("it increases the number of correct exercises")
         func it_increases_the_number_of_correct_exercises() async throws {
-            #expect(subject.correctNumberOfSuggestions == 1)
+            #expect(subject.state.correctAnswers == 1)
         }
     }
 
@@ -160,7 +155,7 @@ enum ViewAdapterTests {
 
         @Test("it increases the number of wrong exercises")
         func it_increases_the_number_of_wrong_exercises() async throws {
-            #expect(subject.wrongNumberOfSuggestions == 1)
+            #expect(subject.state.wrongAnswers == 1)
         }
     }
 }
