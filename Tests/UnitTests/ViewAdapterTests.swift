@@ -103,7 +103,9 @@ enum ViewAdapterTests {
 
             @Test("it resets the state")
             func it_resets_the_state() async throws {
-                #expect(subject.state == ViewState(exercise: subject.exercise))
+                #expect(subject.state == ViewState(exercise: subject.exercise,
+                                                   correctAnswers: subject.state.correctAnswers,
+                                                   wrongAnswers: subject.state.wrongAnswers))
             }
 
             @Test("it resets the selection")
@@ -155,6 +157,38 @@ enum ViewAdapterTests {
 
         @Test("it increases the number of wrong exercises")
         func it_increases_the_number_of_wrong_exercises() async throws {
+            #expect(subject.state.wrongAnswers == 1)
+        }
+    }
+
+    @MainActor
+    @Suite("When progressing through multiple exercises")
+    struct WhenProgressingThroughMultipleExercises {
+
+        private let subject: ViewAdapter
+
+        init() {
+            subject = viewAdapter()
+            subject.makeNewExercise()
+        }
+
+        @Test("it preserves correct answer count across exercises")
+        func it_preserves_correct_answer_count_across_exercises() async throws {
+
+            try subject.selectCorrectSuggestion()
+            subject.didTapContinueButton()
+
+            #expect(subject.state.correctAnswers == 1)
+        }
+
+        @Test("it preserves wrong answer count across exercises")
+        func it_preserves_wrong_answer_count_across_exercises() async throws {
+            let subject = viewAdapter()
+            subject.makeNewExercise()
+
+            try subject.selectWrongSuggestion()
+            subject.didTapContinueButton()
+
             #expect(subject.state.wrongAnswers == 1)
         }
     }

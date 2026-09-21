@@ -26,7 +26,9 @@ final class ViewAdapter: ObservableObject {
 
     private(set) var exercise: MultiplicationExercise {
         didSet {
-            state = ViewState(exercise: exercise)
+            state = ViewState(exercise: exercise,
+                              correctAnswers: state.correctAnswers,
+                              wrongAnswers: state.wrongAnswers)
         }
     }
 
@@ -93,11 +95,15 @@ final class ViewAdapter: ObservableObject {
 
 extension ViewState {
 
-    init(exercise: MultiplicationExercise) {
+    init(exercise: MultiplicationExercise,
+         correctAnswers: Int = 0,
+         wrongAnswers: Int = 0) {
         let operation = String(format: Texts.operationFormat,
                                exercise.multiplicand,
                                exercise.multiplier)
         self.init(operation: operation,
-                  productSuggestions: exercise.productSuggestions.map { "\($0)" })
+                  productSuggestions: exercise.productSuggestions.map { "\($0)" },
+                  correctAnswers: correctAnswers,
+                  wrongAnswers: wrongAnswers)
     }
 }
