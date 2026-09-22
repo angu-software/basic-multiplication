@@ -8,7 +8,7 @@ def test_without_building(stage:, scheme:, test_plan:)
   run_tests(scheme: scheme,
             test_without_building: true,
             testplan: test_plan,
-            destination: 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.2,arch=arm64',
+            destination: 'platform=iOS Simulator,name=iPhone 18 Pro,OS=27.0,arch=arm64',
             derived_data_path: testing_paths.derived_data_path,
             result_bundle_path: testing_paths.result_bundle_path('testing_result'),
             output_directory: testing_paths.output_directory,
