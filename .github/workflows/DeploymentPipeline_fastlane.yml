@@ -12,7 +12,7 @@ on:
 jobs:
   development-tests:
     name: Development Stage
-    runs-on: macos-26
+    runs-on: macos-27
     steps:
     - name: Checkout
       uses: actions/checkout@v4
@@ -30,14 +30,14 @@ jobs:
     - name: Install project tools
       run: ./Tools/install_tools.sh
     - name: Execute Development Stage
-      env: 
+      env:
         HAS_SPM_PACKAGES_CACHE_HIT: ${{ steps.spm_packages-cache.outputs.cache-hit == 'true' }}
       run: bundle exec fastlane dev_stage
   acceptance-tests:
     name: Acceptance Stage
-    runs-on: macos-26
+    runs-on: macos-27
     needs: development-tests
-    concurrency: 
+    concurrency:
       group: acceptance-tests-fastlane-${{ github.ref }}
       cancel-in-progress: true
     if: needs.development-tests.result == 'success'
@@ -58,6 +58,6 @@ jobs:
       - name: Install project tools
         run: ./Tools/install_tools.sh
       - name: Execute Acceptance Stage
-        env: 
+        env:
           HAS_SPM_PACKAGES_CACHE_HIT: ${{ steps.spm_packages-cache.outputs.cache-hit == 'true' }}
         run: bundle exec fastlane acc_stage
