@@ -67,3 +67,5 @@ __builds__
 Tools/bin
 .jabos
 *.xcresult
+fastlane/.env
+.cd-pipeline

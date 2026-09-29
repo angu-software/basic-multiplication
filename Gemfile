@@ -2,9 +2,4 @@
 
 source 'https://rubygems.org'
 
-gem 'fastlane', '~> 2.240'
-
-group :development do
-  gem 'rspec', '~> 3.13'
-  gem 'rubocop'
-end
+gem 'cd-pipeline', git: 'https://codeberg.org/angu-software/cd-pipeline.git', branch: 'main'

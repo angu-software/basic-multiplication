@@ -15,57 +15,13 @@
 # Uncomment the line if you want fastlane to automatically update itself
 # update_fastlane
 
-require 'fileutils'
-require_relative 'lib/cd_steps'
+require 'cd_pipeline'
 
-scheme = 'One Times One'
-
-ENV['FASTLANE_XCODEBUILD_SETTINGS_TIMEOUT'] = '60'
-
-opt_out_usage
-default_platform(:ios)
+import CdPipeline.fastfile_path
 
 platform :ios do
-  before_all do
-    set_xcode_version
-  end
-
-  lane :dev_stage do
-    dev_build
-    dev_test
-  end
-
-  lane :acc_stage do
-    stage = CD_STAGES[:ACC]
-
-    build_for_testing(stage: stage,
-                      scheme: scheme)
-    test_without_building(stage: stage,
-                          scheme: scheme,
-                          test_plan: 'AcceptanceTests')
-  end
-
-  lane :app_store_screenshots do
-    capture_store_screenshots(devices: ['iPhone 18 Pro'],
-                              languages: %w[en-US de-DE],
-                              scheme: 'AppStoreScreenshots',
-                              test_plan: 'AppStoreScreenshots',
-                              output_directory: './Release Artifacts/screenshots',
-                              clear_previous_screenshots: true)
-  end
-
-  lane :dev_build do
-    build_for_testing(stage: CD_STAGES[:DEV],
-                      scheme: scheme)
-  end
-
-  lane :dev_test do
-    test_without_building(stage: CD_STAGES[:DEV],
-                          scheme: scheme,
-                          test_plan: 'DevelopmentTests')
-  end
-
-  lane :dev_clean do
-    clean_build_artifacts(stage: CD_STAGES[:DEV])
+  desc 'Prints the current build environment'
+  lane :some_sutom_lane do
+    # add some custom lane
   end
 end

@@ -15,29 +15,61 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 ## iOS
 
-### ios dev_stage
+### ios set_xcode
 
 ```sh
-[bundle exec] fastlane ios dev_stage
+[bundle exec] fastlane ios set_xcode
 ```
 
 
 
-### ios acc_stage
+### ios build_for_testing
 
 ```sh
-[bundle exec] fastlane ios acc_stage
+[bundle exec] fastlane ios build_for_testing
 ```
 
+Builds the app for testing
 
-
-### ios app_store_screenshots
+### ios test_without_building
 
 ```sh
-[bundle exec] fastlane ios app_store_screenshots
+[bundle exec] fastlane ios test_without_building
 ```
 
+Runs tests without building
 
+### ios clear_artifacts
+
+```sh
+[bundle exec] fastlane ios clear_artifacts
+```
+
+Clears artifacts
+
+### ios archive_artifacts
+
+```sh
+[bundle exec] fastlane ios archive_artifacts
+```
+
+Archives produced artifacts
+
+### ios commit_stage
+
+```sh
+[bundle exec] fastlane ios commit_stage
+```
+
+Commit stage: builds and runs unit tests
+
+### ios acceptance_stage
+
+```sh
+[bundle exec] fastlane ios acceptance_stage
+```
+
+Acceptance stage: builds and runs acceptance tests
 
 ### ios dev_build
 
@@ -45,7 +77,7 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 [bundle exec] fastlane ios dev_build
 ```
 
-
+Dev build: convenience lane for local development - builds the app for testing
 
 ### ios dev_test
 
@@ -53,15 +85,19 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 [bundle exec] fastlane ios dev_test
 ```
 
+Dev test: convenience lane for local development - builds and runs tests without archiving.
 
+By default runs all test plans.
 
-### ios dev_clean
+ Use testplans parameter to specify specific test plans.
+
+### ios some_sutom_lane
 
 ```sh
-[bundle exec] fastlane ios dev_clean
+[bundle exec] fastlane ios some_sutom_lane
 ```
 
-
+Prints the current build environment
 
 ----
 

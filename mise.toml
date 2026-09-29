@@ -1,0 +1,10 @@
+[tools]
+ruby = "latest"
+swiftlint = "latest"
+periphery = "latest"
+xcbeautify = "latest"
+prek = "latest"
+shellcheck = "latest"
+
+[env]
+LOCAL_BUNDLER_VERSION = "~> 4.0"
